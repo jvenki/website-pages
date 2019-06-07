@@ -9,6 +9,8 @@ const sampleHtml = '\
 <p>This is some sample para 1.2</p>\
 <h2>Section Title 2</h2>\
 <div class="accordion"><div class="title">Accordion Panel Title 1</div><div class="body">Accordion Panel Body 1</div></div>\
+<div><h2>Section Title 3</h2></div>\
+<div><div><h2>Section Title 4</h2></div></div>\
 ';
 
 const $ = cheerio.load(sampleHtml);
