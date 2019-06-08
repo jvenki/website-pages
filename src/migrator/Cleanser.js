@@ -10,7 +10,9 @@ class Cleanser {
             removeEmptyNodesAndEmptyLines, 
             removeUnncessaryRootElement, 
             removeStyleAndScriptNodes, 
-            removeTableOfContents
+            removeTableOfContents,
+            removeDisqusElements,
+            removeOfferTableElements,
         ];
 
         const cleansedHtml = cleansers.reduce((prevCleansedHtml, cleanser) => cleanser(prevCleansedHtml), html);
@@ -59,6 +61,25 @@ const removeTableOfContents = (html) => {
                 removeEmptyAncestors($parent);
             }
         })
+    })
+    return $("body").html();
+}
+
+const removeDisqusElements = (html) => {
+    const $ = cheerio.load(html, {decodeEntities: false});
+    $("a[href='#disqus_thread']").each((i, a) => {
+        const $parent = $(a).parent();
+        $(a).remove();
+        removeEmptyAncestors($parent);
+    })
+    return $("body").html();
+}
+
+const removeOfferTableElements = (html) => {
+    const $ = cheerio.load(html, {decodeEntities: false});
+    $("div.container-fluid").each((i, d) => {
+        console.warn("\t[CAUTION]: Removing the element with class as 'container-fluid'", $(d).html());
+        $(d).remove();
     })
     return $("body").html();
 }
