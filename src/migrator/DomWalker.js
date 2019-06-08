@@ -1,5 +1,6 @@
 const cheerio = require("cheerio");
 const chalk = require("chalk");
+const Converter = require("./Converter");
 
 class DomWalker {
     static for(html) {
@@ -10,11 +11,10 @@ class DomWalker {
         this.html = html;
         this.$ = cheerio.load(this.html, {decodeEntities: false});
         this.$currElem = undefined;
-        this.finalDoc = {title: "", mainBody: "", sections: []};
     }
 
-    withConverter(converter) {
-        this.converter = converter;
+    forCreatingDoc(creator) {
+        this.docCreator = creator;
         return this;
     }
 
@@ -31,29 +31,18 @@ class DomWalker {
             this.handleCurrentElement();
             this.moveToNextElement();
         }
-        return this.finalDoc;
+        return this.docCreator.doc;
     }
 
     handleCurrentElement() {
-        const type = this.converter.identifyTypeOfElement(this.$currElem);
+        const lastSection = this.docCreator.doc.sections.slice(-1).pop();
+        const converter = Converter.for(this.$currElem, lastSection != undefined);
 
-        switch (type) {
-            case "section": 
-                addNewSectionToDoc(this.$currElem, this.$, this.finalDoc, this);
-                break;
-            case "disclaimer":
-                addDisclaimerToDoc(this.$currElem, this.$, this.finalDoc, this.converter, this);
-                break;
-            case "references":
-                addReferencesToDoc(this.$currElem, this.$, this.finalDoc, this.converter, this);
-                break;
-            default:
-                const lastSection = this.finalDoc.sections.slice(-1).pop();
-                if (!lastSection) {
-                    addElementToMainBody(type, this.$currElem, this.$, this.finalDoc, this.converter, this);
-                } else {
-                    addElementToSection(type, this.$currElem, this.$, lastSection, this.converter, this);
-                }
+        switch (converter.getType()) {
+            case "section": return this.docCreator.addNewSection(converter.convert(this.$currElem, this.$, this));
+            case "disclaimer": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this));
+            case "references": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
+            default: return this.docCreator.addElement(converter.convert(this.$currElem, this.$, this));
         }
     }
 
@@ -70,46 +59,5 @@ class DomWalker {
     }
 }
 
-const addNewSectionToDoc = ($element, $, finalDoc, walker) => {
-    const newSection = {title: $element.text(), mainBody: "", elements: []};
-    finalDoc.sections.push(newSection);
-}
-
-const addElementToMainBody = (type, $element, $, finalDoc, converter, walker) => {
-    let element;
-    switch (type) {
-        case "text": element = converter.toText($element, $, walker); break;
-        case "grid": element = converter.toGrid($element, $, walker); break;
-        default:
-            throw new Error("We have not created a section yet and therefore we can expect only Textual Nodes till then. But we got " + type);
-    }
-    finalDoc.mainBody += element.body;
-}
-
-const addElementToSection = (type, $element, $, section, converter, walker) => {
-    let element;
-    switch (type) {
-        case "text": element = converter.toText($element, $, walker); break;
-        case "accordion": element = converter.toAccordion($element, $, walker); break;
-        case "product-offer": element = converter.toBox($element, $, walker); break;
-        default:
-            throw new Error("No Converter defined for Element of type " + type);
-    }
-    section.elements.push(element);
-}
-
-const addReferencesToDoc = ($element, $, finalDoc, converter, walker) => {
-    if (finalDoc.references) {
-        throw new Error("Only one references expected.. We already have one");
-    }
-    finalDoc.references = converter.toReference($element, $, walker);
-}
-
-const addDisclaimerToDoc = ($element, $, finalDoc, converter, walker) => {
-    if (finalDoc.disclaimer) {
-        throw new Error("Only one disclaimer expected.. We already have one");
-    }
-    finalDoc.disclaimer = converter.toDisclaimer($element, $, walker);
-}
 
 module.exports = DomWalker;

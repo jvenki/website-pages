@@ -2,14 +2,13 @@ const chalk = require("chalk");
 const Database = require("./migrator/Database");
 const DomWalker = require("./migrator/DomWalker");
 const Cleanser = require("./migrator/Cleanser");
-const Converter = require("./migrator/Converter");
-
+const DocCreator = require("./migrator/DocCreator");
 
 const convert = (id, db) => {
     db.query(id)
         .then((o) => {
             const cleansedHtml = new Cleanser().cleanse(o.primaryContent);
-            const convertedDoc = DomWalker.for(cleansedHtml).withConverter(new Converter()).startWalking();
+            const convertedDoc = DomWalker.for(cleansedHtml).forCreatingDoc(new DocCreator()).startWalking();
             console.log(chalk.blueBright.bold(JSON.stringify(convertedDoc, null, 4)));
             // console.log(chalk.blueBright.bold(convertedDoc));
             // console.log(chalk.blueBright.bold(JSON.stringify({
@@ -27,8 +26,8 @@ const convert = (id, db) => {
 function main() {
     const db = new Database();
     db.connect();
-    // convert(859, db);
-    convert(4858, db);
+    convert(859, db);
+    // convert(4858, db);
     db.releaseConnection();
 }
 

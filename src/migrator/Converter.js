@@ -1,28 +1,53 @@
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
 
 class Converter {
-    identifyTypeOfElement($e) {
+    static for($e) {
         const e = $e.get(0);
         if (e.tagName == "p" && $e.text() == "*Disclaimer") {
-            return "disclaimer";
+            return new DisclaimerConverter();
         } else if ([...textSupportedDomElemTypes, "h3"].includes(e.tagName)) {
-            return "text";
+            return new TextConverter();
         } else if ($e.hasClass("twi-accordion")) {
-            return "accordion";
+            return new AccordionConverter();
         } else if ($e.hasClass("border-blue")) {
-            return "product-offer";
+            return new BoxConverter();
         } else if (e.tagName == "div" && $e.attr("class") == "row") {
-            return "grid";
+            return new GridConverter();
         } else if ($e.hasClass("product_interlink")) {
-            return "references";
+            return new ReferencesConverter();
         } else if ($e.get(0).tagName == "h2") {
-            return "section";
+            return new SectionConverter();
         } else {
             throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'`);
         }
     }
 
-    toText($element, $, walker) {
+    getType() {}
+    _doValidate() {}
+    _doConvert($element, $, walker) {}
+
+    convert($element, $, walker) {
+        this._doValidate($element, $, walker);
+        return this._doConvert($element, $, walker);
+    }
+}
+
+class SectionConverter extends Converter {
+    getType() {
+        return "section";
+    }
+
+    _doConvert($element, $, walker) {
+        return {title: $element.text(), mainBody: "", elements: []};
+    }
+}
+
+class TextConverter extends Converter {
+    getType() {
+        return "text";
+    }
+
+    _doConvert($element, $, walker) {
         let title = "";
         let body = "";
         const elemType = $element.get(0).tagName;
@@ -45,8 +70,14 @@ class Converter {
         }
         return {type: "text", title, body};
     }
+}
 
-    toAccordion($element, $, walker) {
+class AccordionConverter extends Converter {
+    getType() {
+        return "accordion";
+    }
+
+    _doConvert($element, $, walker) {
         const panels = [];
         $element.find(".panel").each(function(i, panel) {
             const title = $(panel).find(".panel-heading h2").text();
@@ -55,8 +86,14 @@ class Converter {
         });
         return {type: "accordion", panels: panels};
     }
+}
 
-    toBox($element, $, walker) {
+class BoxConverter extends Converter {
+    getType() {
+        return "box";
+    }
+
+    _doConvert($element, $, walker) {
         const $titleBox = $element.children().eq(0);
         const $imgBox = $titleBox.find("img");
         const $bodyBox = $titleBox.nextAll("div");
@@ -68,25 +105,48 @@ class Converter {
 
         return {type: "box", title, href, imgSrc, body};
     }
+}
 
-    toGrid($element, $, walker) {
-        return {type: "grid", body: outerHtml($element)};
+class GridConverter extends Converter {
+    getType() {
+        return "grid";
     }
 
-    toReference($element, $, walker) {
+    _doConvert($element, $, walker) {
+        return {type: "grid", body: outerHtml($element)};
+    }
+}
+
+class ReferencesConverter extends Converter {
+    getType() {
+        return "references";
+    }
+
+    _doConvert($element, $, walker) {
         const links = [];
         $element.find("a").each((i, a) => {
             links.push({title: $(a).text(), link: $(a).attr("href")});
         });
         return links;
     }
+}
 
-    toDisclaimer($element, $, walker) {
-        if ($element.find("a").length == 1) {
-            return {link: $element.find("a").attr("href")};
-        } else {
+class DisclaimerConverter extends Converter {
+    getType() {
+        return "disclaimer";
+    }
+
+    _doValidate($element, $, walker) {
+        if ($element.find("a").length != 1) {
             throw new Error("I dont know how to handle the disclaimer without ANCHOR Tag");
         }
+        if ($element.find("*").length != 1) {
+            throw new Error("I dont know how to handle the disclaimer without ANCHOR Tag");
+        }
+    }
+
+    _doConvert($element, $, walker) {
+        return {link: $element.find("a").attr("href")};
     }
 }
 
