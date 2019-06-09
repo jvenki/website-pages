@@ -9,6 +9,8 @@ class Converter {
             return new TextConverter();
         } else if ($e.hasClass("twi-accordion")) {
             return new AccordionConverter();
+        } else if ($e.hasClass("jumbotron")) {
+            return new JumbotronConverter();
         } else if ($e.hasClass("border-blue")) {
             return new BoxConverter();
         } else if (e.tagName == "div" && $e.attr("class") == "row") {
@@ -17,9 +19,19 @@ class Converter {
             return new ReferencesConverter();
         } else if ($e.get(0).tagName == "h2") {
             return new SectionConverter();
-        } else {
-            throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'`);
+        } else if ($e.get(0).tagName == "br" || $e.hasClass("product-landing-btn-block")) {
+            return new NoopConverter();
+        } else if ($e.get(0).tagName == "div") {
+            // We should NOT blindly support DIVs
+            if ($e.hasClass("bb-products-invest")) {
+                // LPD#859 uses this to showcase different types of CC. 
+                return new NoopConverter();
+            } else if ($e.find(".video-section").length > 0) {
+                return new VideoConverter();
+            }
         }
+
+        throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'`);
     }
 
     getType() {}
@@ -88,6 +100,18 @@ class AccordionConverter extends Converter {
     }
 }
 
+class JumbotronConverter extends Converter {
+    getType() {
+        return "jumbotron";
+    }
+
+    _doConvert($element, $, walker) {
+        const title = $element.children().first().text();
+        const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
+        return {type: "panel", title, body}
+    }
+}
+
 class BoxConverter extends Converter {
     getType() {
         return "box";
@@ -147,6 +171,38 @@ class DisclaimerConverter extends Converter {
 
     _doConvert($element, $, walker) {
         return {link: $element.find("a").attr("href")};
+    }
+}
+
+class VideoConverter extends Converter {
+    getType() {
+        return "video";
+    }
+
+    _doValidate($element, $, walker) {
+        if ($element.find(".video-section").parent().children().length != 1) {
+            console.warn("Element HTML =", $element.html());
+            throw new Error("We expect only one child containing video-section");
+        }
+        if ($element.find(".video-section").children().length != 1) {
+            throw new Error("We expect only one child under video-section");
+        }
+        if ($element.find(".video-section iframe").length != 1) {
+            throw new Error("We expect IFRAME inside video-section");
+        }
+        if (!$element.find(".video-section iframe").attr("data-src")) {
+            throw new Error("We expect data-src to be populated for the IFRAME under video-section");
+        }
+    }
+
+    _doConvert($element, $, walker) {
+        return {type: "video", link: $element.find(".video-section iframe").attr("data-src")}
+    }
+}
+
+class NoopConverter extends Converter {
+    getType() {
+        return "noop";
     }
 }
 

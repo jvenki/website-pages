@@ -39,6 +39,7 @@ class DomWalker {
         const converter = Converter.for(this.$currElem, lastSection != undefined);
 
         switch (converter.getType()) {
+            case "noop": return;
             case "section": return this.docCreator.addNewSection(converter.convert(this.$currElem, this.$, this));
             case "disclaimer": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this));
             case "references": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
