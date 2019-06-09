@@ -12,47 +12,37 @@ class Cleanser {
             removeStyleAndScriptNodes, 
             removeTableOfContents,
             removeDisqusElements,
-            removeOfferTableElements,
+            removeOfferTableElements
         ];
-
-        const cleansedHtml = cleansers.reduce((prevCleansedHtml, cleanser) => cleanser(prevCleansedHtml), html);
-
-        // console.log(chalk.gray.bold("Original HTML"));
-        // console.log(chalk.gray(html));
-        // console.log(chalk.gray.bold("Cleansed HTML"));
-        // console.log(chalk.gray(cleansedHtml));
-
-        return cleansedHtml;
+        let cleansedHtml = minify(html, {collapseWhitespace: true, removeComments: true, removeEmptyAttributes: true, removeRedundantAttributes: true});
+        let $ = cheerio.load(cleansedHtml, {decodeEntities: false});
+        cleansers.forEach((cleanser) => cleanser($));
+        return $.html();
     }
 }
 
-const removeEmptyNodesAndEmptyLines = (html) => {
-    return minify(html, {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeEmptyAttributes: true,
-        removeEmptyElements: true,
-        removeRedundantAttributes: true
+const removeEmptyNodesAndEmptyLines = ($) => {
+    $("*").each((i, e) => {
+        if ($(e).html() == "" && !["iframe", "img", "br"].includes(e.tagName)) {
+            const $parent = $(e).parent();
+            $(e).remove();
+            removeEmptyAncestors($parent, $);
+        }
     });
 }
 
-const removeStyleAndScriptNodes = (html) => {
-    const $ = cheerio.load(html, {decodeEntities: false});
+const removeStyleAndScriptNodes = ($) => {
     $("style").remove();
     $("script").remove();
-    return $("body").html();
 }
 
-const removeUnncessaryRootElement = (html) => {
-    const $ = cheerio.load(html, {decodeEntities: false});
+const removeUnncessaryRootElement = ($) => {
     if ($("body").children().length == 1 && $("body > div").hasClass("article-txt")) {
-        return $("body > div").html();
+        $("body").html($("body > div").html());
     }
-    return $("body").html();
 }
 
-const removeTableOfContents = (html) => {
-    const $ = cheerio.load(html, {decodeEntities: false});
+const removeTableOfContents = ($) => {
     $("table").each((i, t) => {
         $(t).find("a").each((j, a) => {
             if ($(a).attr("href").startsWith("#")) {
@@ -62,30 +52,24 @@ const removeTableOfContents = (html) => {
             }
         })
     })
-    return $("body").html();
 }
 
-const removeDisqusElements = (html) => {
-    const $ = cheerio.load(html, {decodeEntities: false});
+const removeDisqusElements = ($) => {
     $("a[href='#disqus_thread']").each((i, a) => {
         const $parent = $(a).parent();
         $(a).remove();
         removeEmptyAncestors($parent);
     })
-    return $("body").html();
 }
 
-const removeOfferTableElements = (html) => {
-    const $ = cheerio.load(html, {decodeEntities: false});
+const removeOfferTableElements = ($) => {
     $("div.container-fluid").each((i, d) => {
         console.warn("\t[CAUTION]: Removing the element with class as 'container-fluid'", $(d).html());
         $(d).remove();
     })
-    return $("body").html();
 }
 
-const pullUpRootLevelElements = (html) => {
-    const $ = cheerio.load(html, {decodeEntities: false});
+const pullUpRootLevelElements = ($) => {
     $("body h2").each((i, h2) => {
         const $h2 = $(h2);
         const ancestors = $h2.parentsUntil("body");
@@ -101,7 +85,6 @@ const pullUpRootLevelElements = (html) => {
         })
         console.log($("body").html());
     });
-    return $("body").html();
 }
 
 const removeEmptyAncestors = ($e, $) => {
