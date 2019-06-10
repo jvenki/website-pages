@@ -1,4 +1,14 @@
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
+const containsOnlyGridClasses = ($element) => {
+    let classNames = $element.attr("class");
+    classNames = classNames.replace(/btm-pad/, "").replace(/pull-left/, "").trim();
+    if (["row"].includes(classNames)) {
+        return true;
+    } else if (classNames.match(/col-md-\d+/)) {
+        return true;
+    }
+    return false;
+}
 
 class Converter {
     static for($e) {
@@ -21,22 +31,27 @@ class Converter {
             return new SectionConverter();
         } else if ($e.get(0).tagName == "br" || $e.hasClass("product-landing-btn-block")) {
             return new NoopConverter();
+        } else if ($e.hasClass("video-section")) {
+            return new VideoConverter();
         } else if ($e.get(0).tagName == "div") {
             // We should NOT blindly support DIVs
-            if ($e.hasClass("bb-products-invest")) {
+            if (containsOnlyGridClasses($e)) {
+                return new UnwrapConverter(Converter.for($e.children().first()));
+            } else if ($e.hasClass("bb-products-invest")) {
                 // LPD#859 uses this to showcase different types of CC. 
                 return new NoopConverter();
-            } else if ($e.find(".video-section").length > 0) {
-                return new VideoConverter();
             }
         }
 
         throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'`);
     }
 
-    getType() {}
     _doValidate() {}
     _doConvert($element, $, walker) {}
+
+    getName() {
+        return this.constructor.name;
+    }
 
     convert($element, $, walker) {
         this._doValidate($element, $, walker);
@@ -45,20 +60,12 @@ class Converter {
 }
 
 class SectionConverter extends Converter {
-    getType() {
-        return "section";
-    }
-
     _doConvert($element, $, walker) {
         return {title: $element.text(), mainBody: "", elements: []};
     }
 }
 
 class TextConverter extends Converter {
-    getType() {
-        return "text";
-    }
-
     _doConvert($element, $, walker) {
         let title = "";
         let body = "";
@@ -85,10 +92,6 @@ class TextConverter extends Converter {
 }
 
 class AccordionConverter extends Converter {
-    getType() {
-        return "accordion";
-    }
-
     _doConvert($element, $, walker) {
         const panels = [];
         $element.find(".panel").each(function(i, panel) {
@@ -101,10 +104,6 @@ class AccordionConverter extends Converter {
 }
 
 class JumbotronConverter extends Converter {
-    getType() {
-        return "jumbotron";
-    }
-
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
         const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
@@ -113,10 +112,6 @@ class JumbotronConverter extends Converter {
 }
 
 class BoxConverter extends Converter {
-    getType() {
-        return "box";
-    }
-
     _doConvert($element, $, walker) {
         const $titleBox = $element.children().eq(0);
         const $imgBox = $titleBox.find("img");
@@ -132,20 +127,12 @@ class BoxConverter extends Converter {
 }
 
 class GridConverter extends Converter {
-    getType() {
-        return "grid";
-    }
-
     _doConvert($element, $, walker) {
         return {type: "grid", body: outerHtml($element)};
     }
 }
 
 class ReferencesConverter extends Converter {
-    getType() {
-        return "references";
-    }
-
     _doConvert($element, $, walker) {
         const links = [];
         $element.find("a").each((i, a) => {
@@ -156,10 +143,6 @@ class ReferencesConverter extends Converter {
 }
 
 class DisclaimerConverter extends Converter {
-    getType() {
-        return "disclaimer";
-    }
-
     _doValidate($element, $, walker) {
         if ($element.find("a").length != 1) {
             throw new Error("I dont know how to handle the disclaimer without ANCHOR Tag");
@@ -175,34 +158,45 @@ class DisclaimerConverter extends Converter {
 }
 
 class VideoConverter extends Converter {
-    getType() {
-        return "video";
-    }
-
     _doValidate($element, $, walker) {
-        if ($element.find(".video-section").parent().children().length != 1) {
-            console.warn("Element HTML =", $element.html());
-            throw new Error("We expect only one child containing video-section");
-        }
-        if ($element.find(".video-section").children().length != 1) {
+        if ($element.children().length != 1) {
             throw new Error("We expect only one child under video-section");
         }
-        if ($element.find(".video-section iframe").length != 1) {
+        if ($element.find("iframe").length != 1) {
             throw new Error("We expect IFRAME inside video-section");
         }
-        if (!$element.find(".video-section iframe").attr("data-src")) {
+        if (!$element.find("iframe").attr("data-src")) {
             throw new Error("We expect data-src to be populated for the IFRAME under video-section");
         }
     }
 
     _doConvert($element, $, walker) {
-        return {type: "video", link: $element.find(".video-section iframe").attr("data-src")}
+        return {type: "video", link: $element.find("iframe").attr("data-src")}
     }
 }
 
 class NoopConverter extends Converter {
-    getType() {
-        return "noop";
+}
+
+class UnwrapConverter extends Converter {
+    constructor(innerConverter) {
+        super();
+        this.innerConverter = innerConverter;
+    }
+
+    getName() {
+        return super.getName() + "->" + this.innerConverter.getName();
+    }
+
+    _doValidate($element, $, walker) {
+        if ($element.children().length != 1) {
+            throw new Error(`We expect only one child for things to be unwrapped. However there are ${$element.children().length} children found`);
+        }
+        //TODO: Check that it is made up of only GRID classes
+    }
+
+    _doConvert($element, $, walker) {
+        return this.innerConverter.convert($element.children().first(), $, walker);
     }
 }
 

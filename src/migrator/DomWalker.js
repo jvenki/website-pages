@@ -27,7 +27,6 @@ class DomWalker {
         
         this.$currElem = $firstElement;
         while (this.$currElem) {
-            console.info(chalk.gray(`\tProcessing Node with tagName='${this.$currElem.get(0).tagName}' and className='${this.$currElem.attr("class")}'`));
             this.handleCurrentElement();
             this.moveToNextElement();
         }
@@ -38,11 +37,13 @@ class DomWalker {
         const lastSection = this.docCreator.doc.sections.slice(-1).pop();
         const converter = Converter.for(this.$currElem, lastSection != undefined);
 
-        switch (converter.getType()) {
-            case "noop": return;
-            case "section": return this.docCreator.addNewSection(converter.convert(this.$currElem, this.$, this));
-            case "disclaimer": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this));
-            case "references": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
+        console.info(chalk.gray(`\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`));
+
+        switch (converter.getName()) {
+            case "NoopConverter": return;
+            case "SectionConverter": return this.docCreator.addNewSection(converter.convert(this.$currElem, this.$, this));
+            case "DisclaimerConverter": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this));
+            case "ReferencesConverter": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
             default: return this.docCreator.addElement(converter.convert(this.$currElem, this.$, this));
         }
     }
