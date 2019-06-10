@@ -25,7 +25,7 @@ function executeQuery(connection) {
         };
         console.log("Results = ", dbRows.length);
     
-        const tracker = {usageCount: {}, usageIds: {}};
+        const tracker = {usageCount: {}, usageIds: {}, idSummary: {}};
         let priContentFailedParsing = 0, secContentFailedParsing = 0;
         dbRows.some((xmlRow) => {
             console.log(`Processing ${xmlRow.id} with namespace ${xmlRow.namespace}`);
@@ -60,6 +60,8 @@ function executeQuery(connection) {
         console.log("Processed ", dbRows.length, " rows");
         fs.writeFileSync("pri-content-usage-counts.txt", JSON.stringify(tracker.usageCount));
         fs.writeFileSync("pri-content-usage-ids.txt", JSON.stringify(tracker.usageIds));
+        const sortedIdSummary = Object.keys(tracker["idSummary"]).sort((a, b) => tracker["idSummary"][a].length > tracker["idSummary"][b].length);
+        fs.writeFileSync("pri-content-id-summary.txt", JSON.stringify(sortedIdSummary.map((id) => ({id, usages: tracker["idSummary"][id]}))))
         // fs.writeFileSync("query.log", lastCompletedId);
     });    
 }
@@ -169,6 +171,13 @@ function trackUsage(fullPathName, tracker, id) {
     }
     if (!tracker["usageIds"][fullPathName].includes(id)) {
         tracker["usageIds"][fullPathName].push(id);
+    }
+
+    if (!tracker["idSummary"][id]) {
+        tracker["idSummary"][id] = [];
+    }
+    if (!tracker["idSummary"][id].includes(fullPathName)) {
+        tracker["idSummary"][id].push(fullPathName);
     }
 }
 
