@@ -3,17 +3,17 @@ class DocCreator {
         this.doc = {title: "", mainBody: "", sections: []};
     }
 
-    addNewSection(section) {
-        this.doc.sections.push(section);
+    addNewSectionWithTitle(title) {
+        this.doc.sections.push({type: "section", title, mainBody: "", elements: []});
     }
     
     addElement(element) {
-        const lastSection = this.doc.sections.slice(-1).pop();
-        if (lastSection) {
-            lastSection.elements.push(element);
-        } else {
-            this.doc.mainBody += element.body;
+        let lastSection = this.doc.sections.slice(-1).pop();
+        if (!lastSection) {
+            this.addNewSectionWithTitle("");
+            lastSection = this.doc.sections.slice(-1).pop();
         }
+        lastSection.elements.push(element);
     }
     
     addReferences(references) {

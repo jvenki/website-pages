@@ -23,6 +23,8 @@ class Converter {
             return new JumbotronConverter();
         } else if ($e.hasClass("border-blue")) {
             return new BoxConverter();
+        } else if ($e.hasClass("bb-landing-banner")) {
+            return new BannerConverter();
         } else if (e.tagName == "div" && $e.attr("class") == "row") {
             return new GridConverter();
         } else if ($e.hasClass("product_interlink")) {
@@ -33,6 +35,8 @@ class Converter {
             return new NoopConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
+        } else if ($e.hasClass("tax-img-responsive")) {
+            return new ImageConverter();
         } else if ($e.get(0).tagName == "div") {
             // We should NOT blindly support DIVs
             if (containsOnlyGridClasses($e)) {
@@ -61,7 +65,7 @@ class Converter {
 
 class SectionConverter extends Converter {
     _doConvert($element, $, walker) {
-        return {title: $element.text(), mainBody: "", elements: []};
+        return {type: "section", title: $element.text()};
     }
 }
 
@@ -138,7 +142,7 @@ class ReferencesConverter extends Converter {
         $element.find("a").each((i, a) => {
             links.push({title: $(a).text(), link: $(a).attr("href")});
         });
-        return links;
+        return {type: "references", links};
     }
 }
 
@@ -153,7 +157,7 @@ class DisclaimerConverter extends Converter {
     }
 
     _doConvert($element, $, walker) {
-        return {link: $element.find("a").attr("href")};
+        return {type: "diclaimer", link: $element.find("a").attr("href")};
     }
 }
 
@@ -200,6 +204,36 @@ class UnwrapConverter extends Converter {
     }
 }
 
+class BannerConverter extends Converter {
+    _doValidate($element, $, walker) {
+        assert($element.find("div.landing-banner-container").length == 1, "BannerConverter Condition Not Met #1");
+        assert($element.find("div.landing-banner-container div.column-left img").length == 1, "BannerConverter Condition Not Met #2");
+        assert($element.find("div.landing-banner-container div.column-right ul").length == 1, "BannerConverter Condition Not Met #3");
+        assert($element.find("div.landing-banner-container div.column-right").children().length == 1, "BannerConverter Condition Not Met #4");
+    }
+
+    _doConvert($element, $, walker) {
+        const imgSrc = $element.find("div.landing-banner-container div.column-left img").attr("data-original") || $element.find("div.landing-banner-container div.column-left img").attr("src");
+        const features = $element.find("div.landing-banner-container div.column-right ul li").map((i, e) => ({
+            iconClass: $(e).children().first().attr("class"),
+            desc: $(e).children().last().text()
+        }));
+        return {type: "banner", imgSrc, features};
+    }
+}
+
+class ImageConverter extends Converter {
+    _doConvert($element, $, walker) {
+        return {
+            type: "section-image",
+            src: $element.find("img").attr("data-original") || $element.find("img").attr("src"),
+            placement: $element.hasClass("pull-right") ? "right" : "left"
+        }
+    }
+}
+
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
+
+const assert = (condition, errorMsg) => {if (!condition) throw new Error(errorMsg)};
 
 module.exports = Converter;

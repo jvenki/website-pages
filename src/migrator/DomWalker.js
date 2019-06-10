@@ -41,9 +41,9 @@ class DomWalker {
 
         switch (converter.getName()) {
             case "NoopConverter": return;
-            case "SectionConverter": return this.docCreator.addNewSection(converter.convert(this.$currElem, this.$, this));
-            case "DisclaimerConverter": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this));
-            case "ReferencesConverter": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
+            case "SectionConverter": return this.docCreator.addNewSectionWithTitle(converter.convert(this.$currElem, this.$, this).title);
+            case "DisclaimerConverter": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this).link);
+            case "ReferencesConverter": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this).links);
             default: return this.docCreator.addElement(converter.convert(this.$currElem, this.$, this));
         }
     }
