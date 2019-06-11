@@ -362,6 +362,6 @@ class FeaturedNewsConverter extends Converter {
 const computeColumnCount = ($e) => undefined;
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
 const assert = (condition, errorMsg) => {if (!condition) throw new Error(errorMsg)};
-const extractImgSrc = ($img) => $img.attr("data-original") || $(img).attr("src");
+const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 
 module.exports = Converter;

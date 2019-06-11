@@ -1,8 +1,8 @@
 const chalk = require("chalk");
-const Database = require("./migrator/Database");
-const DomWalker = require("./migrator/DomWalker");
-const Cleanser = require("./migrator/Cleanser");
-const DocCreator = require("./migrator/DocCreator");
+const Database = require("./Database");
+const DomWalker = require("./DomWalker");
+const Cleanser = require("./Cleanser");
+const DocCreator = require("./DocCreator");
 
 const convert = (id, db) => {
     db.query(id)
