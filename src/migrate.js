@@ -26,9 +26,9 @@ const convert = (id, db) => {
 function main() {
     const db = new Database();
     db.connect();
-    // convert(859, db);
+    convert(859, db);
     // convert(4858, db);
-    convert(9427, db);
+    // convert(9427, db);
     db.releaseConnection();
 }
 

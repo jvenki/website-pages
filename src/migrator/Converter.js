@@ -34,7 +34,7 @@ class Converter {
         } else if ($e.hasClass("jumbotron")) {
             return new JumbotronConverter();
         } else if ($e.hasClass("border-blue")) {
-            return new BoxConverter();
+            return new FeaturedOffersConverter();
         } else if ($e.hasClass("lp-widget")) {
             return new WidgetConverter();
         } else if ($e.hasClass("bb-landing-banner")) {
@@ -136,18 +136,36 @@ class JumbotronConverter extends Converter {
     }
 }
 
-class BoxConverter extends Converter {
+class FeaturedOffersConverter extends Converter {
     _doConvert($element, $, walker) {
-        const $titleBox = $element.children().eq(0);
-        const $imgBox = $titleBox.find("img");
-        const $bodyBox = $titleBox.nextAll("div");
-    
-        const title = $titleBox.find("h5 > a").text() || $titleBox.find("h5").text();
-        const href = $titleBox.find("h5 > a").attr("href");
-        const imgSrc = $imgBox.attr("data-original") || $imgBox.attr("src");
-        const body = $bodyBox.html();
+        const extract = ($offerElement) => {
+            const $titleBox = $offerElement.children().eq(0);
+            const $imgBox = $titleBox.find("img");
+            const $bodyBox = $titleBox.nextAll("div");
+        
+            const title = $titleBox.find("h5 > a").text() || $titleBox.find("h5").text();
+            const link = $titleBox.find("h5 > a").attr("href");
+            const img = extractImgSrc($imgBox);
+            const body = $bodyBox.html();
+            return {title, link, img, body};
+        }
+        
+        const offers = [extract($element)];
 
-        return {type: "box", title, href, imgSrc, body};
+        while (true) {
+            const $nextElement = walker.peekNextElement();
+            if ($nextElement.get(0).tagName == "br") {
+                walker.moveToNextElement();
+                continue;
+            }
+            if (!$nextElement.hasClass("border-blue")) {
+                break;    
+            }
+            walker.moveToNextElement();
+            offers.push(extract($nextElement))
+        }
+
+        return {type: "featured-offers", offers};
     }
 }
 
@@ -234,7 +252,7 @@ class BannerConverter extends Converter {
     }
 
     _doConvert($element, $, walker) {
-        const imgSrc = $element.find("div.landing-banner-container div.column-left img").attr("data-original") || $element.find("div.landing-banner-container div.column-left img").attr("src");
+        const imgSrc = extractImgSrc($element.find("div.landing-banner-container div.column-left img"));
         const features = $element.find("div.landing-banner-container div.column-right ul li").map((i, e) => {
             const iconClass = $(e).children().first().attr("class");
             const desc = $(e).children().last().text();
@@ -250,7 +268,7 @@ class ImageConverter extends Converter {
         // Check https://stg1.bankbazaarinsurance.com/insurance/two-wheeler-insurance.html
         return {
             type: "section-image",
-            src: $element.find("img").attr("data-original") || $element.find("img").attr("src"),
+            src: extractImgSrc($element.find("img")),
             placement: $element.hasClass("pull-right") ? "right" : "left",
             link: $element.find("a").attr("href")
         }
@@ -304,7 +322,7 @@ class WidgetConverter extends Converter {
     _doConvert($element, $, walker) {
         const columnCount = computeColumnCount($element.find(".lp-widget-panel"));
         const panels = $element.find(".lp-widget-details").map((i, panel) => {
-            const img = $(panel).find("img").attr("data-original") || $(panel).find("img").attr("src");
+            const img = extractImgSrc($(panel).find("img"));
             const title = $(panel).find("strong").text();
             const body = $(panel).find("strong").nextUntil("a").map((i, e) => outerHtml($(e))).get();
             const link = $(panel).find("a").attr("href");
@@ -318,7 +336,7 @@ class HighlightConverter extends Converter {
     _doConvert($element, $, walker) {
         const link = $element.find("a").attr("href");
         const title = $element.find("strong").text();
-        const img = $element.find("img").attr("data-original") || $element.find("img").attr("src");
+        const img = extractImgSrc($element.find("img"))
         const body = $element.find("strong").nextAll().map((i, e) => outerHtml($(e))).get();
         return {type: "highlight", title, link, img, body};
     }
@@ -334,19 +352,16 @@ class FeaturedNewsConverter extends Converter {
         const columnCount = computeColumnCount($element.find("div.lp-blog-post > ul > li").first());
         const items = $element.find("div.lp-blog-post > ul > li").map((i, panel) => {
             const link = $(panel).find("a").attr("href");
-            const img = $(panel).find("img").attr("data-original") || $(panel).find("img").attr("src");
+            const img = extractImgSrc($(panel).find("img"));
             const body = $(panel).find("img").nextUntil("span.lp-more-details").map((i, e) => outerHtml($(e))).get();
         }).get();
         return {type: "featured-news", columnCount, items};
     }
 }
 
-const computeColumnCount = ($e) => {
-    return 12;
-}
-
+const computeColumnCount = ($e) => undefined;
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
-
 const assert = (condition, errorMsg) => {if (!condition) throw new Error(errorMsg)};
+const extractImgSrc = ($img) => $img.attr("data-original") || $(img).attr("src");
 
 module.exports = Converter;
