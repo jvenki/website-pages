@@ -1,7 +1,6 @@
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
 const containsOnlyGridClasses = ($element) => {
-    let classNames = $element.attr("class");
-    classNames = classNames.replace(/btm-pad/, "").replace(/pull-left/, "").trim();
+    let classNames = removePaddingClass($element.attr("class"));
     if (["row"].includes(classNames)) {
         return true;
     } else if (classNames.match(/col-md-\d+/)) {
@@ -10,12 +9,25 @@ const containsOnlyGridClasses = ($element) => {
     return false;
 }
 
+const containsOnlyPaddingClasses = ($element) => {
+    return removePaddingClass($element.attr("class")) == "";
+}
+
+const removePaddingClass = (classNames) => {
+    return classNames
+        .replace(/btm-pad-\d+/, "").replace(/btm-pad/, "")
+        .replace(/top-pad-\d+/, "").replace(/top-pad/, "")
+        .replace(/pull-left/, "")
+        .replace(/pull-right/, "")
+        .trim();
+}
+
 class Converter {
     static for($e) {
         const e = $e.get(0);
         if (e.tagName == "p" && $e.text() == "*Disclaimer") {
             return new DisclaimerConverter();
-        } else if ([...textSupportedDomElemTypes, "h3"].includes(e.tagName)) {
+        } else if ([...textSupportedDomElemTypes, "h3", "h4", "h5"].includes(e.tagName)) {
             return new TextConverter();
         } else if ($e.hasClass("twi-accordion")) {
             return new AccordionConverter();
@@ -23,6 +35,8 @@ class Converter {
             return new JumbotronConverter();
         } else if ($e.hasClass("border-blue")) {
             return new BoxConverter();
+        } else if ($e.hasClass("lp-widget")) {
+            return new WidgetConverter();
         } else if ($e.hasClass("bb-landing-banner")) {
             return new BannerConverter();
         } else if (e.tagName == "div" && $e.attr("class") == "row") {
@@ -35,11 +49,18 @@ class Converter {
             return new NoopConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
-        } else if ($e.hasClass("tax-img-responsive")) {
+        } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("table")) {
+            return new TabularDataConverter();
+        } else if ($e.hasClass("lp-banner")) {
+            return new HighlightConverter();
+        } else if ($e.hasClass("news-widget")) {
+            return new FeaturedNewsConverter();
+        } else if ($e.hasClass("tax-img-responsive") || $e.hasClass("pull-right")) {
+            //TODO: Is it right to assume all pull-rights to be images
             return new ImageConverter();
         } else if ($e.get(0).tagName == "div") {
             // We should NOT blindly support DIVs
-            if (containsOnlyGridClasses($e)) {
+            if (containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e)) {
                 return new UnwrapConverter(Converter.for($e.children().first()));
             } else if ($e.hasClass("bb-products-invest")) {
                 // LPD#859 uses this to showcase different types of CC. 
@@ -47,7 +68,7 @@ class Converter {
             }
         }
 
-        throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'`);
+        throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'` + $e.html());
     }
 
     _doValidate() {}
@@ -74,7 +95,7 @@ class TextConverter extends Converter {
         let title = "";
         let body = "";
         const elemType = $element.get(0).tagName;
-        if (["h3"].includes(elemType)) {
+        if (["h3", "h4", "h5"].includes(elemType)) {
             title = $element.text();
         } else if (textSupportedDomElemTypes.includes(elemType)) {
             body += outerHtml($element);
@@ -214,22 +235,114 @@ class BannerConverter extends Converter {
 
     _doConvert($element, $, walker) {
         const imgSrc = $element.find("div.landing-banner-container div.column-left img").attr("data-original") || $element.find("div.landing-banner-container div.column-left img").attr("src");
-        const features = $element.find("div.landing-banner-container div.column-right ul li").map((i, e) => ({
-            iconClass: $(e).children().first().attr("class"),
-            desc: $(e).children().last().text()
-        }));
+        const features = $element.find("div.landing-banner-container div.column-right ul li").map((i, e) => {
+            const iconClass = $(e).children().first().attr("class");
+            const desc = $(e).children().last().text();
+            return {iconClass, desc};
+        }).get();
         return {type: "banner", imgSrc, features};
     }
 }
 
 class ImageConverter extends Converter {
     _doConvert($element, $, walker) {
+        //TODO: This still needs to be embedded within some TEXT element rather than as a separate element
+        // Check https://stg1.bankbazaarinsurance.com/insurance/two-wheeler-insurance.html
         return {
             type: "section-image",
             src: $element.find("img").attr("data-original") || $element.find("img").attr("src"),
-            placement: $element.hasClass("pull-right") ? "right" : "left"
+            placement: $element.hasClass("pull-right") ? "right" : "left",
+            link: $element.find("a").attr("href")
         }
     }
+}
+
+class TabularDataConverter extends Converter {
+    _doConvert($element, $, walker) {
+        let header = [];
+        let body = [];
+        if ($element.hasClass("tabular-data")) {
+            $element.find(".tabular-data").each((i, row) => {
+                const $row = $(row);
+                const rowData = [];
+                $(row).find("div").each((i, col) => {
+                    const $col = $(col);
+                    rowData.push($col.html());
+                });
+                if ($row.hasClass("tabular-title")) {
+                    header = rowData;
+                } else {
+                    body.push(rowData);
+                }
+            });
+        } else {
+            let tbodyStartingIndex = 0;
+            let $headerRow;
+            if ($element.find("thead").length == 0) {
+                tbodyStartingIndex = 1;
+                $headerRow = $element.find("tbody tr");
+            } else {
+                $headerRow = $element.find("thead tr");
+            }
+            header = ($headerRow.find("th").length > 0 ? $headerRow.find("th") : $headerRow.find("td")).map((i, h) => $(h).text()).get();
+            $element.find("tr").each((i, row) => {
+                if (i < tbodyStartingIndex) {
+                    return true;
+                }
+                const rowData = $(row).find("td").map((j, col) => $(col).html()).get();
+                body.push(rowData);
+            })
+        }
+        return {type: "table", header, body};
+    }
+}
+
+class WidgetConverter extends Converter {
+    _doValidate($element, $, walker) {
+    }
+
+    _doConvert($element, $, walker) {
+        const columnCount = computeColumnCount($element.find(".lp-widget-panel"));
+        const panels = $element.find(".lp-widget-details").map((i, panel) => {
+            const img = $(panel).find("img").attr("data-original") || $(panel).find("img").attr("src");
+            const title = $(panel).find("strong").text();
+            const body = $(panel).find("strong").nextUntil("a").map((i, e) => outerHtml($(e))).get();
+            const link = $(panel).find("a").attr("href");
+            return {img, title, body, link};
+        }).get();
+        return {type: "widget", panels};
+    }
+}
+
+class HighlightConverter extends Converter {
+    _doConvert($element, $, walker) {
+        const link = $element.find("a").attr("href");
+        const title = $element.find("strong").text();
+        const img = $element.find("img").attr("data-original") || $element.find("img").attr("src");
+        const body = $element.find("strong").nextAll().map((i, e) => outerHtml($(e))).get();
+        return {type: "highlight", title, link, img, body};
+    }
+}
+
+class FeaturedNewsConverter extends Converter {
+    _doValidate($element, $, walker) {
+        assert($element.find(" > ul > li").length == 1, "FeaturedNewsConverter condition not met #1");
+    }
+
+    _doConvert($element, $, walker) {
+        const title = $element.find("h2").text();
+        const columnCount = computeColumnCount($element.find("div.lp-blog-post > ul > li").first());
+        const items = $element.find("div.lp-blog-post > ul > li").map((i, panel) => {
+            const link = $(panel).find("a").attr("href");
+            const img = $(panel).find("img").attr("data-original") || $(panel).find("img").attr("src");
+            const body = $(panel).find("img").nextUntil("span.lp-more-details").map((i, e) => outerHtml($(e))).get();
+        }).get();
+        return {type: "featured-news", columnCount, items};
+    }
+}
+
+const computeColumnCount = ($e) => {
+    return 12;
 }
 
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
