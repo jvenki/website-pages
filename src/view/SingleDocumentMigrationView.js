@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid } from "semantic-ui-react";
+import toHTMLText from "html-react-parser";
+import pretty from "pretty";
+import { Grid, Segment, Accordion, Header, Icon } from "semantic-ui-react";
+
 
 export default class SingleDocumentMigrationView extends React.Component {
     static propTypes = {
@@ -9,40 +12,118 @@ export default class SingleDocumentMigrationView extends React.Component {
 
     constructor(args) {
         super(args);
-        this.database = new Database();
-        this.database.connect();
         this.state = {
+            activeIndex: -1,
             original: {
-                title: undefined,
-                primaryContent: undefined,
-                secondaryContent: undefined
+                title: "",
+                primaryContent: "",
+                secondaryContent: ""
             },
             converted: {
-                title: undefined,
-                primaryContent: undefined,
-                secondaryContent: undefined
+                title: "",
+                primaryContent: "",
+                secondaryContent: ""
             }
         };
     }
     
     render() {
         return (
-            <Grid columns={2} divided>
-                <Grid.Row>
-                    <Grid.Column>
-                        <pre>
-                            <code>
-                                {this.state.original.primaryContent.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;")}
-                            </code>
-                        </pre>
-                    </Grid.Column>
-                    <Grid.Column>
-                        <pre>
-                            <p>Hello World</p>
-                        </pre>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
+            <Accordion fluid styled>
+                {createComparisonViewAsAccordion(
+                    "Primary Content Rendering", 
+                    toHTMLText(this.state.original.primaryContent), 
+                    <p>NOT YET IMPLEMENTED</p>, 
+                    0, 
+                    this, 
+                    "red"
+                )}
+                {createComparisonViewAsAccordion(
+                    "Primary Content Source", 
+                    <pre><code>{pretty(this.state.original.primaryContent, {ocd: true})}</code></pre>,
+                    <pre><code>{JSON.stringify(this.state.converted.primaryContent, null, 4)}</code></pre>,
+                    1, 
+                    this, 
+                    "green"
+                )}
+            </Accordion>
         );
     }
+
+    componentDidMount() {
+        fetch("http://localhost:8083/lpd/859", {headers: {"Content-Type": "application/json"}})
+            .then((response) => response.json())
+            .then((response) => {
+                this.setState(response);
+            });
+    }
+
+    handleClick = (e, titleProps) => {
+        const { index } = titleProps;
+        const newIndex = this.state.activeIndex === index ? -1 : index;
+        this.setState({ activeIndex: newIndex });
+    }
 }
+
+const createComparisonViewAsSegment = (title, oldData, newData, index, view, color="red") => {
+    return (
+        <React.Fragment>
+            <Header as="h2" attached="top" color={color} inverted>Primary Content Rendered</Header>
+            <Segment color="red" style={{overflow: "auto", maxHeight: 700}} attached>
+                <Grid columns={2} padded>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <Header as="h3" attached="top" color={color}>
+                                Old
+                            </Header>
+                            <Segment color={color} attached>
+                                {oldData}
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Header as="h3" attached="top" color={color}>
+                                New
+                            </Header>
+                            <Segment color={color} attached>
+                                {newData}
+                            </Segment>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </Segment>            
+        </React.Fragment>
+    );
+};
+
+const createComparisonViewAsAccordion = (title, oldData, newData, index, view, color="red") => {
+    return (
+        <React.Fragment>
+            <Accordion.Title active={view.state.activeIndex === index} index={index} onClick={view.handleClick}>
+                <Icon name='dropdown' />
+                {title}
+            </Accordion.Title>
+            <Accordion.Content active={view.state.activeIndex === index} index={index}>
+                <Grid columns={2} padded>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <Header as="h3" attached="top" color={color}>
+                                Old
+                            </Header>
+                            <Segment color={color} attached>
+                                {oldData}
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Header as="h3" attached="top" color={color}>
+                                New
+                            </Header>
+                            <Segment color={color} attached>
+                                {newData}
+                            </Segment>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </Accordion.Content>
+        </React.Fragment>
+    );
+};

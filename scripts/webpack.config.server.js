@@ -16,6 +16,11 @@ const devServerConfig = {
     contentBase: "public",
     stats: {colors: true},
     proxy: {
+        "/images": {
+            target: "https://www.bankbazaar.com",
+            secure: false,
+            changeOrigin: true
+        }
     },
     stats: {
         children: false,
@@ -64,12 +69,7 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
-            new MiniCssExtractPlugin(),
-            new HTMLWebpackPlugin({
-                template: Path.resolve("public/index.html"),
-                minify: false,
-                inject: "head"
-            })
+            new MiniCssExtractPlugin({filename: "vendor.css"})
         ],
         optimization: {
             runtimeChunk: "single",
