@@ -8,6 +8,9 @@ const projectDir = Path.resolve(__dirname, "../");
 const buildDir = Path.resolve(projectDir, "build");
 const appDir = Path.resolve(projectDir, "src");
 
+const Database = require(`${appDir}/migrator/Database`);
+const convert = require(`${appDir}/migrator/main`);
+
 const devServerConfig = {
     host: "0.0.0.0",
     port: 8082,
@@ -15,6 +18,13 @@ const devServerConfig = {
     publicPath: "/",
     contentBase: "public",
     stats: {colors: true},
+    setup(app) {
+        const database = new Database();
+        database.connect();
+        app.get("/lpd/:id", (req, res) => {
+            convert(req.params.id, database).then((output) => res.send(output));
+        });
+    },
     proxy: {
         "/images": {
             target: "https://www.bankbazaar.com",

@@ -1,24 +1,17 @@
-const chalk = require("chalk");
 const Database = require("./Database");
 const DomWalker = require("./DomWalker");
 const Cleanser = require("./Cleanser");
 const DocCreator = require("./DocCreator");
 
 const convert = (id, db) => {
-    db.query(id)
+    return db.query(id)
         .then((o) => {
-            const cleansedHtml = new Cleanser().cleanse(o.primaryContent);
-            const convertedDoc = DomWalker.for(cleansedHtml).forCreatingDoc(new DocCreator()).startWalking();
-            console.log(chalk.blueBright.bold(JSON.stringify(convertedDoc, null, 4)));
-            // console.log(chalk.blueBright.bold(convertedDoc));
-            // console.log(chalk.blueBright.bold(JSON.stringify({
-            //     ...convertedDoc, 
-            //     sections: convertedDoc.sections.map((s) => ({
-            //         title: s.title, 
-            //         mainBody: s.mainBody ? "YES" : "NO", 
-            //         elements: s.elements.map((e) => e && e.type)
-            //     }))
-            // }, null, 4)));
+            const cleansedPrimaryHtml = new Cleanser().cleanse(o.primaryContent);
+            const convertedPrimaryDoc = DomWalker.for(cleansedPrimaryHtml).forCreatingDoc(new DocCreator()).startWalking();
+            // const cleansedSecondaryHtml = new Cleanser().cleanse(o.secondaryContent);
+            // const convertedSecondaryDoc = DomWalker.for(cleansedSecondaryHtml).forCreatingDoc(new DocCreator()).startWalking();
+
+            return {title: o.title, original: o, converted: {primaryContent: convertedPrimaryDoc, secondaryContent: {}}};
         })
         .catch((err) => console.error(err));
 };
@@ -33,3 +26,5 @@ function main() {
 }
 
 main();
+
+module.exports = convert;

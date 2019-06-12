@@ -51,7 +51,7 @@ export default class SingleDocumentMigrationView extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8083/lpd/859", {headers: {"Content-Type": "application/json"}})
+        fetch("/lpd/859", {headers: {"Content-Type": "application/json"}})
             .then((response) => response.json())
             .then((response) => {
                 this.setState(response);
