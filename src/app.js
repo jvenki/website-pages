@@ -9,4 +9,4 @@ export const launchView = () => {
         <SingleDocumentMigrationView/>,
         document.getElementById("root")
     );
-}
+};

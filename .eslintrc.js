@@ -42,6 +42,8 @@ module.exports = {
         "arrow-spacing": ["error", {"before": true, "after": true}],
         "no-alert": "error",
         "no-restricted-imports": ["error", { "paths": ["lodash", "lodash-es"] }],
+        "no-console": "off",
+        "no-undef": "off",
 
         // Possible Coding Errors - The other recommendations from http://eslint.org/docs/rules/#possible-errors are enabled by default and good enough for us 
         "curly": ["error", "multi-line"],

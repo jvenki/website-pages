@@ -21,7 +21,7 @@ const convert = (id, db) => {
             // }, null, 4)));
         })
         .catch((err) => console.error(err));
-}
+};
 
 function main() {
     const db = new Database();

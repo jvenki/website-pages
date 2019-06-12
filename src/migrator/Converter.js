@@ -1,17 +1,17 @@
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
 const containsOnlyGridClasses = ($element) => {
-    let classNames = removePaddingClass($element.attr("class"));
+    const classNames = removePaddingClass($element.attr("class"));
     if (["row"].includes(classNames)) {
         return true;
     } else if (classNames.match(/col-md-\d+/)) {
         return true;
     }
     return false;
-}
+};
 
 const containsOnlyPaddingClasses = ($element) => {
     return removePaddingClass($element.attr("class")) == "";
-}
+};
 
 const removePaddingClass = (classNames) => {
     return classNames
@@ -20,7 +20,7 @@ const removePaddingClass = (classNames) => {
         .replace(/pull-left/, "")
         .replace(/pull-right/, "")
         .trim();
-}
+};
 
 class Converter {
     static for($e) {
@@ -71,8 +71,8 @@ class Converter {
         throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'` + $e.html());
     }
 
-    _doValidate() {}
-    _doConvert($element, $, walker) {}
+    _doValidate() {/* Child Classes will define*/}
+    _doConvert($element, $, walker) {/* Child Classes will define*/}
 
     getName() {
         return this.constructor.name;
@@ -132,7 +132,7 @@ class JumbotronConverter extends Converter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
         const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
-        return {type: "panel", title, body}
+        return {type: "panel", title, body};
     }
 }
 
@@ -148,7 +148,7 @@ class FeaturedOffersConverter extends Converter {
             const img = extractImgSrc($imgBox);
             const body = $bodyBox.html();
             return {title, link, img, body};
-        }
+        };
         
         const offers = [extract($element)];
 
@@ -162,7 +162,7 @@ class FeaturedOffersConverter extends Converter {
                 break;    
             }
             walker.moveToNextElement();
-            offers.push(extract($nextElement))
+            offers.push(extract($nextElement));
         }
 
         return {type: "featured-offers", offers};
@@ -214,7 +214,7 @@ class VideoConverter extends Converter {
     }
 
     _doConvert($element, $, walker) {
-        return {type: "video", link: $element.find("iframe").attr("data-src")}
+        return {type: "video", link: $element.find("iframe").attr("data-src")};
     }
 }
 
@@ -271,14 +271,14 @@ class ImageConverter extends Converter {
             src: extractImgSrc($element.find("img")),
             placement: $element.hasClass("pull-right") ? "right" : "left",
             link: $element.find("a").attr("href")
-        }
+        };
     }
 }
 
 class TabularDataConverter extends Converter {
     _doConvert($element, $, walker) {
         let header = [];
-        let body = [];
+        const body = [];
         if ($element.hasClass("tabular-data")) {
             $element.find(".tabular-data").each((i, row) => {
                 const $row = $(row);
@@ -309,16 +309,13 @@ class TabularDataConverter extends Converter {
                 }
                 const rowData = $(row).find("td").map((j, col) => $(col).html()).get();
                 body.push(rowData);
-            })
+            });
         }
         return {type: "table", header, body};
     }
 }
 
 class WidgetConverter extends Converter {
-    _doValidate($element, $, walker) {
-    }
-
     _doConvert($element, $, walker) {
         const columnCount = computeColumnCount($element.find(".lp-widget-panel"));
         const panels = $element.find(".lp-widget-details").map((i, panel) => {
@@ -328,7 +325,7 @@ class WidgetConverter extends Converter {
             const link = $(panel).find("a").attr("href");
             return {img, title, body, link};
         }).get();
-        return {type: "widget", panels};
+        return {type: "widget", panels, columnCount};
     }
 }
 
@@ -336,7 +333,7 @@ class HighlightConverter extends Converter {
     _doConvert($element, $, walker) {
         const link = $element.find("a").attr("href");
         const title = $element.find("strong").text();
-        const img = extractImgSrc($element.find("img"))
+        const img = extractImgSrc($element.find("img"));
         const body = $element.find("strong").nextAll().map((i, e) => outerHtml($(e))).get();
         return {type: "highlight", title, link, img, body};
     }
@@ -354,14 +351,15 @@ class FeaturedNewsConverter extends Converter {
             const link = $(panel).find("a").attr("href");
             const img = extractImgSrc($(panel).find("img"));
             const body = $(panel).find("img").nextUntil("span.lp-more-details").map((i, e) => outerHtml($(e))).get();
+            return {link, img, body};
         }).get();
-        return {type: "featured-news", columnCount, items};
+        return {type: "featured-news", columnCount, title, items};
     }
 }
 
 const computeColumnCount = ($e) => undefined;
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
-const assert = (condition, errorMsg) => {if (!condition) throw new Error(errorMsg)};
+const assert = (condition, errorMsg) => {if (!condition) throw new Error(errorMsg);};
 const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 
 module.exports = Converter;

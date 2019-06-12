@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-unused-vars */
 const mysql = require("mysql");
 const parseString = require("xml2js").parseString;
 const cheerio = require("cheerio");
@@ -7,11 +9,11 @@ const fs = require("fs");
 
 function connectToDB() {
     const connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'cloud',
-        password : 'scape',
-        database : 'brint'
-      });
+        host     : "localhost",
+        user     : "cloud",
+        password : "scape",
+        database : "brint"
+    });
     connection.connect();
     return connection;
 }
@@ -21,12 +23,12 @@ function executeQuery(connection) {
     let lastCompletedId = 0;
     connection.query("SELECT id, namespace, detail FROM landing_page_data WHERE enabled = 1 and id > " + lastCompletedId, function(error, dbRows, fields) {
         if (error) {
-            throw error
-        };
+            throw error;
+        }
         console.log("Results = ", dbRows.length);
     
         const tracker = {usageCount: {}, usageIds: {}, idSummary: {}};
-        let priContentFailedParsing = 0, secContentFailedParsing = 0;
+        const priContentFailedParsing = 0, secContentFailedParsing = 0;
         dbRows.some((xmlRow) => {
             console.log(`Processing ${xmlRow.id} with namespace ${xmlRow.namespace}`);
             const jsonRow = parseXmlString(xmlRow.detail);
@@ -61,7 +63,7 @@ function executeQuery(connection) {
         fs.writeFileSync("pri-content-usage-counts.txt", JSON.stringify(tracker.usageCount));
         fs.writeFileSync("pri-content-usage-ids.txt", JSON.stringify(tracker.usageIds));
         const sortedIdSummary = Object.keys(tracker["idSummary"]).sort((a, b) => tracker["idSummary"][a].length > tracker["idSummary"][b].length);
-        fs.writeFileSync("pri-content-id-summary.txt", JSON.stringify(sortedIdSummary.map((id) => ({id, usages: tracker["idSummary"][id]}))))
+        fs.writeFileSync("pri-content-id-summary.txt", JSON.stringify(sortedIdSummary.map((id) => ({id, usages: tracker["idSummary"][id]}))));
         // fs.writeFileSync("query.log", lastCompletedId);
     });    
 }
@@ -82,25 +84,25 @@ function handleSecondaryContent(content, id, namespace) {
         return true;
     }
     const $ = cheerio.load(content);
-    $('li.news-green').remove();
-    if ($('div.news-widget > ul').text().trim() == '') {
-        $('div.news-widget > ul').remove();
+    $("li.news-green").remove();
+    if ($("div.news-widget > ul").text().trim() == "") {
+        $("div.news-widget > ul").remove();
     }
-    $('div.news-widget > h2').remove();
-    $('div.news-widget > div > h2').remove();
-    $('div.news-widget > h3').remove();
-    if ($('div.news-widget').text().trim() == '') {
-        $('div.news-widget').remove();
+    $("div.news-widget > h2").remove();
+    $("div.news-widget > div > h2").remove();
+    $("div.news-widget > h3").remove();
+    if ($("div.news-widget").text().trim() == "") {
+        $("div.news-widget").remove();
     }
 
-    $('h3').remove();
-    $('div.bb-products-invest').remove();
+    $("h3").remove();
+    $("div.bb-products-invest").remove();
 
-    $('a').filter(function(i, e) {return $(e).attr("href").includes("variant=slide")}).remove();
-    $('div.twi-accordion').remove();
-    $('div.product_interlink').remove();
+    $("a").filter(function(i, e) {return $(e).attr("href").includes("variant=slide");}).remove();
+    $("div.twi-accordion").remove();
+    $("div.product_interlink").remove();
 
-    $('div').filter(function(i, e) {
+    $("div").filter(function(i, e) {
         if ($(e).html().trim() == "") {
             return true;
         }
@@ -113,24 +115,24 @@ function handleSecondaryContent(content, id, namespace) {
         return false;
     }).remove();
 
-    if ($('h2').first().html() && $('h2').first().html().includes("sitemap.html")) {
-        $('h2').first().remove();
+    if ($("h2").first().html() && $("h2").first().html().includes("sitemap.html")) {
+        $("h2").first().remove();
     }
 
-    $('div.link-section').remove();
-    $('ul.bb-sitemap').remove();
+    $("div.link-section").remove();
+    $("ul.bb-sitemap").remove();
 
-    if ($('li.list-group-meroon').first().html() && $('li.list-group-meroon').first().html().includes("more")) {
-        $('li.list-group-meroon').first().remove();
+    if ($("li.list-group-meroon").first().html() && $("li.list-group-meroon").first().html().includes("more")) {
+        $("li.list-group-meroon").first().remove();
     }
 
-    if ($('p').length < 3) {
-        $('p').remove();
+    if ($("p").length < 3) {
+        $("p").remove();
     }
 
-    const finalContent = $.text().replace(/\n/, "", 'g').trim();
+    const finalContent = $.text().replace(/\n/, "", "g").trim();
     const finalHtml = $.html();
-    if (finalContent == '' || [4, 482, 487, 500, 601, 835, 836, 843, 847, 898, 1410, 1994, 4731, 9342, 9347, 19644, 19901].includes(id)) {
+    if (finalContent == "" || [4, 482, 487, 500, 601, 835, 836, 843, 847, 898, 1410, 1994, 4731, 9342, 9347, 19644, 19901].includes(id)) {
         return true;
     }
 
@@ -144,7 +146,7 @@ function handlePrimaryContent(content, id, namespace, tracker) {
     }
     const $ = cheerio.load(content);
     $("*").each(function(i, e) {
-        const ancestors = $(e).parentsUntil("body").map(function(j, p) {return getNodeTagNameAndClassNames(p, $)}).get().reverse();
+        const ancestors = $(e).parentsUntil("body").map(function(j, p) {return getNodeTagNameAndClassNames(p, $);}).get().reverse();
         const myName = getNodeTagNameAndClassNames(e, $);
         const fullPathName = [...ancestors, myName].join(" -> ");
         trackUsage(fullPathName, tracker, id);
@@ -157,12 +159,12 @@ function getNodeTagNameAndClassNames(e, $) {
     if ($(e).attr("class")) {
         classNames = "." + $(e).attr("class").replace(/ /g, ".");
     }
-    return $(e).get(0).tagName + classNames
+    return $(e).get(0).tagName + classNames;
 }
 
 function trackUsage(fullPathName, tracker, id) {
     if (!tracker["usageCount"][fullPathName]) {
-        tracker["usageCount"][fullPathName] = 0
+        tracker["usageCount"][fullPathName] = 0;
     }
     tracker["usageCount"][fullPathName] = tracker["usageCount"][fullPathName] + 1;
 
@@ -305,9 +307,9 @@ function handlePrimaryContent2(content, id, namespace, tracker) {
     removeTextNodes($);
     removeEmptyNodes($);
 
-    const finalContent = $.text().replace(/\n/, "", 'g').replace(/\$LPD_EMBEDDED_ITEM_[A-Z_0-9]+/g, "").trim();
-    const finalHtml = $.html().replace(/\>\s+\</g, '><');
-    if (finalContent == '' || [8, 182, 191, 234, 236, 626].includes(id)) {
+    const finalContent = $.text().replace(/\n/, "", "g").replace(/\$LPD_EMBEDDED_ITEM_[A-Z_0-9]+/g, "").trim();
+    const finalHtml = $.html().replace(/>\s+</g, "><");
+    if (finalContent == "" || [8, 182, 191, 234, 236, 626].includes(id)) {
         return true;
     }
 

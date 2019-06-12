@@ -1,6 +1,5 @@
 const mysql = require("mysql");
 const parseString = require("xml2js").parseString;
-const chalk = require("chalk");
 
 const parseXmlString = function(xmlRow) {
     let output;
@@ -11,11 +10,11 @@ const parseXmlString = function(xmlRow) {
         output = jsonRow;
     });
     return output;
-}
+};
 
 class Database {
     connect() {
-        this.connection = mysql.createConnection({host: 'localhost', user: 'cloud', password: 'scape', database: 'brint' });
+        this.connection = mysql.createConnection({host: "localhost", user: "cloud", password: "scape", database: "brint" });
         this.connection.connect();
     }
 
@@ -24,8 +23,8 @@ class Database {
             this.connection.query("SELECT id, namespace, detail FROM landing_page_data WHERE id =" + id, function(error, dbRows, fields) {
                 if (error) {
                     reject(error);
-                    throw error
-                };
+                    throw error;
+                }
                 dbRows.some((xmlRow) => {
                     console.log(`Processing ${xmlRow.id} with namespace ${xmlRow.namespace}`);
                     const jsonRow = parseXmlString(xmlRow.detail);

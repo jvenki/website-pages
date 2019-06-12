@@ -6,6 +6,24 @@ export default class SingleDocumentMigrationView extends React.Component {
     static propTypes = {
         lpdId: PropTypes.number.isRequired
     }
+
+    constructor(args) {
+        super(args);
+        this.database = new Database();
+        this.database.connect();
+        this.state = {
+            original: {
+                title: undefined,
+                primaryContent: undefined,
+                secondaryContent: undefined
+            },
+            converted: {
+                title: undefined,
+                primaryContent: undefined,
+                secondaryContent: undefined
+            }
+        };
+    }
     
     render() {
         return (
@@ -14,7 +32,7 @@ export default class SingleDocumentMigrationView extends React.Component {
                     <Grid.Column>
                         <pre>
                             <code>
-                                <p>Hello World</p>
+                                {this.state.original.primaryContent.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;")}
                             </code>
                         </pre>
                     </Grid.Column>
@@ -25,6 +43,6 @@ export default class SingleDocumentMigrationView extends React.Component {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-        )
+        );
     }
 }
