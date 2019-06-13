@@ -1,10 +1,10 @@
 class DocCreator {
     constructor(args) {
-        this.doc = {title: "", mainBody: "", sections: []};
+        this.doc = {title: "", body: "", sections: []};
     }
 
     addNewSectionWithTitle(title) {
-        this.doc.sections.push({type: "section", title, mainBody: "", elements: []});
+        this.doc.sections.push({type: "section", title, body: "", elements: []});
     }
     
     addElement(element) {

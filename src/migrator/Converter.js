@@ -118,13 +118,13 @@ class TextConverter extends Converter {
 
 class AccordionConverter extends Converter {
     _doConvert($element, $, walker) {
-        const panels = [];
+        const items = [];
         $element.find(".panel").each(function(i, panel) {
             const title = $(panel).find(".panel-heading h2").text();
             const body = $(panel).find(".panel-body").html();
-            panels.push({title, body});
+            items.push({title, body});
         });
-        return {type: "accordion", panels: panels};
+        return {type: "accordion", items};
     }
 }
 
@@ -318,14 +318,14 @@ class TabularDataConverter extends Converter {
 class WidgetConverter extends Converter {
     _doConvert($element, $, walker) {
         const columnCount = computeColumnCount($element.find(".lp-widget-panel"));
-        const panels = $element.find(".lp-widget-details").map((i, panel) => {
+        const items = $element.find(".lp-widget-details").map((i, panel) => {
             const img = extractImgSrc($(panel).find("img"));
             const title = $(panel).find("strong").text();
             const body = $(panel).find("strong").nextUntil("a").map((i, e) => outerHtml($(e))).get();
             const link = $(panel).find("a").attr("href");
             return {img, title, body, link};
         }).get();
-        return {type: "widget", panels, columnCount};
+        return {type: "widget", items, columnCount};
     }
 }
 

@@ -18,7 +18,7 @@ class DomWalker {
         return this;
     }
 
-    startWalking() {
+    startWalking(debugInfo) {
         console.info(chalk.greenBright("Walking our DOM..."));
         const $firstElement = this.$("body").children().first();
         if ($firstElement.length == 0) {
@@ -27,13 +27,13 @@ class DomWalker {
         
         this.$currElem = $firstElement;
         while (this.$currElem) {
-            this.handleCurrentElement();
+            this.handleCurrentElement(debugInfo);
             this.moveToNextElement();
         }
         return this.docCreator.doc;
     }
 
-    handleCurrentElement() {
+    handleCurrentElement(debugInfo) {
         const lastSection = this.docCreator.doc.sections.slice(-1).pop();
         const converter = Converter.for(this.$currElem, lastSection != undefined);
 

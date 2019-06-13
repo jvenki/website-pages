@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import toHTMLText from "html-react-parser";
 import pretty from "pretty";
-import { Grid, Segment, Accordion, Header, Icon } from "semantic-ui-react";
-
+import { Grid, Segment, Header, Tab } from "semantic-ui-react";
+import Page from "./page/Page";
 
 export default class SingleDocumentMigrationView extends React.Component {
     static propTypes = {
@@ -21,33 +21,27 @@ export default class SingleDocumentMigrationView extends React.Component {
             },
             converted: {
                 title: "",
-                primaryContent: "",
-                secondaryContent: ""
+                primaryContent: {},
+                secondaryContent: {}
             }
         };
     }
     
     render() {
-        return (
-            <Accordion fluid styled>
-                {createComparisonViewAsAccordion(
-                    "Primary Content Rendering", 
-                    toHTMLText(this.state.original.primaryContent), 
-                    <p>NOT YET IMPLEMENTED</p>, 
-                    0, 
-                    this, 
-                    "red"
-                )}
-                {createComparisonViewAsAccordion(
-                    "Primary Content Source", 
-                    <pre><code>{pretty(this.state.original.primaryContent, {ocd: true})}</code></pre>,
-                    <pre><code>{JSON.stringify(this.state.converted.primaryContent, null, 4)}</code></pre>,
-                    1, 
-                    this, 
-                    "green"
-                )}
-            </Accordion>
-        );
+        const segments = [
+            {
+                title: "Primary Content Rendering",
+                left: <div className="primary-txt article-txt">{toHTMLText(this.state.original.primaryContent)}</div>,
+                right: <div className="primary-txt article-txt"><Page doc={this.state.converted.primaryContent}/></div>
+            },
+            {
+                title: "Primary Content Source",
+                left: <pre><code>{pretty(this.state.original.primaryContent, {ocd: true})}</code></pre>,
+                right: <pre><code>{JSON.stringify(this.state.converted.primaryContent, null, 4)}</code></pre>
+            }
+        ];
+
+        return renderAsTabs(segments, this);
     }
 
     componentDidMount() {
@@ -65,65 +59,24 @@ export default class SingleDocumentMigrationView extends React.Component {
     }
 }
 
-const createComparisonViewAsSegment = (title, oldData, newData, index, view, color="red") => {
-    return (
-        <React.Fragment>
-            <Header as="h2" attached="top" color={color} inverted>Primary Content Rendered</Header>
-            <Segment color="red" style={{overflow: "auto", maxHeight: 700}} attached>
-                <Grid columns={2} padded>
-                    <Grid.Row>
-                        <Grid.Column>
-                            <Header as="h3" attached="top" color={color}>
-                                Old
-                            </Header>
-                            <Segment color={color} attached>
-                                {oldData}
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as="h3" attached="top" color={color}>
-                                New
-                            </Header>
-                            <Segment color={color} attached>
-                                {newData}
-                            </Segment>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Segment>            
-        </React.Fragment>
-    );
+const renderAsTabs = (segments, self) => {
+    const panes = segments.map((s) => ({menuItem: s.title, render: () => <Tab.Pane>{createDiffingGrid(s.left, s.right)}</Tab.Pane>}));
+    return <Tab panes={panes}/>;
 };
 
-const createComparisonViewAsAccordion = (title, oldData, newData, index, view, color="red") => {
+const createDiffingGrid = (left, right, color="red") => {
     return (
-        <React.Fragment>
-            <Accordion.Title active={view.state.activeIndex === index} index={index} onClick={view.handleClick}>
-                <Icon name='dropdown' />
-                {title}
-            </Accordion.Title>
-            <Accordion.Content active={view.state.activeIndex === index} index={index}>
-                <Grid columns={2} padded>
-                    <Grid.Row>
-                        <Grid.Column>
-                            <Header as="h3" attached="top" color={color}>
-                                Old
-                            </Header>
-                            <Segment color={color} attached>
-                                {oldData}
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <Header as="h3" attached="top" color={color}>
-                                New
-                            </Header>
-                            <Segment color={color} attached>
-                                {newData}
-                            </Segment>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Accordion.Content>
-        </React.Fragment>
+        <Grid columns={2} padded>
+            <Grid.Row>
+                <Grid.Column>
+                    <Header as="h3" attached="top" color={color}>Old</Header>
+                    <Segment color={color} attached>{left}</Segment>
+                </Grid.Column>
+                <Grid.Column>
+                    <Header as="h3" attached="top" color={color}>New</Header>
+                    <Segment color={color} attached>{right}</Segment>
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>        
     );
 };
