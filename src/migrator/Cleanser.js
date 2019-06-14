@@ -1,10 +1,10 @@
 const cheerio = require("cheerio");
 const minify = require("html-minifier").minify;
-const chalk = require("chalk");
+const winston = require("winston");
 
 class Cleanser {
     cleanse(html) {
-        console.info(chalk.greenBright("Cleaning our HTML..."));
+        winston.verbose("\tCleaning our HTML...");
         const cleansers = [
             removeEmptyNodesAndEmptyLines, 
             removeUnncessaryRootElement, 

@@ -24,7 +24,6 @@ export default class Page extends React.Component {
     }
 
     getTableOfContents() {
-        console.warn(this.props.doc);
         const sectionTitles = (this.props.doc.sections || []).map((s) => s.title);
         return (
             <table className="table table-curved" style={{margin: 0}}>

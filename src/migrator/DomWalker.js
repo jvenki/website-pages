@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const chalk = require("chalk");
+const winston = require("winston");
 const Converter = require("./Converter");
 
 class DomWalker {
@@ -19,7 +19,7 @@ class DomWalker {
     }
 
     startWalking(debugInfo) {
-        console.info(chalk.greenBright("Walking our DOM..."));
+        winston.verbose("\tWalking our DOM...");
         const $firstElement = this.$("body").children().first();
         if ($firstElement.length == 0) {
             throw new Error("Something is wrong with the document. There is no child at all");
@@ -37,7 +37,7 @@ class DomWalker {
         const lastSection = this.docCreator.doc.sections.slice(-1).pop();
         const converter = Converter.for(this.$currElem, lastSection != undefined);
 
-        console.info(chalk.gray(`\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`));
+        winston.verbose(`\t\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`);
 
         switch (converter.getName()) {
             case "NoopConverter": return;

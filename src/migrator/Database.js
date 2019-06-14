@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const parseString = require("xml2js").parseString;
+const winston = require("winston");
 
 const parseXmlString = function(xmlRow) {
     let output;
@@ -26,15 +27,14 @@ class Database {
                     throw error;
                 }
                 dbRows.some((xmlRow) => {
-                    console.log(`Processing ${xmlRow.id} with namespace ${xmlRow.namespace}`);
                     const jsonRow = parseXmlString(xmlRow.detail);
                     if (jsonRow == undefined) {
-                        console.error(`${xmlRow.namespace} with id=${xmlRow.id} looks to be corrupted as it has no messagingMap`);
+                        winston.error(`Error occurred while processing ${xmlRow.namespace} with id=${xmlRow.id} looks to be corrupted as it has no messagingMap`);
                         return true;
                     }
                     const messagingMap = jsonRow["com.bankbazaar.model.LandingPageDataDetail"]["messagingMap"];
                     if (messagingMap.length > 1 || !messagingMap[0].entry) {
-                        console.error(`${xmlRow.namespace} with id=${xmlRow.id} looks to be corrupted as it has ${messagingMap.length} elements in messagingMap or has no entry`);
+                        winston.error(`${xmlRow.namespace} with id=${xmlRow.id} looks to be corrupted as it has ${messagingMap.length} elements in messagingMap or has no entry`);
                         return;
                     }
                     const attrMap = messagingMap[0]["entry"];
@@ -52,7 +52,7 @@ class Database {
                                 break;
                         }
                     });
-                    resolve({title, primaryContent, secondaryContent});
+                    resolve({id: xmlRow.id, namespace: xmlRow.namespace, title, primaryContent, secondaryContent});
                 });
             });
         });
