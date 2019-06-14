@@ -1,6 +1,8 @@
 const cheerio = require("cheerio");
 const winston = require("winston");
 const Converter = require("./Converter");
+const MigrationError = require("./MigrationError");
+
 
 class DomWalker {
     static for(html) {
@@ -18,22 +20,22 @@ class DomWalker {
         return this;
     }
 
-    startWalking(debugInfo) {
+    startWalking() {
         winston.verbose("\tWalking our DOM...");
         const $firstElement = this.$("body").children().first();
         if ($firstElement.length == 0) {
-            throw new Error("Something is wrong with the document. There is no child at all");
+            throw new MigrationError(MigrationError.Code.DOM_EMPTY);
         }
         
         this.$currElem = $firstElement;
         while (this.$currElem) {
-            this.handleCurrentElement(debugInfo);
+            this.handleCurrentElement();
             this.moveToNextElement();
         }
         return this.docCreator.doc;
     }
 
-    handleCurrentElement(debugInfo) {
+    handleCurrentElement() {
         const lastSection = this.docCreator.doc.sections.slice(-1).pop();
         const converter = Converter.for(this.$currElem, lastSection != undefined);
 

@@ -1,3 +1,5 @@
+const MigrationError = require("./MigrationError");
+
 class DocCreator {
     constructor(args) {
         this.doc = {title: "", body: "", sections: []};
@@ -18,14 +20,14 @@ class DocCreator {
     
     addReferences(references) {
         if (this.doc.references) {
-            throw new Error("Only one references expected.. We already have one");
+            throw new MigrationError(MigrationError.Code.MULTIPLE_REFERENCES);
         }
         this.doc.references = references;
     }
     
     addDisclaimer(disclaimer) {
         if (this.doc.disclaimer) {
-            throw new Error("Only one disclaimer expected.. We already have one");
+            throw new MigrationError(MigrationError.Code.MULTIPLE_DISCLAIMER);
         }
         this.doc.disclaimer = disclaimer;
     }

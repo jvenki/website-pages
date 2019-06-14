@@ -1,6 +1,15 @@
 const cheerio = require("cheerio");
 const minify = require("html-minifier").minify;
 const winston = require("winston");
+const MigrationError = require("./MigrationError");
+
+const minifyHtml = (html) => {
+    try {
+        return minify(html, {collapseWhitespace: true, removeComments: true, removeEmptyAttributes: true, removeRedundantAttributes: true});
+    } catch (err) {
+        throw new MigrationError(MigrationError.Code.HTML_PARSE_ERROR);
+    }
+};
 
 class Cleanser {
     cleanse(html) {
@@ -13,7 +22,7 @@ class Cleanser {
             removeDisqusElements,
             removeOfferTableElements
         ];
-        const cleansedHtml = minify(html, {collapseWhitespace: true, removeComments: true, removeEmptyAttributes: true, removeRedundantAttributes: true});
+        const cleansedHtml = minifyHtml(html);
         const $ = cheerio.load(cleansedHtml, {decodeEntities: false});
         cleansers.forEach((cleanser) => cleanser($));
         return $.html();

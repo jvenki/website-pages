@@ -1,3 +1,5 @@
+const MigrationError = require("./MigrationError");
+
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
 const containsOnlyGridClasses = ($element) => {
     const classNames = removePaddingClass($element.attr("class"));
@@ -67,8 +69,7 @@ class Converter {
                 return new NoopConverter();
             }
         }
-
-        throw new Error(`We dont know how to handle element tagName='${e.tagName} and class='${$e.attr("class")}'` + $e.html());
+        assert(false, `IdentifyConverterFor ${e.tagName}${$e.attr("class") ? "." + $e.attr("class").replace(/ /g, ".") : ""}`, $e);
     }
 
     _doValidate() {/* Child Classes will define*/}
@@ -100,7 +101,7 @@ class TextConverter extends Converter {
         } else if (textSupportedDomElemTypes.includes(elemType)) {
             body += outerHtml($element);
         } else {
-            throw new Error(`I have got an DOM-Element of type ${elemType} which is not suitable to be handled as a Text Element`);
+            assert(false, "TextConversion-ConditionNotMet for " + elemType, outerHtml($element));
         }
 
         // Check whether it is followed by any other textual tags like P, UL, OL.
@@ -187,12 +188,8 @@ class ReferencesConverter extends Converter {
 
 class DisclaimerConverter extends Converter {
     _doValidate($element, $, walker) {
-        if ($element.find("a").length != 1) {
-            throw new Error("I dont know how to handle the disclaimer without ANCHOR Tag");
-        }
-        if ($element.find("*").length != 1) {
-            throw new Error("I dont know how to handle the disclaimer without ANCHOR Tag");
-        }
+        assert($element.find("a").length == 1, "DisclaimerConversion-ConditionNotMet#1", $element);
+        assert($element.find("*").length == 1, "DisclaimerConversion-ConditionNotMet#2", $element);
     }
 
     _doConvert($element, $, walker) {
@@ -202,15 +199,9 @@ class DisclaimerConverter extends Converter {
 
 class VideoConverter extends Converter {
     _doValidate($element, $, walker) {
-        if ($element.children().length != 1) {
-            throw new Error("We expect only one child under video-section");
-        }
-        if ($element.find("iframe").length != 1) {
-            throw new Error("We expect IFRAME inside video-section");
-        }
-        if (!$element.find("iframe").attr("data-src")) {
-            throw new Error("We expect data-src to be populated for the IFRAME under video-section");
-        }
+        assert($element.children().length == 1, "VideoConversion-ConditionNotMet#1", $element);
+        assert($element.find("iframe").length == 1, "VideoConversion-ConditionNotMet#2", $element);
+        assert(Boolean($element.find("iframe").attr("data-src")), "VideoConversion-ConditionNotMet#3", $element);
     }
 
     _doConvert($element, $, walker) {
@@ -232,9 +223,7 @@ class UnwrapConverter extends Converter {
     }
 
     _doValidate($element, $, walker) {
-        if ($element.children().length != 1) {
-            throw new Error(`We expect only one child for things to be unwrapped. However there are ${$element.children().length} children found`);
-        }
+        assert($element.children().length == 1, "UnwrapConversion-ConditionNotMet#1", $element);
         //TODO: Check that it is made up of only GRID classes
     }
 
@@ -359,7 +348,11 @@ class FeaturedNewsConverter extends Converter {
 
 const computeColumnCount = ($e) => undefined;
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
-const assert = (condition, errorMsg) => {if (!condition) throw new Error(errorMsg);};
 const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
+const assert = (condition, errorMsg, $element) => {
+    if (!condition) {
+        throw new MigrationError(MigrationError.Code.UNKNOWN_TAG, errorMsg, $element.html());
+    }
+};
 
 module.exports = Converter;
