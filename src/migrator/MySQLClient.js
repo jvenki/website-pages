@@ -3,8 +3,11 @@ const mysql = require("mysql");
 
 class Database {
     connect() {
-        this.connection = mysql.createConnection({host: "localhost", user: "cloud", password: "scape", database: "brint" });
-        this.connection.connect();
+        return new Promise((resolve, reject) => {
+            this.connection = mysql.createConnection({host: "localhost", user: "cloud", password: "scape", database: "brint" });
+            this.connection.connect();
+            resolve(true);
+        });
     }
 
     query(id) {
