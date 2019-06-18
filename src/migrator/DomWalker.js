@@ -42,11 +42,23 @@ class DomWalker {
         winston.verbose(`\t\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`);
 
         switch (converter.getName()) {
-            case "NoopConverter": return;
-            case "SectionConverter": return this.docCreator.addNewSectionWithTitle(converter.convert(this.$currElem, this.$, this).title);
-            case "DisclaimerConverter": return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this).link);
-            case "ReferencesConverter": return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this).links);
-            default: return this.docCreator.addElement(converter.convert(this.$currElem, this.$, this));
+            case "NoopConverter": 
+                return;
+            case "SectionConverter": 
+                return this.docCreator.addNewSectionWithTitle(converter.convert(this.$currElem, this.$, this).title);
+            case "DisclaimerConverter": 
+                return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this).link);
+            case "ReferencesConverter": 
+                return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this).links);
+            case "FAQConverter": {
+                const convertedFAQ = converter.convert(this.$currElem, this.$, this);
+                if (this.docCreator.lastSection() && this.docCreator.lastSection().elements.length > 0) {
+                    this.docCreator.addNewSectionWithTitle(convertedFAQ.title);
+                }
+                return this.docCreator.addElement(convertedFAQ);
+            }
+            default: 
+                return this.docCreator.addElement(converter.convert(this.$currElem, this.$, this));
         }
     }
 

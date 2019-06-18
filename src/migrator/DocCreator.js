@@ -31,6 +31,10 @@ class DocCreator {
         }
         this.doc.disclaimer = disclaimer;
     }
+
+    lastSection() {
+        return this.doc.sections.slice(-1).pop();
+    }
 }
 
 module.exports = DocCreator;

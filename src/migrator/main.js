@@ -27,7 +27,7 @@ const convert = (xmlRow) => {
         if (winston.level == "info") {
             winston.info(chalk.green(`Successfully converted namespace '${xmlRow.namespace}' with ID ${xmlRow.id}`));
         }
-        //winston.debug(JSON.stringify(convertedPrimaryDoc, null, 4));
+        winston.debug(JSON.stringify(convertedPrimaryDoc, null, 4));
         //winston.debug(JSON.stringify(convertedSecondaryDoc, null, 4));
         
         successCount++;
@@ -69,6 +69,8 @@ function mainSingle() {
     // db.query(4858).then(convert).catch((err) => console.error(err));
     // db.query(9427).then(convert).catch((err) => console.error(err));
     db.query(4).then(convert).catch((err) => console.error(err));
+    db.query(5).then(convert).catch((err) => console.error(err));
+    db.query(7).then(convert).catch((err) => console.error(err));
     db.releaseConnection();
 }
 
@@ -80,7 +82,7 @@ function mainAll() {
     db.releaseConnection();
 }
 
-mainSingle();
-// mainAll();
+// mainSingle();
+mainAll();
 
 module.exports = convert;

@@ -45,8 +45,14 @@ const removeStyleAndScriptNodes = ($) => {
 };
 
 const removeUnncessaryRootElement = ($) => {
-    if ($("body").children().length == 1 && $("body > div").hasClass("article-txt")) {
+    if ($("body").children().length != 1 || $("body > div").length != 1) {
+        return;
+    }
+
+    const hasUnncessaryRootDiv = ["primary-txt", "article-txt", "product-content", "bank-prod-page"].reduce((aggr, cn) => aggr || $("body > div").hasClass(cn), false);
+    if (hasUnncessaryRootDiv) {
         $("body").html($("body > div").html());
+        removeUnncessaryRootElement($);
     }
 };
 

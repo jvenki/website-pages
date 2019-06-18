@@ -1,70 +1,56 @@
 const MigrationError = require("./MigrationError");
 
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
-const containsOnlyGridClasses = ($element) => {
-    const classNames = removePaddingClass($element.attr("class"));
-    if (["row"].includes(classNames)) {
-        return true;
-    } else if (classNames.match(/col-md-\d+/)) {
-        return true;
-    }
-    return false;
-};
-
-const containsOnlyPaddingClasses = ($element) => {
-    return removePaddingClass($element.attr("class")) == "";
-};
-
-const removePaddingClass = (classNames) => {
-    return classNames
-        .replace(/btm-pad-\d+/, "").replace(/btm-pad/, "")
-        .replace(/top-pad-\d+/, "").replace(/top-pad/, "")
-        .replace(/pull-left/, "")
-        .replace(/pull-right/, "")
-        .trim();
-};
+const headingDomElemTypes = ["h2", "h3", "h4", "h5"];
 
 class Converter {
     static for($e) {
         const e = $e.get(0);
         if (e.tagName == "p" && $e.text() == "*Disclaimer") {
             return new DisclaimerConverter();
-        } else if ([...textSupportedDomElemTypes, "h3", "h4", "h5"].includes(e.tagName)) {
+        } else if (headingDomElemTypes.includes(e.tagName) && ($e.text().includes("Frequently Asked Questions") || $e.text().includes("FAQ"))) {
+            return new FAQConverter();
+        } else if ($e.hasClass("product_interlink") || (headingDomElemTypes.includes(e.tagName) && $e.text().match(/other.*product.*|related.*product.*/i))) {
+            //TODO: Check the way it has been done for ID#4. We need to check for H2 Title also
+            return new ReferencesConverter();
+        } else if (e.tagName == "h2") {
+            return new SectionConverter();
+        } else if ([...textSupportedDomElemTypes, ...headingDomElemTypes].includes(e.tagName)) {
             return new TextConverter();
         } else if ($e.hasClass("twi-accordion")) {
             return new AccordionConverter();
         } else if ($e.hasClass("jumbotron")) {
             return new JumbotronConverter();
-        } else if ($e.hasClass("border-blue")) {
-            return new FeaturedOffersConverter();
+        } else if (e.tagName == "blockquote") {
+            return new BlockQuoteConverter();
+        } else if ($e.hasClass("lp-banner")) {
+            return new HighlightConverter();
+        } else if ($e.hasClass("news-widget")) {
+            return new FeaturedNewsConverter();
         } else if ($e.hasClass("lp-widget")) {
             return new WidgetConverter();
+        } else if ($e.hasClass("border-blue")) {
+            return new FeaturedOffersConverter();
         } else if ($e.hasClass("bb-landing-banner")) {
             return new BannerConverter();
-        } else if (e.tagName == "div" && $e.attr("class") == "row") {
+        } else if (e.tagName == "div" && (containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e)) && $e.children().length == 1) {
+            return new UnwrapConverter(Converter.for($e.children().first()));
+        } else if (e.tagName == "div" && containsOnlyGridClasses($e)) {
             return new GridConverter();
-        } else if ($e.hasClass("product_interlink")) {
-            return new ReferencesConverter();
-        } else if ($e.get(0).tagName == "h2") {
-            return new SectionConverter();
         } else if ($e.get(0).tagName == "br" || $e.hasClass("product-landing-btn-block")) {
             return new NoopConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
         } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("table")) {
             return new TabularDataConverter();
-        } else if ($e.hasClass("lp-banner")) {
-            return new HighlightConverter();
-        } else if ($e.hasClass("news-widget")) {
-            return new FeaturedNewsConverter();
+        } else if ($e.hasClass("btn-primary")) {
+            return new CTAConverter();
         } else if ($e.hasClass("tax-img-responsive") || $e.hasClass("pull-right")) {
             //TODO: Is it right to assume all pull-rights to be images
             return new ImageConverter();
         } else if ($e.get(0).tagName == "div") {
             // We should NOT blindly support DIVs
-            if (containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e)) {
-                return new UnwrapConverter(Converter.for($e.children().first()));
-            } else if ($e.hasClass("bb-products-invest")) {
+            if ($e.hasClass("bb-products-invest")) {
                 // LPD#859 uses this to showcase different types of CC. 
                 return new NoopConverter();
             }
@@ -96,7 +82,7 @@ class TextConverter extends Converter {
         let title = "";
         let body = "";
         const elemType = $element.get(0).tagName;
-        if (["h3", "h4", "h5"].includes(elemType)) {
+        if (headingDomElemTypes.includes(elemType)) {
             title = $element.text();
         } else if (textSupportedDomElemTypes.includes(elemType)) {
             body += outerHtml($element);
@@ -137,6 +123,14 @@ class JumbotronConverter extends Converter {
     }
 }
 
+class BlockQuoteConverter extends Converter {
+    _doConvert($element, $, walker) {
+        const title = $element.children().first().text();
+        const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
+        return {type: "blockquote", title, body};
+    }
+}
+
 class FeaturedOffersConverter extends Converter {
     _doConvert($element, $, walker) {
         const extract = ($offerElement) => {
@@ -170,6 +164,12 @@ class FeaturedOffersConverter extends Converter {
     }
 }
 
+class CTAConverter extends Converter {
+    _doConvert($element, $, walker) {
+        return {type: "cta", title: $element.text(), link: $element.attr("href")};
+    }
+}
+
 class GridConverter extends Converter {
     _doConvert($element, $, walker) {
         return {type: "grid", body: outerHtml($element)};
@@ -179,7 +179,13 @@ class GridConverter extends Converter {
 class ReferencesConverter extends Converter {
     _doConvert($element, $, walker) {
         const links = [];
-        $element.find("a").each((i, a) => {
+        let $currElem = $element;
+        if (headingDomElemTypes.includes($element.get(0).tagName)) {
+            $currElem = walker.peekNextElement();
+            walker.moveToNextElement();
+        }
+
+        $currElem.find("a").each((i, a) => {
             links.push({title: $(a).text(), link: $(a).attr("href")});
         });
         return {type: "references", links};
@@ -201,11 +207,11 @@ class VideoConverter extends Converter {
     _doValidate($element, $, walker) {
         assert($element.children().length == 1, "VideoConversion-ConditionNotMet#1", $element);
         assert($element.find("iframe").length == 1, "VideoConversion-ConditionNotMet#2", $element);
-        assert(Boolean($element.find("iframe").attr("data-src")), "VideoConversion-ConditionNotMet#3", $element);
+        assert(Boolean($element.find("iframe").attr("data-src") || $element.find("iframe").attr("src")), "VideoConversion-ConditionNotMet#3", $element);
     }
 
     _doConvert($element, $, walker) {
-        return {type: "video", link: $element.find("iframe").attr("data-src")};
+        return {type: "video", link: $element.find("iframe").attr("data-src") || $element.find("iframe").attr("src")};
     }
 }
 
@@ -266,7 +272,7 @@ class ImageConverter extends Converter {
 
 class TabularDataConverter extends Converter {
     _doConvert($element, $, walker) {
-        let header = [];
+        let header;
         const body = [];
         if ($element.hasClass("tabular-data")) {
             $element.find(".tabular-data").each((i, row) => {
@@ -286,12 +292,18 @@ class TabularDataConverter extends Converter {
             let tbodyStartingIndex = 0;
             let $headerRow;
             if ($element.find("thead").length == 0) {
-                tbodyStartingIndex = 1;
-                $headerRow = $element.find("tbody tr");
+                $headerRow = $element.find("tbody tr").first();
+                if ($headerRow.find("td").length == 2) {
+                    $headerRow = undefined;
+                } else {
+                    tbodyStartingIndex = 1;
+                }
             } else {
                 $headerRow = $element.find("thead tr");
             }
-            header = ($headerRow.find("th").length > 0 ? $headerRow.find("th") : $headerRow.find("td")).map((i, h) => $(h).text()).get();
+            if ($headerRow) {
+                header = ($headerRow.find("th").length > 0 ? $headerRow.find("th") : $headerRow.find("td")).map((i, h) => $(h).text()).get();
+            }
             $element.find("tr").each((i, row) => {
                 if (i < tbodyStartingIndex) {
                     return true;
@@ -346,12 +358,81 @@ class FeaturedNewsConverter extends Converter {
     }
 }
 
+class FAQConverter extends Converter {
+    _doConvert($element, $, walker) {
+        const title = $element.text();
+        const items = [];
+        const extractSingleQuestion = ($e) => {
+            const qns = $e.find("summary").text();
+            const ans = $e.find("summary").nextAll().map((i, a) => outerHtml($(a))).get().join("");
+            return {question: qns, answer: ans};
+        };
+
+        const extractQuestionsWithinContainer = ($e) => {
+            $e.find("details").each((i, d) => {items.push(extractSingleQuestion($(d)));});
+        };
+
+        const extractQuestionsAtRootLevel = ($e) => {
+            while (true) {
+                const $nextElement = walker.peekNextElement();
+                if ($nextElement.get(0).tagName != "details") {
+                    break;
+                }
+                walker.moveToNextElement();
+                items.push(extractSingleQuestion($nextElement));
+            }
+        };
+
+        if ($element.next().get(0).tagName == "div" && containsOnlyPaddingClasses($element.next())) {
+            walker.moveToNextElement();
+            extractQuestionsWithinContainer($element.next());
+        } else if ($element.next().get(0).tagName == "details") {
+            extractQuestionsAtRootLevel($element);
+        } else {
+            assert(false, "FAQConverter-ConditionNotMet#1", $element.next());
+        }
+        return {type: "faq", title, items};
+    }
+}
+
+const containsOnlyGridClasses = ($element) => {
+    const classNames = removePositioningClass(removePaddingClass($element.attr("class")));
+    if (["row"].includes(classNames)) {
+        return true;
+    } else if (classNames.match(/^((?:col-xs-\d+\s*|col-sm-\d+\s*|col-md-\d+\s*)+)$/)) {
+        // Refer https://www.regular-expressions.info/captureall.html on why we need ?: before
+        return true;
+    }
+    return false;
+};
+
+const containsOnlyPaddingClasses = ($element) => {
+    return removePaddingClass($element.attr("class")) == "";
+};
+
+const removePaddingClass = (classNames) => {
+    return classNames
+        .replace(/lt-pad-\d+/, "").replace(/lt-pad/, "")
+        .replace(/rt-pad-\d+/, "").replace(/rt-pad/, "")
+        .replace(/btm-pad-\d+/, "").replace(/btm-pad/, "")
+        .replace(/top-pad-\d+/, "").replace(/top-pad/, "")
+        .replace(/pull-left/, "")
+        .replace(/pull-right/, "")
+        .trim();
+};
+
+const removePositioningClass = (classNames) => {
+    return classNames
+        .replace(/text-center/g, "")
+        .trim();
+};
+
 const computeColumnCount = ($e) => undefined;
 const outerHtml = ($e) => `<${$e.get(0).tagName}>${$e.html()}</${$e.get(0).tagName}>`;
 const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 const assert = (condition, errorMsg, $element) => {
     if (!condition) {
-        throw new MigrationError(MigrationError.Code.UNKNOWN_TAG, errorMsg, $element.html());
+        throw new MigrationError(MigrationError.Code.UNKNOWN_TAG, errorMsg, outerHtml($element));
     }
 };
 
