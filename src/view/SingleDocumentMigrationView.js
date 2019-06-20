@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import toHTMLText from "html-react-parser";
 import pretty from "pretty";
-import { Grid, Segment, Header, Tab } from "semantic-ui-react";
+import { Grid, Segment, Header, Tab, Form, Button, Message, Accordion } from "semantic-ui-react";
 import Page from "./page/Page";
 
 export default class SingleDocumentMigrationView extends React.Component {
@@ -13,16 +13,18 @@ export default class SingleDocumentMigrationView extends React.Component {
     constructor(args) {
         super(args);
         this.state = {
-            activeIndex: -1,
-            original: {
+            conversionError: -1,
+            doc: {
+                id: undefined,
+                namespace: undefined,
                 title: "",
-                primaryContent: "",
-                secondaryContent: ""
-            },
-            converted: {
-                title: "",
-                primaryContent: {},
-                secondaryContent: {}
+                oldPrimaryContent: "",
+                oldSecondaryContent: "",
+                newPrimaryContent: {},
+                conversionStatus: undefined,
+                conversionErrorCode: undefined,
+                conversionErrorMessage: undefined,
+                conversionErrorPayload: undefined
             }
         };
     }
@@ -31,24 +33,47 @@ export default class SingleDocumentMigrationView extends React.Component {
         const segments = [
             {
                 title: "Primary Content Rendering",
-                left: <div className="primary-txt article-txt">{toHTMLText(this.state.original.primaryContent)}</div>,
-                right: <div className="primary-txt article-txt"><Page doc={this.state.converted.primaryContent}/></div>
+                left: <div className="primary-txt article-txt">{toHTMLText(this.state.doc.oldPrimaryContent || "")}</div>,
+                right: <div className="primary-txt article-txt"><Page doc={this.state.doc.newPrimaryContent || {}}/></div>
             },
             {
                 title: "Primary Content Source",
-                left: <pre><code>{pretty(this.state.original.primaryContent, {ocd: true})}</code></pre>,
-                right: <pre><code>{JSON.stringify(this.state.converted.primaryContent, null, 4)}</code></pre>
+                left: <pre><code>{pretty(this.state.doc.oldPrimaryContent || "", {ocd: true})}</code></pre>,
+                right: <pre><code>{JSON.stringify(this.state.doc.newPrimaryContent || {}, null, 4)}</code></pre>
             }
         ];
 
-        return renderAsTabs(segments, this);
+        return (
+            <Form style={{padding: 20}} error={this.state.doc.conversionStatus != "SUCCESS" ? true : false}>
+                <Form.Group widths='equal'>
+                    <Form.Input label="Landing Page ID" defaultValue={this.state.doc.id} width={3}/>
+                    <Form.Input label="Namespace" control="input" defaultValue={this.state.doc.namespace} width={5}/>
+                    <Form.Input label="Title" control="input" defaultValue={this.state.doc.title} width={8}/>
+                </Form.Group>
+                {this.state.doc.conversionErrorMessage &&
+                    <Message error header={`Conversion Error: ${this.state.doc.conversionErrorCode}`} content={this.state.doc.conversionErrorMessage}/>
+                }
+                <Form.Field>
+                    {renderAsTabs(segments, this)}
+                </Form.Field>
+                <Form.Field>
+                    <Button.Group>
+                        <Button type="submit" color="green">Picture Perfect</Button>
+                        <Button.Or/>
+                        <Button type="submit" color="orange">Acceptable</Button>
+                        <Button.Or/>
+                        <Button type="submit" color="red">Not Acceptable</Button>
+                    </Button.Group>
+                </Form.Field>
+            </Form>
+        );
     }
 
     componentDidMount() {
-        fetch("/lpd/859", {headers: {"Content-Type": "application/json"}})
+        fetch("/api/lpd/" + this.props.lpdId, {headers: {"Content-Type": "application/json"}})
             .then((response) => response.json())
             .then((response) => {
-                this.setState(response);
+                this.setState({doc: response});
             });
     }
 

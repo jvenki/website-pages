@@ -7,6 +7,9 @@ import FeaturedOffers from "./elements/FeaturedOffers";
 import Video from "./elements/Video";
 import Panel from "./elements/Panel";
 import Accordion from "./elements/Accordion";
+import TabularData from "./elements/TabularData";
+import BlockQuote from "./elements/Blockquote";
+import FAQ from "./elements/FAQ";
 
 export default class Section extends React.Component {
     static propTypes = {
@@ -35,6 +38,9 @@ const createViewForElement = (element) => {
         case "video": ViewKlass = Video; break;
         case "panel": ViewKlass = Panel; break;
         case "accordion": ViewKlass = Accordion; break;
+        case "table": ViewKlass = TabularData; break;
+        case "blockquote": ViewKlass = BlockQuote; break;
+        case "faq": ViewKlass = FAQ; break;
     }
 
     if (!ViewKlass) {

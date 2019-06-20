@@ -6,7 +6,7 @@ import SingleDocumentMigrationView from "./view/SingleDocumentMigrationView";
 
 export const launchView = () => {
     ReactDOM.render(
-        <SingleDocumentMigrationView/>,
+        <SingleDocumentMigrationView lpdId={4}/>,
         document.getElementById("root")
     );
 };

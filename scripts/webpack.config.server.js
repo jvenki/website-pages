@@ -8,8 +8,7 @@ const projectDir = Path.resolve(__dirname, "../");
 const buildDir = Path.resolve(projectDir, "build");
 const appDir = Path.resolve(projectDir, "src");
 
-const Database = require(`${appDir}/migrator/Database`);
-const convert = require(`${appDir}/migrator/main`);
+const MongoClient = require(`${appDir}/migrator/MongoClient`);
 
 const devServerConfig = {
     host: "0.0.0.0",
@@ -19,10 +18,10 @@ const devServerConfig = {
     contentBase: "public",
     stats: {colors: true},
     setup(app) {
-        const database = new Database();
-        database.connect();
-        app.get("/lpd/:id", (req, res) => {
-            convert(req.params.id, database).then((output) => res.send(output));
+        const mongoClient = new MongoClient();
+        mongoClient.connect();
+        app.get("/api/lpd/:id", (req, res) => {
+            mongoClient.get(req.params.id).then((output) => {res.send(output)});
         });
     },
     proxy: {

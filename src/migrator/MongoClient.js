@@ -19,6 +19,10 @@ class Client {
         this.collection.insertOne(doc);
     }
 
+    get(id) {
+        return this.collection.findOne({id: parseInt(id)});
+    }
+
     purge() {
         return this.collection.deleteMany({});
     }
