@@ -10,6 +10,8 @@ import Accordion from "./elements/Accordion";
 import TabularData from "./elements/TabularData";
 import BlockQuote from "./elements/Blockquote";
 import FAQ from "./elements/FAQ";
+import CTA from "./elements/CTA";
+import Grid from "./elements/Grid";
 
 export default class Section extends React.Component {
     static propTypes = {
@@ -41,6 +43,8 @@ const createViewForElement = (element) => {
         case "table": ViewKlass = TabularData; break;
         case "blockquote": ViewKlass = BlockQuote; break;
         case "faq": ViewKlass = FAQ; break;
+        case "cta": ViewKlass = CTA; break;
+        case "grid": ViewKlass = Grid; break;
     }
 
     if (!ViewKlass) {

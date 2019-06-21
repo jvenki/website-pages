@@ -178,7 +178,7 @@ class GridConverter extends Converter {
 
 class ReferencesConverter extends Converter {
     _doConvert($element, $, walker) {
-        const links = [];
+        const items = [];
         let $currElem = $element;
         if (headingDomElemTypes.includes($element.get(0).tagName)) {
             $currElem = walker.peekNextElement();
@@ -186,9 +186,9 @@ class ReferencesConverter extends Converter {
         }
 
         $currElem.find("a").each((i, a) => {
-            links.push({title: $(a).text(), link: $(a).attr("href")});
+            items.push({title: $(a).text(), link: $(a).attr("href")});
         });
-        return {type: "references", links};
+        return {type: "references", items};
     }
 }
 

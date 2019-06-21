@@ -5,13 +5,12 @@ import toHTML from "html-react-parser";
 export default class FAQ extends React.Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
-        items: PropTypes.string
+        items: PropTypes.arrayOf(PropTypes.shape({question: PropTypes.string, answer: PropTypes.string}))
     }
 
     render() {
         return (
             <React.Fragment>
-                <h3>{this.props.title}</h3>
                 {this.props.items.map(this.renderSingleItem)}
             </React.Fragment>
         );

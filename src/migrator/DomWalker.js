@@ -49,7 +49,7 @@ class DomWalker {
             case "DisclaimerConverter": 
                 return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this).link);
             case "ReferencesConverter": 
-                return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this).links);
+                return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
             case "FAQConverter": {
                 const convertedFAQ = converter.convert(this.$currElem, this.$, this);
                 if (this.docCreator.lastSection() && this.docCreator.lastSection().elements.length > 0) {

@@ -10,10 +10,12 @@ export default class TabularData extends React.Component {
 
     render() {
         return (
-            <table className="table table-bordered table-striped">
-                {this.renderTableHeader()}
-                {this.renderTableBody()}
-            </table>
+            <div className="hungry-table nb-table">
+                <table className="table table-bordered table-striped">
+                    {this.renderTableHeader()}
+                    {this.renderTableBody()}
+                </table>
+            </div>
         );
     }
 

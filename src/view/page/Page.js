@@ -4,6 +4,7 @@ import toHTML from "html-react-parser";
 import snakeCase from "lodash/snakeCase";
 
 import Section from "./Section";
+import References from "./elements/References";
 
 export default class Page extends React.Component {
     static propTypes = {
@@ -19,6 +20,7 @@ export default class Page extends React.Component {
                     {(this.props.doc.sections || []).map((s, index) => <Section key={index} {...s}/>)}
                 </div>
                 <div className="clearfix"></div>
+                {this.props.doc.references && <References references={this.props.doc.references}/>}
             </React.Fragment>
         );
     }
