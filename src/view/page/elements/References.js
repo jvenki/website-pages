@@ -12,7 +12,7 @@ export default class References extends React.Component {
             <div>
                 <h2>{this.props.title || "Related Articles"}</h2>
                 <ul>
-                    {this.props.references.map((item, index) => <li key={index}><a href={item.link}>{item.title}</a></li>)}
+                    {this.props.items.map((item, index) => <li key={index}><a href={item.link}>{item.title}</a></li>)}
                 </ul>
             </div>
         );

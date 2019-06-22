@@ -20,7 +20,7 @@ export default class Page extends React.Component {
                     {(this.props.doc.sections || []).map((s, index) => <Section key={index} {...s}/>)}
                 </div>
                 <div className="clearfix"></div>
-                {this.props.doc.references && <References references={this.props.doc.references}/>}
+                {this.props.doc.references && <References {...this.props.doc.references}/>}
             </React.Fragment>
         );
     }

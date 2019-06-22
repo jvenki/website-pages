@@ -23,6 +23,9 @@ const devServerConfig = {
         app.get("/api/lpd/:id", (req, res) => {
             mongoClient.get(req.params.id).then((output) => {res.send(output)});
         });
+        app.get("/api/lpd", (req, res) => {
+            mongoClient.getAll(parseInt(req.query.startingOffset)).then((output) => {res.send(output)});
+        });
     },
     proxy: {
         "/images": {

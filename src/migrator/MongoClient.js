@@ -23,6 +23,13 @@ class Client {
         return this.collection.findOne({id: parseInt(id)});
     }
 
+    getAll(startingOffset) {
+        return new Promise((resolve, reject) => {
+            const rows = this.collection.find({}).sort({id: 1}).skip(startingOffset || 0).limit(50).toArray();
+            resolve(rows);
+        });
+    }
+
     purge() {
         return this.collection.deleteMany({});
     }
