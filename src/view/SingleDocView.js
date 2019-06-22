@@ -38,8 +38,8 @@ export default class SingleDocView extends React.Component {
         const segments = [
             {
                 title: "Primary Content Rendering",
-                left: <div className="primary-txt article-txt">{toHTMLText(this.state.data.doc.oldPrimaryContent || "")}</div>,
-                right: <div className="primary-txt article-txt"><Page doc={this.state.data.doc.newPrimaryContent || {}}/></div>
+                left: <div className="wc-preview"><div className="primary-txt article-txt">{toHTMLText(this.state.data.doc.oldPrimaryContent || "")}</div></div>,
+                right: <div className="wc-preview"><div className="primary-txt article-txt"><Page doc={this.state.data.doc.newPrimaryContent || {}}/></div></div>
             },
             {
                 title: "Primary Content Source",
