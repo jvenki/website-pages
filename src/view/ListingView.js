@@ -31,17 +31,18 @@ export default class ListingView extends React.Component {
 
     renderDocumentsListing() {
         const paginator = <Pagination onPageChange={this.changeActivePage} defaultActivePage={1} totalPages={200} firstItem={null} lastItem={null} boundary={1} siblingRange={3}/>;
-        const headerRow = ["ID", "Namespace", "Title", "Conversion Status", "Conversion Error Code", "Actions"];
+        const headerRow = ["ID", "Namespace", "Title", "Conversion Status", "Conversion Error Code", "Validation Status", "Actions"];
         const footerRow = [{colSpan: 6, as: "th", textAlign: "right", content: paginator}];
-        const renderBodyRow = ({id, namespace, doc, conversionStatus, conversionErrorCode, conversionErrorMessage}) => ({
+        const renderBodyRow = ({id, namespace, doc, conversionStatus, conversionErrorCode, conversionErrorMessage, validationStatus}) => ({
             key: `row-${id}`,
             warning: conversionStatus != "SUCCESS",
             cells: [
                 id,
                 namespace,
-                doc.title || "--TITLE-COULD-NOT-BE-EXTRACTED--",
+                (doc || {}).title || "--TITLE-COULD-NOT-BE-EXTRACTED--",
                 conversionStatus,
                 conversionErrorCode || "--NA--",
+                validationStatus || "--NOT-VALIDATED--",
                 <Table.Cell key="verifyButton"><Button primary size="tiny" key="" onClick={() => this.setState({docId: id})}>Verify</Button></Table.Cell>
             ]
         });
@@ -64,7 +65,7 @@ export default class ListingView extends React.Component {
 
     handleValidationResult = (status, comments) => {
         fetch(
-            `/api/lpd/${this.state.lpdId}/validate`, 
+            `/api/lpd/${this.state.docId}/validate`, 
             {
                 method: "POST", 
                 cache: "no-cache",
@@ -73,7 +74,10 @@ export default class ListingView extends React.Component {
                 },
                 body: JSON.stringify({status, comments})
             }
-        );
+        ).then((response) => {
+            this.setState({docId: undefined});
+        });
+
     }
 
 }

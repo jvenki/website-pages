@@ -3,6 +3,7 @@ const Path = require("path");
 const Webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const bodyParser = require('body-parser')
 
 const projectDir = Path.resolve(__dirname, "../");
 const buildDir = Path.resolve(projectDir, "build");
@@ -20,11 +21,15 @@ const devServerConfig = {
     setup(app) {
         const mongoClient = new MongoClient();
         mongoClient.connect();
+        app.get("/api/lpd", (req, res) => {
+            mongoClient.getAll(parseInt(req.query.startingOffset)).then((output) => {res.send(output)});
+        });
         app.get("/api/lpd/:id", (req, res) => {
             mongoClient.get(req.params.id).then((output) => {res.send(output)});
         });
-        app.get("/api/lpd", (req, res) => {
-            mongoClient.getAll(parseInt(req.query.startingOffset)).then((output) => {res.send(output)});
+        app.post("/api/lpd/:id/validate", bodyParser.json(), (req, res) => {
+            console.warn(req.body);
+            mongoClient.saveValidationResult(req.params.id, req.body).then((output) => {res.send(output)});
         });
     },
     proxy: {

@@ -5,7 +5,7 @@ import toHTML from "html-react-parser";
 export default class TabularData extends React.Component {
     static propTypes = {
         header: PropTypes.arrayOf(PropTypes.string),
-        body: PropTypes.arrayOf(PropTypes.object)
+        body: PropTypes.arrayOf(PropTypes.array)
     }
 
     render() {

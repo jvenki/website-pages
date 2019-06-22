@@ -30,6 +30,10 @@ class Client {
         });
     }
 
+    saveValidationResult(id, status, comments) {
+        return this.collection.findOneAndUpdate({id}, {$set: {validationStatus: status, validationComments: comments}});
+    }
+
     purge() {
         return this.collection.deleteMany({});
     }

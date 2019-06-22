@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default class References extends React.Component {
     static propTypes = {
-        title: PropTypes.string.isRequired,
+        title: PropTypes.string,
         items: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string, link: PropTypes.string}))
     }
 

@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import toHTMLText from "html-react-parser";
 import pretty from "pretty";
-import { Grid, Segment, Icon, Header, Tab, Label, Button, Message, Menu, Modal } from "semantic-ui-react";
+import { Grid, Segment, Icon, Header, Tab, Label, Button, Message, Menu, Modal, TextArea, Form } from "semantic-ui-react";
 import Page from "./page/Page";
 
 export default class SingleDocView extends React.Component {
     static propTypes = {
         lpdId: PropTypes.number.isRequired,
-        onClose: PropTypes.func.isRequired,
-        onValidationCompletion: PropTypes.func.isRequired
+        onClose: PropTypes.func,
+        onValidationCompletion: PropTypes.func
     }
 
     constructor(args) {
@@ -29,7 +29,8 @@ export default class SingleDocView extends React.Component {
                 conversionStatus: undefined,
                 conversionErrorCode: undefined,
                 conversionErrorMessage: undefined,
-                conversionErrorPayload: undefined
+                conversionErrorPayload: undefined,
+                validationComments: ""
             }
         };
     }
@@ -52,21 +53,15 @@ export default class SingleDocView extends React.Component {
             <Button.Group size="mini">
                 <Button color="green" onClick={() => this.props.onValidationCompletion("PERFECT")}>Picture Perfect</Button>
                 <Button.Or/>
-                <Modal trigger={<Button color="orange">Acceptable</Button>}>
-                    <Modal.Header>JUST Acceptable!!! What could be better?</Modal.Header>
-                    <Modal.Content>
-                        <Modal.Description>
-                        </Modal.Description>
-                    </Modal.Content>
-                </Modal>
+                <Modal trigger={<Button color="orange">Acceptable</Button>}
+                    header='JUST Acceptable!!! What could be better?'
+                    content={createCommentsForm(this)}
+                    actions={["Close", { key: "done", content: "Done", positive: true, onClick: this.handleAcceptableConfirmation}]}/>
                 <Button.Or/>
-                <Modal trigger={<Button color="red">Not Acceptable</Button>}>
-                    <Modal.Header>NOT Acceptable? What could be better?</Modal.Header>
-                    <Modal.Content>
-                        <Modal.Description>
-                        </Modal.Description>
-                    </Modal.Content>
-                </Modal>
+                <Modal trigger={<Button color="red">Not Acceptable</Button>}
+                    header='NOT Acceptable!!! Sorry. What is wrong?'
+                    content={createCommentsForm(this)}
+                    actions={["Close", { key: "done", content: "Done", positive: true, onClick: this.handleNotAcceptableConfirmation}]}/>
                 <Button.Or/>
                 <Button onClick={this.props.onClose}>Go Back</Button>
             </Button.Group>
@@ -110,6 +105,22 @@ export default class SingleDocView extends React.Component {
                 this.setState({data: response});
             });
     }
+
+    handleAcceptableConfirmation = (e, data) => {
+        if (!this.props.onValidationCompletion) {
+            return;
+        }
+
+        this.props.onValidationCompletion("ACCEPTABLE", this.state.validationComments);
+    }
+
+    handleNotAcceptableConfirmation = (e, data) => {
+        if (!this.props.onValidationCompletion) {
+            return;
+        }
+
+        this.props.onValidationCompletion("NOT_ACCEPTABLE", this.state.validationComments);
+    }
 }
 
 const renderAsTabs = (segments, actions, self) => {
@@ -119,7 +130,7 @@ const renderAsTabs = (segments, actions, self) => {
     ));
     panes.push({
         menuItem: (
-            <Menu.Item key='actions' disabled fluid>
+            <Menu.Item key='actions' disabled>
                 <Label pointing="right" color="teal">Actions:</Label>
                 {actions}
             </Menu.Item>
@@ -142,3 +153,14 @@ const createDiffingGrid = (left, right, color="red") => {
         </Grid>        
     );
 };
+
+const createCommentsForm = (view) => {
+    return (
+        <Form style={{padding: 10}}>
+            <Form.Field>
+                <label>Comments:</label>
+                <Form.TextArea name="comments" placeholder="Give your comments" onChange={(e, {name, value}) => view.setState({validationComments: value})}/>
+            </Form.Field>
+        </Form>
+    );
+}
