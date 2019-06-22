@@ -3,7 +3,7 @@ const MigrationError = require("./MigrationError");
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
 const headingDomElemTypes = ["h2", "h3", "h4", "h5"];
 
-class Converter {
+class TagConverter {
     static for($e) {
         const e = $e.get(0);
         if (e.tagName == "p" && $e.text() == "*Disclaimer") {
@@ -34,7 +34,7 @@ class Converter {
         } else if ($e.hasClass("bb-landing-banner")) {
             return new BannerConverter();
         } else if (e.tagName == "div" && (containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e)) && $e.children().length == 1) {
-            return new UnwrapConverter(Converter.for($e.children().first()));
+            return new UnwrapConverter(TagConverter.for($e.children().first()));
         } else if (e.tagName == "div" && containsOnlyGridClasses($e)) {
             return new GridConverter();
         } else if ($e.get(0).tagName == "br" || $e.hasClass("product-landing-btn-block")) {
@@ -71,13 +71,13 @@ class Converter {
     }
 }
 
-class SectionConverter extends Converter {
+class SectionConverter extends TagConverter {
     _doConvert($element, $, walker) {
         return {type: "section", title: $element.text()};
     }
 }
 
-class TextConverter extends Converter {
+class TextConverter extends TagConverter {
     _doConvert($element, $, walker) {
         let title = "";
         let body = "";
@@ -103,7 +103,7 @@ class TextConverter extends Converter {
     }
 }
 
-class AccordionConverter extends Converter {
+class AccordionConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const items = [];
         $element.find(".panel").each(function(i, panel) {
@@ -115,7 +115,7 @@ class AccordionConverter extends Converter {
     }
 }
 
-class JumbotronConverter extends Converter {
+class JumbotronConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
         const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
@@ -123,7 +123,7 @@ class JumbotronConverter extends Converter {
     }
 }
 
-class BlockQuoteConverter extends Converter {
+class BlockQuoteConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
         const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
@@ -131,7 +131,7 @@ class BlockQuoteConverter extends Converter {
     }
 }
 
-class FeaturedOffersConverter extends Converter {
+class FeaturedOffersConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const extract = ($offerElement) => {
             const $titleBox = $offerElement.children().eq(0);
@@ -164,19 +164,19 @@ class FeaturedOffersConverter extends Converter {
     }
 }
 
-class CTAConverter extends Converter {
+class CTAConverter extends TagConverter {
     _doConvert($element, $, walker) {
         return {type: "cta", title: $element.text(), link: $element.attr("href")};
     }
 }
 
-class GridConverter extends Converter {
+class GridConverter extends TagConverter {
     _doConvert($element, $, walker) {
         return {type: "grid", body: outerHtml($element)};
     }
 }
 
-class ReferencesConverter extends Converter {
+class ReferencesConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const items = [];
         let $currElem = $element;
@@ -192,7 +192,7 @@ class ReferencesConverter extends Converter {
     }
 }
 
-class DisclaimerConverter extends Converter {
+class DisclaimerConverter extends TagConverter {
     _doValidate($element, $, walker) {
         assert($element.find("a").length == 1, "DisclaimerConversion-ConditionNotMet#1", $element);
         assert($element.find("*").length == 1, "DisclaimerConversion-ConditionNotMet#2", $element);
@@ -203,7 +203,7 @@ class DisclaimerConverter extends Converter {
     }
 }
 
-class VideoConverter extends Converter {
+class VideoConverter extends TagConverter {
     _doValidate($element, $, walker) {
         assert($element.children().length == 1, "VideoConversion-ConditionNotMet#1", $element);
         assert($element.find("iframe").length == 1, "VideoConversion-ConditionNotMet#2", $element);
@@ -215,10 +215,10 @@ class VideoConverter extends Converter {
     }
 }
 
-class NoopConverter extends Converter {
+class NoopConverter extends TagConverter {
 }
 
-class UnwrapConverter extends Converter {
+class UnwrapConverter extends TagConverter {
     constructor(innerConverter) {
         super();
         this.innerConverter = innerConverter;
@@ -238,7 +238,7 @@ class UnwrapConverter extends Converter {
     }
 }
 
-class BannerConverter extends Converter {
+class BannerConverter extends TagConverter {
     _doValidate($element, $, walker) {
         assert($element.find("div.landing-banner-container").length == 1, "BannerConverter Condition Not Met #1");
         assert($element.find("div.landing-banner-container div.column-left img").length == 1, "BannerConverter Condition Not Met #2");
@@ -257,7 +257,7 @@ class BannerConverter extends Converter {
     }
 }
 
-class ImageConverter extends Converter {
+class ImageConverter extends TagConverter {
     _doConvert($element, $, walker) {
         //TODO: This still needs to be embedded within some TEXT element rather than as a separate element
         // Check https://stg1.bankbazaarinsurance.com/insurance/two-wheeler-insurance.html
@@ -270,7 +270,7 @@ class ImageConverter extends Converter {
     }
 }
 
-class TabularDataConverter extends Converter {
+class TabularDataConverter extends TagConverter {
     _doConvert($element, $, walker) {
         let header;
         const body = [];
@@ -316,7 +316,7 @@ class TabularDataConverter extends Converter {
     }
 }
 
-class WidgetConverter extends Converter {
+class WidgetConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const columnCount = computeColumnCount($element.find(".lp-widget-panel"));
         const items = $element.find(".lp-widget-details").map((i, panel) => {
@@ -330,7 +330,7 @@ class WidgetConverter extends Converter {
     }
 }
 
-class HighlightConverter extends Converter {
+class HighlightConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const link = $element.find("a").attr("href");
         const title = $element.find("strong").text();
@@ -340,7 +340,7 @@ class HighlightConverter extends Converter {
     }
 }
 
-class FeaturedNewsConverter extends Converter {
+class FeaturedNewsConverter extends TagConverter {
     _doValidate($element, $, walker) {
         assert($element.find(" > ul > li").length == 1, "FeaturedNewsConverter condition not met #1");
     }
@@ -358,7 +358,7 @@ class FeaturedNewsConverter extends Converter {
     }
 }
 
-class FAQConverter extends Converter {
+class FAQConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const title = $element.text();
         const items = [];
@@ -436,4 +436,4 @@ const assert = (condition, errorMsg, $element) => {
     }
 };
 
-module.exports = Converter;
+module.exports = TagConverter;
