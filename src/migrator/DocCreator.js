@@ -3,6 +3,7 @@ const MigrationError = require("./MigrationError");
 class DocCreator {
     constructor(args) {
         this.doc = {title: "", body: "", sections: []};
+        this.status = "SUCCESS";
     }
 
     addNewSectionWithTitle(title) {
@@ -10,6 +11,11 @@ class DocCreator {
     }
     
     addElement(element) {
+        if (!element) {
+            this.status = "WARNING";
+            return;
+        }
+        
         let lastSection = this.doc.sections.slice(-1).pop();
         if (!lastSection) {
             this.addNewSectionWithTitle("");

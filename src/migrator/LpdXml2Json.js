@@ -13,11 +13,13 @@ class LpdXml2Json {
         output.namespace = output.doc.namespace = xml.namespace;
         try {
             Object.assign(output.doc, extractKeyElementsOutOfXML(xml));
-            output.doc.newPrimaryContent = fromHTMLToJSON(output.doc.oldPrimaryContent);
+            const primaryContentConversionResult = fromHTMLToJSON(output.doc.oldPrimaryContent);
+            output.doc.newPrimaryContent = primaryContentConversionResult.doc;
+            output.conversionStatus = primaryContentConversionResult.status;
             //output.doc.newSecondaryContent = fromHTMLToJSON(output.doc.oldSecondaryContent);
-            output.conversionStatus = "SUCCESS";
         } catch (e) {
             output.conversionStatus = "ERROR";
+            output.conversionError = e;
             output.conversionErrorCode = e.code;
             output.conversionErrorMessage = e.toString();
             output.conversionErrorPayload = e.payload;

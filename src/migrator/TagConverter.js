@@ -10,7 +10,7 @@ class TagConverter {
             return new DisclaimerConverter();
         } else if (headingDomElemTypes.includes(e.tagName) && ($e.text().includes("Frequently Asked Questions") || $e.text().includes("FAQ"))) {
             return new FAQConverter();
-        } else if ($e.hasClass("product_interlink") || (headingDomElemTypes.includes(e.tagName) && $e.text().match(/other.*product.*|related.*product.*/i))) {
+        } else if ($e.hasClass("product_interlink") || ([...headingDomElemTypes, "strong"].includes(e.tagName) && $e.text().match(/other.*product.*|related.*product.*|other.*top.*credit.*/i))) {
             //TODO: Check the way it has been done for ID#4. We need to check for H2 Title also
             return new ReferencesConverter();
         } else if (e.tagName == "h2") {
@@ -43,7 +43,7 @@ class TagConverter {
             return new VideoConverter();
         } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("table")) {
             return new TabularDataConverter();
-        } else if ($e.hasClass("btn-primary")) {
+        } else if ($e.hasClass("btn-primary") || $e.hasClass("cta-section") || $e.hasClass("link-section")) {
             return new CTAConverter();
         } else if ($e.hasClass("tax-img-responsive") || $e.hasClass("pull-right")) {
             //TODO: Is it right to assume all pull-rights to be images
@@ -149,6 +149,9 @@ class FeaturedOffersConverter extends TagConverter {
 
         while (true) {
             const $nextElement = walker.peekNextElement();
+            if (!$nextElement) {
+                break;
+            }
             if ($nextElement.get(0).tagName == "br") {
                 walker.moveToNextElement();
                 continue;
@@ -166,7 +169,17 @@ class FeaturedOffersConverter extends TagConverter {
 
 class CTAConverter extends TagConverter {
     _doConvert($element, $, walker) {
-        return {type: "cta", title: $element.text(), link: $element.attr("href")};
+        let body;
+        if ($element.hasClass("link-section") || $element.has("cta-section")) {
+            // assert($element.find("a").length == 1, "CTAConverter-ConditionNotMet#1", $element);
+            if ($element.find("a").length == 0) {
+                return undefined;
+            }
+
+            body = $element.text().replace($element.find("a").text(), "").trim();
+            $element = $element.find("a").first();
+        }
+        return {type: "cta", title: $element.text(), link: $element.attr("href"), body};
     }
 }
 
@@ -179,8 +192,10 @@ class GridConverter extends TagConverter {
 class ReferencesConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const items = [];
+        let title = "";
         let $currElem = $element;
-        if (headingDomElemTypes.includes($element.get(0).tagName)) {
+        if ([...headingDomElemTypes, "strong"].includes($element.get(0).tagName)) {
+            title = $element.text();
             $currElem = walker.peekNextElement();
             walker.moveToNextElement();
         }
@@ -188,7 +203,7 @@ class ReferencesConverter extends TagConverter {
         $currElem.find("a").each((i, a) => {
             items.push({title: $(a).text(), link: $(a).attr("href")});
         });
-        return {type: "references", items};
+        return {type: "references", title, items};
     }
 }
 
@@ -216,6 +231,9 @@ class VideoConverter extends TagConverter {
 }
 
 class NoopConverter extends TagConverter {
+    _doConvert($element, $, walker) {
+        return undefined;
+    }
 }
 
 class UnwrapConverter extends TagConverter {
@@ -368,11 +386,21 @@ class FAQConverter extends TagConverter {
             return {question: qns, answer: ans};
         };
 
-        const extractQuestionsWithinContainer = ($e) => {
-            $e.find("details").each((i, d) => {items.push(extractSingleQuestion($(d)));});
-        };
+        const extractQuestionsGivenAsDetailsTagWithinContainer = ($e) => $e.find("details").each((i, d) => {items.push(extractSingleQuestion($(d)));});
+        const extractQuestionsGivenAsSectionTagWithinContainer = ($e) => $e.find("section").each((i, d) => {items.push({question: $(d).find("strong").text(), answer: $(d).find("div > div").html()});});
+        const extractQuestionsGivenAsOLTagWithinContainer = ($e) => $e.find(" > li").each((i, q) => {
+            const question = $(q).text();
+            // For some weird reason, nextUntil LI doesnt stop on the next LI
+            // const answer = $(q).nextUntil("li").map((j, a) => $(a).html()).get().join("");
+            const answer = [];
+            $(q).nextAll().each((i, a) => {
+                if (a.tagName == "li") return false; 
+                answer.push($(a).html());
+            });
+            items.push({question, answer: answer.join("")});
+        });
 
-        const extractQuestionsAtRootLevel = ($e) => {
+        const extractQuestionsGivenAsDetailsTagAtRootLevel = ($e) => {
             while (true) {
                 const $nextElement = walker.peekNextElement();
                 if ($nextElement.get(0).tagName != "details") {
@@ -383,11 +411,32 @@ class FAQConverter extends TagConverter {
             }
         };
 
+        const extractQuestionsGivenAsH3TagAtRootLevel = ($e) => {
+            while (true) {
+                const $questionElement = walker.peekNextElement();
+                const $answerElement = $questionElement.next().length > 0 ? $questionElement.next() : $questionElement;
+                if ($questionElement.get(0).tagName != "h3" && $answerElement.get(0).tagName != "p") {
+                    break;
+                }
+                walker.moveToNextElement();
+                const question = $questionElement.text().replace(/^Q: /, "");
+                walker.moveToNextElement();
+                const answer = $answerElement.text().replace(/^A: /, "");
+                items.push({question, answer});
+            }
+        };
+
         if ($element.next().get(0).tagName == "div" && containsOnlyPaddingClasses($element.next())) {
             walker.moveToNextElement();
-            extractQuestionsWithinContainer($element.next());
+            extractQuestionsGivenAsDetailsTagWithinContainer($element.next());
+            extractQuestionsGivenAsSectionTagWithinContainer($element.next());
+        } else if ($element.next().get(0).tagName == "ol" || $element.next().get(0).tagName == "ul") {
+            walker.moveToNextElement();
+            extractQuestionsGivenAsOLTagWithinContainer($element.next());
         } else if ($element.next().get(0).tagName == "details") {
-            extractQuestionsAtRootLevel($element);
+            extractQuestionsGivenAsDetailsTagAtRootLevel($element);
+        } else if ($element.next().get(0).tagName == "h3") {
+            extractQuestionsGivenAsH3TagAtRootLevel($element);
         } else {
             assert(false, "FAQConverter-ConditionNotMet#1", $element.next());
         }
@@ -411,7 +460,7 @@ const containsOnlyPaddingClasses = ($element) => {
 };
 
 const removePaddingClass = (classNames) => {
-    return classNames
+    return (classNames || "")
         .replace(/lt-pad-\d+/, "").replace(/lt-pad/, "")
         .replace(/rt-pad-\d+/, "").replace(/rt-pad/, "")
         .replace(/btm-pad-\d+/, "").replace(/btm-pad/, "")

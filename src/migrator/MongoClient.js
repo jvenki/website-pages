@@ -15,8 +15,8 @@ class Client {
             });
     }
 
-    insert(doc) {
-        this.collection.insertOne(doc);
+    save(doc) {
+        this.collection.update({id: doc.id}, doc, { upsert: true });
     }
 
     get(id) {

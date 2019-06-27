@@ -42,16 +42,22 @@ const removeEmptyNodesAndEmptyLines = ($) => {
 const removeStyleAndScriptNodes = ($) => {
     $("style").remove();
     $("script").remove();
+    $("*").removeClass("ir-section").removeClass("product-hl-table");
 };
 
 const removeUnncessaryRootElement = ($) => {
-    if ($("body").children().length != 1 || $("body > div").length != 1) {
-        return;
-    }
+    let recheck = false;
+    $("*").each((i, e) => {
+        const $e = $(e);
+        const hasUnncessaryRootDiv = ["primary-txt", "article-txt", "product-content", "bank-prod-page"].some((cn) => $e.hasClass(cn));
+        if (hasUnncessaryRootDiv) {
+            $($e.html()).insertAfter($e);
+            $e.remove();
+            recheck = true;
+        }
+    });
 
-    const hasUnncessaryRootDiv = ["primary-txt", "article-txt", "product-content", "bank-prod-page"].reduce((aggr, cn) => aggr || $("body > div").hasClass(cn), false);
-    if (hasUnncessaryRootDiv) {
-        $("body").html($("body > div").html());
+    if (recheck) {
         removeUnncessaryRootElement($);
     }
 };

@@ -32,7 +32,7 @@ class DomWalker {
             this.handleCurrentElement();
             this.moveToNextElement();
         }
-        return this.docCreator.doc;
+        return {doc: this.docCreator.doc, status: this.docCreator.status};
     }
 
     handleCurrentElement() {
@@ -41,24 +41,24 @@ class DomWalker {
 
         winston.verbose(`\t\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`);
 
+        const convertedElement = converter.convert(this.$currElem, this.$, this);
         switch (converter.getName()) {
             case "NoopConverter": 
                 return;
             case "SectionConverter": 
-                return this.docCreator.addNewSectionWithTitle(converter.convert(this.$currElem, this.$, this).title);
+                return this.docCreator.addNewSectionWithTitle(convertedElement.title);
             case "DisclaimerConverter": 
-                return this.docCreator.addDisclaimer(converter.convert(this.$currElem, this.$, this).link);
+                return this.docCreator.addDisclaimer(convertedElement.link);
             case "ReferencesConverter": 
-                return this.docCreator.addReferences(converter.convert(this.$currElem, this.$, this));
+                return this.docCreator.addReferences(convertedElement);
             case "FAQConverter": {
-                const convertedFAQ = converter.convert(this.$currElem, this.$, this);
                 if (this.docCreator.lastSection() && this.docCreator.lastSection().elements.length > 0) {
-                    this.docCreator.addNewSectionWithTitle(convertedFAQ.title);
+                    this.docCreator.addNewSectionWithTitle(convertedElement.title);
                 }
-                return this.docCreator.addElement(convertedFAQ);
+                return this.docCreator.addElement(convertedElement);
             }
             default: 
-                return this.docCreator.addElement(converter.convert(this.$currElem, this.$, this));
+                return this.docCreator.addElement(convertedElement);
         }
     }
 
