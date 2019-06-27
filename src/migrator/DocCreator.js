@@ -3,7 +3,7 @@ const MigrationError = require("./MigrationError");
 class DocCreator {
     constructor(args) {
         this.doc = {title: "", body: "", sections: []};
-        this.status = "SUCCESS";
+        this.issues = [];
     }
 
     addNewSectionWithTitle(title) {
@@ -11,11 +11,6 @@ class DocCreator {
     }
     
     addElement(element) {
-        if (!element) {
-            this.status = "WARNING";
-            return;
-        }
-        
         let lastSection = this.doc.sections.slice(-1).pop();
         if (!lastSection) {
             this.addNewSectionWithTitle("");
@@ -40,6 +35,10 @@ class DocCreator {
 
     lastSection() {
         return this.doc.sections.slice(-1).pop();
+    }
+
+    addIssue(issue, $e) {
+        this.issues.push({issue, html: `<${$e.get(0).tagName} class='${$e.attr("class")}'>${$e.html()}</${$e.get(0).tagName}>`});
     }
 }
 

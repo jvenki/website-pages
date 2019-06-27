@@ -18,7 +18,7 @@ const startSweeping = () => {
 
     mysqlClient.connect()
         .then(() => mongoClient.connect())
-        .then(() => !limitToId && mongoClient.purge())
+        // .then(() => !limitToId && mongoClient.purge())
         .then(() => {
             mysqlClient.query(
                 limitToId,
@@ -39,7 +39,7 @@ const processOneRow = (xml, mongoClient) => {
     mongoClient.save(output);
     if (conversionStatus == "SUCCESS" || conversionStatus == "WARNING") {
         winston.verbose((conversionStatus == "SUCCESS" ? chalk.green : chalk.yellow)("\tStatus = " + conversionStatus));
-        winston.debug(JSON.stringify(output.doc, null, 4));
+        winston.debug(JSON.stringify(output, null, 4));
         if (winston.level == "info") {
             winston.info(chalk.green(`Successfully converted namespace '${namespace}' with ID ${id}`));
         }

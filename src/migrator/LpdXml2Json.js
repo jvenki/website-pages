@@ -16,6 +16,7 @@ class LpdXml2Json {
             const primaryContentConversionResult = fromHTMLToJSON(output.doc.oldPrimaryContent);
             output.doc.newPrimaryContent = primaryContentConversionResult.doc;
             output.conversionStatus = primaryContentConversionResult.status;
+            output.conversionIssues = primaryContentConversionResult.issues;
             //output.doc.newSecondaryContent = fromHTMLToJSON(output.doc.oldSecondaryContent);
         } catch (e) {
             output.conversionStatus = "ERROR";

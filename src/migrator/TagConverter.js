@@ -10,14 +10,14 @@ class TagConverter {
             return new DisclaimerConverter();
         } else if (headingDomElemTypes.includes(e.tagName) && ($e.text().includes("Frequently Asked Questions") || $e.text().includes("FAQ"))) {
             return new FAQConverter();
-        } else if ($e.hasClass("product_interlink") || ([...headingDomElemTypes, "strong"].includes(e.tagName) && $e.text().match(/other.*product.*|related.*product.*|other.*top.*credit.*/i))) {
+        } else if ($e.hasClass("product_interlink") || $e.hasClass("product-interlinks") || ([...headingDomElemTypes, "strong"].includes(e.tagName) && $e.text().match(/other.*product.*|related.*product.*|other.*top.*credit.*/i))) {
             //TODO: Check the way it has been done for ID#4. We need to check for H2 Title also
             return new ReferencesConverter();
         } else if (e.tagName == "h2") {
             return new SectionConverter();
         } else if ([...textSupportedDomElemTypes, ...headingDomElemTypes].includes(e.tagName)) {
             return new TextConverter();
-        } else if ($e.hasClass("twi-accordion")) {
+        } else if ($e.hasClass("twi-accordion") || $e.hasClass("ln-accordion")) {
             return new AccordionConverter();
         } else if ($e.hasClass("jumbotron")) {
             return new JumbotronConverter();
@@ -37,13 +37,15 @@ class TagConverter {
             return new UnwrapConverter(TagConverter.for($e.children().first()));
         } else if (e.tagName == "div" && containsOnlyGridClasses($e)) {
             return new GridConverter();
-        } else if ($e.get(0).tagName == "br" || $e.hasClass("product-landing-btn-block")) {
+        } else if ($e.get(0).tagName == "br") {
             return new NoopConverter();
+        } else if (["h1", "details"].includes($e.get(0).tagName) || $e.hasClass("product-landing-btn-block")) {
+            return new NoopWarningConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
-        } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("table")) {
+        } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table")) {
             return new TabularDataConverter();
-        } else if ($e.hasClass("btn-primary") || $e.hasClass("cta-section") || $e.hasClass("link-section")) {
+        } else if ($e.get(0).tagName == "a" || $e.hasClass("btn-primary") || $e.hasClass("cta-section") || $e.hasClass("link-section")) {
             return new CTAConverter();
         } else if ($e.hasClass("tax-img-responsive") || $e.hasClass("pull-right")) {
             //TODO: Is it right to assume all pull-rights to be images
@@ -170,7 +172,7 @@ class FeaturedOffersConverter extends TagConverter {
 class CTAConverter extends TagConverter {
     _doConvert($element, $, walker) {
         let body;
-        if ($element.hasClass("link-section") || $element.has("cta-section")) {
+        if ($element.hasClass("link-section") || $element.hasClass("cta-section")) {
             // assert($element.find("a").length == 1, "CTAConverter-ConditionNotMet#1", $element);
             if ($element.find("a").length == 0) {
                 return undefined;
@@ -234,6 +236,9 @@ class NoopConverter extends TagConverter {
     _doConvert($element, $, walker) {
         return undefined;
     }
+}
+
+class NoopWarningConverter extends NoopConverter {
 }
 
 class UnwrapConverter extends TagConverter {
@@ -403,7 +408,7 @@ class FAQConverter extends TagConverter {
         const extractQuestionsGivenAsDetailsTagAtRootLevel = ($e) => {
             while (true) {
                 const $nextElement = walker.peekNextElement();
-                if ($nextElement.get(0).tagName != "details") {
+                if (!$nextElement || $nextElement.get(0).tagName != "details") {
                     break;
                 }
                 walker.moveToNextElement();
@@ -414,8 +419,12 @@ class FAQConverter extends TagConverter {
         const extractQuestionsGivenAsH3TagAtRootLevel = ($e) => {
             while (true) {
                 const $questionElement = walker.peekNextElement();
+                if (!$questionElement) {
+                    break;
+                }
+
                 const $answerElement = $questionElement.next().length > 0 ? $questionElement.next() : $questionElement;
-                if ($questionElement.get(0).tagName != "h3" && $answerElement.get(0).tagName != "p") {
+                if (!$questionElement || $questionElement.get(0).tagName != "h3" && $answerElement.get(0).tagName != "p") {
                     break;
                 }
                 walker.moveToNextElement();
@@ -469,7 +478,7 @@ const containsOnlyGridClasses = ($element) => {
     const classNames = removePositioningClass(removePaddingClass($element.attr("class")));
     if (["row"].includes(classNames)) {
         return true;
-    } else if (classNames.match(/^((?:col-xs-\d+\s*|col-sm-\d+\s*|col-md-\d+\s*)+)$/)) {
+    } else if (classNames.match(/^((?:col-xs-\d+\s*|col-sm-\d+\s*|col-md-\d+\s*|col-lg-\d+\s*)+)$/)) {
         // Refer https://www.regular-expressions.info/captureall.html on why we need ?: before
         return true;
     }
@@ -494,6 +503,8 @@ const removePaddingClass = (classNames) => {
 const removePositioningClass = (classNames) => {
     return classNames
         .replace(/text-center/g, "")
+        .replace(/text-right/g, "")
+        .replace(/text-left/g, "")
         .trim();
 };
 

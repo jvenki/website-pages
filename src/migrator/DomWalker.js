@@ -32,7 +32,7 @@ class DomWalker {
             this.handleCurrentElement();
             this.moveToNextElement();
         }
-        return {doc: this.docCreator.doc, status: this.docCreator.status};
+        return {doc: this.docCreator.doc, status: this.docCreator.issues.length > 0 ? "WARNING" : "SUCCESS", issues: this.docCreator.issues};
     }
 
     handleCurrentElement() {
@@ -42,9 +42,17 @@ class DomWalker {
         winston.verbose(`\t\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`);
 
         const convertedElement = converter.convert(this.$currElem, this.$, this);
+
+        if (converter.getName() == "NoopConverter") {
+            return;
+        }
+
+        if (convertedElement == undefined) {
+            this.docCreator.addIssue("Created an UNDEFINED element", this.$currElem);
+            return;
+        }
+
         switch (converter.getName()) {
-            case "NoopConverter": 
-                return;
             case "SectionConverter": 
                 return this.docCreator.addNewSectionWithTitle(convertedElement.title);
             case "DisclaimerConverter": 

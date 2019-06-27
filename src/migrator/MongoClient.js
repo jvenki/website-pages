@@ -16,7 +16,7 @@ class Client {
     }
 
     save(doc) {
-        this.collection.update({id: doc.id}, doc, { upsert: true });
+        this.collection.updateOne({id: doc.id}, {$set: doc}, { upsert: true });
     }
 
     get(id) {
