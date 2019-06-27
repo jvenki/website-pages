@@ -426,6 +426,25 @@ class FAQConverter extends TagConverter {
             }
         };
 
+        const extractQuestionsGivenAsPTagAtRootLevel = ($e) => {
+            while (true) {
+                const $questionElement = walker.peekNextElement();
+                if (!$questionElement) {
+                    break;
+                }
+
+                const $answerElement = $questionElement.next().length > 0 ? $questionElement.next() : $questionElement;
+                if ($questionElement.get(0).tagName != "p" && $answerElement.get(0).tagName != "p" && $questionElement.children().first().get(0).tagName != "strong") {
+                    break;
+                }
+                walker.moveToNextElement();
+                const question = $questionElement.text().replace(/^Q: /, "");
+                walker.moveToNextElement();
+                const answer = $answerElement.text().replace(/^A: /, "");
+                items.push({question, answer});
+            }
+        };
+
         if ($element.next().get(0).tagName == "div" && containsOnlyPaddingClasses($element.next())) {
             walker.moveToNextElement();
             extractQuestionsGivenAsDetailsTagWithinContainer($element.next());
@@ -437,6 +456,8 @@ class FAQConverter extends TagConverter {
             extractQuestionsGivenAsDetailsTagAtRootLevel($element);
         } else if ($element.next().get(0).tagName == "h3") {
             extractQuestionsGivenAsH3TagAtRootLevel($element);
+        } else if ($element.next().get(0).tagName == "p" && $element.next().children().first().get(0).tagName == "strong") {
+            extractQuestionsGivenAsPTagAtRootLevel($element);
         } else {
             assert(false, "FAQConverter-ConditionNotMet#1", $element.next());
         }
