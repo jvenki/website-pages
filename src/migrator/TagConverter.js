@@ -1,6 +1,6 @@
 const MigrationError = require("./MigrationError");
 
-const textSupportedDomElemTypes = ["p", "ul", "ol", "strong"];
+const textSupportedDomElemTypes = ["p", "ul", "ol", "strong", "em"];
 const headingDomElemTypes = ["h2", "h3", "h4", "h5"];
 
 class TagConverter {
@@ -39,7 +39,7 @@ class TagConverter {
             return new GridConverter();
         } else if ($e.get(0).tagName == "br") {
             return new NoopConverter();
-        } else if (["h1", "details"].includes($e.get(0).tagName) || $e.hasClass("product-landing-btn-block")) {
+        } else if (["h1", "details"].includes($e.get(0).tagName) || $e.hasClass("pointer-view") || $e.hasClass("product-landing-btn-block")) {
             return new NoopWarningConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
@@ -239,6 +239,12 @@ class NoopConverter extends TagConverter {
 }
 
 class NoopWarningConverter extends NoopConverter {
+    _doConvert($element, $, walker) {
+        if ($element.hasClass("pointer-view")) {
+            walker.moveToNextElement();
+        }
+        return undefined;
+    }
 }
 
 class UnwrapConverter extends TagConverter {

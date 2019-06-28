@@ -75,6 +75,10 @@ class DomWalker {
     }
 
     peekNextElement() {
+        if (!this.$currElem) {
+            return undefined;
+        }
+        
         const nextElement = this.$currElem.next();
         if (nextElement.length == 0) {
             return undefined;
