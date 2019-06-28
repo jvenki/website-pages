@@ -33,8 +33,8 @@ class TagConverter {
             return new FeaturedOffersConverter();
         } else if ($e.hasClass("bb-landing-banner")) {
             return new BannerConverter();
-        } else if (e.tagName == "div" && (containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e)) && $e.children().length == 1) {
-            return new UnwrapConverter(TagConverter.for($e.children().first()));
+        } else if (e.tagName == "div" && isDivUnnecessary($e)) {
+            return new UnwrapConverter();
         } else if (e.tagName == "div" && containsOnlyGridClasses($e)) {
             return new GridConverter();
         } else if ($e.get(0).tagName == "br") {
@@ -248,22 +248,12 @@ class NoopWarningConverter extends NoopConverter {
 }
 
 class UnwrapConverter extends TagConverter {
-    constructor(innerConverter) {
-        super();
-        this.innerConverter = innerConverter;
-    }
-
-    getName() {
-        return super.getName() + "->" + this.innerConverter.getName();
-    }
-
-    _doValidate($element, $, walker) {
-        assert($element.children().length == 1, "UnwrapConversion-ConditionNotMet#1", $element);
-        //TODO: Check that it is made up of only GRID classes
-    }
-
     _doConvert($element, $, walker) {
-        return this.innerConverter.convert($element.children().first(), $, walker);
+        const output = [];
+        $element.children().each((i, child) => {
+            output.push(TagConverter.for($(child)).convert($(child), $, walker));
+        });
+        return output;
     }
 }
 
@@ -480,6 +470,14 @@ class FAQConverter extends TagConverter {
     }
 }
 
+const isDivUnnecessary = ($e) => {
+    //return containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e);
+    if (containsOnlyPaddingClasses($e) || containsOnlyPositioningClasses($e)) {
+        return true;
+    }
+    return false;
+};
+
 const containsOnlyGridClasses = ($element) => {
     const classNames = removePositioningClass(removePaddingClass($element.attr("class")));
     if (["row"].includes(classNames)) {
@@ -491,9 +489,8 @@ const containsOnlyGridClasses = ($element) => {
     return false;
 };
 
-const containsOnlyPaddingClasses = ($element) => {
-    return removePaddingClass($element.attr("class")) == "";
-};
+const containsOnlyPaddingClasses = ($element) => removePaddingClass($element.attr("class")) == "";
+const containsOnlyPositioningClasses = ($element) => removePositioningClass($element.attr("class")) == "";
 
 const removePaddingClass = (classNames) => {
     return (classNames || "")

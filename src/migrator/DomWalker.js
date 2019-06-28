@@ -53,20 +53,12 @@ class DomWalker {
         }
 
         switch (converter.getName()) {
-            case "SectionConverter": 
-                return this.docCreator.addNewSectionWithTitle(convertedElement.title);
-            case "DisclaimerConverter": 
-                return this.docCreator.addDisclaimer(convertedElement.link);
-            case "ReferencesConverter": 
-                return this.docCreator.addReferences(convertedElement);
-            case "FAQConverter": {
-                if (this.docCreator.lastSection() && this.docCreator.lastSection().elements.length > 0) {
-                    this.docCreator.addNewSectionWithTitle(convertedElement.title);
-                }
-                return this.docCreator.addElement(convertedElement);
-            }
-            default: 
-                return this.docCreator.addElement(convertedElement);
+            case "SectionConverter": return this.docCreator.addNewSectionWithTitle(convertedElement.title);
+            case "DisclaimerConverter": return this.docCreator.addDisclaimer(convertedElement.link);
+            case "ReferencesConverter": return this.docCreator.addReferences(convertedElement);
+            case "FAQConverter": return this.docCreator.addFAQ(convertedElement);
+            case "UnwrapConverter": return convertedElement.forEach((e) => this.docCreator.addElement(e));
+            default: return this.docCreator.addElement(convertedElement);
         }
     }
 

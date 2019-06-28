@@ -33,6 +33,13 @@ class DocCreator {
         this.doc.disclaimer = disclaimer;
     }
 
+    addFAQ(element) {
+        if (this.lastSection() && this.lastSection().elements.length > 0) {
+            this.addNewSectionWithTitle(element.title);
+        }
+        return this.addElement(element);
+    }
+
     lastSection() {
         return this.doc.sections.slice(-1).pop();
     }
