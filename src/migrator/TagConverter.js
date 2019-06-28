@@ -17,7 +17,7 @@ class TagConverter {
             return new SectionConverter();
         } else if ([...textSupportedDomElemTypes, ...headingDomElemTypes].includes(e.tagName)) {
             return new TextConverter();
-        } else if ($e.hasClass("twi-accordion") || $e.hasClass("ln-accordion")) {
+        } else if ($e.hasClass("twi-accordion") || $e.hasClass("ln-accordion") || $e.get(0).tagName == "details") {
             return new AccordionConverter();
         } else if ($e.hasClass("jumbotron")) {
             return new JumbotronConverter();
@@ -39,7 +39,7 @@ class TagConverter {
             return new GridConverter();
         } else if ($e.get(0).tagName == "br") {
             return new NoopConverter();
-        } else if (["h1", "details"].includes($e.get(0).tagName) || $e.hasClass("pointer-view") || $e.hasClass("product-landing-btn-block")) {
+        } else if (["h1"].includes($e.get(0).tagName) || $e.hasClass("pointer-view") || $e.hasClass("product-landing-btn-block")) {
             return new NoopWarningConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
@@ -108,11 +108,17 @@ class TextConverter extends TagConverter {
 class AccordionConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const items = [];
-        $element.find(".panel").each(function(i, panel) {
-            const title = $(panel).find(".panel-heading h2").text();
-            const body = $(panel).find(".panel-body").html();
+        if ($element.get(0).tagName == "details") {
+            const title = $element.find("summary").text();
+            const body = $element.find("summary").nextAll().map((i, b) => $(b).html()).get().join("");
             items.push({title, body});
-        });
+        } else {
+            $element.find(".panel").each(function(i, panel) {
+                const title = $(panel).find(".panel-heading h2").text();
+                const body = $(panel).find(".panel-body").html();
+                items.push({title, body});
+            });
+        }
         return {type: "accordion", items};
     }
 }
@@ -251,6 +257,7 @@ class UnwrapConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const output = [];
         $element.children().each((i, child) => {
+            console.warn($(child).html());
             output.push(TagConverter.for($(child)).convert($(child), $, walker));
         });
         return output;
@@ -473,6 +480,9 @@ class FAQConverter extends TagConverter {
 const isDivUnnecessary = ($e) => {
     //return containsOnlyGridClasses($e) || containsOnlyPaddingClasses($e);
     if (containsOnlyPaddingClasses($e) || containsOnlyPositioningClasses($e)) {
+        return true;
+    } else if (containsOnlyGridClasses($e) && $e.children().length == 1) {
+        // Looks like there is just one child within the Grid styled DIV. Why?
         return true;
     }
     return false;
