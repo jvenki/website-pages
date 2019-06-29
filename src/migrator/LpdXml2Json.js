@@ -4,20 +4,20 @@ const DocCreator = require("./DocCreator");
 const parseString = require("xml2js").parseString;
 const MigrationError = require("./MigrationError");
 const winston = require("winston");
+const minify = require("html-minifier").minify;
 
 class LpdXml2Json {
     toJSON(xml) {
         winston.verbose(`Processing ${xml.id} with namespace ${xml.namespace}`);
-        const output = {doc: {}};
-        output.id = output.doc.id = xml.id;
-        output.namespace = output.doc.namespace = xml.namespace;
+        const output = {};
+        output.id = xml.id;
+        output.namespace = xml.namespace;
         try {
-            Object.assign(output.doc, extractKeyElementsOutOfXML(xml));
-            const primaryContentConversionResult = fromHTMLToJSON(output.doc.oldPrimaryContent);
-            output.doc.newPrimaryContent = primaryContentConversionResult.doc;
+            Object.assign(output, extractKeyElementsOutOfXML(xml));
+            const primaryContentConversionResult = fromHTMLToJSON(output.oldPrimaryContent);
+            output.doc = primaryContentConversionResult.doc;
             output.conversionStatus = primaryContentConversionResult.status;
             output.conversionIssues = primaryContentConversionResult.issues;
-            //output.doc.newSecondaryContent = fromHTMLToJSON(output.doc.oldSecondaryContent);
         } catch (e) {
             output.conversionStatus = "ERROR";
             output.conversionError = e;
@@ -53,7 +53,10 @@ const extractKeyElementsOutOfXML = (xml) => {
                 break;
         }
     });
-    return {title, oldPrimaryContent: primaryContent, oldSecondaryContent: secondaryContent};
+    return {
+        title, 
+        oldPrimaryContent: minify(primaryContent, {collapseWhitespace: true, removeComments: true})
+    };
 };
 
 const parseXmlString = function(xml) {

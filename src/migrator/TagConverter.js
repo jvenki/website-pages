@@ -1,3 +1,4 @@
+const isEqual = require("lodash/isequal");
 const MigrationError = require("./MigrationError");
 
 const textSupportedDomElemTypes = ["p", "ul", "ol", "strong", "em"];
@@ -29,7 +30,7 @@ class TagConverter {
             return new FeaturedNewsConverter();
         } else if ($e.hasClass("lp-widget")) {
             return new WidgetConverter();
-        } else if ($e.hasClass("border-blue")) {
+        } else if ($e.get(0).tagName == "div" && $e.hasClass("border-blue")) {
             return new FeaturedOffersConverter();
         } else if ($e.hasClass("bb-landing-banner")) {
             return new BannerConverter();
@@ -39,13 +40,13 @@ class TagConverter {
             return new GridConverter();
         } else if ($e.get(0).tagName == "br") {
             return new NoopConverter();
-        } else if (["h1"].includes($e.get(0).tagName) || $e.hasClass("pointer-view") || $e.hasClass("product-landing-btn-block")) {
+        } else if (["h1"].includes($e.get(0).tagName) || $e.hasClass("pointer-view")) {
             return new NoopWarningConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
         } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table")) {
             return new TabularDataConverter();
-        } else if ($e.get(0).tagName == "a" || $e.hasClass("btn-primary") || $e.hasClass("cta-section") || $e.hasClass("link-section")) {
+        } else if ($e.get(0).tagName == "a" || $e.hasClass("btn-primary") || $e.hasClass("cta-section") || $e.hasClass("link-section") || $e.hasClass("product-landing-btn-block")) {
             return new CTAConverter();
         } else if ($e.hasClass("tax-img-responsive") || $e.hasClass("pull-right")) {
             //TODO: Is it right to assume all pull-rights to be images
@@ -177,17 +178,32 @@ class FeaturedOffersConverter extends TagConverter {
 
 class CTAConverter extends TagConverter {
     _doConvert($element, $, walker) {
-        let body;
+        let title, link, body;
         if ($element.hasClass("link-section") || $element.hasClass("cta-section")) {
             // assert($element.find("a").length == 1, "CTAConverter-ConditionNotMet#1", $element);
             if ($element.find("a").length == 0) {
                 return undefined;
             }
 
-            body = $element.text().replace($element.find("a").text(), "").trim();
-            $element = $element.find("a").first();
+            assert($element.find("a").length == 1, "CTAConverter-ConditionNotMet#1", $element);
+            title = $element.find("a").first().text();
+            link = $element.find("a").first().attr("href");
+            body = $element.text().replace(title, "").trim();
+        } else if ($element.hasClass("product-landing-btn-block")) {
+            assert($element.children().length == 1, "CTAConverter-ConditionNotMet#2", $element);
+            assert($element.find("div.link-section").length == 1, "CTAConverter-ConditionNotMet#3", $element);
+            assert($element.find("div.link-section").children().length == 1, "CTAConverter-ConditionNotMet#4", $element);
+            assert($element.find("div.link-section span").length == 1, "CTAConverter-ConditionNotMet#5", $element);
+            assert($element.find("div.link-section span").children().length == 1, "CTAConverter-ConditionNotMet#6", $element);
+            assert($element.find("div.link-section span a").length == 1, "CTAConverter-ConditionNotMet#7", $element);
+            title = $element.find("a").text();
+            link = $element.find("a").attr("href");
+        } else if ($element.get(0).tagName == "a" || $element.hasClass("btn-primary")) {
+            title = $element.text();
+            link = $element.attr("href");
         }
-        return {type: "cta", title: $element.text(), link: $element.attr("href"), body};
+
+        return {type: "cta", title, link, body};
     }
 }
 
@@ -396,7 +412,12 @@ class FAQConverter extends TagConverter {
 
         const extractQuestionsGivenAsDetailsTagWithinContainer = ($e) => $e.find("details").each((i, d) => {items.push(extractSingleQuestion($(d)));});
         const extractQuestionsGivenAsSectionTagWithinContainer = ($e) => $e.find("section").each((i, d) => {items.push({question: $(d).find("strong").text(), answer: $(d).find("div > div").html()});});
-        const extractQuestionsGivenAsOLTagWithinContainer = ($e) => $e.find(" > li").each((i, q) => {
+        const extractQuestionsGivenAsOLTagWithinContainerCorrectHTML = ($e) => $e.find("> li").each((i, item) => {
+            const question = $(item).find("strong").text();
+            const answer = $(item).find("strong").nextAll().map((j, a) => $(a).html()).get().join("");
+            items.push({question, answer});
+        });
+        const extractQuestionsGivenAsOLTagWithinContainerWrongHTML = ($e) => $e.find(" > li").each((i, q) => {
             const question = $(q).text();
             // For some weird reason, nextUntil LI doesnt stop on the next LI
             // const answer = $(q).nextUntil("li").map((j, a) => $(a).html()).get().join("");
@@ -407,6 +428,14 @@ class FAQConverter extends TagConverter {
             });
             items.push({question, answer: answer.join("")});
         });
+        const extractQuestionsGivenAsOLTagWithinContainer = ($e) => {
+            const topLevelTagNamesUsed = $e.find(" > *").map((index, item) => item.tagName).get();
+            if (isEqual([...new Set(topLevelTagNamesUsed)], ["li"])) {
+                extractQuestionsGivenAsOLTagWithinContainerCorrectHTML($e);
+            } else {
+                extractQuestionsGivenAsOLTagWithinContainerWrongHTML($e);
+            }
+        };
 
         const extractQuestionsGivenAsDetailsTagAtRootLevel = ($e) => {
             while (true) {
