@@ -1,6 +1,6 @@
 const cheerio = require("cheerio");
 const winston = require("winston");
-const Converter = require("./TagConverter");
+const Converter = require("./converter/TagConverterFactory");
 const MigrationError = require("./MigrationError");
 
 

@@ -1,5 +1,6 @@
 module.exports = {
     "env": {
+        "node": true,
         "browser": true,
         "es6": true
     },
@@ -43,7 +44,7 @@ module.exports = {
         "no-alert": "error",
         "no-restricted-imports": ["error", { "paths": ["lodash", "lodash-es"] }],
         "no-console": "off",
-        "no-undef": "off",
+        // "no-undef": "off",
 
         // Possible Coding Errors - The other recommendations from http://eslint.org/docs/rules/#possible-errors are enabled by default and good enough for us 
         "curly": ["error", "multi-line"],
