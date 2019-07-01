@@ -29,7 +29,7 @@ class Cleanser {
 const makeHTMLValid = (html) => {
     // The below cleanup is required in 33 and 187
     let cleansedHtml = 
-        html.replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'")
+        html.replace(/“/g, "\"").replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'")
             .replace(/<<\s*>>/g, /&lt;&lt; &gt;&gt;/)
             .replace(/<table table-curved">/, "<table class=\"table table-curved\">")
             .replace(/< Rs/g, "&lt; Rs");
