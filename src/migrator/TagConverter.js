@@ -1,8 +1,10 @@
 const isEqual = require("lodash/isequal");
+const difference = require("lodash/difference");
 const MigrationError = require("./MigrationError");
+const cheerio = require("cheerio");
 
-const textSupportedDomElemTypes = ["p", "ul", "ol", "strong", "em"];
-const headingDomElemTypes = ["h2", "h3", "h4", "h5"];
+const textSupportedDomElemTypes = ["p", "ul", "ol", "li", "strong", "em"].sort();
+const headingDomElemTypes = ["h2", "h3", "h4", "h5"].sort();
 
 class TagConverter {
     static for($e) {
@@ -88,9 +90,9 @@ class TextConverter extends TagConverter {
         if (headingDomElemTypes.includes(elemType)) {
             title = $element.text();
         } else if (textSupportedDomElemTypes.includes(elemType)) {
-            body += outerHtml($element);
+            body += contentHtml($element, this);
         } else {
-            assert(false, "TextConversion-ConditionNotMet for " + elemType, outerHtml($element));
+            assert(false, "TextConversion-ConditionNotMet for " + elemType, $element);
         }
 
         // Check whether it is followed by any other textual tags like P, UL, OL.
@@ -100,7 +102,7 @@ class TextConverter extends TagConverter {
                 break;
             }
             walker.moveToNextElement();
-            body += outerHtml($element);
+            body += contentHtml($element, this);
         }
         return {type: "text", title, body};
     }
@@ -111,12 +113,12 @@ class AccordionConverter extends TagConverter {
         const items = [];
         if ($element.get(0).tagName == "details") {
             const title = $element.find("summary").text();
-            const body = $element.find("summary").nextAll().map((i, b) => $(b).html()).get().join("");
+            const body = $element.find("summary").nextAll().map((i, b) => contentHtml($(b), this)).get().join("");
             items.push({title, body});
         } else {
             $element.find(".panel").each(function(i, panel) {
                 const title = $(panel).find(".panel-heading h2").text();
-                const body = $(panel).find(".panel-body").html();
+                const body = contentHtml($(panel).find(".panel-body"), this);
                 items.push({title, body});
             });
         }
@@ -127,7 +129,7 @@ class AccordionConverter extends TagConverter {
 class JumbotronConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
-        const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
+        const body = $element.children().first().nextAll().map((i, e) => contentHtml($(e), this)).get().join("");
         return {type: "panel", title, body};
     }
 }
@@ -135,7 +137,7 @@ class JumbotronConverter extends TagConverter {
 class BlockQuoteConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
-        const body = $element.children().first().nextAll().map((i, e) => outerHtml($(e))).get().join("");
+        const body = $element.children().first().nextAll().map((i, e) => contentHtml($(e), this)).get().join("");
         return {type: "blockquote", title, body};
     }
 }
@@ -150,7 +152,7 @@ class FeaturedOffersConverter extends TagConverter {
             const title = $titleBox.find("h5 > a").text() || $titleBox.find("h5").text();
             const link = $titleBox.find("h5 > a").attr("href");
             const img = extractImgSrc($imgBox);
-            const body = $bodyBox.html();
+            const body = contentHtml($bodyBox, this);
             return {title, link, img, body};
         };
         
@@ -273,7 +275,6 @@ class UnwrapConverter extends TagConverter {
     _doConvert($element, $, walker) {
         const output = [];
         $element.children().each((i, child) => {
-            console.warn($(child).html());
             output.push(TagConverter.for($(child)).convert($(child), $, walker));
         });
         return output;
@@ -321,8 +322,8 @@ class TabularDataConverter extends TagConverter {
                 const $row = $(row);
                 const rowData = [];
                 $(row).find("div").each((i, col) => {
-                    const $col = $(col);
-                    rowData.push($col.html());
+                    const cellBody = contentHtml($(col), this);
+                    rowData.push(cellBody);
                 });
                 if ($row.hasClass("tabular-title")) {
                     header = rowData;
@@ -350,7 +351,7 @@ class TabularDataConverter extends TagConverter {
                 if (i < tbodyStartingIndex) {
                     return true;
                 }
-                const rowData = $(row).find("td").map((j, col) => $(col).html()).get();
+                const rowData = $(row).find("td").map((j, col) => contentHtml($(col), this)).get();
                 body.push(rowData);
             });
         }
@@ -364,7 +365,7 @@ class WidgetConverter extends TagConverter {
         const items = $element.find(".lp-widget-details").map((i, panel) => {
             const img = extractImgSrc($(panel).find("img"));
             const title = $(panel).find("strong").text();
-            const body = $(panel).find("strong").nextUntil("a").map((i, e) => outerHtml($(e))).get();
+            const body = $(panel).find("strong").nextUntil("a").map((i, e) => contentHtml($(e), this)).get();
             const link = $(panel).find("a").attr("href");
             return {img, title, body, link};
         }).get();
@@ -377,7 +378,7 @@ class HighlightConverter extends TagConverter {
         const link = $element.find("a").attr("href");
         const title = $element.find("strong").text();
         const img = extractImgSrc($element.find("img"));
-        const body = $element.find("strong").nextAll().map((i, e) => outerHtml($(e))).get();
+        const body = $element.find("strong").nextAll().map((i, e) => contentHtml($(e), this)).get();
         return {type: "highlight", title, link, img, body};
     }
 }
@@ -393,7 +394,7 @@ class FeaturedNewsConverter extends TagConverter {
         const items = $element.find("div.lp-blog-post > ul > li").map((i, panel) => {
             const link = $(panel).find("a").attr("href");
             const img = extractImgSrc($(panel).find("img"));
-            const body = $(panel).find("img").nextUntil("span.lp-more-details").map((i, e) => outerHtml($(e))).get();
+            const body = $(panel).find("img").nextUntil("span.lp-more-details").map((i, e) => contentHtml($(e), this)).get();
             return {link, img, body};
         }).get();
         return {type: "featured-news", columnCount, title, items};
@@ -406,15 +407,16 @@ class FAQConverter extends TagConverter {
         const items = [];
         const extractSingleQuestion = ($e) => {
             const qns = $e.find("summary").text();
-            const ans = $e.find("summary").nextAll().map((i, a) => outerHtml($(a))).get().join("");
+            const ans = $e.find("summary").nextAll().map((i, a) => contentHtml($(a), this)).get().join("");
+            ensureTextOnlyElements(ans);
             return {question: qns, answer: ans};
         };
 
         const extractQuestionsGivenAsDetailsTagWithinContainer = ($e) => $e.find("details").each((i, d) => {items.push(extractSingleQuestion($(d)));});
-        const extractQuestionsGivenAsSectionTagWithinContainer = ($e) => $e.find("section").each((i, d) => {items.push({question: $(d).find("strong").text(), answer: $(d).find("div > div").html()});});
+        const extractQuestionsGivenAsSectionTagWithinContainer = ($e) => $e.find("section").each((i, d) => {items.push({question: $(d).find("strong").text(), answer: contentHtml($(d).find("div > div"), this)});});
         const extractQuestionsGivenAsOLTagWithinContainerCorrectHTML = ($e) => $e.find("> li").each((i, item) => {
             const question = $(item).find("strong").text();
-            const answer = $(item).find("strong").nextAll().map((j, a) => $(a).html()).get().join("");
+            const answer = $(item).find("strong").nextAll().map((j, a) => contentHtml($(a), this)).get().join("");
             items.push({question, answer});
         });
         const extractQuestionsGivenAsOLTagWithinContainerWrongHTML = ($e) => $e.find(" > li").each((i, q) => {
@@ -424,7 +426,7 @@ class FAQConverter extends TagConverter {
             const answer = [];
             $(q).nextAll().each((i, a) => {
                 if (a.tagName == "li") return false; 
-                answer.push($(a).html());
+                answer.push(contentHtml($(a), this));
             });
             items.push({question, answer: answer.join("")});
         });
@@ -557,6 +559,37 @@ const assert = (condition, errorMsg, $element) => {
     if (!condition) {
         throw new MigrationError(MigrationError.Code.UNKNOWN_TAG, errorMsg, outerHtml($element));
     }
+};
+
+const contentHtml = ($e, converter) => {
+    const tagName = $e.get(0).tagName;
+    if (textSupportedDomElemTypes.includes(tagName)) {
+        return outerHtml($e);
+    } else {
+        return $e.html();
+    }
+};
+
+const cleanseContentHtml = (contentHtml) => {
+    const $ = cheerio.load(contentHtml, {decodeEntities: false});
+    ["u", "div.link-section"].forEach((unwantedElementSelector) => {
+        $(unwantedElementSelector).each((_, unwantedElement) => {
+            const $unwantedElement = $(unwantedElement);
+            $($unwantedElement.html()).insertAfter($unwantedElement); 
+            $unwantedElement.remove();
+        });
+    });
+
+    $("*").removeAttr("class");
+
+    const tagNamesUsedInsideBody = [...new Set($("body").find("*").map((_, e) => e.tagName).get())].sort();
+    const unknownTagNamesUsed = difference(tagNamesUsedInsideBody, [...textSupportedDomElemTypes, "a"]);
+
+    if (unknownTagNamesUsed.length > 0) {
+        assert(false, "Textual Content uses unsupported tag - " + unknownTagNamesUsed, $e);
+    }
+    
+    return $("body").html();
 };
 
 module.exports = TagConverter;
