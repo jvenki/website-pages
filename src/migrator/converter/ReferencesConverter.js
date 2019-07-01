@@ -16,7 +16,7 @@ class ReferencesConverter extends BaseConverter {
         $currElem.find("a").each((i, a) => {
             items.push({title: $(a).text(), link: $(a).attr("href")});
         });
-        return {type: "references", title, items};
+        return [{type: "references", title, items}];
     }
 }
 

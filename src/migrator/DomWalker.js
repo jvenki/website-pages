@@ -41,25 +41,18 @@ class DomWalker {
 
         winston.verbose(`\t\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`);
 
-        const convertedElement = converter.convert(this.$currElem, this.$, this);
+        const convertedElements = converter.convert(this.$currElem, this.$, this);
 
         if (converter.getName() == "NoopConverter") {
             return;
         }
 
-        if (convertedElement == undefined) {
+        if (convertedElements == undefined) {
             this.docCreator.addIssue("Created an UNDEFINED element", this.$currElem);
             return;
         }
 
-        switch (converter.getName()) {
-            case "SectionConverter": return this.docCreator.addNewSectionWithTitle(convertedElement.title);
-            case "DisclaimerConverter": return this.docCreator.addDisclaimer(convertedElement.link);
-            case "ReferencesConverter": return this.docCreator.addReferences(convertedElement);
-            case "FAQConverter": return this.docCreator.addFAQ(convertedElement);
-            case "UnwrapConverter": return convertedElement.forEach((e) => this.docCreator.addElement(e));
-            default: return this.docCreator.addElement(convertedElement);
-        }
+        convertedElements.forEach((convertedElement) => this.docCreator.add(convertedElement));
     }
 
     moveToNextElement() {

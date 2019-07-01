@@ -8,7 +8,7 @@ class DisclaimerConverter extends BaseConverter {
     }
 
     _doConvert($element, $, walker) {
-        return {type: "diclaimer", link: $element.find("a").attr("href")};
+        return [{type: "diclaimer", link: $element.find("a").attr("href")}];
     }
 }
 

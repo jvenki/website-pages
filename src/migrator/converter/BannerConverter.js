@@ -16,7 +16,8 @@ class BannerConverter extends BaseConverter {
             const desc = $(e).children().last().text();
             return {iconClass, desc};
         }).get();
-        return {type: "banner", img: {src: imgSrc}, features};
+
+        return [{type: "banner", img: {src: imgSrc}, features}];
     }
 }
 

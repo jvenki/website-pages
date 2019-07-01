@@ -15,7 +15,7 @@ class AccordionConverter extends BaseConverter {
                 items.push({title, body});
             });
         }
-        return {type: "accordion", items};
+        return [{type: "accordion", items}];
     }
 }
 

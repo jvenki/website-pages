@@ -5,8 +5,7 @@ class BaseConverter {
 
     convert($element, $, walker) {
         this._doPreValidate($element, $, walker);
-        const convertedElem = this._doConvert($element, $, walker);
-        return convertedElem;
+        return this._doConvert($element, $, walker);
     }
 
     _doPreValidate($element, $, walker) {

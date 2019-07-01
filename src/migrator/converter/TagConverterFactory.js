@@ -77,7 +77,7 @@ class TagConverterFactory {
 
 class GridConverter extends BaseConverter {
     _doConvert($element, $, walker) {
-        return {type: "grid", body: `<${$element.get(0).tagName}>${$element.html()}</${$element.get(0).tagName}>`};
+        return [{type: "grid", body: `<${$element.get(0).tagName}>${$element.html()}</${$element.get(0).tagName}>`}];
     }
 }
 
@@ -85,12 +85,12 @@ class ImageConverter extends BaseConverter {
     _doConvert($element, $, walker) {
         //TODO: This still needs to be embedded within some TEXT element rather than as a separate element
         // Check https://stg1.bankbazaarinsurance.com/insurance/two-wheeler-insurance.html
-        return {
+        return [{
             type: "section-image",
             src: extractImgSrc($element.find("img")),
             placement: $element.hasClass("pull-right") ? "right" : "left",
             link: $element.find("a").attr("href")
-        };
+        }];
     }
 }
 
@@ -113,7 +113,10 @@ class UnwrapConverter extends BaseConverter {
     _doConvert($element, $, walker) {
         const output = [];
         $element.children().each((i, child) => {
-            output.push(TagConverterFactory.for($(child)).convert($(child), $, walker));
+            const childConverted = TagConverterFactory.for($(child)).convert($(child), $, walker);
+            if (childConverted) {
+                output.push(...childConverted);
+            }
         });
         return output;
     }

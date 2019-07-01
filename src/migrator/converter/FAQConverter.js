@@ -104,7 +104,7 @@ class FAQConverter extends BaseConverter {
         } else {
             assert(false, "FAQConverter-ConditionNotMet#1", $element.next());
         }
-        return {type: "faq", title, items};
+        return [{type: "faq", title, items}];
     }
 }
 

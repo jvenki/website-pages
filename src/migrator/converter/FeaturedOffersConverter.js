@@ -33,7 +33,7 @@ class FeaturedOffersConverter extends BaseConverter {
             offers.push(extract($nextElement));
         }
 
-        return {type: "featured-offers", offers};
+        return [{type: "featured-offers", offers}];
     }
 }
 

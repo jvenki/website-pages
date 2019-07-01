@@ -33,7 +33,7 @@ class CTAConverter extends BaseConverter {
             linkText = $element.text();
         }
 
-        return {type: "cta", link, linkText, promotion};
+        return [{type: "cta", link, linkText, promotion}];
     }
 }
 

@@ -5,7 +5,7 @@ class JumbotronConverter extends BaseConverter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
         const body = $element.children().first().nextAll().map((i, e) => extractContentHtml($(e), this)).get().join("");
-        return {type: "panel", title, body};
+        return [{type: "panel", title, body}];
     }
 }
 
@@ -13,7 +13,7 @@ class BlockQuoteConverter extends BaseConverter {
     _doConvert($element, $, walker) {
         const title = $element.children().first().text();
         const body = $element.children().first().nextAll().map((i, e) => extractContentHtml($(e), this)).get().join("");
-        return {type: "blockquote", title, body};
+        return [{type: "blockquote", title, body}];
     }
 }
 
@@ -27,7 +27,7 @@ class WidgetConverter extends BaseConverter {
             const link = $(panel).find("a").attr("href");
             return {img: {src: imgSrc}, title, body, link};
         }).get();
-        return {type: "widget", items, columnCount};
+        return [{type: "widget", items, columnCount}];
     }
 }
 
@@ -37,7 +37,7 @@ class HighlightConverter extends BaseConverter {
         const title = $element.find("strong").text();
         const imgSrc = extractImgSrc($element.find("img"));
         const body = $element.find("strong").nextAll().map((i, e) => extractContentHtml($(e), this)).get();
-        return {type: "highlight", title, link, img: {src: imgSrc}, body};
+        return [{type: "highlight", title, link, img: {src: imgSrc}, body}];
     }
 }
 

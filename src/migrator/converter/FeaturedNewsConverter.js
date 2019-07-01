@@ -15,7 +15,8 @@ class FeaturedNewsConverter extends BaseConverter {
             const body = $(panel).find("img").nextUntil("span.lp-more-details").map((i, e) => extractContentHtml($(e), this)).get().join("");
             return {link, img: {src: imgSrc}, body};
         }).get();
-        return {type: "featured-news", columnCount, title, items};
+        
+        return [{type: "featured-news", columnCount, title, items}];
     }
 }
 

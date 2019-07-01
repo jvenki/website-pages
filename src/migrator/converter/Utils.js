@@ -1,5 +1,6 @@
 const difference = require("lodash/difference");
 const cheerio = require("cheerio");
+const winston = require("winston");
 const MigrationError = require("../MigrationError");
 
 const textSupportedDomElemTypes = ["p", "ul", "ol", "li", "strong", "em", "a"].sort();
@@ -24,8 +25,8 @@ const extractContentHtml = ($e, converter) => {
 };
 
 // eslint-disable-next-line no-unused-vars
-const cleanseContentHtml = (extractContentHtml, $e) => {
-    const $ = cheerio.load(extractContentHtml, {decodeEntities: false});
+const optimizeHtml = (contentHtml, $e) => {
+    const $ = cheerio.load(contentHtml, {decodeEntities: false});
     ["u", "div.link-section"].forEach((unwantedElementSelector) => {
         $(unwantedElementSelector).each((_, unwantedElement) => {
             const $unwantedElement = $(unwantedElement);
@@ -33,17 +34,20 @@ const cleanseContentHtml = (extractContentHtml, $e) => {
             $unwantedElement.remove();
         });
     });
+    $("*").removeAttr("class");    
+    return $("body").html();
+};
 
-    $("*").removeAttr("class");
-
+const isPurelyTextual = (contentHtml) => {
+    const $ = cheerio.load(contentHtml, {decodeEntities: false});
     const tagNamesUsedInsideBody = [...new Set($("body").find("*").map((_, e) => e.tagName).get())].sort();
     const unknownTagNamesUsed = difference(tagNamesUsedInsideBody, textSupportedDomElemTypes);
 
     if (unknownTagNamesUsed.length > 0) {
-        assert(false, "Textual Content uses unsupported tag - " + unknownTagNamesUsed, $e);
+        winston.debug("Checking the HTML revealed the usage of non supported DOM Nodes - " + unknownTagNamesUsed + "\n" + contentHtml);
+        return false;
     }
-    
-    return $("body").html();
+    return true;
 };
 
 const containsOnlyPaddingClasses = ($element) => removePaddingClass($element.attr("class")) == "";
@@ -68,4 +72,4 @@ const removePositioningClass = (classNames) => {
         .trim();
 };
 
-module.exports = {removePositioningClass, removePaddingClass, containsOnlyPaddingClasses, containsOnlyPositioningClasses, extractImgSrc, extractContentHtml, assert, computeColumnCount};
+module.exports = {removePositioningClass, removePaddingClass, containsOnlyPaddingClasses, containsOnlyPositioningClasses, extractImgSrc, extractContentHtml, optimizeHtml, isPurelyTextual, assert, computeColumnCount};

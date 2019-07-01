@@ -9,7 +9,7 @@ class VideoConverter extends BaseConverter {
     }
 
     _doConvert($element, $, walker) {
-        return {type: "video", link: $element.find("iframe").attr("data-src") || $element.find("iframe").attr("src")};
+        return [{type: "video", link: $element.find("iframe").attr("data-src") || $element.find("iframe").attr("src")}];
     }
 }
 

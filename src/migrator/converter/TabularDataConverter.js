@@ -43,7 +43,7 @@ class TabularDataConverter extends BaseConverter {
                 body.push(rowData);
             });
         }
-        return {type: "table", header, body};
+        return [{type: "table", header, body}];
     }
 }
 

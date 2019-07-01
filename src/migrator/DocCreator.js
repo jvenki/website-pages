@@ -6,6 +6,16 @@ class DocCreator {
         this.issues = [];
     }
 
+    add(item) {
+        switch (item.type) {
+            case "section": this.addNewSectionWithTitle(item.title); break;
+            case "disclaimer": this.addDisclaimer(item.link); break;
+            case "references": this.addReferences(item); break;
+            case "faq": this.addFAQ(item); break;
+            default: this.addElement(item);
+        }
+    }
+
     addNewSectionWithTitle(title) {
         this.doc.sections.push({type: "section", title, body: "", elements: []});
     }

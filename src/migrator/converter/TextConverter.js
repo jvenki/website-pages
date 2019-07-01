@@ -26,7 +26,7 @@ class TextConverter extends BaseConverter {
             walker.moveToNextElement();
             body += extractContentHtml($element, this);
         }
-        return {type: "text", title, body};
+        return [{type: "text", title, body}];
     }
 }
 
