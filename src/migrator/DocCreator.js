@@ -34,10 +34,10 @@ class DocCreator {
     }
 
     addFAQ(element) {
-        if (this.lastSection() && this.lastSection().elements.length > 0) {
-            this.addNewSectionWithTitle(element.title);
+        if (this.doc.faq) {
+            throw new MigrationError(MigrationError.Code.MULTIPLE_FAQ);
         }
-        return this.addElement(element);
+        this.doc.faq = element;
     }
 
     lastSection() {
