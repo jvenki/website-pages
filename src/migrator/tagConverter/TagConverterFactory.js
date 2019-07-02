@@ -17,8 +17,8 @@ const {removePaddingClass, removePositioningClass, containsOnlyPaddingClasses, c
 const textSupportedDomElemTypes = ["p", "ul", "ol", "li", "strong", "em"].sort();
 const headingDomElemTypes = ["h2", "h3", "h4", "h5"].sort();
 
-class TagConverterFactory {
-    static for($e) {
+class ConverterFactory {
+    static forHTMLTag($e) {
         const e = $e.get(0);
         if (e.tagName == "p" && $e.text() == "*Disclaimer") {
             return new DisclaimerConverter();
@@ -113,7 +113,7 @@ class UnwrapConverter extends BaseConverter {
     _doConvert($element, $, walker) {
         const output = [];
         $element.children().each((i, child) => {
-            const childConverted = TagConverterFactory.for($(child)).convert($(child), $, walker);
+            const childConverted = ConverterFactory.forHTMLTag($(child)).convert($(child), $, walker);
             if (childConverted) {
                 output.push(...childConverted);
             }
@@ -145,4 +145,4 @@ const containsOnlyGridClasses = ($element) => {
 };
 
 
-module.exports = TagConverterFactory;
+module.exports = ConverterFactory;

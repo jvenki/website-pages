@@ -1,6 +1,5 @@
 const DomWalker = require("./DomWalker");
 const Cleanser = require("./Cleanser");
-const DocCreator = require("./DocCreator");
 const parseString = require("xml2js").parseString;
 const MigrationError = require("./MigrationError");
 const winston = require("winston");
@@ -55,7 +54,7 @@ const extractKeyElementsOutOfXML = (xml) => {
     });
     return {
         title, 
-        oldPrimaryContent: minify(primaryContent, {collapseWhitespace: true, removeComments: true})
+        oldPrimaryContent: minify(primaryContent, {collapseWhitespace: true, removeComments: true, continueOnParseError: true})
     };
 };
 
@@ -71,7 +70,7 @@ const parseXmlString = function(xml) {
 };
 
 const fromHTMLToJSON = (html) => {
-    return DomWalker.for(new Cleanser().cleanse(html)).forCreatingDoc(new DocCreator()).startWalking();
+    return DomWalker.for(new Cleanser().cleanse(html)).executeFirstPass().executeSecondPass().finish();
 };
 
 module.exports = LpdXml2Json;

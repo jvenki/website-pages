@@ -1,6 +1,7 @@
 const cheerio = require("cheerio");
 const winston = require("winston");
-const Converter = require("./converter/TagConverterFactory");
+const DocCreator = require("./DocCreator");
+const Converter = require("./tagConverter/TagConverterFactory");
 const MigrationError = require("./MigrationError");
 
 
@@ -15,29 +16,35 @@ class DomWalker {
         this.$currElem = undefined;
     }
 
-    forCreatingDoc(creator) {
-        this.docCreator = creator;
-        return this;
-    }
-
-    startWalking() {
+    executeFirstPass() {
         winston.verbose("\tWalking our DOM...");
         const $firstElement = this.$("body").children().first();
         if ($firstElement.length == 0) {
             throw new MigrationError(MigrationError.Code.DOM_EMPTY);
         }
+
+        this.docCreator = new DocCreator();
         
         this.$currElem = $firstElement;
         while (this.$currElem) {
             this.handleCurrentElement();
             this.moveToNextElement();
         }
+
+        return this;
+    }
+
+    executeSecondPass() {
+        return this;
+    }
+
+    finish() {
         return {doc: this.docCreator.doc, status: this.docCreator.issues.length > 0 ? "WARNING" : "SUCCESS", issues: this.docCreator.issues};
     }
 
     handleCurrentElement() {
         const lastSection = this.docCreator.doc.sections.slice(-1).pop();
-        const converter = Converter.for(this.$currElem, lastSection != undefined);
+        const converter = Converter.forHTMLTag(this.$currElem, lastSection != undefined);
 
         winston.verbose(`\t\tProcessing Node with tagName='${this.$currElem.get(0).tagName}': Identified Converter as ${converter.getName()}: Element has classes '${this.$currElem.attr("class")}'`);
 
