@@ -2,11 +2,15 @@ const cheerio = require("cheerio");
 const winston = require("winston");
 const DocCreator = require("./DocCreator");
 const Converter = require("./tagConverter/TagConverterFactory");
+const Optimizer = require("./optimizer/OptimizerFactory");
 const MigrationError = require("./MigrationError");
-
 
 class DomWalker {
     static for(html) {
+        return new DomWalker(html);
+    }
+
+    againFor(html) {
         return new DomWalker(html);
     }
 
@@ -35,6 +39,27 @@ class DomWalker {
     }
 
     executeSecondPass() {
+        const sections = this.docCreator.doc.sections;
+        for (let i=0; i<sections.length; i++) {
+            const currentSection = sections[i];
+            winston.warn("Processing Section at Index = " + i  + " with title = " + currentSection.title);
+
+            currentSection.elements.every((element, elementIndex) => {
+                const optimizer = Optimizer.forElementOfType(element.type);
+                optimizer.optimize(element);
+                if (optimizer.shouldTransformToSections(element)) {
+                    this.docCreator.addIssue("Migrating " + element.type + " to sections");
+                    const sectionsNewlyCreated = optimizer.transformToSections(element, this);
+                    sections.splice(i, 0, ...sectionsNewlyCreated);
+                    winston.warn("Current Index = " + i + ": Newly Created Sections Length = " +  sectionsNewlyCreated.length + ": Next Section To Be Processed = " + sections[i+1].title);
+                    sectionsNewlyCreated[sectionsNewlyCreated.length-1].elements.push(currentSection.elements.slice(elementIndex+1));
+                    i += sectionsNewlyCreated.length-1;
+                    return false;
+                    //console.warn(JSON.stringify(sectionsNewlyCreated, null, 4));
+                }
+                return true;
+            });
+        }
         return this;
     }
 

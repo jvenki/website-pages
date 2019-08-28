@@ -55,7 +55,7 @@ class DocCreator {
     }
 
     addIssue(issue, $e) {
-        this.issues.push({issue, html: `<${$e.get(0).tagName} class='${$e.attr("class")}'>${$e.html()}</${$e.get(0).tagName}>`});
+        this.issues.push({issue, html: $e ? `<${$e.get(0).tagName} class='${$e.attr("class")}'>${$e.html()}</${$e.get(0).tagName}>` : undefined});
     }
 }
 

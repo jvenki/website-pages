@@ -57,7 +57,7 @@ class ConverterFactory {
             return new NoopWarningConverter();
         } else if ($e.hasClass("video-section")) {
             return new VideoConverter();
-        } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table")) {
+        } else if ($e.hasClass("tabular-section") || $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table") || e.tagName == "table") {
             return new TabularDataConverter();
         } else if ($e.get(0).tagName == "a" || $e.hasClass("btn-primary") || $e.hasClass("cta-section") || $e.hasClass("link-section") || $e.hasClass("product-landing-btn-block")) {
             return new CTAConverter();
