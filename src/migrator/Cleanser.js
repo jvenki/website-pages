@@ -37,7 +37,8 @@ const makeHTMLValid = (html) => {
             .replace(/<<\s*>>/g, "&lt;&lt; &gt;&gt;").replace(/< Rs/g, "&lt; Rs")   // Escape the angle-brackets
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
-    cleansedHtml = cleansedHtml.replace(/<<div/g, "<div");
+    cleansedHtml = 
+        cleansedHtml.replace(/<\/div><br>/g, "</div>"); // Found in LPD#859
     return cleansedHtml;
 };
 
