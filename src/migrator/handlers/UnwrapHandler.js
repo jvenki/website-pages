@@ -24,6 +24,9 @@ const isDivUnnecessary = ($e) => {
     } else if ($e.attr("class").match(/border-gallery border-left-malibu bg-blue/)) {
         // Just does some prominence to the section. They should have used a different type like Jumbotron. Used in 859
         return true;
+    } else if ($e.attr("class").match(/bg-blue pad-10/)) {
+        // Just does some prominence to the section. They should have used a different type like Jumbotron. Used in 856
+        return true;
     }
     return false;
 };

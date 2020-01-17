@@ -1,12 +1,12 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {assert, extractHeadingText, extractContentHtml, isElementATextualNode, isElementASubHeadingNode} from "./Utils";
+import {assert, extractHeadingText, extractContentHtml, isElementATextualNode, isElementASubHeadingNode, isElementATableNode} from "./Utils";
 import MigrationError, {ConversionIssueCode} from "../MigrationError";
 
 export default class TextHandler extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        return isElementATextualNode($element) || isElementASubHeadingNode($element);
+        return isElementATextualNode($element) || isElementASubHeadingNode($element) || isElementATableNode($element);
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
@@ -14,7 +14,7 @@ export default class TextHandler extends BaseHandler {
         let $currElem = $element;
         while (true) {
             const $nextElem = $currElem.next();
-            if ($nextElem.length == 0 || !isElementATextualNode($nextElem)) {
+            if ($nextElem.length == 0 || !(isElementATextualNode($nextElem) || isElementATableNode($nextElem))) {
                 break;
             }
             elements.push($nextElem);
@@ -25,7 +25,7 @@ export default class TextHandler extends BaseHandler {
 
     validate($element: CheerioElemType, $: CheerioDocType) {
         const elemType = $element.get(0).tagName;
-        assert(isElementATextualNode($element) || isElementASubHeadingNode($element), "TextHandler-ConditionNotMet for " + elemType, $element);
+        assert(isElementATextualNode($element) || isElementASubHeadingNode($element) || isElementATableNode($element), "TextHandler-ConditionNotMet for " + elemType, $element);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -34,7 +34,7 @@ export default class TextHandler extends BaseHandler {
         elements.forEach(($element) => {
             if (isElementASubHeadingNode($element) && !title) {
                 title = extractHeadingText($element, $);
-            } else if (isElementASubHeadingNode($element) || isElementATextualNode($element)) {
+            } else if (isElementASubHeadingNode($element) || isElementATextualNode($element) || isElementATableNode($element)) {
                 body += extractContentHtml($element, $);
             } else {
                 throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE);
