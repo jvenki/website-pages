@@ -35,10 +35,14 @@ const makeHTMLValid = (html) => {
     let cleansedHtml = 
         html.replace(/“/g, "\"").replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'")  // Remove MSWord style Quotations
             .replace(/<<\s*>>/g, "&lt;&lt; &gt;&gt;").replace(/< Rs/g, "&lt; Rs")   // Escape the angle-brackets
+            .replace(/<ins>/g, "<u>").replace(/<\/ins>/g, "</u>")  // Found in LPD#856
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
     cleansedHtml = 
-        cleansedHtml.replace(/<\/div><br>/g, "</div>"); // Found in LPD#859
+        cleansedHtml.replace(/<\/div><br>/g, "</div>") // Found in LPD#859
+            .replace(/<\/p><br>/g, "</p>") // Found in LPD#856
+    ;
+
     return cleansedHtml;
 };
 
@@ -60,6 +64,7 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
             removeEmptyAncestors($parent, $);
         }
     });
+
     onIssue(new MigrationError(CleanserIssueCode.REMOVED_EMPTY_NODES, undefined, "Count = " + emptyNodes.length));
 };
 
