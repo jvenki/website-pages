@@ -27,3 +27,21 @@ export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
         return {elements: [{type: "cta", link, linkText}]};
     }
 }
+
+export class CTAHandlerVariant_LonelyLink extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+        const $p = $e.parent();
+        return $e.get(0).tagName == "a" && $p.get(0).tagName == "div" && $p.hasClass("text-center");
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = $element.attr("href");
+        if (!link) {
+            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
+        }
+
+        const linkText = extractLinkText($element, $);
+        return {elements: [{type: "cta", link, linkText}]};
+    }
+}
