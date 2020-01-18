@@ -1,3 +1,9 @@
 {
-    
+    "4": [
+        {
+            "source": "details > div.row > div.col-md-12 > div.video-section",
+            "op": "insertBefore",
+            "to": "nav"
+        }
+    ]
 }

@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractHeadingText, extractContentHtml, assert} from "./Utils";
+import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert} from "./Utils";
 
 export const headingRegex = /Frequently Asked Questions|FAQ's|FAQs/;
 
@@ -104,3 +104,39 @@ export class FAQHandlerVariant_HeadingRegexFollowedByPs extends BaseHandler {
     }
 }
 
+export class FAQHandlerVariant_HeadingRegexFollowedByDetails extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && $e.next().get(0).tagName == "details";
+    }
+
+    walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
+        const elements = [$element];
+        let $currElem = $element;
+        while (true) {
+            const $nextElement = $currElem.next();
+            if (!$nextElement.length > 0 || $nextElement.get(0).tagName != "details") {
+                break;
+            }
+            elements.push($nextElement);
+            $currElem = $nextElement;
+        }
+        return elements;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const issues = [];
+        const items = elements.slice(1).map(($e) => {
+            if ($e.find("iframe.video-frame").length > 0) {
+                issues.push("FAQ Q&A had a video which was removed as it is not supported");
+                $e.find("iframe.video-frame").remove();
+            }
+            const qns = extractHeadingText($e.find("summary > strong"), $);
+            const ans = $e.find("summary").nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            return {question: qns, answer: ans};
+        });
+        
+        assertExtractedData(items, title, elements[1]);
+        return {elements: [{type: "faq", title, items}], issues};
+    }    
+}
