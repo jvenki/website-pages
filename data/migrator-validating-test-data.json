@@ -229,6 +229,134 @@
             ]
         }
     },
+    "5": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "Features of HDFC Personal Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>No collateral or security required to avail a personal loan.</li><li>Loan disbursal within a day of applying for the loan.</li><li>HDFC personal loan interest rates range from 10.75% - 21.50% p.a.</li><li>Borrowers can opt for the 'Sarv Suraksha Pro' policy, which provides a credit shield cover, an accidental hospitalisation cover, and a permanent disability/accidental death cover.</li><li>Borrowers can also avail an optional insurance cover that will offer coverage against personal accidents and critical illnesses.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "HDFC Bank Personal Loan Details",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Rack Interest Rate</th><td>10.75% to 21.50% p.a.</td></tr><tr><th>Loan Amount</th><td>Rs.50,000 to Rs.40 lakh</td></tr><tr><th>Benefits</th><td><ul><li>Disbursal in 10 seconds for pre-approved customers and in four hours for other applicants</li><li>Minimal documentation required</li><li>The loan application can be submitted online through Bankbazaar</li></ul></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Fees and Charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The various fees and charges that are levied by HDFC Bank are:</p><table><tbody><tr><th>Loan processing fee</th><td>Up to a maximum of 2.5% of the loan amount, subject to a minimum fee of Rs.1,999 and a maximum fee of Rs.25,000</td></tr><tr><th>Pre-payment/Part-payment charges</th><td><ul><li>4% of the outstanding principal (loan tenure between 13 - 24 months)</li><li>3% of the outstanding principal (loan tenure between 25 - 36 months)</li><li>2% of the outstanding principal (loan tenure if over 36 months)</li></ul></td></tr><tr><th>Overdue EMI interest</th><td>2% per month will be charged on the principal or EMI that is overdue</td></tr><tr><th>Stamp duty and other statutory fees</th><td>As per the laws of the state that the applicant resides in</td></tr><tr><th>Cheque swapping fee</th><td>Rs.500</td></tr><tr><th>Amortization schedule fee</th><td>Rs.200</td></tr><tr><th>Cheque bounce charges</th><td>Rs.550 per event</td></tr><tr><th>Incidental or legal charges</th><td>At actual</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility Criteria",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>You should be employed at a private company, a public sector company, or with a state, central, or local government body.</li><li>You should be over the age of 21 years. The maximum age is 60 years.</li><li>You should have an overall work experience of at least 2 years.</li><li>You should have been employed at their present organization for a minimum of 1 year.</li><li>Residents of Mumbai, Bengaluru, Delhi, Hyderabad, Chennai, Ahmedabad, Kolkata, Pune, and Cochin should have a minimum income of Rs.20,000 per month.</li><li>Residents of other cities should earn at least Rs.15,000 per month.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents Required",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Proof of identity</th><td>Aadhaar Card, Driving Licence, Passport, or Voter ID Card</td></tr><tr><th>Proof of address</th><td>Voter ID Card, Aadhaar Card, Passport, or Driving Licence</td></tr><tr><th>Other documents</th><td><ul><li>Bank statements for the last three months or passbook of the last six months</li><li>Latest salary slip or salary certificate</li><li>Form 16</li><li>Passport-size photograph</li></ul></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How the EMI calculation works for HDFC personal loan?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Let's take a personal loan of Rs.1 lakh for a tenure of 6 months. Assume that HDFC charges an interest rate of 15.5% p.a. For the repayment tenure, you must pay an EMI of Rs.17,428. The loan repayment schedule is given as follows:</p><table><tbody><tr><td>Months</td><td>Principal</td><td>Interest</td><td>EMI (principal + interest)</td><td>Balance</td><td>Percentage of loan paid to date</td></tr><tr><td>1</td><td>Rs.16,137</td><td>Rs.1,292</td><td>Rs.17,428</td><td>Rs.83,863</td><td>16.14%</td></tr><tr><td>2</td><td>Rs.16,345</td><td>Rs.1,083</td><td>Rs.17,428</td><td>Rs.67,519</td><td>32.48%</td></tr><tr><td>3</td><td>Rs.16,556</td><td>Rs.872</td><td>Rs.17,428</td><td>Rs.50,962</td><td>49.04%</td></tr><tr><td>4</td><td>Rs.16,770</td><td>Rs.658</td><td>Rs.17,428</td><td>Rs.34,192</td><td>65.81%</td></tr><tr><td>5</td><td>Rs.16,987</td><td>Rs.442</td><td>Rs.17,428</td><td>Rs.17,206</td><td>82.79%</td></tr><tr><td>6</td><td>Rs.17,206</td><td>Rs.222</td><td>Rs.17,428</td><td>Rs.0</td><td>100.00%</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Compare HDFC personal loan with loan from other lenders",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Fees and charges</th><th>HDFC Bank Personal Loan</th><th>Aditya Birla Capital</th><th>Bank of India Personal Loan</th><th>Citibank Personal Loan</th></tr><tr><th>Interest rate</th><td>10.75% p.a. onwards</td><td>11% p.a. onwards</td><td>12.90% p.a. onwards</td><td>10.99% p.a. onwards</td></tr><tr><th>Processing fee</th><td>2.5% + GST</td><td>2% + GST</td><td>2% + GST</td><td>0.25% to 3.00% + GST</td></tr><tr><th>Foreclosure charges</th><td>2% to 4% of the outstanding loan amount</td><td>3% of the outstanding loan amount</td><td>N/A</td><td>Up to 4% of the principal outstanding</td></tr><tr><th>Late payment fee</th><td>2% of the overdue amount per month</td><td>2% of the overdue amount per month</td><td>Contact the bank for details</td><td>Contact the bank for details</td></tr></tbody></table><p>Before you apply for a personal loan from HDFC Bank, ensure that you go through the loan particulars, check your eligibility, and are familiar with the terms and conditions of the lender.</p>"
+                    },
+                    {
+                        "type": "video",
+                        "link": "//www.youtube.com/embed/0YDBroXo-PI"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>Other loan products from HDFC</h3><table><tbody><tr><td><a href=\"/personal-loan/hdfc-retail-agri-loans.html\">HDFC Retail Agri-Loans</a></td><td><a href=\"/personal-loan/hdfc-tractor-loan.html\">HDFC Bank Tractor Loan</a></td><td><a href=\"/personal-loan/hdfc-loan-against-property.html\">HDFC Loan Against Property</a></td><td><a href=\"/personal-loan/hdfc-agriculture-loan.html\">HDFC Agriculture Loan</a></td></tr><tr><td><a href=\"/personal-loan/hdfc-loan-against-securities.html\">HDFC Loan against Securities</a></td><td><a href=\"/personal-loan/hdfc-loan-against-rent-receivables.html\">HDFC Loan Against Rent Receivables</a></td><td><a href=\"/personal-loan/hdfc-insta-jumbo-loan.html\">HDFC Insta Jumbo Loan</a></td><td><a href=\"/personal-loan/hdfc-insta-loan.html\">HDFC Insta Loan</a></td></tr></tbody></table>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "HDFC Personal Loan FAQ",
+            "items": [
+                {
+                    "question": "How can I repay my loan?",
+                    "answer": "<p>You can repay your loan amount in Equated Monthly Installments (EMIs). The loan repayments can be done via post-dated cheques, ECS, or via a standing instruction to debit the repayment amount from your HDFC Bank account.</p>"
+                },
+                {
+                    "question": "When can I take an HDFC top up loan?",
+                    "answer": "<p>You can take a top up loan from HDFC when you opt for a balance transfer with HDFC.</p>"
+                },
+                {
+                    "question": "Can business owners take personal loans from HDFC Bank?",
+                    "answer": "<p>No, HDFC Bank only offers personal loans to salaried individuals. Applicants are required to be employed with a private, public sector, or government body at the time of taking the loan.</p>"
+                },
+                {
+                    "question": "Can I avail a personal loan from HDFC Bank on a floating rate of interest?",
+                    "answer": "<p>No, HDFC Bank charges a fixed rate of interest for personal loans.</p>"
+                },
+                {
+                    "question": "Does HDFC Bank allow part-payment of the loan amount and are there any conditions for the same?",
+                    "answer": "<p>For personal loans that were disbursed on or after 1 April 2018, you can make part-payments, provided you have paid at least 12 EMIs.</p><p>What are the conditions that are applicable when making part-payments?</p><ul><li>Part-payments can only be made twice during the entire loan tenure.</li><li>Borrowers can only make a part-payment once in any given fiscal.</li><li>Each part-payment cannot be more than 25% of the outstanding principal amount.</li><li>You may have to pay a part-payment charge to the lender when making such a payment.</li></ul>"
+                },
+                {
+                    "question": "What is the repayment tenure for personal loans issued by HDFC Bank?",
+                    "answer": "<p>If you take a personal loan from HDFC Bank, you will need to repay the due amount within 1 year to 5 years (12 to 60 months).</p>"
+                },
+                {
+                    "question": "How to check HDFC personal loan status?",
+                    "answer": "<p>You can check the <a href=\"/hdfc-personal-loan-status.html\">status of your HDFC personal loan application</a> by visiting the website of HDFC bank. All you need to provide is the reference or proposal number along with the date of birth or mobile number.</p>"
+                },
+                {
+                    "question": "How to contact HDFC personal loan customer care?",
+                    "answer": "<p><a href=\"/hdfc-personal-loan-customer-care-number.html\">HDFC bank personal loan customer care</a> executives can be contacted by at the listed below numbers depending on the city of your residence: </p><ul><li>Pune: 020 - 6160 6161  </li><li>Mumbai: 022 - 61606161 </li><li>Kolkata: 0522 - 6160616 </li><li>Jaipur:033 - 61606161 </li><li>Indore: 0141 - 6160616 </li><li>Hyderabad: 040 - 61606161 </li><li>Delhi and NCR: 011 - 61606161 </li><li>Cochin: 0484 - 6160616 </li><li>Chennai: 044 - 61606161 </li><li>Chandigarh: 0172 - 61606161 </li><li>Bangalore: 080 - 61606161 </li><li>Ahmedabad: 079 – 61606161</li></ul><p>You can call on these numbers between 8 a.m. and 8 p.m. on all days including Sundays and bank holidays. </p>"
+                }
+            ]
+        }
+    },
     "856": {
         "title": "",
         "body": "",
@@ -250,70 +378,70 @@
                                 "img": {
                                     "src": "/images/india/personal-loan/citibank-personal-loan.png"
                                 },
-                                "body": "<ul><li>Low Interest rates for Salaried as well as Self-employed applicants</li><li>Funds will be credited to your bank account within 48 hours</li><li>Minimal documentation and Instant approval for existing Citibank customers</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>10.50% onwards</td><td>Rs.2,149</td><td>Up to 4% of the total principal outstanding amount plus interest for the month in which foreclosure is carried out</td><td>Rs.1,29,463</td></tr></tbody></table>"
+                                "body": "<ul><li>Low Interest rates for Salaried as well as Self-employed applicants</li><li>Funds will be credited to your bank account within 48 hours</li><li>Minimal documentation and Instant approval for existing Citibank customers</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>10.50% onwards</th><td>Rs.2,149</td><td>Up to 4% of the total principal outstanding amount plus interest for the month in which foreclosure is carried out</td><td>Rs.1,29,463</td></tr></tbody></table>"
                             },
                             {
                                 "title": "HDFC Bank - Best for Self Employed Professionals",
                                 "img": {
                                     "src": "/images/india/personal-loan/hdfc-personal-loan.png"
                                 },
-                                "body": "<ul><li>Attractive Interest rates for self-employed individuals</li><li>Loan Disbursal in 10 seconds for pre-approved HDFC Bank customers</li><li>Flexible Repayment tenures extending up to 60 months</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>10.75% onwards</td><td>Rs.2,162</td><td>13 to 24 months: 4% of principal outstanding<br>25 to 36 months: 3% of principal outstanding<br>More than 36 months: 2% of principal outstanding</td><td>Rs.1,30,208</td></tr></tbody></table>"
+                                "body": "<ul><li>Attractive Interest rates for self-employed individuals</li><li>Loan Disbursal in 10 seconds for pre-approved HDFC Bank customers</li><li>Flexible Repayment tenures extending up to 60 months</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>10.75% onwards</th><td>Rs.2,162</td><td>13 to 24 months: 4% of principal outstanding<br>25 to 36 months: 3% of principal outstanding<br>More than 36 months: 2% of principal outstanding</td><td>Rs.1,30,208</td></tr></tbody></table>"
                             },
                             {
                                 "title": "Kotak Mahindra Bank - Best for Quick Turnaround Time",
                                 "img": {
                                     "src": "/images/india/personal-loan/kotak-personal-loan.png"
                                 },
-                                "body": "<ul><li>Minimal paper work</li><li>Competitive interest rates and convenient repayment options</li><li>Hassle-free and quick loan disbursal</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>10.50% onwards</td><td>Rs.2,149</td><td>5% of principal outstanding as per reducing balance method on the date of repayment</td><td>Rs.1,29,463</td></tr></tbody></table>"
+                                "body": "<ul><li>Minimal paper work</li><li>Competitive interest rates and convenient repayment options</li><li>Hassle-free and quick loan disbursal</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>10.50% onwards</th><td>Rs.2,149</td><td>5% of principal outstanding as per reducing balance method on the date of repayment</td><td>Rs.1,29,463</td></tr></tbody></table>"
                             },
                             {
                                 "title": "Tata Capital – Best for Flexible Interest Rates",
                                 "img": {
                                     "src": "/images/india/personal-loan/tatacap-personal-loan.png"
                                 },
-                                "body": "<ul><li>Quick and Easy finance at flexible interest rates</li><li>The loan can be used to finance a variety of needs like weddings, emergency medical expenses, etc.</li><li>Flexi EMI options that cater to your requirements, your budget, and your timeline.</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>11.25%</td><td>Rs.2,187</td><td>4% of the principal outstanding plus GST</td><td>Rs.1,31,204</td></tr></tbody></table>"
+                                "body": "<ul><li>Quick and Easy finance at flexible interest rates</li><li>The loan can be used to finance a variety of needs like weddings, emergency medical expenses, etc.</li><li>Flexi EMI options that cater to your requirements, your budget, and your timeline.</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>11.25%</th><td>Rs.2,187</td><td>4% of the principal outstanding plus GST</td><td>Rs.1,31,204</td></tr></tbody></table>"
                             },
                             {
                                 "title": "ICICI Bank - Best for Instant Disbursement",
                                 "img": {
                                     "src": "/images/india/personal-loan/icici-personal-loan.png"
                                 },
-                                "body": "<ul><li>Collateral-free personal loans</li><li>Get cash in your account in just three seconds</li><li>Minimal documentation plus hassle-free application process for quick disbursal</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>11.25% onwards</td><td>Rs.2,187</td><td>5% of the total principal outstanding amount + GST</td><td>Rs.1,31,204</td></tr></tbody></table>"
+                                "body": "<ul><li>Collateral-free personal loans</li><li>Get cash in your account in just three seconds</li><li>Minimal documentation plus hassle-free application process for quick disbursal</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>11.25% onwards</th><td>Rs.2,187</td><td>5% of the total principal outstanding amount + GST</td><td>Rs.1,31,204</td></tr></tbody></table>"
                             },
                             {
                                 "title": "Standard Chartered Bank – Best for Short-term Requirements",
                                 "img": {
                                     "src": "/images/india/personal-loan/standard-chartered-personal-loan.png"
                                 },
-                                "body": "<ul><li>Attractive Interest rates</li><li>Get Instant approval when you apply online</li><li>Flexible repayment tenures extending up to 60 months</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>12% onwards</td><td>Rs.2,224</td><td>5% of principal outstanding as per reducing balance method on the date of repayment</td><td>Rs.1,33,967</td></tr></tbody></table>"
+                                "body": "<ul><li>Attractive Interest rates</li><li>Get Instant approval when you apply online</li><li>Flexible repayment tenures extending up to 60 months</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>12% onwards</th><td>Rs.2,224</td><td>5% of principal outstanding as per reducing balance method on the date of repayment</td><td>Rs.1,33,967</td></tr></tbody></table>"
                             },
                             {
                                 "title": "Capital First – Best for Top-up Loans",
                                 "img": {
                                     "src": "/images/india/personal-loan/capital-first-personal-loan.png"
                                 },
-                                "body": "<ul><li>An Ideal option, If you are looking to top up your Personal loan with an additional amount.</li><li>The repayment tenures of the loan are flexible, ranging from 12 months to 60 months.</li><li>The approval of the loan takes only around two minutes, thereby helping you save time and getting access to funds immediately.</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>12%</td><td>Rs.2,224</td><td>5% of principal outstanding amount</td><td>Rs.1,33,967</td></tr></tbody></table>"
+                                "body": "<ul><li>An Ideal option, If you are looking to top up your Personal loan with an additional amount.</li><li>The repayment tenures of the loan are flexible, ranging from 12 months to 60 months.</li><li>The approval of the loan takes only around two minutes, thereby helping you save time and getting access to funds immediately.</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>12%</th><td>Rs.2,224</td><td>5% of principal outstanding amount</td><td>Rs.1,33,967</td></tr></tbody></table>"
                             },
                             {
                                 "title": "Fullerton India – Best for Instant Approvals",
                                 "img": {
                                     "src": "/images/india/personal-loan/fullerton-personal-loan.png"
                                 },
-                                "body": "<ul><li>Experience Quick and Easy approvals</li><li>The repayment options are flexible, with tenures extending up to 60 months.</li><li>The documentation process is also hassle-free, and existing Fullerton India customers are eligible for additional benefits.</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>11.99%</td><td>Rs.2,249</td><td>3% to 7% of the principal outstanding amount depending on when the applicant opts for foreclosure</td><td>Rs.1,34,957</td></tr></tbody></table>"
+                                "body": "<ul><li>Experience Quick and Easy approvals</li><li>The repayment options are flexible, with tenures extending up to 60 months.</li><li>The documentation process is also hassle-free, and existing Fullerton India customers are eligible for additional benefits.</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>11.99%</th><td>Rs.2,249</td><td>3% to 7% of the principal outstanding amount depending on when the applicant opts for foreclosure</td><td>Rs.1,34,957</td></tr></tbody></table>"
                             },
                             {
                                 "title": "IIFL – Best for Easy Eligibility Checks",
                                 "img": {
                                     "src": "/images/india/personal-loan/iifl-personal-loan.png"
                                 },
-                                "body": "<ul><li>The eligibility check can be completed in one minute, and the online approval takes no more than five minutes post the submission of your documents.</li><li>The loan amount will be disbursed and transferred into your bank account within just eight hours.</li><li>The documentation process is also fairly simple and the paperwork involved is minimal, thus helping you save on time and effort.</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>13.49%</td><td>Rs.2,300</td><td>Up to 6% of the principal outstanding amount</td><td>Rs.1,38,528</td></tr></tbody></table>"
+                                "body": "<ul><li>The eligibility check can be completed in one minute, and the online approval takes no more than five minutes post the submission of your documents.</li><li>The loan amount will be disbursed and transferred into your bank account within just eight hours.</li><li>The documentation process is also fairly simple and the paperwork involved is minimal, thus helping you save on time and effort.</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>13.49%</th><td>Rs.2,300</td><td>Up to 6% of the principal outstanding amount</td><td>Rs.1,38,528</td></tr></tbody></table>"
                             },
                             {
                                 "title": "HDBFS - Best for Special Offers",
                                 "img": {
                                     "src": "/images/india/personal-loan/hdbfs-personal-loan.png"
                                 },
-                                "body": "<ul><li>Special offers for employees of certain companies.</li><li>The processing of the loan is quick and speedy, and no security or guarantor is required to avail the loan.</li><li>The repayment tenures are also quite flexible, ranging from 12 months to 60 months.</li></ul><table><tbody><tr><td>Interest Rate</td><td>EMI</td><td>Foreclosure/Prepayment Charges</td><td>Repayment</td></tr><tr><td>14.99%</td><td>Rs.2,378</td><td>2% to 4% of the principal outstanding amount depending on when the applicant opts for foreclosure</td><td>Rs.1,44,708</td></tr></tbody></table>"
+                                "body": "<ul><li>Special offers for employees of certain companies.</li><li>The processing of the loan is quick and speedy, and no security or guarantor is required to avail the loan.</li><li>The repayment tenures are also quite flexible, ranging from 12 months to 60 months.</li></ul><table><tbody><tr><th>Interest Rate</th><th>EMI</th><th>Foreclosure/Prepayment Charges</th><th>Repayment</th></tr><tr><th>14.99%</th><td>Rs.2,378</td><td>2% to 4% of the principal outstanding amount depending on when the applicant opts for foreclosure</td><td>Rs.1,44,708</td></tr></tbody></table>"
                             }
                         ]
                     },
