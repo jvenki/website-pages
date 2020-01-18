@@ -45,3 +45,27 @@ export class CTAHandlerVariant_LonelyLink extends BaseHandler {
         return {elements: [{type: "cta", link, linkText}]};
     }
 }
+
+export class CTAHandlerVariant_CtaSection extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+        return $e.hasClass("link-section");
+    }
+
+    validate($element: CheerioElemType, $: CheerioDocType) {
+        assert($element.find("a").length == 1, "CTAHandlerVariant_CtaSection-ConditionNotMet#1", $element);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = $element.find("a").attr("href");
+        const linkText = extractLinkText($element.find("a"), $);
+        const linkTextStartPos = $element.text().indexOf(linkText);
+        const prefix = $element.text().substring(0, linkTextStartPos).trim();
+        const suffix = $element.text().substring(linkTextStartPos + linkText.length).trim();
+        const convElement = {type: "cta", link, linkText}; // $SuppressFlowCheck
+        if (prefix) convElement.prefix = prefix; // $SuppressFlowCheck
+        if (suffix) convElement.suffix = suffix;
+        return {elements: [convElement]};
+    }
+}
+
