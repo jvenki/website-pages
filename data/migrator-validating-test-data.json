@@ -1,4 +1,234 @@
 {
+    "4": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "Features of ICICI Personal Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>Quick disbursal: Once your application is approved, the loan amount will be transferred to your account within three seconds.</li><li>The interest rate will remain fixed for the entire tenure of the loan.</li><li>Hassle-free application process.</li><li>Minimal documentation.</li><li>Flexible repayment tenures.</li></ul>"
+                    },
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": "Interest Rate",
+                                "link": "/icici-personal-loan-interest-rates.html"
+                            },
+                            {
+                                "linkText": "EMI Calculator",
+                                "link": "/icici-personal-loan-emi-calculator.html"
+                            },
+                            {
+                                "linkText": "Check Eligibility",
+                                "link": "/icici-personal-loan-eligibility-calculator.html"
+                            },
+                            {
+                                "linkText": "Customer Care",
+                                "link": "/icici-personal-loan-customer-care-number.html"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "ICICI Bank Personal Loan Fees and Charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><td>Maximum Loan Amount</td><td>Rs.20 lakh</td></tr><tr><td>Tenure</td><td>12 months to 60 months</td></tr><tr><td>Interest Rate</td><td>11.25% onwards</td></tr><tr><td>Processing Fees</td><td>Up to 2.25% p.a. of the loan amount + GST</td></tr><tr><td>Prepayment Charges</td><td>5% p.a. of principal outstanding amount + GST</td></tr><tr><td>Loan Cancellation Charges</td><td>Rs.3,000 + GST</td></tr></tbody></table><p><strong>Other Charges and Penalties</strong></p><table><tbody><tr><td>Additional interest on late payment</td><td>24% p.a.</td></tr><tr><td>Repayment mode swap charges</td><td>Rs.500 per transaction + GST</td></tr><tr><td>EMI bounce charges</td><td>Rs.400 per bounce + GST</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility Criteria",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Salaried applicants:</strong></p><table><tbody><tr><td>Age</td><td>23 years to 58 years</td></tr><tr><td>Net salary</td><td><ul><li>Rs.25,000 for applicants living in New Delhi and Mumbai</li><li>Rs.20,000 for applicants living in Bangalore, Chennai, Kolkata, Hyderabad and Pune</li><li>Rs.17,500 for applicants living in other cities</li></ul></td></tr><tr><td>Number of years in current residence</td><td>1 year</td></tr><tr><td>Number of years in job/profession</td><td>2 years</td></tr></tbody></table><p><strong>Self-employed applicants:</strong></p><table><tbody><tr><td>Age</td><td>25 years (for doctors) and 28 years (for self-employed individuals) to 65 years</td></tr><tr><td>Minimum turnover</td><td>Rs.15 lakh for professionals and Rs.40 lakh for non-professionals as per audited financials</td></tr><tr><td>Minimum profit after tax</td><td>Rs.1 lakh for non-professionals and Rs.2 lakh for self-employed individuals or proprietorship firms as per audited financials</td></tr><tr><td>Business stability</td><td>At least 3 years for doctors and 5 years for professionals in their current business</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents Required for ICICI Bank Personal Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>If you are a salaried applicant, here are the documents you need to submit for a personal loan from ICICI Bank:</strong></p><ul><li>ID Proof: Any one of PAN card, driving license, passport, or voters ID</li><li>Residence Proof: Any one of passport, recent utility bills, or lease or rent agreement</li><li>Salary slips for the last 3 months</li><li>Bank statement for the last 3 months</li><li>2 passport size photographs</li></ul><p><strong>Here are the documents required for ICICI Bank personal loans for self-employed individuals:</strong></p><ul><li>KYC Documents: ID proof, residence proof, proof of date of birth</li><li>Income Proof: Audited financial statements for the last 2 years</li><li>Proof of office or residence ownership</li><li>Proof of office address</li><li>Bank statements for the last 6 months</li><li>Proof of continuity of business</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to calculate EMI for ICICI Bank Personal Loan?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "grid",
+                        "cells": [
+                            {
+                                "width": "66.67%",
+                                "body": {
+                                    "type": "text",
+                                    "body": "<p>BankBazaar.com offers users a unique tool to calculate your EMI for all loans. This helps you to understand how much a loan would cost you, and plan your budgets accordingly before applying for a loan.</p><p>With our loan calculator tool, all you need to do is to enter the amount you wish to apply and the preferred tenure. The loan calculator then calculates the EMI based on the applicable rate of interest and displays your monthly EMI.</p>"
+                                }
+                            },
+                            {
+                                "width": "33.33%",
+                                "body": {
+                                    "type": "iframe",
+                                    "link": "https://blog.bankbazaar.com/personal-loan-emi-calculator/"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<p>Let's consider an example to check how the EMI calculation works for your ICICI personal loan. You take a personal loan of Rs.1 lakh from ICICI at an interest of 11.25% p.a. for a period of 1 year. For this loan, your loan repayment EMI is set at Rs.8,850. The repayment schedule for this loan is given as follows: </p><table><tbody><tr><td>Year</td><td>Principal</td><td>Interest</td><td>EMI (principal + interest)</td><td>Balance</td><td>Percentage of loan paid to date</td></tr><tr><td>Apr</td><td>Rs.7,912</td><td>Rs.938</td><td>Rs.8,850</td><td>Rs.92,088</td><td>7.91%</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>May</td><td>Rs.7,987</td><td>Rs.863</td><td>Rs.8,850</td><td>Rs.84,101</td><td>15.90%</td></tr><tr><td>Jun</td><td>Rs.8,061</td><td>Rs.788</td><td>Rs.8,850</td><td>Rs.76,040</td><td>23.96%</td></tr><tr><td>Jul</td><td>Rs.8,137</td><td>Rs.713</td><td>Rs.8,850</td><td>Rs.67,903</td><td>32.10%</td></tr><tr><td>Aug</td><td>Rs.8,213</td><td>Rs.637</td><td>Rs.8,850</td><td>Rs.59,690</td><td>40.31%</td></tr><tr><td>Sep</td><td>Rs.8,290</td><td>Rs.560</td><td>Rs.8,850</td><td>Rs.51,399</td><td>48.60%</td></tr><tr><td>Oct</td><td>Rs.8,368</td><td>Rs.482</td><td>Rs.8,850</td><td>Rs.43,031</td><td>56.97%</td></tr><tr><td>Nov</td><td>Rs.8,446</td><td>Rs.403</td><td>Rs.8,850</td><td>Rs.34,585</td><td>65.42%</td></tr><tr><td>Dec</td><td>Rs.8,526</td><td>Rs.324</td><td>Rs.8,850</td><td>Rs.26,059</td><td>73.94%</td></tr><tr><td>Jan</td><td>Rs.8,606</td><td>Rs.244</td><td>Rs.8,850</td><td>Rs.17,454</td><td>82.55%</td></tr><tr><td>Feb</td><td>Rs.8,686</td><td>Rs.164</td><td>Rs.8,850</td><td>Rs.8,768</td><td>91.23%</td></tr><tr><td>Mar</td><td>Rs.8,768</td><td>Rs.82</td><td>Rs.8,850</td><td>Rs. 0</td><td>100.00%</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Compare ICICI personal loan with loans from other lenders?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><td>Fees and charges</td><td>ICICI bank Personal Loan</td><td>HDFC Bank Personal Loan</td><td>Bank of Baroda Personal Loan</td><td>Citibank Personal Loan</td></tr><tr><td>Interest rate</td><td>11.25% p.a. onwards</td><td>11.25% p.a. onwards</td><td>11.35% p.a. onwards</td><td>10.99% p.a. onwards</td></tr><tr><td>Processing fee</td><td>2.25% + GST</td><td>2.5% + GST</td><td>2% + GST</td><td>0.25% to 3.00% + GST</td></tr><tr><td>Foreclosure charges</td><td>5% of the outstanding loan amount</td><td>2% to 4% of the outstanding loan amount</td><td>N/A</td><td>4% of the principal outstanding</td></tr><tr><td>Late payment fee</td><td>2% of the overdue amount per month</td><td>2% of the overdue amount per month</td><td>2% of the overdue amount per month</td><td>Contact the bank for details</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "blockquote",
+                        "title": "Brief Summary",
+                        "body": "<p>ICICI Bank is not only the largest private sector banks in the country but also one of the largest facilitators of personal loans in India. It offers personal loans to help borrowers ride over any immediate financial requirements. ICICI Banks understand that time is of paramount significance when faced with financial crisis and hence fast tracks all its personal loan applications resulting in quick loan approval and facilitation.</p><p>Whether you wish to take off on a dream vacation to an exotic overseas destination or finance a grand wedding for yourself or a loved one, ICICI Bank personal loans can help you fulfil your financial goals with relative ease. Thanks to easy-to-meet eligibility criteria in addition to low interest rates and flexible repayment tenures, repaying the loan is just as borrowing it.</p>"
+                    },
+                    {
+                        "type": "video",
+                        "link": "//www.youtube.com/embed/kSla2nynfDg"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Related loan products by ICICI bank",
+                "items": [
+                    {
+                        "link": "/personal-loan/icici-loans-for-new-entities.html",
+                        "title": "ICICI Loan for New Entities"
+                    },
+                    {
+                        "link": "/personal-loan/icici-loan-against-property.html",
+                        "title": "ICICI Loan against Property"
+                    },
+                    {
+                        "link": "/personal-loan/icici-agriculture-loan.html",
+                        "title": "ICICI Agriculture Loan"
+                    },
+                    {
+                        "link": "/personal-loan/icici-bank-sme-loans.html",
+                        "title": "ICICI Bank SME Loans"
+                    }
+                ]
+            },
+            {
+                "title": "Personal Loan by Banks",
+                "items": [
+                    {
+                        "link": "/sbi-personal-loan.html",
+                        "title": "SBI Personal Loan"
+                    },
+                    {
+                        "link": "/hdfc-personal-loan.html",
+                        "title": "HDFC Personal Loan"
+                    },
+                    {
+                        "link": "/idfc-bank-personal-loan.html",
+                        "title": "IDFC Bank Personal Loan"
+                    },
+                    {
+                        "link": "/kotak-personal-loan.html",
+                        "title": "Kotak Mahindra Bank Personal Loan"
+                    },
+                    {
+                        "link": "/yes-bank-personal-loan.html",
+                        "title": "YES Bank Personal Loan"
+                    },
+                    {
+                        "link": "/idbi-personal-loan.html",
+                        "title": "IDBI Bank Personal Loan"
+                    },
+                    {
+                        "link": "/ing-vysya-personal-loan.html",
+                        "title": "ING VYSYA Personal Loan"
+                    },
+                    {
+                        "link": "/indusind-personal-loan.html",
+                        "title": "Indusind Bank Ltd Personal Loan"
+                    },
+                    {
+                        "link": "/deutsche-bank-personal-loan.html",
+                        "title": "Deutsche Bank Personal Loan"
+                    },
+                    {
+                        "link": "/capital-first-personal-loan.html",
+                        "title": "Capital First Personal Loan"
+                    },
+                    {
+                        "link": "/dbs-bank-personal-loan.html",
+                        "title": "DBS Bank Personal Loan"
+                    },
+                    {
+                        "link": "/federal-bank-personal-loan.html",
+                        "title": "Federal Bank Personal Loan"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "items": [
+                {
+                    "question": "Am I allowed to prepay or foreclose my ICICI Bank personal loan?",
+                    "answer": "<p>The whole outstanding amount can be repaid at any time over the course of the loan tenure. However, you will have to pay at least one instalment before you foreclose your loan. You will also have to pay a fee of 5% of the outstanding loan amount plus GST at the time of prepayment/foreclosure.</p>"
+                },
+                {
+                    "question": "Can I prepay my ICICI Bank personal loan partly?",
+                    "answer": "<p>ICICI Bank does not allow part prepayment, but for full prepayment/foreclosure, you will have to submit a duly signed request letter to the bank along withyourPAN card in case you are making the payment by cash. You can also prepay your personal loan through demand draft or cheque.</p>"
+                },
+                {
+                    "question": "How can I repay my ICICI Bank personal loan?",
+                    "answer": "<p>The repayment of your ICICI Bank personal loan can be done through Equated Monthly Instalments (EMIs). Customers who have an account with ICICI Bank can repay the loan using the direct debit facility. Customers of other banks can repay their loans through NACH mandate.</p>"
+                },
+                {
+                    "question": "Can I get a top up on my current ICICI Bank personal loan?",
+                    "answer": "<p>ICICI Bank offers the top up facility to customers who have made 12 EMI payments on their current personal loans. The request for a top up can be placed through net banking, by calling customer care, or by visiting a branch of the bank.</p>"
+                },
+                {
+                    "question": "Does the bank offer the balance transfer facility?",
+                    "answer": "<p>Yes, customers who have made at least 12 EMI payments are eligible for the balance transfer facility. To avail the same, you will have to contact customer care or visit the nearest branch of ICICI Bank.</p>"
+                },
+                {
+                    "question": "How can I apply for an ICICI Bank personal loan?",
+                    "answer": "<p>To apply for a personal loan from ICICI Bank, you will have to visit the website of the bank and go to the personal loan section, or call the bank's customer care on 18601207777 from 8:00 a.m. to 8:00 p.m., or visit a branch of the bank.</p>"
+                },
+                {
+                    "question": "Does the bank require a guarantor or security for personal loans?",
+                    "answer": "<p>No, you can avail a personal loan without having to pledge any security or signing up a guarantor.</p>"
+                }
+            ]
+        }
+    },
     "856": {
         "title": "",
         "body": "",
