@@ -27,6 +27,9 @@ const isDivUnnecessary = ($e) => {
     } else if ($e.attr("class").match(/bg-blue pad-10/)) {
         // Just does some prominence to the section. They should have used a different type like Jumbotron. Used in 856
         return true;
+    } else if ($e.attr("class").match(/pad-10 text-center bg-yellow/)) {
+        // Just does some prominence to the section. They should have used a different type like Jumbotron. Used in 4
+        return true;
     }
     return false;
 };

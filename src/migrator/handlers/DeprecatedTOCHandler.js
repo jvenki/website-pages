@@ -10,8 +10,7 @@ export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {
-        assert($element.children().length == 1, "DeprecatedTOCHandlerVariant_ProductsInvest-ConditionNotMet#1", $element);
-        assert($element.children().eq(0).get(0).tagName == "ul", "DeprecatedTOCHandlerVariant_ProductsInvest-ConditionNotMet#2", $element);
+        assert($element.find("ul").length == 1, "DeprecatedTOCHandlerVariant_ProductsInvest-ConditionNotMet#1", $element);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
