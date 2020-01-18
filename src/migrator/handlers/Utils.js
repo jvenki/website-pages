@@ -204,8 +204,10 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
     const extractBodyRows = () => {
         const bodyRows = $e.find("table tbody tr").map((ri, tr) => {
+            const cellCount = $(tr).children().length;
             const cells = $(tr).children().map((ci, td) => {
-                return createCell("td", extractContentHtml($(td), $), td.attribs);
+                const shouldTreatLikeTH = Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0);
+                return createCell(shouldTreatLikeTH ? "th" : "td", extractContentHtml($(td), $), td.attribs);
             }).get();
 
             return `<tr>${cells.join("")}</tr>`;
