@@ -129,10 +129,11 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
     const extractBodyRows = () => {
         const bodyRows = $e.find("table tbody tr").map((ri, tr) => {
+            const isTRActuallyAHeader = $(tr).hasClass("bg-tory-blue");
             const cellCount = $(tr).children().length;
             const cells = $(tr).children().map((ci, td) => {
-                const shouldTreatLikeTH = Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0);
-                return createCell(shouldTreatLikeTH ? "th" : "td", extractContentHtml($(td), $), td.attribs);
+                const isTDActuallyATH = (Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0)) || isTRActuallyAHeader;
+                return createCell(isTDActuallyATH ? "th" : "td", extractContentHtml($(td), $), td.attribs);
             }).get();
 
             return `<tr>${cells.join("")}</tr>`;
