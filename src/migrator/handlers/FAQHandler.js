@@ -157,3 +157,22 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
         return {elements: [{type: "faq", title, items}]};
     }    
 }
+
+export class FAQHandlerVariant_HeadingRegexFollowedByOL extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol";
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const items = elements[1].children().map((i, li) => {
+            const $li = $(li);
+            const qns = extractHeadingText($li.find("strong"), $);
+            const ans = $li.find("strong").nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        return {elements: [{type: "faq", title, items}]};
+    }
+}

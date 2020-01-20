@@ -547,6 +547,189 @@
             ]
         }
     },
+    "8": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "panel",
+                        "title": "Features of Kotak Mahindra Bank personal loan",
+                        "body": "<ul><li>Instant loans for unforeseen expenses</li><li>Minimal documentation and immediate processing of loans</li><li>Easy access to funds for any purpose including marriage, higher education, vacation, emergency medical needs, etc.</li></ul>"
+                    },
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": " Fees and Charges",
+                                "link": "#feesandcharges",
+                                "img": {
+                                    "src": "/images/india/infographic/fees-and-charges.png"
+                                }
+                            },
+                            {
+                                "linkText": " Eligibility",
+                                "link": "#eligibility",
+                                "img": {
+                                    "src": "/images/india/infographic/eligibility.png"
+                                }
+                            },
+                            {
+                                "linkText": " Documentation",
+                                "link": "#documentation",
+                                "img": {
+                                    "src": "/images/india/infographic/document.png"
+                                }
+                            },
+                            {
+                                "linkText": " FAQ",
+                                "link": "#faq",
+                                "img": {
+                                    "src": "/images/india/infographic/faq.png"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Personal Loan Details for Kotak Mahindra Bank",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Interest rate</th><th>Loan amount</th></tr><tr><td>10.50% to 16.99%</td><td>Minimum: Rs.50,000 Maximum: Rs.15 lakh</td></tr></tbody></table><p>Benfits</p><ul><li>Easy online application process</li><li>Minimal paperwork and faster processing</li><li>Hassle-free loan disbursal process</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Fees and charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The fees and charges associated with Kotak Mahindra Bank personal loan are given as follows:</p><table><tbody><tr><th>Schedule of charges</th><th>Rates</th></tr><tr><td>Processing charges</td><td>up to 2.5% of the loan amount + GST</td></tr><tr><td>Stamping charges</td><td>as per respective state's Stamp Act</td></tr><tr><td>Credit appraisal charges</td><td>up to 5% of the loan amount subject to a maximum of Rs.7,500</td></tr><tr><td>Overdue interest charges</td><td>3% per month, compounded monthly</td></tr><tr><td>Dishonour</td><td>Rs.750 per instance</td></tr><tr><td>Collection charges</td><td>30% of dishonour charges + overdue interest</td></tr><tr><td>CIBIL report charges</td><td>Rs.50 + GST</td></tr><tr><td>No due certificate</td><td>Rs.500 + GST</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility for Kotak Mahindra Bank personal loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The eligibility criteria for Kotak Mahindra Bank personal loan are listed as follows:</p><ul><li>Anyone between the ages of 21 years and 58 years can get access to this loan.</li><li>The applicant must be an active employee of a public or private sector company for at least one year.</li><li>The applicant must earn at least Rs.20,000 per month to be eligible for this loan.</li><li>The applicant must at least be a graduate.</li><li>The applicant must be a resident of the current city for at least one year.</li></ul>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/kotak-personal-loan-eligibility-calculator.html",
+                        "linkText": "Check Your Eligibility"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents required",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The following list of documents must be submitted to get the personal loan offered by Kotak Mahindra Bank:</p><ul><li>Proof of identity (PAN, Aadhar, driving license, voter's ID, etc.)</li><li>Proof of residence (Utility bill, passport, etc.)</li><li>3 passport size photographs</li><li>Salary slips for at least 3 months</li><li>Bank statement for the last 3 months</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How the EMI calculation works for Kotak Mahindra Bank personal loans? ",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Let's consider the example below. You take a personal loan of Rs.1 lakh from the bank. The bank charges an interest rate of 10.99% p.a. for a loan tenure of 1 year. The repayment schedule for this loan is given as follows: </p><table><tbody><tr><th>Months</th><th>Principal</th><th>Interest</th><th>EMI (principal + interest)</th><th>Balance</th><th>Percentage of loan paid to date</th></tr><tr><td>Apr</td><td>Rs.7,922</td><td>Rs.916</td><td>Rs.8,838</td><td>Rs.92,078</td><td>7.92%</td></tr><tr><td>May</td><td>Rs.7,994</td><td>Rs.843</td><td>Rs.8,838</td><td>Rs.84,084</td><td>15.92%</td></tr><tr><td>Jun</td><td>Rs.8,068</td><td>Rs.770</td><td>Rs.8,838</td><td>Rs.76,016</td><td>23.98%</td></tr><tr><td>Jul</td><td>Rs.8,142</td><td>Rs.696</td><td>Rs.8,838</td><td>Rs.67,875</td><td>32.13%</td></tr><tr><td>Aug</td><td>Rs.8,216</td><td>Rs.622</td><td>Rs.8,838</td><td>Rs.59,658</td><td>40.34%</td></tr><tr><td>Sep</td><td>Rs.8,291</td><td>Rs.546</td><td>Rs.8,838</td><td>Rs.51,367</td><td>48.63%</td></tr><tr><td>Oct</td><td>Rs.8,367</td><td>Rs.470</td><td>Rs.8,838</td><td>Rs.43,000</td><td>57.00%</td></tr><tr><td>Nov</td><td>Rs.8,444</td><td>Rs.394</td><td>Rs.8,838</td><td>Rs.34,556</td><td>65.44%</td></tr><tr><td>Dec</td><td>Rs.8,521</td><td>Rs.316</td><td>Rs.8,838</td><td>Rs.26,035</td><td>73.97%</td></tr><tr><td>Jan</td><td>Rs.8,599</td><td>Rs.238</td><td>Rs.8,838</td><td>Rs.17,436</td><td>82.56%</td></tr><tr><td>Feb</td><td>Rs.8,678</td><td>Rs.160</td><td>Rs.8,838</td><td>Rs.8,757</td><td>91.24%</td></tr><tr><td>Mar</td><td>Rs.8,757</td><td>Rs.80</td><td>Rs.8,838</td><td>Rs.0</td><td>100.00%</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/kotak-personal-loan-emi-calculator.html",
+                        "linkText": "Calculate Your EMI"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How Kotak Mahindra Bank compares with other lenders? ",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Fees and charges</th><th>Kotak Mahindra Bank Personal Loan</th><th>HDFC Bank Personal Loan</th><th>Citibank Personal Loan</th><th>Yes Bank Personal Loan</th></tr><tr><td>Interest rate</td><td>10.50% p.a. onwards</td><td>11.25% p.a. onwards</td><td>10.99% p.a. onwards</td><td>20% p.a. onwards</td></tr><tr><td>Processing fee</td><td>2.5% + GST</td><td>2.5% + GST</td><td>0.25% to 3.00% + GST</td><td>2.5% + GST</td></tr><tr><td>Foreclosure charges</td><td>5% of the outstanding loan amount</td><td>2% to 4% of the outstanding loan amount</td><td>Up to 4% of the principal outstanding</td><td>0% to 4% of the outstanding loan amount</td></tr><tr><td>Late payment fee</td><td>3% of the overdue amount per month</td><td>2% of the overdue amount per month</td><td>Contact the bank for details</td><td>2% of the overdue amount per month</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Brief Summary",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Personal loans provide quick access to funds during emergency financial needs. The personal loan offered by Kotak Mahindra Bank is intended just for that purpose. If you are having a sudden financial emergency, you may reach out to Kotak Mahindra and apply for a personal loan. The reasonable interest rates and flexible repayment options can help you take care of your emergency financial needs without leaving a big dent in your monthly budget.</p>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "Kotak Mahindra Bank personal loan FAQs",
+            "items": [
+                {
+                    "question": "How to check Kotak Bank Personal Loan Status?",
+                    "answer": "<p>You can track the <a href=\"/kotak-personal-loan-status.html\">kotakbank personal loan status</a> on the website of Kotak Bank. To do this, follow the steps given below: </p><ul><li>Visit the Kotak Bank website. </li><li>Click on 'Get Help' at the top right of the page. </li><li>Click on 'Help Centre'. </li><li>From the menu list on the page, click on 'Loans'. </li><li>Click on 'Personal Loans'. </li><li>Click on 'Loan Application Status'. </li><li>This will direct you to the next page with the button 'Loan Application Status'. Click on that. </li><li>From the dropdown menu, select the type of loan. </li><li>On the next page, you would need to input any one identifier, such as the application form number, mobile number, PAN number and date of birth, first name and date of birth, etc. </li><li>The status of your loan will now be generated. </li></ul>"
+                },
+                {
+                    "question": "How to contact Kotak Bank personal loan customer care?",
+                    "answer": "<p>You can contact <a href=\"/kotak-personal-loan-customer-care-number.html\">Kotak Bank personal loan customer care</a> through the following ways: </p><ul><li>Call phone banking at 1860 266 2666 (this is a 24x7 helpline number for which standard call charges apply). </li><li>If you are an 811 customer, you can call the number 1860 266 0811. </li></ul>"
+                },
+                {
+                    "question": "What is the loan tenure for Kotak Mahindra Bank personal loan?",
+                    "answer": "<p>The repayment options are quite flexible in Kotak Mahindra Bank. Customers can choose the loan repayment tenure between 1 year and 5 years.</p>"
+                },
+                {
+                    "question": "Is it possible to foreclose the personal loan?",
+                    "answer": "<p>Yes. It is possible to foreclose the personal loan after 12 months of continuous EMI payments. The bank must be given a foreclosure notice at least 30 days before the payment. Kotak Mahindra Bank has foreclosure charges of 5% of the outstanding loan amount + applicable service tax. Once the payment is made, the bank will send the No Objection Certificate and remaining postdated cheques (if any) to you within 15 days.</p>"
+                },
+                {
+                    "question": "Can I do part prepayments on my personal loan?",
+                    "answer": "<p>No. Kotak Mahindra Bank does not allow part prepayment on personal loans at present.</p>"
+                },
+                {
+                    "question": "What is the personal loan top-up facility offered by Kotak Mahindra Bank?",
+                    "answer": "<p>Personal loan top-up refers to the process by which a customer gets an additional loan over the outstanding loan amount. This is subject to Kotak Mahindra's lending policy and the customer's creditworthiness. During this process, the bank will check for any EMI overdue, outstanding loans, bounced cheques, borrower's job stability, etc., before issuing the top-up loan.</p>"
+                },
+                {
+                    "question": "What is Personal Loan Balance Transfer?",
+                    "answer": "<p>This is a process by which the outstanding loan amount is transferred from one financial institution to another. This is done mainly to take advantage of the lower interest rates offered by another bank. This could help you bring down your overall debt burden.</p>"
+                },
+                {
+                    "question": "What is the installment payment date for the personal loan? Can I choose the date based on my convenience?",
+                    "answer": "<p>The installment repayment dates are 5th and 10th of every month. Customers can choose between these two days while signing up for the loan.</p>"
+                },
+                {
+                    "question": "Will I get a repayment schedule for my loan?",
+                    "answer": "<p>Customers can download their repayment schedule from the official website of the bank anytime they want. If you are not able to download, you may visit the nearest branch office and get the repayment schedule by providing your personal loan details.</p>"
+                },
+                {
+                    "question": "Can I postpone my EMI payment for a specific month in case of an emergency?",
+                    "answer": "<p>No. The bank does not allow postponing or rescheduling of EMI payments. If you are not able to make the payment for one month, you must repay the outstanding installment along with the overdue charges and late fees.</p>"
+                }
+            ]
+        }
+    },
     "856": {
         "title": "",
         "body": "",
