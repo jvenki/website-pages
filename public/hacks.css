@@ -1,0 +1,22 @@
+.wc-preview table {
+  margin-bottom: 15px;
+}
+
+.wc-preview table th {
+    background-color: #38acc9;
+    color: white;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .wc-preview table td {
+    border: 1px solid #ddd;
+  }
+  
+  .wc-preview table > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+  .wc-preview table > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+  
