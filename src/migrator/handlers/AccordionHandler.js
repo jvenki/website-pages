@@ -1,18 +1,19 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
+import {headingRegex as faqHeadingRegex, FAQInsideAccordionPanelHandler} from "./FAQHandler";
 import {extractHeadingText, extractContentHtml, assert} from "./Utils";
 
 export class AccordionHandler extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType): boolean {
-        return $element.hasClass("twi-accordion");
+        return $element.hasClass("twi-accordion") || $element.hasClass("ln-accordion");
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
         const elements = [$element];
         while (true) {
             $element = $element.next();
-            if (!$element || !$element.hasClass("twi-accordion")) {
+            if (!$element || !($element.hasClass("twi-accordion") || $element.hasClass("ln-accordion"))) {
                 break;
             }
             elements.push($element);
@@ -34,13 +35,32 @@ export class AccordionHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const items = [];
+        let faq;
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
+                const $be = $(panel).find(".panel-body");
                 const title = extractHeadingText($(panel).find(".panel-heading h2 a"), $);
-                const body = extractContentHtml($(panel).find(".panel-body"), $);
-                items.push({title, body});
+                if (isPanelActuallyAFAQ(title)) {
+                    faq = new FAQInsideAccordionPanelHandler().convert([$(panel)], $).elements[0];
+                } else {
+                    const body = extractContentHtml($be, $);
+                    assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#5", $element);
+                    items.push({title, body});
+                }
             });
         });
-        return {elements: [{type: "accordion", items}]};
+
+        const targetElements = [];
+        const issues = [];
+        if (faq) {
+            targetElements.push(faq);
+            issues.push("Accordion Panel converted to FAQ");
+        }
+        if (items.length > 0) {
+            targetElements.push({type: "accordion", items});
+        }
+        return {elements: targetElements, issues};
     }
 }
+
+const isPanelActuallyAFAQ = (title) => title.match(faqHeadingRegex);
