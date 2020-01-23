@@ -67,10 +67,10 @@ export const isElementAContentNode = ($e) => isElementATextualNode($e) || isElem
 
 const isElementASubHeadingNode = ($e) => ["h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
 const isElementATextualNode = ($e) => ["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img"].includes($e.get(0).tagName) || $e.get(0).type == "text";
-const isElementATableNode = ($e) => $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table") || $e.get(0).tagName == "table";
+const isElementATableNode = ($e) => $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table") || $e.hasClass("product-hl-table") || $e.get(0).tagName == "table";
 
 export const extractHeadingText = ($e, $) => {
-    const whilelistedTags = ["strong"];
+    const whilelistedTags = ["strong", "sub"];
     if ($e.children().length > 0) {
         $e.find("*").each((i, c) => {
             if (!whilelistedTags.includes(c.tagName)) {
@@ -78,7 +78,7 @@ export const extractHeadingText = ($e, $) => {
             }
         });        
     }
-    return $e.text();
+    return $e.text().replace(/Updated on \$date/, "");
 };
 
 export const extractLinkText = ($e, $) => {
@@ -95,7 +95,10 @@ export const extractLinkText = ($e, $) => {
 
 export const extractContentHtml = ($e, $) => {
     let html;
-    if (isElementATextualNode($e)) {
+    if ($e.get(0).tagName == "a" && $e.parent().hasClass("pull-right") && $e.children().length == 1 && $e.children().length == $e.find("img").length) {
+        const linkTitle = $e.attr("title") || $e.find("img").attr("title");
+        html = `<a href="${$e.attr("href")}" title="${linkTitle}" class="pull-right">${extractImgTag($e.find("img"))}</a>`;
+    } else if (isElementATextualNode($e)) {
         html = extractHtmlFromTextualNodes($e, $);
     } else if (isElementATableNode($e)) {
         html = extractHtmlFromTableCreatedUsingTableNode($e, $);
@@ -122,6 +125,18 @@ export const extractContentHtml = ($e, $) => {
 
 export const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 
+const extractImgTag = ($e) => {
+    let output = "<img";
+    if ($e.attr("title")) {
+        output += ` title="${$e.attr("title")}"`;
+    }
+    if ($e.attr("alt")) {
+        output += ` alt="${$e.attr("alt")}"`;
+    }
+    output += ` src="${extractImgSrc($e)}"/>`;
+    return output;
+};
+
 const extractHtmlFromTextualNodes = ($e, $) => {
     const validateInnerHtml = ($c) => {
         $c.find("*").each((i, d) => {
@@ -139,6 +154,7 @@ const extractHtmlFromTextualNodes = ($e, $) => {
 const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     // Upon analysis it was found that TBODY had TH only in 689, 25814 & 25815. Therefore we can be sure that THEAD is the only way to see header.
     assert($e.find("table thead tr").length <= 1, "More than one Header Row was found which is not right", $e);
+    assert($e.find(".product-hl-table-head").length == 0 || $e.find("table thead tr").length == 0, "More than one Header Row was found which is not right", $e);
     assert($e.find("table thead tr td").length == 0, "THEAD has TD cells which is not right", $e);
     assert($e.find("table tbody tr").length > 0, "No rows were found in TBODY which is not right", $e);
     assert($e.find("table tbody tr th").length == 0, "TBODY has TH cells which is not right", $e);
@@ -155,6 +171,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     };
 
     const extractBodyRows = () => {
+        let maxColumnCount = 0;
         const bodyRows = $e.find("table tbody tr").map((ri, tr) => {
             const isTRActuallyAHeader = $(tr).hasClass("bg-tory-blue");
             const cellCount = $(tr).children().length;
@@ -162,22 +179,27 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
                 const isTDActuallyATH = (Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0)) || isTRActuallyAHeader;
                 return createCell(isTDActuallyATH ? "th" : "td", extractContentHtml($(td), $), td.attribs);
             }).get();
-
+            maxColumnCount = Math.max(cells.length, maxColumnCount);
             return `<tr>${cells.join("")}</tr>`;
         }).get();
-        return {bodyRows};
+        return {bodyRows, maxColumnCount};
     };
 
-    const extractHeaderRows = () => {
+    const extractHeaderRows = (maxColumnCount) => {
         const headerRows = $e.find("table thead tr").map((ri, tr) => {
             const cells = $(tr).children().map((ci, th) => createCell("th", extractHeadingText($(th), $), th.attribs)).get();
             return `<tr>${cells.join("")}</tr>`;
         }).get();
+        if ($e.find(".product-hl-table-head").length > 0) {
+            const specialHeader = $e.find(".product-hl-table-head").text();
+            // const specialSubHeader = $e.parent().prev().find("sub").text();
+            headerRows.push(`<tr><th colspan="${maxColumnCount}">${specialHeader} - (Updated on $date)</th></tr>`);
+        }
         return headerRows;
     };
 
-    const {bodyRows} = extractBodyRows();
-    const headerRows = extractHeaderRows();
+    const {bodyRows, maxColumnCount} = extractBodyRows();
+    const headerRows = extractHeaderRows(maxColumnCount);
     let output = "<table>";
     if (headerRows.length > 0) {
         output += `<thead>${headerRows[0]}</thead>`;

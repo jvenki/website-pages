@@ -176,3 +176,23 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL extends FAQBaseHandler {
         return {elements: [{type: "faq", title, items}]};
     }
 }
+
+export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        // This is made to return FALSE intentionally so that this is never used directly inside handlers/index.js. 
+        // This handler can be invoked only by Accordion as it finds the Panel Header to be a FAQ and then 
+        // gives the Panel Body as elements into convert
+        return false;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const items = elements[0].find("ul > h3, ul > li > h3").map((i, q) => {
+            const $q = $(q);
+            const qns = $q.parent().get(0).tagName == "ul" ? extractHeadingText($q.find("li"), $) : extractHeadingText($q, $);
+            const ans = $q.nextUntil("h3,li").map((i, a) => extractContentHtml($(a), $)).get().join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        return {elements: [{type: "faq", items}]};
+    }
+}
