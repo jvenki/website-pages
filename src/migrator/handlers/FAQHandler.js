@@ -188,3 +188,24 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL extends FAQBaseHandler {
         return {elements: [{type: "faq", title, items}]};
     }
 }
+
+export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion") || $element.hasClass("panel"))
+            && $element.find(".panel-title").text().match(headingRegex);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find(".panel-title a"), $);
+        const panelBody = elements[0].find(".panel-body");
+        const items = panelBody.find("ul > h3, ul > li > h3").map((i, q) => {
+            const $q = $(q);
+            const qns = $q.parent().get(0).tagName == "ul" ? extractHeadingText($q.find("li"), $) : extractHeadingText($q, $);
+            const ans = $q.nextUntil("h3,li").map((i, a) => extractContentHtml($(a), $)).get().join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        assertExtractedData(items, title, elements[1]);
+        return {elements: [{type: "faq", title, items}]};
+    }
+}
