@@ -20,3 +20,9 @@
     background-color: #f9f9f9;
   }
   
+
+.wc-preview .wc-disclaimer p {
+    font-size: 11px !important; 
+    color: rgb(152, 152, 152); 
+    line-height: normal !important;
+}
