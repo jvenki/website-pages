@@ -176,6 +176,8 @@ const extractHtmlFromTextualNodes = ($e, $) => {
             return extractImgTag($n);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "a") {
             return createLinkTag($n, processChildNodes($n));  // Has Attributes that needs to be pulled out
+        } else if (n.tagName == "ul" && $n.children().get().every((li) => $(li).text().trim().match(/^\d+./))) {
+            return `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+.\s*/, "<li>")).join("")}</ol>`;
         } else if (isElementASubHeadingNode($n)) {
             return `<strong>${processChildNodes($n).join("")}</strong>`;
         } else if (isElementATableNode($n)) {
