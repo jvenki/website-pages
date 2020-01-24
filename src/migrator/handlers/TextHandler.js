@@ -31,10 +31,17 @@ export default class TextHandler extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         let title = "";
         let body = "";
-        elements.forEach(($element) => {
+        elements.forEach(($element, i) => {
             if (isElementASubHeadingNode($element) && !title) {
                 title = extractHeadingText($element, $);
-            } else if (isElementASubHeadingNode($element) || isElementATextualNode($element) || isElementATableNode($element)) {
+            } else if (isElementASubHeadingNode($element) || isElementATextualNode($element)) {
+                body += extractContentHtml($element, $);
+            } else if (isElementATableNode($element)) {
+                const prevElement = elements[i-1];
+                if ( prevElement && isElementATableNode(prevElement)) {
+                    // Two Tables next to each other will make it look as a single table. Insert a BR. Thats why hungry-table anyway does through margin-bottom;
+                    body += "<br/>";
+                }
                 body += extractContentHtml($element, $);
             } else {
                 throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE);
