@@ -196,6 +196,30 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong extends
     }
 }
 
+export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        const nextElemIsUL = ($n) => {
+            return ["ul", "ol"].includes($n.get(0).tagName) 
+                && $n.find(" > li").length > 0 
+                && $n.find(" > li > h3").length == $n.find(" > li").length 
+                && $n.find(" > li > p").length == $n.find(" > li").length;
+        };
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsUL($e.next()); 
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const items = elements[1].find("li > h3").map((i, q) => {
+            const $q = $(q);
+            const qns = extractHeadingText($q, $);
+            const ans = $q.nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        return {elements: [{type: "faq", title, items}]};
+    }
+}
+
 export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
         // This is made to return FALSE intentionally so that this is never used directly inside handlers/index.js. 
