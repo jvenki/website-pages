@@ -48,7 +48,7 @@ export class CTAHandlerVariant_LonelyLink extends BaseHandler {
 
 export class CTAHandlerVariant_CtaSection extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType): boolean {
-        return $e.hasClass("link-section");
+        return $e.hasClass("link-section") || $e.hasClass("cta-section");
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {

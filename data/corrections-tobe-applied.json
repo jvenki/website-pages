@@ -5,5 +5,15 @@
             "op": "insertBefore",
             "to": "nav"
         }
+    ],
+    "10": [
+        {
+            "source": "div.bank-prod-page > div.product-content > div.col-md-12 > div.lt-pad-10 > ul",
+            "op": "appendBefore"
+        },
+        {
+            "source": "div.bank-prod-page > div.product-content > div.col-md-12 > div.lt-pad-10 > details > summary > p",
+            "op": "moveUp"
+        }
     ]
 }
