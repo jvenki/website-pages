@@ -15,5 +15,11 @@
             "source": "div.bank-prod-page > div.product-content > div.col-md-12 > div.lt-pad-10 > details > summary > p",
             "op": "moveUp"
         }
+    ],
+    "12": [
+        {
+            "source": "div.row > div.col-md-12 > div.row > div.col-md-12 > ul.list-group > ul",
+            "op": "appendBefore"
+        }
     ]
 }
