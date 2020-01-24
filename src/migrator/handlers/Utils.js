@@ -70,14 +70,21 @@ const isElementATextualNode = ($e) => ["p", "ul", "ol", "li", "strong", "em", "a
 const isElementATableNode = ($e) => $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table") || $e.hasClass("product-hl-table") || $e.get(0).tagName == "table";
 
 export const extractHeadingText = ($e, $) => {
-    const whilelistedTags = ["strong", "sub"];
-    if ($e.children().length > 0) {
-        $e.find("*").each((i, c) => {
-            if (!whilelistedTags.includes(c.tagName)) {
-                throw new MigrationError(ConversionIssueCode.HEADING_HAS_CHILDREN, undefined, `Found ${c.tagName} inside \n ${$e.toString()}`);
+    const doNothingChildTags = ["strong"];
+    const conditionallySupportedChildTags = ["sub", "p"];
+
+    const isFilledWithDoNothingChildTags = ($n) => $n.find("*").get().every((d) => doNothingChildTags.includes(d.get(0).tagName));
+
+    $e.children().each((i, c) => {
+        if (doNothingChildTags.includes(c.tagName) && isFilledWithDoNothingChildTags($(c))) {
+            return;
+        } else if (conditionallySupportedChildTags.includes(c.tagName)) {
+            if ($(c).text() == "Updated on $date") {
+                return;
             }
-        });        
-    }
+        }
+        throw new MigrationError(ConversionIssueCode.HEADING_HAS_CHILDREN, undefined, `Found ${c.tagName} inside \n ${$e.toString()}`);
+    });
     return $e.text().replace(/Updated on \$date/, "");
 };
 
@@ -148,6 +155,12 @@ const extractHtmlFromTextualNodes = ($e, $) => {
 
     validateInnerHtml($e);
     cleanseAndValidateElement($e);
+
+    if ($e.get(0).tagName == "ul" && $e.children().get().every((li) => $(li).text().trim().match(/^\d+./))) {
+        const innerHtml = $e.children().map((i, li) => `<li>${$(li).html().replace(/^\d+.\s*/, "")}</li>`).get().join("");
+        return `<ol>${innerHtml}</ol>`;
+    }
+
     return $e.toString();
 };
 
