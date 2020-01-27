@@ -202,8 +202,9 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
     const createCell = (tagName, cellContent, attribs) => {
         let output = "<" + tagName;
-        if (attribs && attribs.colspan) {
-            output += ` colspan="${attribs.colspan}"`;
+        if (attribs) {
+            if (attribs.colspan) output += ` colspan="${attribs.colspan}"`;
+            if (attribs.rowspan) output += ` rowspan="${attribs.rowspan}"`;
         }
         output += ">";
         output += cellContent;
