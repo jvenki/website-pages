@@ -13,7 +13,9 @@ export default class TextHandler extends BaseHandler {
         const elements = [$element];
         let $currElem = $element;
         while (true) {
-            const $nextElem = $currElem.next();
+            // Cheerio through *children* and *next* allows only element traversal and not content traversal. Therefore look into browser based DOM Nodes
+            const domSibling = $currElem.get(0).nextSibling;
+            const $nextElem = domSibling && domSibling.type == "text" ? $(domSibling) : $currElem.next();
             if ($nextElem.length == 0 || !(isElementATextualNode($nextElem) || isElementATableNode($nextElem))) {
                 break;
             }
