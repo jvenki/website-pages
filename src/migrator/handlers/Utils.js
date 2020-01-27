@@ -183,7 +183,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
 const cleanseAndValidateElement = ($e) => {
     const whiteListedAttrs = ["id", "href", "src", "title", "data-original", "colspan", "rowspan"];
-    const blackListedAttrs = ["style", "align", "alt", "class"];
+    const blackListedAttrs = ["style", "align", "alt", "class", "rel"];
     const validateAttrs = (c) => {
         if (!c.attribs) return;
         const unknownAttrs = Object.keys(c.attribs).filter((k) => !whiteListedAttrs.includes(k));

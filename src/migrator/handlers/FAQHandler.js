@@ -158,9 +158,9 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
     }    
 }
 
-export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong extends FAQBaseHandler {
+export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li > strong").length > 0;
+        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li > strong").length > 0 && $n.find(" > li > p").length > 0;
         return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
     }
 
@@ -214,6 +214,38 @@ export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBas
         return {elements: [{type: "faq", title, items}]};
     }
 }
+
+export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li > strong").length > 0 && $n.find(" > p").length > 0;
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const tillNextQ = ($li) => {
+            // Somehow $li.nextUntil("li") returns all nodes including that of LI. Therefore filtering myself
+            const output = [];
+            while (true) {
+                $li = $li.next();
+                if ($li.length == 0 || $li.get(0).tagName == "li") {
+                    return output;
+                }
+                output.push($li);
+            }
+        };
+
+        const title = extractHeadingText(elements[0], $);
+        const items = elements[1].find(" > li").map((i, li) => {
+            const $li = $(li);
+            const qns = extractHeadingText($li.find("strong"), $);
+            const ans = tillNextQ($li).map(($a) => extractContentHtml($a, $)).join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        return {elements: [{type: "faq", title, items}]};
+    }
+}
+
 
 export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {

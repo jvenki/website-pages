@@ -1441,6 +1441,121 @@
             ]
         }
     },
+    "33": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<p>DCB Bank offers products to individuals, small and medium businesses, rural banking and corporates in selective regions. One of the products you can avail is a personal loan at attractive rates of interest and flexible repayment tenure.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Benefits of availing a personal loan from Development Credit Bank",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<ul><li>Minimum documentation</li><li>No collateral or security required</li><li>Attractive rates of interest</li><li>Quick processing of personal loan</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Development Credit Bank Personal Loan Details",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<table><tbody><tr><td>Loan Amount</td><td>Rs. 1 lakh – Rs. 5 lakh</td></tr><tr><td>Interest Rate (Floating)</td><td>13% p.a. - 25% p.a.</td></tr><tr><td>Processing Fees</td><td>2% of loan amount + GST</td></tr><tr><td>Loan Tenure</td><td>1 year to 5 years</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Other fees and charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<table><tbody><tr><td>Particulars</td><td>Fee</td></tr><tr><td>Loan processing fee</td><td>2% of loan amount + GST</td></tr><tr><td>Prepayment charge</td><td>5% of the outstanding loan amount</td></tr><tr><td>Penal interest</td><td>3% p.m. of the irregular or overdue amount on account of delay in payment of interest / repayment of loan amount</td></tr><tr><td>Cheque/ECS swap charge</td><td>Rs.500 per event</td></tr><tr><td>Cheque bounce charge</td><td>Rs.500 per event</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<ul><li>You should be an employee of private/public limited companies, multinational companies, reputed partnership firms, other bodies where you are being paid a regular salary, or a government employee</li><li>Minimum age of 25 years at the time of sanctioning of the personal loan</li><li>Maximum age of 60 years at the time of loan maturity</li></ul><p><strong>Your Development Credit Bank Personal Loan amount eligibility is </strong><strong>also </strong><strong>based on these factor</strong><strong>s</strong>:</p><ul><li>Minimum income required: Rs. 1 lakh per annum</li><li>Maximum allowed personal loan: Rs. 5 lakhs</li><li>EMIs of other loans lower your eligibility</li></ul><p><strong>Increase yo</strong><strong>u</strong><strong>r eligible Development Credit Bank Personal </strong><strong>l</strong><strong>oan amount by these steps:</strong></p><ul><li>Pay off your credit card bills</li><li>Choose longer tenure loan up to 5 years</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documentation needed to apply",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<p>1. Signed application form with photograph</p><p>2.Copy of passport/voter ID card/driving license</p><p>3. Processing fee cheque</p><p>4. Last 3 months bank statement/6 months bank passbook</p><p>5. Documentation for salaried applicants:</p><ul><li>Latest salary slip</li><li>Current dated salary certificate with the latest Form 16</li></ul><p>6. Documentation for self-employed applicants:</p><ul><li>Latest Bank statement</li></ul><ul><li>Latest ITR or Form 16</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to apply for a personal loan from Development Credit Bank?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<ul><li>Visit the <a href=\"https://www.dcbbank.com/\">official website of DCB.</a> </li><li>Click on the 'Loan' section of the page.  </li><li>Under that click on 'Personal Loan'. You will be able to locate the 'Leave your number' option where you can provide your mobile number along with other details such as your name, email ID, state and city of residence, etc.  </li><li>Authorise the bank to contact you and click on 'Submit'. A representative from the bank will get in touch with you and will help you with the process of applying for a personal loan. </li></ul><p>You can also visit the BankBazaar website and apply for a personal loan from Development Credit Bank by providing the required details and submitting the necessary documents.</p><p>You can also apply for a personal loan from Development Credit Bank offline as well. You can visit the nearest branch of the bank along with the necessary documents where a representative from the bank will further assist you with the process of applying for a personal loan.</p><p>You can contact the customer service and get in touch with a customer representative who will help you with the process of applying for a loan. Given below are the numbers you can use to get in touch with a DCB customer care executive:</p><p>For Resident Indians<br>Call Toll Free: 1800 123 5363 / 1800 209 5363<br>Email: customercare@dcbbank.com<br>Email for Loan account queries: loans@dcbbank.com</p><p>For NRIs<br>Call: 91 22 61271000<br>India Toll Free: 1800 123 5363 / 1800 209 5363<br>Email: nri@dcbbank.com</p><p>You can send your letter and couriers to the address given below:</p><p>DCB Bank Limited, P.O. Box No. 7643, Malad (West), Mumbai 400064, India</p>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "FAQs",
+            "items": [
+                {
+                    "question": "What are the modes of repaying my loan?",
+                    "answer": "<p>Given below are the modes through which you can repay your loan:</p><ul><li>EMI</li><li>NACH/Standing Instruction</li><li>Postdated cheques</li></ul>"
+                },
+                {
+                    "question": "How quickly can I avail the loan?",
+                    "answer": "<p>It will take the bank at least 3-4 days to review your documents. If they are found to be correct, the loan amount will be immediately disbursed to your bank account.</p>"
+                },
+                {
+                    "question": "What should by my minimum work experience in order to be eligible for a personal loan from DCB?",
+                    "answer": "<p>You must have a minimum work experience of 3 years in order to be eligible for a personal loan from DCB.</p>"
+                },
+                {
+                    "question": "Do I need to provide any reference in order to avail a personal loan from DCB?",
+                    "answer": "<p>Yes, you will have to provide two references subject to the following exceptions:</p><ul><li>The reference should not share a blood relationship with you</li><li>The reference should not reside with you at the same address</li></ul>"
+                },
+                {
+                    "question": "Will I have to pledge any security or collateral in order to avail a personal loan from DCB?",
+                    "answer": "<p>No, you will not be required to pledge any security or collateral in order to avail a personal loan from DCB.</p>"
+                }
+            ]
+        }
+    },
     "36": {
         "title": "",
         "body": "",
