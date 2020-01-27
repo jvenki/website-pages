@@ -174,8 +174,9 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
     const createCell = (tagName, cellContent, attribs) => {
         let output = "<" + tagName;
-        if (attribs && attribs.colspan) {
-            output += ` colspan="${attribs.colspan}"`;
+        if (attribs) {
+            if (attribs.colspan) output += ` colspan="${attribs.colspan}"`;
+            if (attribs.rowspan) output += ` rowspan="${attribs.rowspan}"`;
         }
         output += ">";
         output += cellContent;
@@ -223,7 +224,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 };
 
 const cleanseAndValidateElement = ($e) => {
-    const whiteListedAttrs = ["id", "href", "src", "title", "data-original", "colspan"];
+    const whiteListedAttrs = ["id", "href", "src", "title", "data-original", "colspan", "rowspan"];
     const blackListedAttrs = ["style", "align", "alt", "class"];
     const validateAttrs = (c) => {
         if (!c.attribs) return;
