@@ -23,6 +23,9 @@ const isDivUnnecessary = ($e) => {
         return true;
     } else if (containsOnlyGridRowClasses(classNames) && ($e.children().length == 1 || !allChildrenAreGridCell())) {
         return true;
+    } else if ($e.attr("class").match(/list-group-item list-group-[a-z]*/)) {
+        // Just does some prominence to the section. They should have used a different type like Jumbotron. Used in 4
+        return true;
     }
     return false;
 };
@@ -31,7 +34,7 @@ export const containsOnlyGridRowClasses = (classNames: string) => {
     classNames = removePositioningClass(removePaddingClass(classNames));
     if (["row"].includes(classNames)) {
         return true;
-    } else if (classNames.match(/col-xs-12 col-sm-12 col-md-12/) || classNames.match(/col-md-12/)) {
+    } else if (classNames.match(/^col-xs-12 col-sm-12 col-md-12$/) || classNames.match(/^col-md-12$/)) {
         return true;
     }
     return false;
