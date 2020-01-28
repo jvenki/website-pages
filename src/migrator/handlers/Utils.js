@@ -105,6 +105,9 @@ export const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("
 const extractHtmlFromTextualNodes = ($e, $) => {
     const validateInnerHtml = ($c) => {
         $c.find("*").each((i, d) => {
+            if (isElementASubHeadingNode($(d))) {
+                d.tagName = "strong";
+            }
             if (!isElementATextualNode($(d))) {
                 throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE, undefined, `Found ${d.tagName} inside \n ${$c.toString()}`);
             }
