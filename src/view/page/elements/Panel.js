@@ -11,7 +11,7 @@ export default class Panel extends React.Component {
     render() {
         return (
             <div className="jumbotron">
-                <h3>{this.props.title}</h3>
+                <h3 style={{textAlign: "center"}}>{this.props.title}</h3>
                 {toHTML(this.props.body)}
             </div>
         );
