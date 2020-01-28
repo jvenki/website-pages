@@ -36,3 +36,16 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
         return {elements: [{type: "references", title, items}]};
     }
 }
+
+export class ReferencesHandlerVariant_InterlinksOfAccordion extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return $element.hasClass("product-interlinks") && $element.find(".twi-accordion").length > 0;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = elements[0].find(".panel-heading a").text();
+        const items = elements[0].find(".panel-body a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title, elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
