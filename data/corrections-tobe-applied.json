@@ -27,5 +27,11 @@
             "source": "h",
             "op": "unwrap"
         }
+    ],
+    "55": [
+        {
+            "source": "div.jumbotron",
+            "op": "remove"
+        }
     ]
 }
