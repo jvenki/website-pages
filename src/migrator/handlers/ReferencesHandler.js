@@ -44,3 +44,15 @@ export class ReferencesHandlerVariant_InterlinksOfAccordion extends BaseHandler 
         return {elements: [{type: "references", title, items}]};
     }
 }
+
+export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return $element.hasClass("product-interlinks") && $element.find("nav").length > 0;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find("nav h3"), $);
+        const items = elements[0].find("nav a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        return {elements: [{type: "references", title, items}]};
+    }
+}
