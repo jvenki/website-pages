@@ -38,6 +38,7 @@ const makeHTMLValid = (html) => {
             .replace(/<ins>/g, "<u>").replace(/<\/ins>/g, "</u>")  // Found in LPD#856
             .replace(/<h2 id="faq">([a-zA-Z0-9\s]*)<\/h3>/, "<h2>$1</h2>")  // Found in LPD#8
             .replace(/<i>/g, "<em>").replace(/<\/i>/g, "</em>")  // Found in LPD#9
+            .replace(/<b>/g, "<strong>").replace(/<\/b>/g, "</strong>")  // Found in LPD#57
             .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9\s]*)<\/span>/, "<u>$1</u>") // Found in #LPD#37
             .replace(/\s*tax-img-responsive\s*/, "") // Found in LPD#38
             .replace(/<srtong>([a-zA-Z0-9?\-.\s]*)<\/srtong>/, "<strong>$1</strong>") // Found in LPD#48
