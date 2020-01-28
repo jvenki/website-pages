@@ -18,7 +18,7 @@ import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_Headin
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
-import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion } from "./ReferencesHandler";
+import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_Regex} from "./DisclaimerHandler";
 
 const handlers = [
@@ -28,6 +28,7 @@ const handlers = [
     new ReferencesHandlerVariant_Nav(),
     new ReferencesHandlerVariant_HeadingRegex(),
     new ReferencesHandlerVariant_InterlinksOfAccordion(),
+    new ReferencesHandlerVariant_InterlinksOfNav(),
     new FAQHandlerVariant_HeadingRegexAndDivWithSchema(),
     new FAQHandlerVariant_HeadingRegexFollowedByPs(),
     new FAQHandlerVariant_HeadingRegexFollowedByDetails(),
