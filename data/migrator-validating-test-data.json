@@ -2500,6 +2500,137 @@
             }
         ]
     },
+    "55": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "Compare Syndicate Bank Personal Loans",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "SyndSaral",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p><strong>For salaried class: </strong>Must be a permanent employee of the Central or State Government, Public Sector, Recognised Private Sector Companies, a professor or a teacher</p><p><strong>For non-salaried class:</strong> Must be a professional, lawyer, doctor, Chartered Accountant, engineer or other non-salaried class applicant</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>- 13.45% for salaried applicants<br>- 13.45% for unsecured loans to non-salaried applicants<br>- 12.45% for secured loans to non-salaried applicants</td></tr><tr><td>Loan Amount</td><td>For salaried class:<br>- In case the customer has a salary account with Syndicate Bank, the maximum loan amount will be 12 months' gross salary<br>- In case the customer does not have a salary account with Syndicate Bank, the maximum loan amount will be 12 months' gross salary subject to a maximum of Rs.3 lakh<br>For non-salaried class:<br>- Rs.5 lakh for unsecured loans<br>- Rs.20 lakh for secured loans</td></tr><tr><td>Processing Fees</td><td>0.50% of the loan amount, subject to a minimum of Rs.500</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndSenior",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p>Customers who wish to avail the SyndSenior loan from Syndicate Bank must be pensioners who receive regular monthly pension from the State or Central Government, defence establishments, Public Sector Units or Undertakings, or other government or quasi government institutions provided their pensions are routed via accounts held with Syndicate Bank.</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>- Up to Rs.10 lakh for applicants below 65 years of age<br>- Rs.5 lakh for applicants between 65 and 70 years of age<br>- Rs.2 lakh for applicants over the age of 70 years</td></tr><tr><td>Loan Amount</td><td>12.20% p.a.</td></tr><tr><td>Processing Fees</td><td>- No processing fees for loans up to Rs.50,000<br>- Rs.200 for loans above Rs.50,000</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndRent",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p>Customers who wish to avail the SyndRent loan from Syndicate Bank must be bona fide owners of commercial or residential property standing in their own names, and the property must be let out to reputed companies, institutions, or the Government.</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>55% to 80% of the net rent receivables based on the unexpired period of lease</td></tr><tr><td>Loan Amount</td><td>- 11.45% for accounts classified as CRE<br>- 10.70% for accounts classified as non CRE</td></tr><tr><td>Processing Fees</td><td>As applicable to fund based limit</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndConnect",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p>Customers who wish to avail the SyndConnect loan from Syndicate Bank must be permanent employees of the State or Central Government, Public Sector Undertakings or Units such as financial institutions, banks, the Life Insurance Corporation of India, defence establishments, or other government or quasi government institutions or blue chip companies whose salaried are credited through Syndicate Bank.</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>15 times the gross monthly salary of the applicant subject to a maximum of Rs.20 lakh</td></tr><tr><td>Loan Amount</td><td>12.20% p.a.</td></tr><tr><td>Processing Fees</td><td>0.25% of the loan amount, subject to a minimum of Rs.250</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndSolar",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p>Customers who wish to avail the SyndSolar loan from Syndicate Bank must be new or existing home loan customers or home owners who wish to install solar rooftop systems. The existing home loan may or may not be taken from Syndicate Bank to avail SyndSolar.</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>75% of the cost of the project subject to a maximum of Rs.3,75,000</td></tr><tr><td>Loan Amount</td><td>8.70% p.a.</td></tr><tr><td>Processing Fees</td><td>Nil</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndDelight",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p>The SyndDelight loan scheme from Syndicate Bank can be availed by home loan customers who have shown satisfactory repayment record over the past three years or more.</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>20% of the home loan limit subject to a minimum of Rs.50,000 and a maximum of Rs.20 lakh</td></tr><tr><td>Loan Amount</td><td>11.45% p.a.</td></tr><tr><td>Processing Fees</td><td>Rs.500 per lakh</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndSwarna (Non EMI)",
+                        "body": "<p><strong>Eligibility Criteria</strong></p><p>The SyndSwarna loan scheme from Syndicate Bank can be availed by new as well as existing customers who have been properly introduced to Syndicate Bank and adhere to KYC norms.</p><table><tbody><tr><td>Interest Rate (p.a.)</td><td>- Up to Rs.10 lakh for non-priority purposes<br>- Up to Rs.20 lakh for business purposes</td></tr><tr><td>Loan Amount</td><td>10.20% p.a.</td></tr><tr><td>Processing Fees</td><td>Nil</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndSwarna (EMI)",
+                        "body": "<table><tbody><tr><td>Interest Rate (p.a.)</td><td>Rs.10,000 to Rs.10 lakh</td></tr><tr><td>Loan Amount</td><td>10.20% p.a.</td></tr><tr><td>Processing Fees</td><td>Nil</td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "title": "SyndSwarna (Non Agriculture)",
+                        "body": "<table><tbody><tr><td>Interest Rate (p.a.)</td><td>- Up to Rs.10 lakh for personal purposes<br>- Up to Rs.20 lakh for business purposes</td></tr><tr><td>Loan Amount</td><td>10.20% p.a.</td></tr><tr><td>Processing Fees</td><td>Nil</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Fees and Charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<ul><li>Processing charges: 0.50% of the loan amount subject to a minimum of Rs.500 for SyndSaral, Rs.200 for loans above Rs.50,000 for SyndSenior, 0.25% of the loan amount, subject to a minimum of Rs.250 for SyndConnect, Rs.500 per lakh for SyndDelight, and nil for the other personal loans offered by Syndicate Bank.</li><li>Documentation charges: Rs.100 per lakh subject to a maximum of Rs.500 for SyndConnect, Rs.200 per lakh subject to a maximum of Rs.25,000 for loan amounts above Rs.2 lakh for other loans.</li><li>Other charges: Other charges such as insurance charges, legal charges, consultancy charges, supervision charges, valuation fees, etc. will be charged at actuals.</li><li>Late payment of EMIs: The overdue interest for the delayed period will be charged as late fees.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents Required",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<ul><li>Signed application form with photograph</li><li>Copy of your driving license, passport, or Voter's ID</li><li>Bank statement for the past three months</li><li>The latest salary slip</li><li>The latest Form 16 or Income Tax Returns</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How does the EMI calculation for Syndicate Bank personal loan work?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<p>Let's say that Mr. Vishwas, a marketing professional, who draws a monthly salary of Rs.45,000, avails a personal loan from Syndicate Bank. The amount borrowed by Mr. Vishwas is Rs.1.5 lakh and the tenure of the loan is one year. The interest rate applicable to the loan is 13.55% p.a., and Syndicate Bank levies a processing fee at 0.50% of the loan amount. In this case, here's what Mr. Vishwas' repayment schedule will look like:</p><table><tbody><tr><td>Year</td><td>Principal Paid(A)</td><td>Interest Paid(B)</td><td>Total Payment (A+B)</td><td>Outstanding Loan Balance</td></tr><tr><td>Apr 2019</td><td>Rs.11,743</td><td>Rs.1,694</td><td>Rs.13,437</td><td>Rs.1,38,257</td></tr><tr><td>May 2019</td><td>Rs.11,875</td><td>Rs.1,561</td><td>Rs.13,436</td><td>Rs.1,26,382</td></tr><tr><td>Jun 2019</td><td>Rs.12,009</td><td>Rs.1,427</td><td>Rs.13,436</td><td>Rs.1,14,373</td></tr><tr><td>July 2019</td><td>Rs.12,145</td><td>Rs.1,291</td><td>Rs.13,436</td><td>Rs.1,02,228</td></tr><tr><td>Aug 2019</td><td>Rs.12,282</td><td>Rs.1,154</td><td>Rs.13,436</td><td>Rs.89,946</td></tr><tr><td>Sep 2019</td><td>Rs.12,421</td><td>Rs.1,016</td><td>Rs.13,437</td><td>Rs.77,525</td></tr><tr><td>Oct 2019</td><td>Rs.12,561</td><td>Rs.875</td><td>Rs.13,436</td><td>Rs.64,964</td></tr><tr><td>Nov 2019</td><td>Rs.12,703</td><td>Rs.734</td><td>Rs.13,437</td><td>Rs.52,262</td></tr><tr><td>Dec 2019</td><td>Rs.12,846</td><td>Rs.590</td><td>Rs.13,436</td><td>Rs.39,416</td></tr><tr><td>Jan 2020</td><td>Rs.12,991</td><td>Rs.445</td><td>Rs.13,436</td><td>Rs.26,424</td></tr><tr><td>Feb 2020</td><td>Rs.13,138</td><td>Rs.298</td><td>Rs.13,436</td><td>Rs.13,286</td></tr><tr><td>Mar 2020</td><td>Rs.13,286</td><td>Rs.150</td><td>Rs.13,436</td><td>Rs.0</td></tr></tbody></table><p>As you can see from the above amortisation table, Mr. Vishwas will be paying Rs.13,346?as his EMIs until March 2020. The total amount he will be paying is Rs.1,61,986 (loan amount of Rs.1.5 lakh, processing fees of Rs.750, and total interest payments of Rs.11,236).</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Compare Syndicate Bank personal loan with loans from other lenders",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "title": "",
+                        "body": "<table><tbody><tr><td>Fees and Charges</td><td>Kotak Mahindra</td><td>ICICI Bank</td><td>Standard Chartered Bank</td><td>IDFC Bank</td></tr><tr><td>Interest Rate</td><td>10.99% p.a.</td><td>11.25% p.a.</td><td>11.99% p.a.</td><td>11.5% p.a.</td></tr><tr><td>Processing Fees</td><td>2.5% of the loan amount + GST as applicable</td><td>2.25% of the loan amount + GST as applicable</td><td>3% of the loan amount</td><td>3.5% of the loan amount + GST as applicable</td></tr><tr><td>Foreclosure Charges</td><td>5% of the principal outstanding + GST as applicable</td><td>5% of the principal outstanding + GST as applicable</td><td>2% to 5% of the principal outstanding</td><td>5% of the principal outstanding</td></tr><tr><td>Late Payment Fees</td><td>3% p.a.</td><td>24% p.a.</td><td>Rs.495 + GST as applicable</td><td>2% p.a. on the overdue EMI</td></tr></tbody></table>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "FAQs on Syndicate Bank Personal Loan",
+            "items": [
+                {
+                    "question": "Are there any special discounts for women borrowers who apply for a Syndicate Bank personal loan?",
+                    "answer": "<p>Yes, women borrowers can make the most of a 0.25% on the SyndSaral personal loan scheme.</p>"
+                },
+                {
+                    "question": "Do I have to provide any guarantee or surety when taking the SyndSaral loan from Syndicate Bank?",
+                    "answer": "<p>Syndicate Bank accepts surety in the form of a third party and spouses having independent income in addition to adequate net worth.</p>"
+                },
+                {
+                    "question": "Is there a penal interest on the SyndSenior loan scheme?",
+                    "answer": "<p>Yes, 2% above the applicable interest rate will be charged on the overdue portion as penal interest.</p>"
+                },
+                {
+                    "question": "What is the repayment tenure for the SyndSenior loan scheme?",
+                    "answer": "<p>Customers who avail the SyndSenior loan scheme will have to repay it in a maximum of 72 EMIs.</p>"
+                },
+                {
+                    "question": "What is the repayment tenure for the SyndSwarna scheme?",
+                    "answer": "<p>The maximum repayment tenure for the SyndSwarna scheme is 36 months.</p>"
+                }
+            ]
+        }
+    },
     "856": {
         "title": "",
         "body": "",
