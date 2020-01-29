@@ -1427,6 +1427,150 @@
             }
         ]
     },
+    "21": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "panel",
+                        "title": "Features and Benefits",
+                        "body": "<ul><li>Flexible repayment tenures</li><li>Special offers for customers who have existing personal loans with other banks and want to lower their EMIs by transferring the loan to Axis Bank</li><li>Multiple channels for repayment, including RTGS, NEFT, and ECS</li><li>Minimal documentation and hassle-free application process</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Details of Axis Bank Personal Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><td>Interest Rate</td><td>12% to 24% p.a.</td></tr><tr><td>Loan Amount</td><td>Rs.50,000 to Rs.15 lakh</td></tr><tr><td>Processing Fee</td><td>1.5% to 2% p.a. of the loan amount + GST</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Axis Bank Personal Loan Charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Schedule of charges</th><th>Fees</th></tr><tr><td>Penal Interest</td><td>24% p.a.</td></tr><tr><td>Cheque Bounce Charges</td><td>Rs.500 per cheque bounce + GST</td></tr><tr><td>Cheque/Instrument Swap Charges</td><td>Rs.500 per instance + GST</td></tr><tr><td>CIBIL Report Issuance Charges Stamp Duty Charges</td><td>Rs.50 per instance per set + GST as per State Stamp Act</td></tr><tr><td>Issuance Charges for Photocopy of Loan Agreement/Documents</td><td>Rs.250 per instance + GST</td></tr><tr><td>Duplicate Statement Issuance Charges Duplicate Interest Certificate (Actual/Provisional) Duplicate Amortization Schedule Charges Duplicate NOC Issuance Charges</td><td>Rs.250 per instance + GST Rs.250 per instance + GST Rs.250 per instance + GST Rs.500 per instance + GST</td></tr></tbody></table>**(Subject to change as per Bank's discretion)"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility Criteria",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Here are the eligibility criteria for Axis Bank personal loans:</p><table><tbody><tr><th>Age</th><td>Minimum: 21 years<br>Maximum: 60 years</td></tr><tr><th>Employment Type</th><td><ul><li>Salaried employees</li><li>Private limited compamy employees</li><li>Government employees including PSU,Central and local bodies.</li></ul></td></tr><tr><th>Net Salary</th><td>Rs.15,000 per month</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents Required",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Here are the documents you need to submit when applying for a personal loan from Axis Bank:</p><ul><li>Application form</li><li>Age proof</li><li>Passport size photographs</li><li>ID proof</li><li>Residence proof</li><li>Bank statement</li><li>Signature verification proof</li></ul><h3>Here are the documents you need to submit post sanction/pre-disbursement:</h3><ul><li>Duly signed loan agreement</li><li>ECS form/Standing Instruction Request</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How the EMI calculation works for Axis Bank personal loans?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Consider a scenario where you take a personal loan of Rs.1 lakh from Axis Bank. The interest rate charged by the bank for the loan is 15.75% p.a. You have chosen a tenure of 1 year to repay the loan. For these terms, the repayment schedule for the loan is given as follows: </p><table><tbody><tr><th>Month</th><th>Principal</th><th>Interest</th><th>EMI (principal + interest)</th><th>Balance amount</th><th>Percentage of loan paid to date</th></tr><tr><td>1</td><td>Rs.7,749</td><td>Rs.1,313</td><td>Rs.9,061</td><td>Rs.92,251</td><td>7.75%</td></tr><tr><td>2</td><td>Rs.7,850</td><td>Rs.1,211</td><td>Rs.9,061</td><td>Rs.84,401</td><td>15.60%</td></tr><tr><td>3</td><td>Rs.7,953</td><td>Rs.1,108</td><td>Rs.9,061</td><td>Rs.76,447</td><td>23.55%</td></tr><tr><td>4</td><td>Rs.8,058</td><td>Rs.1,003</td><td>Rs.9,061</td><td>Rs.68,389</td><td>31.61%</td></tr><tr><td>5</td><td>Rs.8,164</td><td>Rs.898</td><td>Rs.9,061</td><td>Rs.60,226</td><td>39.77%</td></tr><tr><td>6</td><td>Rs.8,271</td><td>Rs.790</td><td>Rs.9,061</td><td>Rs.51,955</td><td>48.05%</td></tr><tr><td>7</td><td>Rs.8,379</td><td>Rs.682</td><td>Rs.9,061</td><td>Rs.43,576</td><td>56.42%</td></tr><tr><td>8</td><td>Rs.8,489</td><td>Rs.572</td><td>Rs.9,061</td><td>Rs.35,086</td><td>64.91%</td></tr><tr><td>9</td><td>Rs.8,601</td><td>Rs.461</td><td>Rs.9,061</td><td>Rs.26,486</td><td>73.51%</td></tr><tr><td>10</td><td>Rs.8,714</td><td>Rs.348</td><td>Rs.9,061</td><td>Rs.17,772</td><td>82.23%</td></tr><tr><td>11</td><td>Rs.8,828</td><td>Rs.233</td><td>Rs.9,061</td><td>Rs.8,944</td><td>91.06%</td></tr><tr><td>12</td><td>Rs.8,944</td><td>Rs.117</td><td>Rs.9,061</td><td>Rs.0</td><td>100.00%</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Compare AXIS personal loan with loans from other lenders? ",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Particulars</th><th>Axis Bank Personal Loan</th><th>HDFC Bank Personal Loan</th><th>Citibank Personal Loan</th><th>Aditya Birla Capital</th></tr><tr><td>Interest rate</td><td>15.75% p.a. onwards</td><td>10.75% p.a. onwards</td><td>10.99% p.a. onwards</td><td>11% p.a. onwards</td></tr><tr><td>Processing fee</td><td>2% + GST</td><td>2.5% + GST</td><td>0.25% to 3.00% + GST</td><td>2% + GST</td></tr><tr><td>Foreclosure charges</td><td>Nil</td><td>2% to 4% of the outstanding loan amount</td><td>4% of the principal outstanding</td><td>3% of the outstanding loan amount</td></tr><tr><td>Late payment fee</td><td>2% of the overdue amount per month</td><td>2% of the overdue amount per month</td><td>Contact the bank for details</td><td>2% of the overdue amount per month</td></tr></tbody></table><br>"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Other loan products offered by Axis Bank",
+                "items": [
+                    {
+                        "link": "/personal-loan/axis-bank-agri-business-loans.html",
+                        "title": "Axis Bank Agri Business Loans"
+                    },
+                    {
+                        "link": "/personal-loan/axis-bank-loan-against-property.html",
+                        "title": "Axis Bank Loan Against Property"
+                    },
+                    {
+                        "link": "/personal-loan/axis-loan-against-securities.html",
+                        "title": "Axis Bank Loan against Securities"
+                    },
+                    {
+                        "link": "/personal-loan/axis-loan-against-shares.html",
+                        "title": "Axis Bank Loan against Shares"
+                    },
+                    {
+                        "link": "/personal-loan/axis-bank-instant-loan.html",
+                        "title": "Axis Bank Instant Loan"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "items": [
+                {
+                    "question": "How do I apply for an Axis Bank personal loan?",
+                    "answer": "<p>You can apply for an Axis Bank personal loan by visiting the official website of the company, or by visiting the nearest branch, or by calling the bank's call centre.</p>"
+                },
+                {
+                    "question": "How can I pay my Axis Bank personal loan EMIs?",
+                    "answer": "<p>The EMIs towards your Axis Bank personal loan can be paid using post-dated cheques, Electronic Clearing Service, or through Standing Instruction.</p>"
+                },
+                {
+                    "question": "How can I keep track of my personal loan from Axis Bank?",
+                    "answer": "<p>In order to keep track of your repayment schedule and to view your statements, you will have to request the bank for your Interest Certificate, Repayment Schedule, or Statement of Account. You may do so by calling the bank's customer care number, or writing from your registered email ID and sending a mail to loans@axisbank.com, or visiting a branch of the bank.</p>"
+                },
+                {
+                    "question": "How can I foreclose my Axis Bank personal loan?",
+                    "answer": "<p>In order to foreclose your Axis Bank personal loan, you will have to request the bank for a foreclosure statement. To do so, you may visit the nearest Loan Centre of the bank and submit your foreclosure request after which the bank will process your request.</p>"
+                },
+                {
+                    "question": "How can I register my email ID and mobile number and link it to my loan account?",
+                    "answer": "<p>You can update your email ID and mobile number by either calling the customer care number of the bank or by writing to the bank at loans@axisbank.com using your registered email ID.</p>"
+                },
+                {
+                    "question": "How to check Axis bank personal loan status?",
+                    "answer": "<p>You can check <a href=\"/axis-bank-personal-loan-status.html\">Axis bank personal loan status</a> by calling the bank officials at 1860 419 5555 or 1860 500 5555. You can also use the online mode and get the status by using your mobile number and date of birth or reference number or by logging into the internet banking portal. You also have the option of visiting the bank branch and meet the officer in charge to know the status of the personal loan application.</p>"
+                },
+                {
+                    "question": "How to contact Axis Bank customer care executives?",
+                    "answer": "<p>You can contact <a href=\"/axis-bank-personal-loan-customer-care-number.html\">Axis bank customer care</a> executives by calling on 1860 419 5555 or 1860 500 5555. In case, you need to contact the executives when you are outside India you can dial 022 – 6798 7700. If you are an NRI, you are call on the listed below toll-free numbers or reach them at 040 – 6717 4100.</p>"
+                }
+            ]
+        }
+    },
     "28": {
         "title": "",
         "body": "",
