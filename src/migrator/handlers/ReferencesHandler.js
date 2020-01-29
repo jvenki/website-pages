@@ -3,6 +3,8 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import { extractHeadingText, extractLinkText, isElementATableNode } from "./Utils";
 
+export const headingRegex = /related [a-z]* product|other [a-z]* product/i;
+
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
         return $element.get(0).tagName == "nav";
@@ -18,7 +20,6 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        const headingRegex = /related [a-z]* product|other [a-z]* product/i;
         return $element.text().match(headingRegex) && isElementATableNode($element.next());
     }
 
