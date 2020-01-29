@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import { extractHeadingText, extractLinkText, isElementAHeadingNode } from "./Utils";
+import { extractHeadingText, extractLinkText, isElementAHeadingNode, isElementATableNode } from "./Utils";
 
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
@@ -19,8 +19,9 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
         const allowedNextTagNames = ["table"];
-        const headingRegex = /related [a-z]* product/i;
-        return isElementAHeadingNode($element) && $element.text().match(headingRegex) && allowedNextTagNames.includes($element.next().get(0).tagName);
+        const headingRegex = /related [a-z]* product|other [a-z]* product/i;
+        const nextElementIsAppro = ($n) => allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
+        return isElementAHeadingNode($element) && $element.text().match(headingRegex) && nextElementIsAppro($element.next());
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
