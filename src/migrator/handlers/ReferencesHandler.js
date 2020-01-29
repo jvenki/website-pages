@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import { extractHeadingText, extractLinkText, isElementAHeadingNode, assert } from "./Utils";
+import { extractHeadingText, extractLinkText, isElementAHeadingNode, isElementATableNode, assert } from "./Utils";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), "ReferencesHandler-CannotExtractReferences", $e);
 
@@ -22,8 +22,9 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
         const allowedNextTagNames = ["table"];
-        const headingRegex = /related [a-z]* product/i;
-        return isElementAHeadingNode($element) && $element.text().match(headingRegex) && allowedNextTagNames.includes($element.next().get(0).tagName);
+        const headingRegex = /related [a-z]* product|other [a-z]* product/i;
+        const nextElementIsAppro = ($n) => allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
+        return isElementAHeadingNode($element) && $element.text().match(headingRegex) && nextElementIsAppro($element.next());
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
@@ -33,6 +34,7 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0], $);
         const items = elements[1].find("a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
 }
