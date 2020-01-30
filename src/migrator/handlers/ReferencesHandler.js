@@ -24,7 +24,7 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        const allowedNextTagNames = ["table", "div"];
+        const allowedNextTagNames = ["table", "div", "ul"];
         const nextElementIsAppro = ($n) => allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
         return isElementAHeadingNode($element) && $element.text().match(headingRegex) && nextElementIsAppro($element.next());
     }
