@@ -15,7 +15,7 @@ export default class MySQLClient {
         if (restrictToIds.length > 0) {
             query += ` AND id IN (${restrictToIds.join(", ")})`;
         } else {
-            query += " AND id < 100";
+            query += " AND id < 200";
         }
         if (ignoreIds.length > 0) {
             query += ` AND id NOT IN (${ignoreIds})`;
