@@ -42,6 +42,7 @@ const makeHTMLValid = (html) => {
             .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9\s]*)<\/span>/, "<u>$1</u>") // Found in #LPD#37
             .replace(/\s*tax-img-responsive\s*/, "") // Found in LPD#38
             .replace(/<srtong>([a-zA-Z0-9?\-.\s]*)<\/srtong>/, "<strong>$1</strong>") // Found in LPD#48
+            .replace(/<h1>([a-zA-Z0-9?\-.\s]*)<\/h1>/, "<h2>$1</h2>") // Found in LPD#123
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
     cleansedHtml = 
