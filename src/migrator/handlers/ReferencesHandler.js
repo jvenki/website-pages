@@ -6,7 +6,7 @@ import { ConversionIssueCode } from "../MigrationError";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), ConversionIssueCode.EMPTY_ELEMENT, $e);
 
-export const headingRegex = /related [a-z]* product|other [a-z]* product/i;
+export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by/i;
 
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
@@ -24,7 +24,7 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        const allowedNextTagNames = ["table"];
+        const allowedNextTagNames = ["table", "div"];
         const nextElementIsAppro = ($n) => allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
         return isElementAHeadingNode($element) && $element.text().match(headingRegex) && nextElementIsAppro($element.next());
     }
