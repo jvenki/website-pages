@@ -20,7 +20,7 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        return $element.text().match(headingRegex) && (isElementATableNode($element.next()) || $element.next().get(0).tagName == "div");
+        return $element.text().match(headingRegex) && (isElementATableNode($element.next()) || $element.next().get(0).tagName == "div" || $element.next().get(0).tagName == "ul");
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
