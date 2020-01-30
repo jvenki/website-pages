@@ -2,8 +2,9 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import {extractHeadingText, extractContentHtml, isElementAHeadingNode} from "./Utils";
+import {chunk} from "lodash";
 
-export const headingRegex = /Frequently Asked Questions|FAQ/;
+export const headingRegex = /Frequently Asked Questions|FAQ/i;
 
 class FAQBaseHandler extends BaseHandler {
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
@@ -243,6 +244,46 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP exten
         }).get();
         
         return {elements: [{type: "faq", title, items}]};
+    }
+}
+
+export class FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && this._isQuestionElement($e.next()) && this._isAnswerElement($e.next().next()); 
+    }
+
+    walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
+        const elements = [$element];
+        let $currElem = $element;
+        while (true) {
+            const $q = $currElem.next();
+            const $a = $q.next();
+            if (!this._isQuestionElement($q) || !this._isAnswerElement($a)) {
+                break;
+            }
+            elements.push($q, $a);
+            $currElem = $a;
+        }
+        return elements;
+    }    
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const items = chunk(elements.slice(1), 2).map(([$q, $a]) => {
+            const qns = extractHeadingText($q.find("strong"), $);
+            const ans = extractContentHtml($a, $);
+            return {question: qns, answer: ans};
+        });
+        
+        return {elements: [{type: "faq", title, items}]};
+    }
+
+    _isQuestionElement($e: CheerioElemType) {
+        return $e && $e.length == 1 && ["ul", "ol"].includes($e.get(0).tagName) && $e.children().length == 1 && $e.find(" > li > strong").length == 1;
+    }
+
+    _isAnswerElement($e: CheerioElemType) {
+        return $e && $e.length == 1 && $e.get(0).tagName == "p";
     }
 }
 
