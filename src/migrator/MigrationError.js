@@ -21,8 +21,7 @@ export const ConversionIssueCode = {
 export const CleanserIssueCode = {
     MANUAL_CORRECTION: {code: "MANUAL_CORRECTION", message: "Moved element from its current place to right place"},
     REMOVED_EMPTY_NODES: {code: "REMOVED_EMPTY_NODES", message: "Removed empty nodes"},
-    REMOVED_SCRIPT_NODES: {code: "REMOVED_SCRIPT_NODES", message: "Removed script nodes"},
-    REMOVED_STYLE_NODES: {code: "REMOVED_STYLE_NODES", message: "Removed style nodes"},
+    REMOVED_NODES: {code: "REMOVED_NODES", message: "Removed script nodes"},
     REMOVED_HFM_NODE: {code: "REMOVED_HFM_NODE", message: "Unwanted DIV node with HFM Classes"},
     REMOVED_GRID_ROW_NODE: {code: "REMOVED_GRID_ROW_NODE", message: "Unwanted DIV node with row sized grid classes"},
     REMOVED_TOC: {code: "REMOVED_TOC", message: "Removed TOC"},

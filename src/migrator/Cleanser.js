@@ -77,13 +77,14 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    const styleNodesFound = $("style").length;
-    const scriptNodesFound = $("script").length;
-    $("style").remove();
-    $("script").remove();
-
-    scriptNodesFound && onIssue(new MigrationError(CleanserIssueCode.REMOVED_SCRIPT_NODES, undefined, "Count = " + scriptNodesFound));
-    styleNodesFound && onIssue(new MigrationError(CleanserIssueCode.REMOVED_STYLE_NODES, undefined, "Count = " + styleNodesFound));
+    ["style", "script", "figcaption", ".js-infographic-content"].forEach((sel) => {
+        const elems = $(sel);
+        if (elems.length == 0) {
+            return;
+        }
+        onIssue(new MigrationError(CleanserIssueCode.REMOVED_NODES, sel, "Count = " + elems.length));
+        elems.remove();
+    });
 };
 
 const removeDivsWithHFMClassNamesUnderBody = ($, onIssue) => {
