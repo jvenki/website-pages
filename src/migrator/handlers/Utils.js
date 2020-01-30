@@ -1,6 +1,7 @@
 import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referenceesHeadingRegex} from "./ReferencesHandler";
+import {without} from "lodash";
 
 export const assert = (condition, errorMsg, $e) => {
     if (condition) {
@@ -71,22 +72,28 @@ const isElementATextualNode = ($e) => ["p", "ul", "ol", "li", "strong", "em", "a
 export const isElementATableNode = ($e) => $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table") || $e.hasClass("product-hl-table") || $e.get(0).tagName == "table";
 
 export const extractHeadingText = ($e, $) => {
-    const doNothingChildTags = ["strong"];
-    const conditionallySupportedChildTags = ["sub", "p"];
-
-    const isFilledWithDoNothingChildTags = ($n) => $n.find("*").get().every((d) => doNothingChildTags.includes(d.get(0).tagName));
-
-    $e.children().each((i, c) => {
-        if (doNothingChildTags.includes(c.tagName) && isFilledWithDoNothingChildTags($(c))) {
-            return;
-        } else if (conditionallySupportedChildTags.includes(c.tagName)) {
-            if ($(c).text() == "Updated on $date") {
-                return;
-            }
+    $e.find("*").each((i, d) => {
+        const $d = $(d);
+        cleanseAndValidateElement($d);
+        if (["p", "sub"].includes(d.tagName) && $d.text() == "Updated on $date") {
+            // This was populated for tables tagged as product-hl-table. We will append this info directly.
+            $d.remove();
+        } else if (["strong"].includes(d.tagName)) {
+            $d.contents().each((i, childOfD) => {
+                $(childOfD).insertAfter($d);
+            });
+            $d.remove();
+        } else if (["a"].includes(d.tagName)) {
+            // Nothing to do
+        } else {
+            throw new MigrationError(ConversionIssueCode.HEADING_HAS_CHILDREN, undefined, `Found ${d.tagName} inside \n ${$e.toString()}`);
         }
-        throw new MigrationError(ConversionIssueCode.HEADING_HAS_CHILDREN, undefined, `Found ${c.tagName} inside \n ${$e.toString()}`);
     });
-    return $e.text().replace(/Updated on \$date/, "");
+
+    // Do a final check to ensure that we just have these allowed tags after all the removals above
+    const finalChildElemTagNames = without($e.find("*").map((i, d) => d.tagName).get(), ...["a"]);
+    assert(finalChildElemTagNames.length == 0, ConversionIssueCode.HEADING_HAS_CHILDREN, finalChildElemTagNames.join(","));
+    return $e.html();
 };
 
 export const extractLinkText = ($e, $) => {
@@ -118,7 +125,7 @@ export const extractContentHtml = ($e, $) => {
     } else if (isElementASubHeadingNode($e)) {
         if ($e.get(0).tagName != "h3") {
             if ($e.children().length == 1 && $e.children().get(0).tagName == "u") {
-                html = `<strong>${extractContentHtml($($e.children().get(0)), $)}</strong>`;
+                html = `<strong>${extractContentHtml($($e.children().get(0)), $)}</strong>`; // To handle a special case in LPD#859 within Jumbotron
             } else {
                 html = `<h4>${extractHeadingText($e, $)}</h4>`;
             }
@@ -229,7 +236,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
 const cleanseAndValidateElement = ($e) => {
     const whiteListedAttrs = ["id", "href", "src", "title", "data-original", "colspan", "rowspan"];
-    const blackListedAttrs = ["style", "align", "alt", "class", "rel"];
+    const blackListedAttrs = ["style", "align", "alt", "class", "rel", "data-parent", "data-toggle"];
     const validateAttrs = (c) => {
         if (!c.attribs) return;
         const unknownAttrs = Object.keys(c.attribs).filter((k) => !whiteListedAttrs.includes(k));
