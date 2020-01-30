@@ -3385,7 +3385,110 @@
                 }
             ]
         }
-    },        
+    },
+    "128": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "cta",
+                        "link": "/credit-card.html?variant=slide&utm_source=bb&utm_medium=seo&utm_campaign=SEO_INLINE_CONTENT",
+                        "linkText": " Get A Card",
+                        "prefix": "Mr. Sharma enjoys great discounts on dining with his Credit Card. What about you?"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<ul><li>Design your own card with an image of your choice</li><li>Get 5% cashback on two categories of your choice from Dining, Supermarkets, Utility Bills, Fuel, Travel & Electronics</li></ul>"
+                    },
+                    {
+                        "type": "iframe",
+                        "link": "//www.youtube.com/embed/w7oBOQSJqo0"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/credit-card.html?variant=slide",
+                        "linkText": "View Credit Card Offers"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Other Top Credit Cards By Axis Bank",
+                "items": [
+                    {
+                        "link": "/credit-card/kotak-mahindra-delight-premium-credit-card.html",
+                        "title": "Axis Bank Delight Premium Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-pride-platinum-credit-card.html",
+                        "title": "Axis Bank Pride Platinum Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-pride-signature-credit-card.html",
+                        "title": "Axis Bank Pride Signature Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-signature-credit-card-with-lifestyle-benefits.html",
+                        "title": "Axis Bank Signature Credit Card with Lifestyle Benefits"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-signature-credit-card-with-travel-benefits.html",
+                        "title": "Axis Bank Signature Credit Card with Travel Benefits"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-my-business-credit-card.html",
+                        "title": "Axis Bank My Business Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-miles-and-more-credit-card.html",
+                        "title": "Axis Bank Miles and More Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-titanium-smart-traveler-credit-card.html",
+                        "title": "Axis Bank Titanium Smart Traveler Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-platinum-credit-card.html",
+                        "title": "Axis Bank Platinum Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-insta-easy-credit-card.html",
+                        "title": "Axis Bank Insta Easy Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-shriram-credit-card.html",
+                        "title": "Axis Bank Shriram Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-my-choice-credit-card.html",
+                        "title": "Axis Bank My Choice Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-my-zone-credit-card.html",
+                        "title": "Axis Bank My Zone Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-corporate-credit-card.html",
+                        "title": "Axis Bank Corporate Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-privilege-credit-card.html",
+                        "title": "Axis Bank Privilege Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/axis-bank-buzz-credit-card.html",
+                        "title": "Axis Bank Buzz Credit Card"
+                    }
+                ]
+            }
+        ]
+    },     
     "856": {
         "title": "",
         "body": "",
