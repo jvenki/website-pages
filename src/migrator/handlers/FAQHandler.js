@@ -36,7 +36,7 @@ export class FAQHandlerVariant_HeadingRegexAndDivWithSchema extends FAQBaseHandl
 
 export class FAQHandlerVariant_HeadingRegexFollowedByPs extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        return $e.get(0).tagName == "h2" && $e.text().match(headingRegex) && $e.next().get(0).tagName == "p";
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && $e.next().get(0).tagName == "p";
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
