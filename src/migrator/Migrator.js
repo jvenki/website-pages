@@ -11,12 +11,15 @@ import Cleanser from "./Cleanser";
 import MigrationError, {ErrorCode, CleanserIssueCode} from "./MigrationError";
 import pretty from "pretty";
 import {diff} from "deep-object-diff";
+import util from "util";
 
 import snapshotForValidation from "../../data/migrator-validating-test-data.json";
 import chalk from "chalk";
 import { correctLPDHtml } from "./ManualCorrections";
 
 type LPDJsonType = {id: number, namespace: string, old: Object, doc: Object, conversionStatus: string, conversionError: MigrationError, conversionIssues: Array<Error>};
+
+const setImmediatePromise = util.promisify(setImmediate);
 
 export default class Migrator {
     queryCriteria: Object;
@@ -40,7 +43,8 @@ export default class Migrator {
         await this.mongoClient.connect();
 
         const dbRows = await this.mysqlClient.query(this.queryCriteria);
-        dbRows.forEach(async (row) => {await this.processRow(row);});
+
+        await this.processRowAtIndex(0, dbRows);
         
         this.mysqlClient.releaseConnection();
         setTimeout(() => this.mongoClient.disconnect(), 1000);
@@ -52,7 +56,8 @@ export default class Migrator {
         }
     }
 
-    async processRow(xmlBasedRow: Object) {
+    async processRowAtIndex(i: number, dbRows: Array<Object>) {
+        const xmlBasedRow: Object = dbRows[i];
         logger.info(`Processing Row with ID ${xmlBasedRow.id} and Namespace ${xmlBasedRow.namespace}`);
         const lpdJson: Object = {old: {}, new: {}};
         lpdJson.id = xmlBasedRow.id;
@@ -81,6 +86,14 @@ export default class Migrator {
         } catch (err) {
             // Nothing to log
         }
+
+        await setImmediatePromise().then(() => {
+            if (i >= dbRows.length-1) {
+                return;
+            }
+    
+            return this.processRowAtIndex(i+1, dbRows);
+        });
     }
 }
 
