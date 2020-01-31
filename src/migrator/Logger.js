@@ -38,7 +38,7 @@ const fileTransport = new winston.transports.File({
 });
 
 const logger = winston.createLogger({
-    transports: [consoleTransport, fileTransport]
+    transports: [consoleTransport]
 });
 
 export {logger, consoleTransport, fileTransport};
