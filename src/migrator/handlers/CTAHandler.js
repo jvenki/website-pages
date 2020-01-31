@@ -53,12 +53,16 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {
-        assert($element.find("a").length == 1, "CTAHandlerVariant_CtaSection-ConditionNotMet#1", $element);
+        // assert($element.find("a").length == 1, "CTAHandlerVariant_CtaSection-ConditionNotMet#1", $element);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const link = $element.find("a").attr("href");
+        if (!link) {
+            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
+        }
+
         const linkText = extractLinkText($element.find("a"), $);
         const linkTextStartPos = $element.text().indexOf(linkText);
         const prefix = $element.text().substring(0, linkTextStartPos).trim();
