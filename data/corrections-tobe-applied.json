@@ -33,5 +33,17 @@
             "source": "div.jumbotron",
             "op": "remove"
         }
+    ],
+    "190": [
+        {
+            "source": "div.panel-body ol div.link-section",
+            "op": "moveUp"
+        }
+    ],
+    "195": [
+        {
+            "source": "div.panel-body ol div.link-section",
+            "op": "moveUp"
+        }
     ]
 }
