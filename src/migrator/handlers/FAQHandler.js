@@ -318,7 +318,7 @@ export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".panel-title a"), $);
         const panelBody = elements[0].find(".panel-body");
-        const items = panelBody.find("ul > h3, ul > li > h3, ol > li > h3, ol > li > strong").map((i, q) => {
+        const items = panelBody.find("ul > h3, ul > li > h3,  ol > li > h3, ol > li > strong, ol > h3 > li > strong").map((i, q) => {
             const $q = $(q);
             const qns = $q.parent().get(0).tagName == "ul" ? extractHeadingText($q.find("li"), $) : extractHeadingText($q, $);
             const ans = $q.nextUntil("h3,li").map((i, a) => extractContentHtml($(a), $)).get().join("");
