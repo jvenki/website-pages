@@ -4232,6 +4232,146 @@
             ]
         }
     },
+    "189": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "Table of Contents",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": "Features",
+                                "link": "#Features"
+                            },
+                            {
+                                "linkText": "Eligibility Criteria",
+                                "link": "#Eligibility_Criteria"
+                            },
+                            {
+                                "linkText": "Documents Required",
+                                "link": "#Documents"
+                            },
+                            {
+                                "linkText": "EMI Calculator",
+                                "link": "#EMI_Calculator"
+                            },
+                            {
+                                "linkText": "How to Apply",
+                                "link": "#How_to_Apply"
+                            },
+                            {
+                                "linkText": "FAQs",
+                                "link": "#FAQs"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Features of IndusInd Bank Car Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The main features of the IndusInd Car Loan are mentioned below:</p><ul><li>The online application process is simple.</li><li>The loan is processed fast.</li><li>The loan amount is disbursed quickly.</li><li>Car loans are provided for a wide range of vehicles.</li><li>Attractive interest rates are provided.</li><li>Flexible repayment tenure ranging from 12 months to 48 months for new cars and 12 months to 36 months for used cars.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Calculate EMI on IndusInd Bank Car Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Some of the main factors that are considered when calculating the Equated Monthly Instalments (EMIs) are the rate of interest, loan amount, and loan tenure. You can use the <a href=\"/car-loan-emi-calculator.html\">car loan EMI calculator</a> provided by BankBazaar to calculate the EMI.</p><p>The process to use the calculator is very simple and only a few details will need to be entered. Once the details have been entered, you will be able to view your EMI.</p><a href=\"http://bit.ly/2vtWzpk\" title=\"IndusInd Bank Car Loan\" class=\"pull-right\"><img title=\"IndusInd Bank Car Loan\n            \" alt=\"IndusInd Bank Car Loan\" src=\"/images/india/infographic/IndusInd-Bank-Car-Loan.png\"/></a>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Apply for an IndusInd Bank Car Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The step-by-step procedure to apply for an IndusInd Bank Car Loan is mentioned below:</p><ul><li>Visit the official website of IndusInd Bank.</li><li>Under the 'Personal' section, select 'Loan' and then click on 'Car Loan'.</li><li>On the next page, click on 'Apply Now'.</li><li>Next, you will have to enter various details such as your name, mobile number, email ID, the product that you are interested in, state, city, if you are an existing IndusInd Bank customer (Credit Card number or Customer ID will have to be entered if you are an existing customer), and captcha.</li><li>Once all the above-mentioned details have been entered, click on 'Apply'.</li><li>An IndusInd Bank representative will contact you to provide further details.</li></ul>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/car-loan.html?variant=slide",
+                        "linkText": "CHECK ELIGIBILITY"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility Criteria of IndusInd Bank Car Loan",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The car loan facility offered by IndusInd Bank can be availed by salaried employees and self-employed individuals (income and non-income based). The eligibility criteria that must be met for both the categories are mentioned below:</p><p><strong>Salaried employees</strong></p><ul><li>You must be at least 21 years old at the time of applying</li><li>The maximum age of the applicant can be 60 years.</li><li>You must make an income of at least Rs.2,50,000 in a year.</li><li>You must have at least 3 years of work experience. At the time of applying for the car loan, you must have worked for at least 1 year in the current company.</li><li>You must have lived for at least 3 years in the current city and at least for 1 year in the current residence. You are eligible to avail a car loan if you are living in your own house.</li></ul><p><strong>Self-employed individuals (Income-based)</strong></p><ul><li>You must be between the ages of 21 years and 65 years.</li><li>You must have lived for at least 3 years in the current city and at least for 1 year in the current residence. You are eligible to avail a car loan if you are living in your own house.</li><li>Your CIBIL score should be more than 600 and you should not have a Caution or Negative profile.</li><li>You must make a minimum net profit of Rs.2,00,000 in a year.</li></ul><p><strong>Self-employed individuals (Non-Income based)</strong></p><ul><li>You must be between the ages of 21 years and 65 years.</li><li>Your CIBIL score should be more than 600 and you should not have a Caution or Negative profile.</li><li>You must have lived for at least 3 years in the current city and at least for 1 year in the current residence. You are eligible to avail a car loan if you are living in your own house.</li><li>Business ownership proof along with a minimum of 3 years of business stability must be provided.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Depending on the category the applicant falls under, the documents that must be submitted will vary. The documents that must be submitted for the different categories are mentioned below:</p><p><strong>Salaried employees</strong></p><ul><li>Passport-size photo</li><li>Identity proof</li><li>Address proof</li><li>Bank statement for the last 6 months.</li><li>Income proof</li></ul>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/car-loan.html?variant=slide",
+                        "linkText": "APPLY NOW"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Self-employed individuals (Income and Non-income based)</strong></p><ul><li>Passport-size photo</li><li>Identity proof</li><li>Address proof</li><li>Bank statement for the last 6 months.</li><li>Business proof</li><li>Income Tax Returns for the last 2 years (Not required for non-income based individuals)</li></ul>"
+                    },
+                    {
+                        "type": "video",
+                        "link": "//www.youtube.com/embed/bEi3Yfe4Tc0"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "FAQs",
+            "items": [
+                {
+                    "question": "Should you provide collateral or security to avail the loan?",
+                    "answer": "<p>No, you need not provide security or collateral in order to avail the loan.</p>"
+                },
+                {
+                    "question": "Should you have an account with IndusInd Bank in order to avail a car loan?",
+                    "answer": "<p>It is not mandatory for you to have an account with IndusInd Bank in order to avail a car loan.</p>"
+                },
+                {
+                    "question": "Are there any special schemes provided in case you cannot submit the income documents?",
+                    "answer": "<p>Yes, IndusInd Bank provides special schemes in case you are not able to furnish the income documents.</p>"
+                },
+                {
+                    "question": "Is it possible for you to take a loan on an existing car?",
+                    "answer": "<p>Yes, you will be able to take a loan on an existing car. However, the car must be hypothecated to IndusInd Bank once the loan sanction process is complete and before the loan amount is disbursed.</p>"
+                },
+                {
+                    "question": "What is the method to repay the loan?",
+                    "answer": "<p>You can repay the loan by providing post-dated cheques or via ECS.</p>"
+                }
+            ]
+        }
+    },
     "190": {
         "title": "",
         "body": "",

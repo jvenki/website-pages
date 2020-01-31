@@ -252,6 +252,37 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP exten
     }
 }
 
+export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        const nextElemIsOL = ($n) => ["ul", "ol"].includes($n.get(0).tagName) && $n.find(" > li").length > 0 && $n.find(" > p").length > 0;
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const tillNextQ = ($li) => {
+            // Somehow $li.nextUntil("li") returns all nodes including that of LI. Therefore filtering myself
+            const output = [];
+            while (true) {
+                $li = $li.next();
+                if ($li.length == 0 || $li.get(0).tagName == "li") {
+                    return output;
+                }
+                output.push($li);
+            }
+        };
+
+        const title = extractHeadingText(elements[0], $);
+        const items = elements[1].find(" > li").map((i, li) => {
+            const $li = $(li);
+            const qns = extractHeadingText($li, $);
+            const ans = tillNextQ($li).map(($a) => extractContentHtml($a, $)).join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        return {elements: [{type: "faq", title, items}]};
+    }
+}
+
 export class FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
         return isElementAHeadingNode($e) && $e.text().match(headingRegex) && this._isQuestionElement($e.next()) && this._isAnswerElement($e.next().next()); 
