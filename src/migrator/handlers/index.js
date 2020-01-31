@@ -20,6 +20,7 @@ import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
 import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_Regex} from "./DisclaimerHandler";
+import ResponsiveTableHandler from "./ResponsiveTableHandler";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
@@ -46,6 +47,7 @@ const handlers = [
     new AccordionHandler(),
     new JumbotronHandler(),
     new BlockQuoteHandler(),
+    new ResponsiveTableHandler(),
     new VideoHandler(),
     new IFrameHandler(),
     new FeaturedOffersHandlerVariant_BorderBlue(),
