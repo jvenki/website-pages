@@ -18,6 +18,7 @@ export default class Cleanser {
             removeDivsWithHFMClassNamesUnderBody,
             removeRowLevelGridsUnderRows,
             removeUnwantedGridsUnderBody, 
+            removeDivsWithHFMClassNamesUnderBody,
             removeStyleAndScriptNodes, 
             // removeTableOfContents,
             removeDisqusElements,
