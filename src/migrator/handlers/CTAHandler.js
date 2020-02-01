@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractLinkText, assert} from "./Utils";
+import {extractLinkText, assert, extractHeadingText, extractContentHtml} from "./Utils";
 
 export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType): boolean {
@@ -67,3 +67,24 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
     }
 }
 
+export class CTAHandlerVariant_TabularData extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+        return $e.hasClass("tabular-data") 
+            && $e.find(" > h3.lt-pad-10").length == 1 
+            && $e.find(" > div.col-md-7").length == 1 
+            && $e.find(" > div.col-md-4").length == 1 && $e.find(" > div.col-md-4 > a").length == 1;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = $element.find("a").attr("href");
+        if (!link) {
+            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
+        }
+
+        const linkText = extractLinkText($element.find("a"), $);
+        const title = extractHeadingText($element.find("h3"), $);
+        const prefix = extractContentHtml($element.find("> div.col-md-7"), $);
+        return {elements: [{type: "cta", link, linkText, prefix, title}]};
+    }
+}
