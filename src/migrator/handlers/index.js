@@ -14,11 +14,11 @@ import NoopWarningHandler from "./NoopWarningHandler";
 import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData} from "./CTAHandler";
 import { AccordionHandler } from "./AccordionHandler";
 import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
-import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP} from "./FAQHandler";
+import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3} from "./FAQHandler";
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
-import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav } from "./ReferencesHandler";
+import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_Regex} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 
@@ -30,6 +30,7 @@ const handlers = [
     new ReferencesHandlerVariant_HeadingRegex(),
     new ReferencesHandlerVariant_InterlinksOfAccordion(),
     new ReferencesHandlerVariant_InterlinksOfNav(),
+    new ReferencesHandlerVariant_Accordion(),
     new FAQHandlerVariant_HeadingRegexAndDivWithSchema(),
     new FAQHandlerVariant_HeadingRegexFollowedByPs(),
     new FAQHandlerVariant_HeadingRegexFollowedByDetails(),
@@ -40,6 +41,7 @@ const handlers = [
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP(),
     new FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA(),
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP(),
+    new FAQHandlerVariant_HeadingRegexFollowedByOLofH3(),
     new SectionHandler(), 
     new CTAHandlerVariant_ProductLandingBlock(),
     new CTAHandlerVariant_LonelyLink(),
