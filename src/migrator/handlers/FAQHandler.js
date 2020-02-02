@@ -364,6 +364,35 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOLofH3 extends FAQBaseHandl
     }
 }
 
+export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        const nextElemIsOL = ($n) => {
+            return ["ul", "ol"].includes($n.get(0).tagName) 
+                && $n.find(" > li").length > 0 
+                && $n.find(" > li").get().every((li) => {
+                    return li.childNodes.length == 2 
+                        && li.childNodes[0].type == "text"
+                        && li.childNodes[1].tagName == "p";
+                });
+        };
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const items = elements[1].find(" > li").map((i, li) => {
+            const $li = $(li);
+            const qns = $li.contents().eq(0).text();
+            const ans = extractContentHtml($li.contents().slice(1), $);
+            return {question: qns, answer: ans};
+        }).get();
+        
+        assertExtractedData(items, title, elements[1]);
+        return {elements: [{type: "faq", title, items}]};
+    }
+}
+
+
 export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
         return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion") || $element.hasClass("panel"))
