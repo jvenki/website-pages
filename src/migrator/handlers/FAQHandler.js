@@ -2,7 +2,7 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import {extractHeadingText, extractContentHtml, isElementAHeadingNode} from "./Utils";
-import {chunk} from "lodash";
+import {chunk, uniq, difference} from "lodash";
 
 export const headingRegex = /Frequently Asked Questions|FAQ/i;
 
@@ -323,6 +323,32 @@ export class FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA extends FAQBas
     }
 }
 
+export class FAQHandlerVariant_HeadingRegexFollowedByOLofH3 extends FAQBaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType) {
+        const nextElemIsOL = ($n) => {
+            const childTags = $n.find(" > *").map((i, c) => c.tagName).get();
+            return ["ul", "ol"].includes($n.get(0).tagName) && childTags.length > 0 && difference(uniq(childTags), ["h3"]).length == 0;
+        };
+        return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const issues = [];
+        const items = elements[1].find(" > h3").map((i, item) => {
+            const $q = $(item).find(" > li > strong");
+            if ($q.length == 0 || $q.nextAll().length == 0) {
+                issues.push("Couldnt parse one Q/A insidee FAQ");
+                return;
+            }
+            const qns = extractHeadingText($q, $);
+            const ans = $q.nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            return {question: qns, answer: ans};
+        }).get();
+        
+        return {elements: [{type: "faq", title, items}], issues};
+    }
+}
 
 export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
