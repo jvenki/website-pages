@@ -6,7 +6,7 @@ import { ConversionIssueCode } from "../MigrationError";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), ConversionIssueCode.EMPTY_ELEMENT, $e);
 
-export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by/i;
+export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from/i;
 
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
@@ -66,3 +66,20 @@ export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
         return {elements: [{type: "references", title, items}]};
     }
 }
+
+export class ReferencesHandlerVariant_Accordion extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion"))
+            && $element.find(".panel-title").text().match(headingRegex)
+            && $element.find(".panel-body li").length > 0
+            && $element.find(".panel-body li").length == $element.find(".panel-body li > a").length;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find(".panel-title a"), $);
+        const items = elements[0].find(".panel-body a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title, elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
