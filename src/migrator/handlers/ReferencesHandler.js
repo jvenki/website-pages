@@ -3,7 +3,7 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import { extractHeadingText, extractLinkText, isElementAHeadingNode, isElementATableNode } from "./Utils";
 
-export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from/i;
+export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other/i;
 
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
@@ -76,3 +76,17 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
     }
 }
 
+export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return $element.hasClass("news-widget")
+            && $element.find("h3.news-head").text().match(headingRegex)
+            && $element.find("ul.insurer-widget > li").length > 0
+            && $element.find("ul.insurer-widget > li").length == $element.find("ul.insurer-widget > li > a").length;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find("h3.news-head"), $);
+        const items = elements[0].find("ul.insurer-widget > li > a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        return {elements: [{type: "references", title, items}]};
+    }
+}
