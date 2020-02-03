@@ -91,7 +91,7 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
 
 const removeDivsWithHFMClassNamesUnderBody = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
-        const hasUnncessaryRootDiv = ["primary-txt", "article-txt", "product-content", "bank-prod-page"].some((cn) => $e.hasClass(cn));
+        const hasUnncessaryRootDiv = ["primary-txt", "article-txt", "product-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
         if (hasUnncessaryRootDiv) {
             onIssue(new MigrationError(CleanserIssueCode.REMOVED_HFM_NODE, computeNodeName($e), "Count = 1"));
             $e = unwrapElement($e, $);

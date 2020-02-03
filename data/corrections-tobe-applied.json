@@ -45,5 +45,11 @@
             "source": "div.panel-body ol div.link-section",
             "op": "moveUp"
         }
+    ],
+    "281": [
+        {
+            "source": ".product-description > .product-landing-btn-block",
+            "op": "unwrap"
+        }
     ]
 }
