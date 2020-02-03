@@ -3,7 +3,7 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import {extractContentHtml, isElementAContentNode} from "./Utils";
 
-export default class TextHandler extends BaseHandler {
+export class TextHandlerVariant_Main extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
         return isElementAContentNode($element);
     }
@@ -31,4 +31,19 @@ export default class TextHandler extends BaseHandler {
         }
         return {elements: [{type: "text", body}]};
     }
+}
+
+export class TextHandlerVariant_PointerView extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return $element.hasClass("pointer-view") && $element.next().hasClass("tcenter");
+    }
+
+    walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
+        return [$element, $element.next()];
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const body = elements[1].find("p").map((i, p) => `<li>${$(p).text()}</li>`).get().join("");
+        return {elements: [{type: "text", body: `<ol>${body}</ol>`}], issues: ["PointerView changed into simple OL"]};
+    }    
 }
