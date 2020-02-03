@@ -69,7 +69,7 @@ export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
 
 export class ReferencesHandlerVariant_Accordion extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion"))
+        return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion") || $element.hasClass("panel"))
             && $element.find(".panel-title").text().match(headingRegex)
             && $element.find(".panel-body li").length > 0
             && $element.find(".panel-body li").length == $element.find(".panel-body li > a").length;
