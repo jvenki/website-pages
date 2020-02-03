@@ -5,7 +5,7 @@ import {assert} from "./Utils";
 
 import BaseHandler from "./BaseHandler";
 import SectionHandler from "./SectionHandler";
-import TextHandler from "./TextHandler";
+import {TextHandlerVariant_Main, TextHandlerVariant_PointerView} from "./TextHandler";
 import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails} from "./JumbotronHandler";
 import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
@@ -49,7 +49,8 @@ const handlers = [
     new CTAHandlerVariant_LonelyLink(),
     new CTAHandlerVariant_CtaSection(),
     new CTAHandlerVariant_TabularData(),
-    new TextHandler(),
+    new TextHandlerVariant_Main(),
+    new TextHandlerVariant_PointerView(),
     new AccordionHandler(),
     new JumbotronHandlerVariant_Main(),
     new JumbotronHandlerVariant_PrimaryKeyDetails(),
