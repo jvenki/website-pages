@@ -25,8 +25,8 @@ export class AccordionHandler extends BaseHandler {
     validate($element: CheerioElemType, $: CheerioDocType) {
         const panels = $element.find(".panel");
         assert(panels.length > 0, "AccordionHandler-ConditionNotMet#1", $element);
-        assert($element.find(".panel .panel-heading h2").length == panels.length, "AccordionHandler-ConditionNotMet#2", $element);
-        assert($element.find(".panel .panel-heading h2 a").length == panels.length, "AccordionHandler-ConditionNotMet#3", $element);
+        assert($element.find(".panel .panel-heading").length == panels.length, "AccordionHandler-ConditionNotMet#2", $element);
+        assert($element.find(".panel .panel-heading a").length == panels.length, "AccordionHandler-ConditionNotMet#3", $element);
         assert($element.find(".panel .panel-body").length == panels.length, "AccordionHandler-ConditionNotMet#4", $element);
     }
 
@@ -36,7 +36,7 @@ export class AccordionHandler extends BaseHandler {
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
                 const $be = $(panel).find(".panel-body");
-                const title = extractHeadingText($(panel).find(".panel-heading h2 a"), $);
+                const title = extractHeadingText($(panel).find(".panel-heading a"), $);
                 if (isPanelActuallyAFAQ(title)) {
                     faq = new FAQInsideAccordionPanelHandler().convert([$(panel)], $).elements[0];
                 } else {
