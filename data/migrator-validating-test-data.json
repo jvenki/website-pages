@@ -5819,6 +5819,596 @@
             }
         ]
     },
+    "280": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "SBI Credit Card Overview",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>State Bank of India offers <a href=\"/credit-card/top-10-credit-cards-in-india.html\">multiple credit cards</a> to meet the financial needs of individual cardholders. SBI cards offer rewards on travel, shopping, dining, and more. You can also enjoy benefits like cashback and low-interest rates, among others. If you are looking for a new credit card, take a look at the features and benefits of SBI cards to choose one that best suits you.</p>"
+                    },
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": " SBI Credit Card Offers",
+                                "link": "/sbi-credit-card-offers.html",
+                                "img": {
+                                    "src": "/images/india/cc-images/small/top-five-mini.png"
+                                }
+                            },
+                            {
+                                "linkText": " Features of SBI Cards",
+                                "link": "#features-SBI-cards",
+                                "img": {
+                                    "src": "/images/india/cc-images/small/features-mini.png"
+                                }
+                            },
+                            {
+                                "linkText": " Fees and Charges",
+                                "link": "#fees-charges",
+                                "img": {
+                                    "src": "/images/india/cc-images/small/fees-and-charges-mini.png"
+                                }
+                            },
+                            {
+                                "linkText": " Eligibility Criteria",
+                                "link": "/credit-card/sbi-cc-eligibility.html",
+                                "img": {
+                                    "src": "/images/india/cc-images/small/eligibility-mini.png"
+                                }
+                            },
+                            {
+                                "linkText": " How to Apply SBI Credit Card",
+                                "link": "#documents-required",
+                                "img": {
+                                    "src": "/images/india/cc-images/small/how-to-apply-mini.png"
+                                }
+                            },
+                            {
+                                "linkText": " Customer Care",
+                                "link": "#customer-care",
+                                "img": {
+                                    "src": "/images/india/cc-images/small/customer-care-mini.png"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Key Features of SBI Cards",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>SBI cards are categorized as premium cards, shopping and travel cards, classic cards and exclusive cards. Each card is unique and have special offers like free movie tickets, concierge services, lounge access facilities, balance transfer facility, flexi payment in EMIs, reward points, online bills payment and many more.</p><h3>SBI Lifestyle Credit Cards</h3>"
+                    },
+                    {
+                        "type": "featured-offers",
+                        "offers": [
+                            {
+                                "title": "SBI Card ELITE",
+                                "link": "/credit-card/sbi-card-elite.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-card-elite.png"
+                                },
+                                "body": "<ul><li>Up to 50,000 Bonus Reward Points each year.</li><li>5x Reward Points on grocery, dining, and departmental store purchases.</li><li>2 Reward Points per Rs.100 spent on other expenses.</li><li>Low foreign currency mark-up charge of 1.99%.</li></ul>"
+                            },
+                            {
+                                "title": "Doctor's SBI Card in Association with (IMA)",
+                                "link": "/credit-card/doctor-sbi-card-ima.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/doctors-ima-sbi-card-card.png"
+                                },
+                                "body": "<ul><li>The only credit card to be associated with the Indian Medical Association.</li><li>Professional indemnity insurance coverage of Rs.10 lakh.</li><li>5x Reward Points on purchases made on National Doctor's Day (1 July).</li><li>5x Reward Points on overseas purchases, and spends on medical supplies, and travel bookings.</li></ul>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>SBI Rewards Cards</h3>"
+                    },
+                    {
+                        "type": "featured-offers",
+                        "offers": [
+                            {
+                                "title": "SBI Card PRIME",
+                                "link": "/credit-card/sbi-card-prime.html",
+                                "img": {
+                                    "src": "/images/india/infographic/sbi-prime-card-new.png"
+                                },
+                                "body": "<ul><li>20 Reward Points for every Rs.100 spent on auto payment of utility bills.</li><li>10 Reward Points for every Rs.100 spent on movies, groceries, dining, and purchases at departmental stores.</li><li>Waiver of annual fees when you spend a minimum of Rs.3 lakh in a year.</li><li>Complimentary Trident Privilege Red Tier membership.</li></ul>"
+                            },
+                            {
+                                "title": "Apollo SBI Card",
+                                "link": "/credit-card/apollo-sbi-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/apollo-sbi-card.png"
+                                },
+                                "body": "<ul><li>Up to 10% off selected Apollo services.</li><li>3x Reward Points for every Rs.100 spent on any Apollo service.</li><li>Renewal fee reversed if you spend Rs.90,000 or more in a year.</li><li>1% fuel surcharge waiver across India.</li></ul>"
+                            },
+                            {
+                                "title": "SBI Tata Platinum Card",
+                                "link": "/credit-card/tata-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-tata-platinum-card.png"
+                                },
+                                "body": "<ul><li>2% value back on purchases made at Croma (in-store and online).</li><li>Up to 5% value back on purchases made at Tata outlets.</li><li>3x Empower Points on grocery, dining, departmental stores, and international transactions.</li><li>1 Empower Point for every Rs.100 spent at other retail outlets.</li></ul>"
+                            },
+                            {
+                                "title": "SBI Tata Titanium Credit Card",
+                                "link": "/credit-card/tata-titanium-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-tata-titanium-card.png"
+                                },
+                                "body": "<ul><li>1.5% value back on purchases made at Croma (applicable to in-store and online spends).</li><li>3x Empower Points on transactions made at departmental stores and for groceries.</li><li>Annual fee waiver on a minimum spend of Rs.1 lakh in a year.</li><li>Up to 5% value back on transactions made at Tata outlets.</li></ul>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>SBI Shopping Credit Cards</h3>"
+                    },
+                    {
+                        "type": "featured-offers",
+                        "offers": [
+                            {
+                                "title": "SimplyClick SBI Card",
+                                "link": "/credit-card/sbi-simplyclick-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-simplyclick-card.png"
+                                },
+                                "body": "<ul><li>10x Reward Points on online shopping transactions on selected merchant websites, such as Amazon, BookMyShow, and Cleartrip.</li><li>5x Reward Points on other online spends.</li><li>Online voucher worth Rs.2,000 on total annual online spend of Rs.1 lakh and Rs.2 lakh.</li><li>Annual fee reversed for yearly spend of Rs.1 lakh.</li></ul>"
+                            },
+                            {
+                                "title": "SimplySAVE SBI Card",
+                                "link": "/credit-card/sbi-simply-save-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-simplysave-card.png"
+                                },
+                                "body": "<ul><li>10 Reward Points for every Rs.100 spent on groceries, dining, movies, and purchases made at departmental stores.</li><li>1 Reward Point for every Rs.100 spend on other purchases.</li><li>Spend at least nRs.2,000 within 60 days of card approval to receive 2,000 bonus Reward Points.</li><li>1% fuel surcharge waiver at any petrol pump.</li></ul>"
+                            },
+                            {
+                                "title": "SBI Unnati Credit Card",
+                                "link": "/credit-card/sbi-unnati-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-unati-card.png"
+                                },
+                                "body": "<ul><li>Renewal fee waived off for the first four years.</li><li>1 Reward Point for every Rs.100 spent using this card.</li><li>Spend Rs.50,000 or more in a year to earn cashback of Rs.500.</li><li>1% fuel surcharge waiver on spends between Rs.500 and Rs.3,000.</li></ul>"
+                            },
+                            {
+                                "title": "Central SBI Select Card",
+                                "link": "#",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/central-sbi-select-card.png"
+                                },
+                                "body": "<ul><li>10 Select Points for every Rs.100 spent at Central stores.</li><li>5 Select Points for every Rs.100 spent on dining and movies.</li><li>1 Select Point for every Rs.100 spent on other retail purchases except fuel purchases.</li><li>Collect up to 8,000 Select Points (worth Rs.2,000) based on your total annual spend.</li></ul>"
+                            },
+                            {
+                                "title": "Central SBI Select Plus Credit Card",
+                                "link": "/credit-card/central-sbi-select-plus-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/central-sbi-select-plus-card.png"
+                                },
+                                "body": "<ul><li>20 Selected Points for every Rs.100 spent at any Central store.</li><li>10 Selected Points for every Rs.100 spent on movies and dining.</li><li>2 Select Points for every Rs.100 spent on other retail purchases.</li><li>Collect up to 16,000 Select Points (worth Rs.4,000) based on your total annual spend.</li></ul>"
+                            },
+                            {
+                                "title": "SBI StyleUP Contactless Credit Card",
+                                "link": "/credit-card/sbi-styleup-contactless-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/sbi-styleup-contactless-card.png"
+                                },
+                                "body": "<ul><li>Upfront discount of flat 10% when you shop for selected items at Big Bazaar and Fbb stores.</li><li>Make contactless transactions of up to Rs.2,000 per transaction.</li><li>10x Reward Points on dining transactions, purchases made at Big Bazaar and at stand-alone Fbb and Food Bazaar stores.</li><li>1 Reward Point for every Rs.100 spent on other retail purchases except fuel purchases.</li></ul>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>SBI Travel Credit Cards</h3>"
+                    },
+                    {
+                        "type": "featured-offers",
+                        "offers": [
+                            {
+                                "title": "Etihad Guest SBI Card",
+                                "link": "#",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/etihad-guest-sbi-card.png"
+                                },
+                                "body": "<ul><li>3 Etihad Guest Miles for every Rs.100 spent on the Etihad website.</li><li>2 Etihad Guest Miles for every Rs.100 spent overseas.</li><li>1 Etihad Guest Mile for every Rs.100 spent on other retail purchases.</li><li>Get an instant discount of up to 10% on direct Etihad Airways bookings.</li></ul>"
+                            },
+                            {
+                                "title": "Etihad Guest SBI Premier Card",
+                                "link": "#",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/etihad-guest-sbi-premier-card.png"
+                                },
+                                "body": "<ul><li>Complimentary Etihad Guest Gold tier status after the first transaction with this card.</li><li>6 Etihad Guest Miles for every Rs.100 spent on the Etihad website.</li><li>4 Etihad Guest Miles for every Rs.100 spent overseas.</li><li>Up to 10% discount on air miles redemption.</li></ul>"
+                            },
+                            {
+                                "title": "Yatra SBI Credit Card",
+                                "link": "/credit-card/sbi-yatra-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/sbi-yatra-credit-card-new.png"
+                                },
+                                "body": "<ul><li>Rs.1,000 off domestic flight tickets on a minimum booking amount of Rs.5,000.</li><li>Rs.4,000 off international flight tickets on a minimum booking amount of Rs.40,000.</li><li>6 Reward Points for every Rs.100 spent on dining, groceries, entertainment, movies, departmental stores, and overseas purchases.</li><li>Access to Mastercard airport lounges in India.</li></ul>"
+                            },
+                            {
+                                "title": "BPCL SBI Credit Card",
+                                "link": "/credit-card/bpcl-sbi-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/bpcl-sbi-card.png"
+                                },
+                                "body": "<ul><li>4.25% value back (equivalent to 13x Reward Points) on fuel purchases made at any BPCL pump.</li><li>3.25% + 1% waiver on fuel surcharge for every fuel purchase up to Rs.4,000.</li><li>5x Reward Points on every Rs.100 spent on grocery, departmental, dining, and movie transactions.</li><li>Waiver of fuel surcharge charge of up to Rs.100 each month.</li></ul>"
+                            },
+                            {
+                                "title": "IRCTC SBI Platinum Card",
+                                "link": "/credit-card/sbi-irctc-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/irctc-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>Up to 10% value back in the form of Reward Points when you book selected train tickets through the IRCTC website.</li><li>1 Reward Point for every Rs.125 spent on non-fuel retail purchases (including transactions on the IRCTC website).</li><li>Save 1.8% on transaction charges when you book train tickets via the IRCTC website.</li><li>Waiver of 1% fuel surcharge across petrol pumps in India (for transactions amount Rs.500-Rs.3,000).</li></ul>"
+                            },
+                            {
+                                "title": "SBI Mumbai Metro Credit Card",
+                                "link": "/credit-card/sbi-mumbai-metro-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/mumbai-metro-sbi-card.png"
+                                },
+                                "body": "<ul><li>Enjoy auto top-up of Rs.200 on your Mumbai Metro card when the balance dips to Rs.50.</li><li>10 Reward Points for every Rs.100 spent on auto top-up of your metro card.</li><li>10 Reward Points for every Rs.100 spent on grocery, dining, movies, and departmental store purchases.</li><li>1 Reward Point for every Rs.100 spent on other purchases.</li></ul>"
+                            },
+                            {
+                                "title": "Chennai Metro SBI Card",
+                                "link": "#",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/chennai-metro-sbi-card.png"
+                                },
+                                "body": "<ul><li>The card doubles up as a Chennai metro travel card as well as a credit card.</li><li>10x Reward Points for every Rs.100 spent on grocery, dining, movie, and departmental store purchases.</li><li>1 Reward Point for every Rs.100 spent on other purchases.</li><li>Waiver of 1% fuel surcharge on fuel purchases from Rs.500 to Rs.3,000.</li></ul>"
+                            },
+                            {
+                                "title": "Air India SBI Signature Card",
+                                "link": "/credit-card/air-india-sbi-signature-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/sbi-air-india-visa-signature-card-new.png"
+                                },
+                                "body": "<ul><li>Up to 30 Reward Points for every Rs.100 spent on Air India tickets booking via the Air India website or mobile app.</li><li>4 Reward Points for every Rs.100 spent using this card.</li><li>Up to 1 lakh bonus Reward Points annually.</li><li>Convert your Reward Points into Air India Miles (1 point = 1 mile).</li></ul>"
+                            },
+                            {
+                                "title": "Air India SBI Platinum Card",
+                                "link": "/credit-card/air-india-sbi-platinum-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/air-india-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>Up to 15 Reward Points for every Rs.100 spent on Air India tickets booked via the Air India website or app.</li><li>2 Reward Points per Rs.100 spent using this card.</li><li>Up to 15,000 bonus Reward Points annually.</li><li>Complimentary Air India Frequent Flyer Program membership.</li></ul>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>SBI Banking Partnership Cards</h3>"
+                    },
+                    {
+                        "type": "featured-offers",
+                        "offers": [
+                            {
+                                "title": "Karnataka Bank SBI Platinum Credit Card",
+                                "link": "/credit-card/karnataka-bank-sbi-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/karnataka-bank-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>5x Reward Points on international and dining transactions, and purchases made at departmental stores and to buy groceries.</li><li>2 Reward Points per Rs.100 spent on other purchases.</li><li>Rewards on annual spend of Rs.4 lakh and Rs.5 lakh.</li><li>Complimentary Priority Pass programme membership worth $99.</li></ul>"
+                            },
+                            {
+                                "title": "South Indian Bank SBI Platinum Credit Card",
+                                "link": "/credit-card/south-indian-bank-sbi-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/south-indian-bank-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>5x Reward Points on transactions made at departmental stores and overseas, and dining and grocery spends.</li><li>2 Reward Points per Rs.100 spent on other purchases.</li><li>Enjoy complimentary Priority Pass membership.</li><li>Online shopping voucher worth Rs.3,000 on when you spend Rs.4 lakh and Rs.5 lakh in a year.</li></ul>"
+                            },
+                            {
+                                "title": "Federal Bank SBI Platinum Credit Card",
+                                "link": "/credit-card/federal-bank-sbi-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/federal-bank-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>5x Reward Points on dining, departmental store and grocery transactions, and overseas purchases.</li><li>Complimentary Priority Pass membership worth $99.</li><li>Complimentary access to Visa airport lounges in India.</li><li>30% off green fees to selected golf courses worldwide.</li></ul>"
+                            },
+                            {
+                                "title": "Federal Bank SBI Credit Card",
+                                "link": "/credit-card/federal-bank-sbi-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/federal-bank-sbi-card.png"
+                                },
+                                "body": "<ul><li>2.5% value back, equivalent to 10x Reward Points, for every Rs.100 spent on dining transactions and purchases made at departmental stores.</li><li>1 Reward Point per Rs.100 spent on other purchases.</li><li>Annual membership fee reversed when you spend more than Rs.1 lakh in a year.</li></ul>"
+                            },
+                            {
+                                "title": "Karur Vysya Bank SBI Credit Card",
+                                "link": "/credit-card/karur-vysya-bank-sbi-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/karur-vysya-bank-sbi-card.png"
+                                },
+                                "body": "<ul><li>2.5% value back (equivalent to 10x Reward Points) for every Rs.100 spent on groceries and purchases made at departmental stores.</li><li>1 Reward Point for every Rs.100 spent on other purchases.</li><li>Spend in excess of Rs.2,000 within 60 days of getting your card and earn 2,000 bonus Reward Points.</li><li>Waiver of 1% fuel surcharge if you spend between Rs.500 and Rs.3,000 at any petrol pump in India.</li></ul>"
+                            },
+                            {
+                                "title": "Karur Vysya Bank SBI Platinum Credit Card",
+                                "link": "/credit-card/karur-vysya-bank-sbi-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/karur-vysya-bank-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>5x Reward Points for overseas, dining, groceries, departmental store transactions.</li><li>2 Reward Points per Rs.100 spent on other purchases.</li><li>Complimentary Priority Pass membership worth $99.</li><li>Complimentary access to Visa lounges in India and overseas through the Visa Airport Lounge Access program.</li></ul>"
+                            },
+                            {
+                                "title": "OBC SBI Platinum Credit Card",
+                                "link": "/credit-card/oriental-bank-of-commerce-sbi-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/oriental-bank-of-commerce-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>5x Reward Points on overseas, department store, dining, and grocery spends.</li><li>2 Reward Points per Rs.100 spent on all other transactions.</li><li>E-voucher worth Rs.3,000 from any one of the selected brands on annual spend of Rs.4 lakh and Rs.5 lakh.</li><li>Complimentary Priority Pass membership and access to Visa lounges in India and overseas.</li></ul>"
+                            },
+                            {
+                                "title": "OBC SBI Credit Card",
+                                "link": "/credit-card/oriental-bank-of-commerce-sbi-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/oriental-bank-of-commerce-sbi-card.png"
+                                },
+                                "body": "<ul><li>Up to 2.5% value back (equivalent to 10x Reward Points) for every Rs.100 spent on groceries and at departmental stores.</li><li>Other purchases will earn you 1 Reward Point for every Rs.100 spent with the card.</li><li>Waiver of 1% fuel surcharge when you spend between Rs.500 and Rs.3,000 on fuel.</li><li>Spend Rs.1 lakh or more in a year and get your annual membership fee reversed.</li></ul>"
+                            },
+                            {
+                                "title": "Bank of Maharashtra SBI Credit Card",
+                                "link": "/credit-card/bank-of-maharashtra-sbi-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/bank-of-maharashtra-sbi-card.png"
+                                },
+                                "body": "<ul><li>2.5% value back in the form of 10x Reward Points for every Rs.100 spent at departmental and grocery stores.</li><li>1 Reward Point for every Rs.100 spent on other purchases.</li><li>Waiver of the 1% fuel surcharge when you spend between Rs.500 and Rs.3,000 on fuel.</li><li>Annual membership fee reversed when you spend Rs.1 lakh or more in a year.</li></ul>"
+                            },
+                            {
+                                "title": "Bank of Maharashtra SBI Platinum Credit Card",
+                                "link": "/credit-card/bank-of-maharashtra-sbi-platinum-credit-card.html",
+                                "img": {
+                                    "src": "/images/india/infographic/cc-images/bank-of-maharashtra-sbi-platinum-card.png"
+                                },
+                                "body": "<ul><li>5x Reward Points on dining and purchases made at departmental and grocery stores.</li><li>5x Reward Points on international purchases.</li><li>2 Reward Points on all other purchases.</li><li>Enjoy complimentary Priority Pass membership worth $99.</li></ul>"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>SBI Premium/Invite-Only Credit Cards</h3><ul><li>SBI Card PRIME Advantage</li><li>SBI Card ELITE Advantage</li><li>SimplySAVE Advantage SBI Card</li><li><a href=\"/credit-card/simplyclick-advantage-sbi-credit-card.html\">SimplyCLICK Advantage SBI Card</a></li><li><a href=\"/credit-card/capital-first-sbi-credit-card.html\">Capital First SBI Card</a></li><li><a href=\"/credit-card/karnataka-bank-simplysave-sbi-card.html\" title=\"Karnataka Bank SBI SimplySAVE Card\">Karnataka Bank SBI SimplySAVE Card</a></li><li>South Indian Bank SimplySAVE SBI Card</li><li><a href=\"/credit-card/lvb-platinum-sbi-credit-card.html\">LVB SBI Platinum Credit Card</a></li><li><a href=\"/credit-card/lvb-simplysave-sbi-credit-card.html\">LVB SBI SimplySAVE Card</a></li><li><a href=\"/credit-card/karur-vysya-bank-sbi-signature-credit-card.html\">KVB SBI Signature Card</a></li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Key Benefits of SBI Cards",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>All credit cards from SBI offer a range of benefits including:</p><ol><li><p><strong>Save on your interest</strong></p><p>You can transfer your outstanding amounts from other cards to your SBI card at a low rate of interest. With the balance transfer feature, you can avoid paying interest on multiple cards.</p></li><li><p><strong>Auto payment of bills</strong></p><p>With your credit card, paying your utility bills is hassle free. The auto bill payment option called Easy Bill Pay allows you to make timely payments each month. You can register and pay your utility bills, insurance premiums, and electricity and telephone bills.</p></li><li><p><strong>Protect yourself with insurance</strong></p><p>SBI in partnership with CCP offers comprehensive protection in the event of card loss, fraud, or theft. Cardholders enjoy facilities like emergency travel assistance, banking protection, free replacement of lost card, and more.</p></li><li><p><strong>Convenient access to your account</strong></p><p>You can access your SBI card account online or download the SBI Card mobile app. Make bill payments, check your outstanding balance, and more anytime, anywhere.</p></li><li><p><strong>Funds for your immediate cash requirements</strong></p><p>Your SBI card can be very helpful if you need additional funds for an emergency. With the SBI Encash facility, you can get quick access to funds. You could get an amount above or within your credit limit transferred to your account within 48 hours with Encash. Repayment of the funds can be made in 12-, 24-, or 36-month instalments.</p></li></ol><h3>Credit Card Against Fixed Deposit</h3><p>SBI Card Unnati - You can apply for this <a href=\"/credit-card/credit-card-against-fixed-deposits.html\">card against a fixed deposit</a>. You need to have an FD of Rs.25,000 or more with State Bank of India to be eligible.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Card Other fees and charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><thead><tr><th>Type of fees</th><th>Charges</th></tr></thead><tbody><tr><td>Credit card finance charge</td><td>Up to 2.5% per month for SBI Card Unnati Up to 3.35% per month for other cards</td></tr><tr><td>Minimum amount due each month</td><td>5% of total outstanding amount or Rs.200 + taxes, whichever is higher</td></tr><tr><td>Interest fee period</td><td>20 to 50 days</td></tr><tr><td>Finance charge on cash advance</td><td>Up to 2.5% per month for SBI Card Unnati Up to 3.35% per month for other cards</td></tr><tr><td>Cash advance limit</td><td>Up to 80% of your total credit limit, maximum of Rs.15,000 per day</td></tr><tr><td>Cash advance fee – SBI and local ATMs</td><td>2.5% of amount withdrawn, minimum of Rs.300</td></tr><tr><td>Cash advance fee – international ATMs</td><td>3% of the transaction amount, minimum of Rs.300</td></tr><tr><td>Statement retrieval</td><td>Rs.100 per statement – for statements more than 2 months old</td></tr><tr><td>Late payment fee (charged based on the total outstanding amounts)</td><td>Below Rs.200: Rs.0 Above Rs.200 to Rs.500: Rs.100 Above Rs.500 to Rs.1,000: Rs.400 Above Rs.1,000 to Rs.10,000: Rs.600 Above Rs.10,000 to Rs.25,000: Rs.800 Above Rs.25,000: Rs.950</td></tr><tr><td>Over limit fee</td><td>2.5% of the excess credit utilised or Rs.500, whichever is higher</td></tr><tr><td>Card replacement fee – domestic</td><td>Rs.100</td></tr><tr><td>Card replacement fee while travelling abroad</td><td>Actual cost of the card or $175, whichever is higher</td></tr><tr><td>Dynamic currency conversion fee or mark-up</td><td>3.5% For SBI Card ELITE – 1.99%</td></tr><tr><td>Rewards redemption charge</td><td>Rs.99</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents Required for Application",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>You are required to submit proof of identity, address, and income while applying for a credit card. Here is a list of documents you can submit to prove your eligibility. Remember that this is not an exhaustive list and that the bank can ask you for additional documents.</p><table><tbody><tr><td>Proof of identity (any one)</td><td><ul><li>Ration card</li><li>Voter's ID card</li><li>Passport</li><li>PAN card</li><li>Aadhaar card</li><li>Driving license</li></ul></td></tr><tr><td>Address proof (any one)</td><td><ul><li>Aadhaar card</li><li>Telephone bill</li><li>Rental agreement</li><li>Electricity bill</li><li>Passport</li><li>Ration card</li></ul></td></tr><tr><td>Income proof for self-employed individuals</td><td><ul><li>Latest Income Tax Returns (ITR)</li><li>Audit proof, balance sheet, or loss statement</li><li>Business financial statements</li></ul></td></tr><tr><td>Income proof for salaried individuals</td><td><ul><li>Employment letter</li><li>Latest salary slip</li><li>Salary certificate</li></ul></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Apply SBI Credit Card Online",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Applying for an SBI credit card is easy. BankBazaar offers paperless application for selected SBI cards. You can check your eligibility, upload the documents, and apply for a card within a few minutes through the BankBazaar website.</p><ul><li>Visit BankBazaar SBI Credit Card Section.</li><li>Choose a card that suits your spending pattern.</li><li>Click on the 'Check Eligibility' tab.</li><li>Fill in the required details to find out if you are eligible to apply for the card.</li><li>You will be directed to the application page where you will have to fill in your details.</li><li>Once you have entered all the necessary information, click on 'Submit'.</li><li>Upload your documents and click on 'Submit'.</li><li>After you have successfully provided all the required information, you will receive a message with your application ID.</li></ul><p>Additionally, you can log on to the SBI website and apply for a card online. SBI offers online application for most of their cards.</p><ul><li>Visit the official SBI website.</li><li>Slid the cursor on the credit cards tab and click on 'Help Me Find a Card'.</li><li>Find the ideal card for you with the Simplyfier feature.</li><li>Read through the features and benefits of the card.</li><li>Click on 'Apply'.</li><li>Fill in your personal and contact details.</li><li>A representative of the bank will contact you to take your application further.</li></ul><p>You can also visit any SBI branch near you to apply for a credit card. If you want to apply for an SBI banking partner card, you will have to visit the partner branch to complete the application process.</p>"
+                    },
+                    {
+                        "type": "panel",
+                        "title": "Required Credit Score to Apply for SBI Cards",
+                        "body": "SBI takes into account your credit history and you <a href=\"/credit-score.html\">credit score</a> to determine your eligibility for a card. Although the specific score required varies from card to card, a score of 700 and above is considered good. "
+                    },
+                    {
+                        "type": "video",
+                        "link": "https://www.youtube.com/embed/KfQrcltt84A"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Track Your Application Status",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>If you want to find out whether your application has been approved by the bank, you can use the <a href=\"/verifyOwnershipForm.html\">Track Application feature</a> on the BankBazaar website.</p><ul><li>Visit BankBazaar.com and click on 'Track Application'.</li><li>Enter your application ID, mobile number, and click on 'Track Application'.</li><li>The screen will display the status of your application.</li></ul><p>You can also track the status of your application if you have applied for your card through the SBI website.</p><ul><li>Log on to the SBI website.</li><li>You will find the 'Track My Application' link under the 'Apply' tab.</li><li>Enter your application or reference number to get the details.</li><li>You can also fill in your date of birth to track your application.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Balance Transfer",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Pay the balance on your other credit cards with your SBI card. You can transfer the outstanding amount on other cards to your SBI card at a low rate of interest. The <a href=\"/credit-card/sbi-balance-transfer.html\">balance transfer</a> feature can help you save on the interest on multiple cards. SBI offers two balance transfer plans you can choose from:</p><ol><li>interest rate for 60 days. Processing fee of 2% or Rs.199, whichever is higher, is applicable.</li><li>7% interest per month for 180 days. Processing fee is waived off.</li></ol><h3>Loan on Your Credit Card</h3><p>The Encash feature on SBI cards allows you quick access to funds when you need it the most. It is a pre-approved facility that is offered to selected cardholders. You can apply for a loan amount that is within or over your existing credit limit. If you are eligible, the amount will be transferred to your State Bank of India account within 48 working hours. Transfer of funds will be done through NEFT.</p><p>Encash attracts an interest rate as well as a processing fee. You can contact the bank for the applicable rate of interest. You have to pay a one-time processing fee of 2% of the amount or Rs.499, whichever is higher. The processing fee will not exceed Rs.3,000.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Credit Card Bill Payment",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>SBI offers various avenues to help you <a href=\"/sbi-bank-credit-card-bill-payment.html\">pay your credit card bill</a> on time. Based on your convenience, you can choose to pay your bill online or in person.</p><h3>Online bill payment</h3><p>You can use any of the following methods to pay your credit card bill online.</p><ul><li><strong>Net banking (NEFT)</strong> – For payment from accounts other than State Bank of India. Use the IFSC code SBIN00CARDS.</li><li><strong>Paynet-Pay Online</strong> – Pay on the SBI website through your bank's net banking facility.</li><li><strong>Visa Credit Card Pay</strong> – Pay your SBI Visa card bill using your net banking facility.</li><li><strong>Online SBI</strong> – Clear your dues by making payments through the SBI website using your SBI account.</li><li><strong>Electronic Bill Payment (EBP)</strong> – This online payment service can be availed through ATM, mobile app, or net banking of State Bank of India, Citibank, Bank of India, and Indian Overseas Bank.</li><li><strong>National Automated Clearing House (NACH)</strong> – Through this automated payment method, your monthly dues will be deducted directly from your account.</li><li><strong>SBI Auto Debt</strong> – Enjoy the convenience of paying directly from your State Bank of India account with the auto debt feature.</li><li><strong>Debit Card</strong> – You can make your monthly payment with your debit card. SBI allows you to pay through debit cards from leading banks.</li></ul><h3>Payment via mobile app</h3><ul><li><strong>SBI App</strong> - Pay your credit card bill on the go with the SBI mobile app.</li><li><strong>Pay through YONO</strong> – YONO by SBI facilitates easy and quick bill payment. You can choose either the YONO mobile app or website to make payments.</li><li><strong>UPI Payment</strong> – Download the BHIM SBI Pay app on your phone to pay your card bill. UPI allows you to transfer money from one account to another using a smartphone.</li></ul><h3>Offline bill payment</h3><ul><li><strong>SBI ATM</strong>– Pay your monthly bill with your debit card at any of the SBI ATMs.</li><li><strong>Electronic Drop Box</strong> – Drop off your cheque at an electronic drop box near you and get an instant receipt.</li><li><strong>Manual Drop Box</strong> – You can drop off your cheque at any of the drop boxes across India.</li><li><strong>Payment at Bank Branch</strong> – You can visit any State Bank of India branch to pay your card bill.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Contact SBI Customer Care",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>If you have any queries about your card, you can <a href=\"/sbi-credit-card-customer-care-number.html\">contact State Bank of India</a> for assistance. You can contact the bank through any one of the following ways.</p><ul><li>E-mail</li><li>Missed call</li><li>Write to the bank</li><li>Twitter</li><li>Call customer care</li><li>IRCTC SBI credit card helpline</li><li>SMS</li><li>Fax</li></ul>"
+                    },
+                    {
+                        "type": "panel",
+                        "title": "SBI Credit Card Offers",
+                        "body": "<p>In addition to Reward Points and value back, you can enjoy a range of <a href=\"/sbi-credit-card-offers.html\">offers on your SBI card</a>. From promotions on travel to shopping, get exclusive discounts and deals with your credit card.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Earn and Redeem Reward Points",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Most SBI cards allow you to earn <a href=\"/sbi-credit-card-reward-points.html\">Shop-and-Smile Reward Points</a> which have a validity of 2 years. Use your card to make purchases to earn points on each transaction. It is important to keep in mind the specific spend categories for which you can earn maximum Reward Points.</p><p>Once you have accumulated the points, you can redeem them for exclusive gifts, shopping vouchers, and more. Points redemption can be done on the SBI website or through the mobile app. Sign in with your login information and redeem your points for any of the products in the catalogue.</p><p>You can call SBI card helpline 1860 180 1290 or 39 02 02 02 with your local STD code or write to them to redeem your points. Your gift will be delivered to the registered address.</p>"
+                    },
+                    {
+                        "type": "accordion",
+                        "items": [
+                            {
+                                "title": " Find SBI IFSC Code:",
+                                "body": "<ul><li><a href=\"/ifsc-code/state-bank-of-india.html\">SBI IFSC Code</a></li></ul>"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Credit Card offered by other Banks",
+                "items": [
+                    {
+                        "link": "/hdfc-credit-card.html",
+                        "title": "HDFC Credit Card"
+                    },
+                    {
+                        "link": "/icici-credit-card.html",
+                        "title": "ICICI Credit Card"
+                    },
+                    {
+                        "link": "/axis-credit-card.html",
+                        "title": "AXIS Bank Credit Card"
+                    },
+                    {
+                        "link": "/indusind-credit-card.html",
+                        "title": "IndusInd Bank Credit Card"
+                    },
+                    {
+                        "link": "/hsbc-credit-card.html",
+                        "title": "HSBC Creditc Card"
+                    },
+                    {
+                        "link": "/yes-bank-credit-card.html",
+                        "title": "YES Bank Credit Card"
+                    },
+                    {
+                        "link": "/kotak-credit-card.html",
+                        "title": "Kotak Mahindra Bank Credit Card"
+                    },
+                    {
+                        "link": "/american-express-credit-card.html",
+                        "title": "Amex Credit Card"
+                    },
+                    {
+                        "link": "/credit-card/bajaj-finserv-credit-cards.html",
+                        "title": "Bajaj Finserv Credit Card"
+                    },
+                    {
+                        "link": "/rbl-bank-credit-card.html",
+                        "title": "RBL Credit Card"
+                    },
+                    {
+                        "link": "/citibank-credit-card.html",
+                        "title": "CitiBank Credit Card"
+                    },
+                    {
+                        "link": "/canara-bank-credit-card.html",
+                        "title": "Canara Bank Credit Card"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "SBI Credit Card FAQs (Frequently Asked Questions)",
+            "items": [
+                {
+                    "question": "Is there any app for SBI credit card?",
+                    "answer": "<p>Yes, SBI Card has an exclusive with the same name 'SBI Card' available on both Android and iOS platforms. Once you download the app, you can register and access your credit card account details, raise card related requests, perform transactions, and place requests for other SBI products, etc.</p>"
+                },
+                {
+                    "question": "Can we convert SBI credit card reward points to cash?",
+                    "answer": "<p>Not exactly. But there are a few SBI credit cards that would allow you pay your card outstanding using the reward points. For instance, SBI Card Prime, SBI Card Elite, and SBI SimplySAVE Advantage allow you to redeem your reward points against card outstanding. On all these cards, you can redeem Rs.1 for every 4 reward points.</p>"
+                },
+                {
+                    "question": "What is the minimum salary to apply for credit card in SBI?",
+                    "answer": "<p>The minimum salary to apply for an SBI credit card varies for each card. The more premium the card is, the higher would be the salary requirement.</p><p>Though SBI does not disclose the income required to apply for a card on its website, from its 'Simplyfier' tool we can figure out that the minimum gross annual income required is Rs.1 lakh, provided you don't have any other monthly deductions from your salary. Otherwise, it would be minimum Rs.2 lakh p.a.</p>"
+                },
+                {
+                    "question": "How many days does it take to get an SBI credit card?",
+                    "answer": "<p>Once you submit your SBI credit card application along with the required documents, it will take up to 21 days for the bank to process the application. If there are any missing documents and other issues with the application, it might take even longer.</p><p>Meanwhile, you can track your credit card application status using the SBI's 'Track Application' feature available on www.sbicard.com/en/eapply.page#track-retrieve-form.</p>"
+                },
+                {
+                    "question": "Can I use my card to withdraw money?",
+                    "answer": "<p>Yes, you can take a cash advance with your credit card. You can withdraw a maximum of Rs.15,000 per day with your card. The overall cap on cash withdrawal is 80% of your total credit limit. You need to remember that taking cash advance will incur a finance charge of up to 3.35% per month.</p>"
+                },
+                {
+                    "question": "How to use my credit card while travelling abroad?",
+                    "answer": "<p>Before you go abroad, you need to activate your card for international transactions. Log in to your SBI account to activate the international credit limit on your card. The chatbot ELA can also help you with the activation.</p>"
+                },
+                {
+                    "question": "What charges incur if I use my credit card to make international transactions?",
+                    "answer": "<p>Foreign currency transactions incur a mark-up fee of 3.5% in addition to applicable taxes. It is important to remember that making purchases with Indian rupee while travelling abroad will incur higher costs. It is better to use the currency of the country you are travelling to.</p>"
+                },
+                {
+                    "question": "What type of transactions are not eligible to earn Reward Points on my card?",
+                    "answer": "<p>Although you can earn Reward Points on most of your purchases, there are certain transactions that are not eligible to earn points. These include balance transfer, cash advance, disputed transactions, finance charges, and others.</p>"
+                },
+                {
+                    "question": "What should I do if my card is stolen or lost?",
+                    "answer": "<p>You need to notify the bank immediately if your card is lost or stolen. The bank will block your card for protection against fraudulent transactions.</p>"
+                },
+                {
+                    "question": "How to close SBI credit card account?",
+                    "answer": "<p>You can call or write to SBI or call their card helpline if you want to cancel or close your card. Once you make a request for account closure, the bank will terminate your account. In addition, any add-on cards associated with your account will also be terminated.</p><p>Remember that your account will be closed only if you have paid off all your dues. You will have to clear any outstanding amount before your request for closure is accepted.</p>"
+                }
+            ]
+        }
+    },
     "281": {
         "title": "",
         "body": "",
