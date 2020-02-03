@@ -17,11 +17,15 @@ export default class UnwrapHandler extends BaseHandler {
 
 const isDivUnnecessary = ($e) => {
     const allChildrenAreGridCell = () => $e.children().get().every((c) => hasClass(c, /col-[a-z]{2}-\d\d?/));
+    const isOnlyChild = () => $e.parent().children.length == 1;
+
     let classNames = $e.attr("class");
     classNames = removeBGClasses(removeBorderClasses(removePositioningClass(removePaddingClass(classNames))));
     if (classNames == "") {
         return true;
     } else if (containsOnlyGridRowClasses(classNames) && ($e.children().length == 1 || !allChildrenAreGridCell())) {
+        return true;
+    } else if (containsOnlyGridCellClasses(classNames) && isOnlyChild()) {
         return true;
     } else if ($e.attr("class").match(/list-group-item list-group-[a-z]*/)) {
         // Just does some prominence to the section. They should have used a different type like Jumbotron. Used in 4
