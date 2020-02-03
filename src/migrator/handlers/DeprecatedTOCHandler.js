@@ -6,7 +6,7 @@ import {times, constant} from "lodash";
 
 export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType) {
-        return $element.hasClass("bb-products-invest");
+        return $element.hasClass("bb-products-invest")  ;
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {
@@ -20,7 +20,7 @@ export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
 
 export class DeprecatedTOCHandlerVariant_ULofAsOnly extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        return $e.get(0).tagName == "ul" && isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"]) && areAllAnchorsOnlyLocalLinks($e);
+        return ["ul", "ol"].includes($e.get(0).tagName) && isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"]) && areAllAnchorsOnlyLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
