@@ -39,7 +39,7 @@ export class AccordionHandler extends BaseHandler {
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
                 const $be = $(panel).find(".panel-body");
-                const title = extractHeadingText($(panel).find(".panel-heading h2 a"), $);
+                const title = extractHeadingText($(panel).find(".panel-heading a"), $);
                 if (isPanelActuallyAFAQ(title)) {
                     faq = new FAQInsideAccordionPanelHandler().convert([$(panel)], $).elements[0];
                 } else {
