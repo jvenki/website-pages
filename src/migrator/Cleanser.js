@@ -79,7 +79,7 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    ["style", "script", "figcaption", ".js-infographic-content"].forEach((sel) => {
+    ["style", "script", "figcaption", ".js-infographic-content", "mark"].forEach((sel) => {
         const elems = $(sel);
         if (elems.length == 0) {
             return;
