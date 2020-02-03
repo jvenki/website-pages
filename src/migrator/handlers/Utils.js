@@ -195,7 +195,7 @@ const extractHtmlFromTextualNodes = ($e, $) => {
 
 const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     // Upon analysis it was found that TBODY had TH only in 689, 25814 & 25815. Therefore we can be sure that THEAD is the only way to see header.
-    assert($e.find("table thead tr").length <= 1, "More than one Header Row was found which is not right", $e);
+    // assert($e.find("table thead tr").length <= 1, "More than one Header Row was found which is not right", $e);
     assert($e.find(".product-hl-table-head").length == 0 || $e.find("table thead tr").length == 0, "More than one Header Row was found which is not right", $e);
     assert($e.find("table thead tr td").length == 0, "THEAD has TD cells which is not right", $e);
     assert($e.find("table tbody tr").length > 0, "No rows were found in TBODY which is not right", $e);
@@ -245,7 +245,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     const headerRows = extractHeaderRows(maxColumnCount);
     let output = "<table>";
     if (headerRows.length > 0) {
-        output += `<thead>${headerRows[0]}</thead>`;
+        output += `<thead>${headerRows.join("")}</thead>`;
     }
     output += `<tbody>${bodyRows.join("")}</tbody>`;
     output += "</table>";
