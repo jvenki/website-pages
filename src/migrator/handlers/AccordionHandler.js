@@ -2,6 +2,8 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import {headingRegex as faqHeadingRegex, FAQInsideAccordionPanelHandler} from "./FAQHandler";
+import {headingRegex as referencesHeadingRegex, ReferencesHandlerVariant_Accordion} from "./ReferencesHandler";
+
 import {extractHeadingText, extractContentHtml, assert} from "./Utils";
 
 export class AccordionHandler extends BaseHandler {
@@ -32,6 +34,7 @@ export class AccordionHandler extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const items = [];
         const faq = {type: "faq", title: "", items: []};
+        let reference;
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
                 const $be = $(panel).find(".panel-body");
@@ -39,6 +42,8 @@ export class AccordionHandler extends BaseHandler {
                 if (isPanelActuallyAFAQ(title)) {
                     faq.title = title;
                     faq.items = new FAQInsideAccordionPanelHandler().convert([$be], $).elements[0].items;
+                } else if (isPanelActuallyAReference(title)) {
+                    reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
                 } else {
                     const body = extractContentHtml($be, $);
                     items.push({title, body});
@@ -52,8 +57,13 @@ export class AccordionHandler extends BaseHandler {
             targetElements.push(faq);
             issues.push("Accordion Panel converted to FAQ");
         }
+        if (reference) {
+            targetElements.push(reference);
+            issues.push("Accordion Panel converted to RelatedArticles");
+        }
         return {elements: targetElements, issues};
     }
 }
 
 const isPanelActuallyAFAQ = (title) => title.match(faqHeadingRegex);
+const isPanelActuallyAReference = (title) => title.match(referencesHeadingRegex);
