@@ -111,6 +111,7 @@ const validateAgainstPreviousSnapshot = async (lpdJson, self) => {
         if (!oldVersion || isEqual(oldVersion, newVersion)) {
             return;
         }
+        logger.silly(JSON.stringify(newVersion, null, 4));
         const differences = diff(oldVersion, newVersion);
         logger.verbose(`${compareSource == "SNAPSHOT" ? "Snapshot" : "MongoDB"} Compare Failed: Differences Found =\n${JSON.stringify(differences)}`);
         if (updateSnapshot) {
@@ -119,8 +120,6 @@ const validateAgainstPreviousSnapshot = async (lpdJson, self) => {
         throw new MigrationError(compareSource == "SNAPSHOT" ? ErrorCode.SNAPSHOT_MISMATCH : ErrorCode.MONGO_MISMATCH, undefined, JSON.stringify(differences));
     };
     
-    logger.silly(JSON.stringify(lpdJson.new.primaryDoc, null, 4));
-
     const newVersion = JSON.parse(JSON.stringify(lpdJson.new.primaryDoc));
     compareVersions(snapshotForValidation[lpdJson.id], newVersion, self.updateSnapshot, "SNAPSHOT");
     const oldRecord = await self.mongoClient.get(lpdJson.id);
