@@ -67,7 +67,7 @@ const minifyHtml = (html) => {
 const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
     const emptyNodes = [];
     $("*").each((i, e) => {
-        if ($(e).html() == "" && !["iframe", "img", "br"].includes(e.tagName)) {
+        if ($(e).html() == "" && !["iframe", "img", "br", "td", "th"].includes(e.tagName)) {
             const $parent = $(e).parent();
             emptyNodes.push($(e).toString());
             $(e).remove();

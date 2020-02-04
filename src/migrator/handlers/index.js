@@ -14,7 +14,7 @@ import NoopWarningHandler from "./NoopWarningHandler";
 import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData} from "./CTAHandler";
 import { AccordionHandler } from "./AccordionHandler";
 import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
-import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP} from "./FAQHandler";
+import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs} from "./FAQHandler";
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
@@ -34,6 +34,7 @@ const handlers = [
     new ReferencesHandlerVariant_NewsWidget(),
     new FAQHandlerVariant_HeadingRegexAndDivWithSchema(),
     new FAQHandlerVariant_HeadingRegexFollowedByPs(),
+    new FAQHandlerVariant_HeadingRegexFollowedByH3AndPs(),
     new FAQHandlerVariant_HeadingRegexFollowedByDetails(),
     new FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails(),
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP(),
