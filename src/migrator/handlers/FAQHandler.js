@@ -196,7 +196,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
 
 export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li > strong").length > 0 && $n.find(" > li > p").length > 0;
+        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li").length > 0 && $n.find(" > li > strong").length == $n.find(" > li").length && $n.find(" > li > p").length == $n.find(" > li").length;
         return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
     }
 
@@ -259,7 +259,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBas
 
 export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        const nextElemIsOL = ($n) => ["ul", "ol"].includes($n.get(0).tagName) && $n.find(" > li > strong").length > 0 && $n.find(" > p").length > 0;
+        const nextElemIsOL = ($n) => ["ul", "ol"].includes($n.get(0).tagName) && $n.find(" > li").length > 0 && $n.find(" > li > strong").length == $n.find(" > li").length && $n.find(" > p").length == $n.find(" > li").length;
         return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
     }
 
