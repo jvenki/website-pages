@@ -33,15 +33,14 @@ export class AccordionHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const items = [];
-        const faq = {type: "faq", title: "", items: []};
+        let faq;
         let reference;
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
                 const $be = $(panel).find(".panel-body");
                 const title = extractHeadingText($(panel).find(".panel-heading a"), $);
                 if (isPanelActuallyAFAQ(title)) {
-                    faq.title = title;
-                    faq.items = new FAQInsideAccordionPanelHandler().convert([$be], $).elements[0].items;
+                    faq = new FAQInsideAccordionPanelHandler().convert([$(panel)], $).elements[0];
                 } else if (isPanelActuallyAReference(title)) {
                     reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
                 } else {
@@ -51,15 +50,18 @@ export class AccordionHandler extends BaseHandler {
             });
         });
 
-        const targetElements = [{type: "accordion", items}];
+        const targetElements = [];
         const issues = [];
-        if (faq.title) {
+        if (faq) {
             targetElements.push(faq);
             issues.push("Accordion Panel converted to FAQ");
         }
         if (reference) {
             targetElements.push(reference);
             issues.push("Accordion Panel converted to RelatedArticles");
+        }
+        if (items.length > 0) {
+            targetElements.push({type: "accordion", items});
         }
         return {elements: targetElements, issues};
     }
