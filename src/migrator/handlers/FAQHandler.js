@@ -415,21 +415,21 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP extends FAQ
 
 
 export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType) {
-        // This is made to return FALSE intentionally so that this is never used directly inside handlers/index.js. 
-        // This handler can be invoked only by Accordion as it finds the Panel Header to be a FAQ and then 
-        // gives the Panel Body as elements into convert
-        return false;
+    isCapableOfProcessingElement($element: CheerioElemType) {
+        return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion") || $element.hasClass("panel"))
+            && $element.find(".panel-title").text().match(headingRegex);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const items = elements[0].find("ul > h3, ul > li > h3,  ol > li > h3, ol > li > strong, ol > h3 > li > strong").map((i, q) => {
+        const title = extractHeadingText(elements[0].find(".panel-title a"), $);
+        const panelBody = elements[0].find(".panel-body");
+        const items = panelBody.find("ul > h3, ul > li > h3,  ol > li > h3, ol > li > strong, ol > h3 > li > strong").map((i, q) => {
             const $q = $(q);
             const qns = $q.parent().get(0).tagName == "ul" ? extractHeadingText($q.find("li"), $) : extractHeadingText($q, $);
             const ans = $q.nextUntil("h3,li").map((i, a) => extractContentHtml($(a), $)).get().join("");
             return {question: qns, answer: ans};
         }).get();
         
-        return {elements: [{type: "faq", items}]};
+        return {elements: [{type: "faq", title, items}]};
     }
 }
