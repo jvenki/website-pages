@@ -13,7 +13,9 @@ import pretty from "pretty";
 import {diff} from "deep-object-diff";
 import util from "util";
 
-import snapshotForValidation from "../../data/migrator-validating-test-data.json";
+import manuallyValidatedSnapshot from "../../data/migrator-validating-test-data.json";
+import previousGeneratedSnapshot from "../../data/migrated-lpd-data.json";
+
 import chalk from "chalk";
 import { correctLPDHtml } from "./ManualCorrections";
 
@@ -52,7 +54,8 @@ export default class Migrator {
         printFinalSummary(this.docConversionStatus, startTime);
 
         if (this.updateSnapshot) {
-            fs.writeFileSync("./data/migrator-validating-test-data.json", JSON.stringify(snapshotForValidation, null, 4));
+            fs.writeFileSync("./data/migrated-lpd-data.json", JSON.stringify(previousGeneratedSnapshot, null, 4));
+            fs.writeFileSync("./data/migrator-validating-test-data.json", JSON.stringify(manuallyValidatedSnapshot, null, 4));
         }
     }
 
@@ -71,7 +74,7 @@ export default class Migrator {
             lpdJson.new.primaryOpLog = opLog;
             lpdJson.conversionIssues = lpdJson.conversionIssues ? lpdJson.conversionIssues.concat(issues) : issues;
 
-            await validateAgainstPreviousSnapshot(lpdJson, this);
+            validateAgainstPreviousSnapshot(lpdJson, this);
         } catch (e) {
             lpdJson.conversionError = e;
         }
@@ -111,24 +114,33 @@ const convertHTMLIntoJSON = (html, lpdId) => {
     return {doc: docBuilder.build(), issues, opLog};
 };
 
-const validateAgainstPreviousSnapshot = async (lpdJson, self) => {
-    const compareVersions = (oldVersion, newVersion, updateSnapshot, compareSource) => {
-        if (!oldVersion || isEqual(oldVersion, newVersion)) {
-            return;
+const validateAgainstPreviousSnapshot = (lpdJson, self) => {
+    if (!self.updateSnapshot) {
+        return;
+    }
+
+    const compareVersions = (newVersion, snapshot, updateSnapshot) => {
+        const oldVersion = snapshot[lpdJson.id];
+        let differences;
+        if (oldVersion) {
+            if (isEqual(oldVersion, newVersion)) {
+                return;
+            }
+            logger.silly(JSON.stringify(newVersion, null, 4));
+            differences = JSON.stringify(diff(oldVersion, newVersion));
+            logger.verbose(`Snapshot Compare Failed: Differences Found =\n${differences}`);
         }
-        logger.silly(JSON.stringify(newVersion, null, 4));
-        const differences = diff(oldVersion, newVersion);
-        logger.verbose(`${compareSource == "SNAPSHOT" ? "Snapshot" : "MongoDB"} Compare Failed: Differences Found =\n${JSON.stringify(differences)}`);
         if (updateSnapshot) {
-            snapshotForValidation[lpdJson.id] = lpdJson.new.primaryDoc;
+            snapshot[lpdJson.id] = lpdJson.new.primaryDoc;
         }
-        throw new MigrationError(compareSource == "SNAPSHOT" ? ErrorCode.SNAPSHOT_MISMATCH : ErrorCode.MONGO_MISMATCH, undefined, JSON.stringify(differences));
+        if (differences) {
+            throw new MigrationError(ErrorCode.SNAPSHOT_MISMATCH, undefined, differences);
+        }
     };
     
     const newVersion = JSON.parse(JSON.stringify(lpdJson.new.primaryDoc));
-    compareVersions(snapshotForValidation[lpdJson.id], newVersion, self.updateSnapshot, "SNAPSHOT");
-    const oldRecord = await self.mongoClient.get(lpdJson.id);
-    compareVersions(oldRecord ? oldRecord.new.primaryDoc : undefined, newVersion, false, "MONGODB");
+    compareVersions(newVersion, manuallyValidatedSnapshot, self.updateSnapshot);
+    compareVersions(newVersion, previousGeneratedSnapshot, true);
 };
 
 const computeStatusOfConversion = (lpdJson) => {
