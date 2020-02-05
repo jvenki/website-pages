@@ -196,7 +196,12 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
 
 export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li").length > 0 && $n.find(" > li > strong").length == $n.find(" > li").length && $n.find(" > li > p").length == $n.find(" > li").length;
+        const nextElemIsOL = ($n) => {
+            return $n.get(0).tagName == "ol" 
+                && $n.find(" > li").length > 0 
+                && $n.find(" > li > strong").length == $n.find(" > li").length 
+                && $n.find(" > li > p, > li > ul").length >= $n.find(" > li").length;
+        };
         return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
     }
 
