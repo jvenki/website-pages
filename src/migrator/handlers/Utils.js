@@ -69,7 +69,16 @@ export const isElementAContentNode = ($e) => isElementATextualNode($e) || isElem
 
 const isElementASubHeadingNode = ($e) => ["h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
 const isElementATextualNode = ($e) => ["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName) || $e.get(0).type == "text";
-export const isElementATableNode = ($e) => $e.hasClass("hungry-table") || $e.hasClass("js-hungry-table") || $e.hasClass("table") || $e.hasClass("product-hl-table") || $e.get(0).tagName == "table";
+export const isElementATableNode = ($e) => {
+    if ($e.get(0).tagName == "table") {
+        return true;
+    } else if ($e.hasClass("hungry-table") || $e.hasClass("js-hungry-table")) {
+        return $e.children().length == 1 && $e.children().first().get(0).tagName == "table";
+    } else if ($e.hasClass("product-hl-table")) {
+        return true;
+    }
+    return false;
+};
 
 export const extractHeadingText = ($e, $) => {
     $e.find("*").each((i, d) => {
