@@ -180,8 +180,9 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP e
         const title = extractHeadingText(elements[0], $);
         const items = elements[1].children().map((i, li) => {
             const $li = $(li);
-            const qns = extractHeadingText($li.find("strong"), $);
-            const ans = $li.find("strong").nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const $q = $li.find(" > strong");
+            const qns = extractHeadingText($q, $);
+            const ans = $q.nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
             return {question: qns, answer: ans};
         }).get();
         
@@ -192,7 +193,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP e
 
 export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType) {
-        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li").length > 0 && $n.find(" > li > p > strong").length == $n.find(" > li").length;
+        const nextElemIsOL = ($n) => $n.get(0).tagName == "ol" && $n.find(" > li").length > 0 && $n.find(" > li > p:first-child > strong").length == $n.find(" > li").length;
         return isElementAHeadingNode($e) && $e.text().match(headingRegex) && nextElemIsOL($e.next()); 
     }
 
