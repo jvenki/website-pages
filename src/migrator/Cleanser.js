@@ -36,21 +36,23 @@ const makeHTMLValid = (html) => {
     let cleansedHtml = 
         html.replace(/“/g, "\"").replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'")  // Remove MSWord style Quotations
             .replace(/<<\s*>>/g, "&lt;&lt; &gt;&gt;").replace(/< Rs/g, "&lt; Rs")   // Escape the angle-brackets
-            .replace(/<ins>/g, "<u>").replace(/<\/ins>/g, "</u>")  // Found in LPD#856
+            .replace(/<ins>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/ins>/g, "<u>$1</u>")  // Found in LPD#856
+            .replace(/<ins><strong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/strong><\/ins>/g, "<u><strong>$1</strong></u>")  // Found in LPD#856
             .replace(/<h2 id="faq">([a-zA-Z0-9\s]*)<\/h3>/, "<h2>$1</h2>")  // Found in LPD#8
-            .replace(/<i>/g, "<em>").replace(/<\/i>/g, "</em>")  // Found in LPD#9
-            .replace(/<b>/g, "<strong>").replace(/<\/b>/g, "</strong>")  // Found in LPD#57
-            .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9\s]*)<\/span>/, "<u>$1</u>") // Found in #LPD#37
+            .replace(/<i>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/i>/g, "<em>$1</em>")  // Found in LPD#9
+            .replace(/<b>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/b>/g, "<strong>$1</strong>")  // Found in LPD#57
+            .replace(/<span style="text-decoration: underline;">([[a-zA-Z0-9?\-.:\s]*)<\/span>/, "<u>$1</u>") // Found in #LPD#37
             .replace(/\s*tax-img-responsive\s*/, "") // Found in LPD#38
-            .replace(/<srtong>([a-zA-Z0-9?\-.\s]*)<\/srtong>/, "<strong>$1</strong>") // Found in LPD#48
-            .replace(/<stong>([a-zA-Z0-9?\-.\s]*)<\/stong>/, "<strong>$1</strong>") // Found in LPD#230
-            .replace(/<h1>([a-zA-Z0-9?\-.\s]*)<\/h1>/, "<h2>$1</h2>") // Found in LPD#123
+            .replace(/<srtong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/srtong>/, "<strong>$1</strong>") // Found in LPD#48
+            .replace(/<stong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/stong>/, "<strong>$1</strong>") // Found in LPD#230
+            .replace(/<h1>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/h1>/, "<h2>$1</h2>") // Found in LPD#123
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
     cleansedHtml = 
         cleansedHtml.replace(/<\/div><br>/g, "</div>") // Found in LPD#859
             .replace(/<\/p><br>/g, "</p>") // Found in LPD#856
-            .replace(/<address><p>([a-zA-Z0-9().,\s]*)<\/p><\/address>/, "<p>$1</p>")  //Found in LPD#33
+            .replace(/<address><p>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/p><\/address>/g, "<p>$1</p>")  //Found in LPD#33
+            .replace(/<ul><li><h2>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/h2><\/li><\/ul>/g, "<h2>$1</h2>")
     ;
 
     return cleansedHtml;
@@ -65,21 +67,32 @@ const minifyHtml = (html) => {
 };
 
 const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
+    const whiteListedTagsThatCanBeEmpty = ["iframe", "img", "br", "td", "th"];
+    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons"];
+
     const emptyNodes = [];
     $("*").each((i, e) => {
-        if ($(e).html() == "" && !["iframe", "img", "br", "td", "th"].includes(e.tagName)) {
-            const $parent = $(e).parent();
-            emptyNodes.push($(e).toString());
-            $(e).remove();
-            removeEmptyAncestors($parent, $);
+        if ($(e).html() != "") {
+            return;
         }
+        if (whiteListedTagsThatCanBeEmpty.includes(e.tagName)) {
+            return;
+        }
+        if (whiteListedClassNamesThatCanBeEmpty.some((tagNclass) => {const [tagName, className] = tagNclass.split("."); return e.tagName == tagName && $(e).hasClass(className)})) {
+            return;
+        }
+
+        const $parent = $(e).parent();
+        emptyNodes.push($(e).toString());
+        $(e).remove();
+        removeEmptyAncestors($parent, $);
     });
 
     onIssue(new MigrationError(CleanserIssueCode.REMOVED_EMPTY_NODES, undefined, "Count = " + emptyNodes.length));
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    ["style", "script", "figcaption", ".js-infographic-content", "mark"].forEach((sel) => {
+    ["style", "script", "figcaption", ".js-infographic-content", "mark", "ins"].forEach((sel) => {
         const elems = $(sel);
         if (elems.length == 0) {
             return;

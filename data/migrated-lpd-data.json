@@ -26865,7 +26865,7 @@
                     },
                     {
                         "type": "text",
-                        "body": "<img title=\"RBL Bank credit card apply\" alt=\"RBL Credit Card Application\" src=\"/images/india/infographic/rbl-bank-card-online.png\"/>"
+                        "body": "<img title=\"RBL Bank credit card apply\" alt=\"RBL Credit Card Application\" src=\"/images/india/infographic/rbl-bank-card-online.png\" class=\"pull-right\"/>"
                     }
                 ]
             },
@@ -27600,7 +27600,7 @@
                 "elements": [
                     {
                         "type": "text",
-                        "body": "<img title=\"Axis Bank Credit Cards\" alt=\"Best Axis Bank Cards\" src=\"/images/india/infographic/new-axis-bank-credit-card.png\"/><p>In the year 1994, Axis Bank, a private sector bank, began operations as one of the first new generation banks in India. In 1993, it was jointly promoted by several organisations. Among all the private sector banks in India, Axis Bank ranks third. It caters to MSME, Agriculture, Large and Medium Corporates and Retail Businesses. Axis Bank has 2402 branches and 12922 ATMs spread all over the country.</p><p>A <a href=\"/credit-card.html\">credit card</a> can be of great help, if and when used wisely. The credit amount is readily available and the payments can be made immediately. In case of an emergency, it can prove to be extremely useful. There are 11 varieties of credit cards offered by Axis Bank for its customers.</p>"
+                        "body": "<img title=\"Axis Bank Credit Cards\" alt=\"Best Axis Bank Cards\" src=\"/images/india/infographic/new-axis-bank-credit-card.png\" class=\"pull-right\"/><p>In the year 1994, Axis Bank, a private sector bank, began operations as one of the first new generation banks in India. In 1993, it was jointly promoted by several organisations. Among all the private sector banks in India, Axis Bank ranks third. It caters to MSME, Agriculture, Large and Medium Corporates and Retail Businesses. Axis Bank has 2402 branches and 12922 ATMs spread all over the country.</p><p>A <a href=\"/credit-card.html\">credit card</a> can be of great help, if and when used wisely. The credit amount is readily available and the payments can be made immediately. In case of an emergency, it can prove to be extremely useful. There are 11 varieties of credit cards offered by Axis Bank for its customers.</p>"
                     }
                 ]
             },
@@ -29190,6 +29190,352 @@
                 }
             ]
         }
+    },
+    "424": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "landing_banneer",
+                        "linkText": "",
+                        "img": {
+                            "src": "/images/common/health-insurance-landing-img.png",
+                            "title": "Health Insurance"
+                        },
+                        "items": [
+                            {
+                                "text": "Claim up to Rs. 55,000 deduction under section 80D*",
+                                "icon": "hi-claim-deduction"
+                            },
+                            {
+                                "text": "10,000+ hospitals for cashless treatment",
+                                "icon": "hi-cashless-treatment"
+                            },
+                            {
+                                "text": "Insurers offer plans with no limit on room rent",
+                                "icon": "hi-room-rent-limit"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<p>Religare Health Insurance Company Limited is a standalone health insurance provider which comprise three entities: Religare Enterprises Limited, a leading diversified financial services group based out of India, Union Bank of India & Corporation Bank. Religare Health Insurance offers health insurance and other products.</p><p>Health insurance has become a necessity with the rising costs of healthcare services and lifestyle diseases. Religare Health Insurance Company Limited, considered to be one of the top health insurance providers in India provides a wide range of health insurance products. From healthcare delivery to preventive health solutions, the insurer has a unique business presence in the health insurance market due to its robust distribution channels. Religare Enterprises Ltd, Union Bank of India, and Corporation Bank are the shareholders of Religare Health Insurance Company Limited.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Highlights ",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><td><strong>Features</strong></td><td><strong>Specifications</strong></td></tr><tr><td>Network Hospitals</td><td>5420+</td></tr><tr><td>Waiting Period for Pre-existing Disease</td><td>4 years</td></tr><tr><td>Incurred Claims Ratio</td><td>51.97</td></tr><tr><td>Number of Policies Issued</td><td>437555</td></tr><tr><td>Grievances Solved</td><td>99.30%</td></tr><tr><td>Renewability</td><td>Lifetime</td></tr></tbody></table><p>*For Year 2017-2018</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Overview of Religare Health Insurance:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Religare Health Insurance is a financial services company providing solutions in the realms of insurance, investment and wealth management, lending and stock-broking. Headquartered in Delhi, this company benefits from the market knowledge of its promoters who are the founders of Fortis Hospitals (a highly reputed health care institution in the Indian health space).</p><p>Union Bank of India and Corporation Bank are both important, highly-networked public-sector institutions providing banking services to clients across different economic classes and geographical locations.</p><p>Religare Health Insurance Co. Ltd. brings to the Indian masses a number of interesting insurance solutions that provide for an individual's personal as well as familial protection needs. The company deals primarily in life and health insurance.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Key Benefits and Features of Religare Health Insurance Plans:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li><strong>Sum Insured: </strong>Religare Health Insurance offers health cover with a sum insured of up to Rs.6 crore.</li><li><strong>Renewal:</strong> Health insurance policies from <strong>Religare Health Insurance</strong> come with a lifelong renewability option.</li><li><strong>Cashless hospitalisation:</strong> Insured members can avail cashless hospitalisation at more than 5420 network hospitals.</li><li><strong>Restore benefit:</strong> Sum insured will be automatically recharged at no extra cost if the claim amount exhausts your insurance coverage.</li><li><strong>No-Claim Bonus:</strong> For every claim-free year up to 150% increase in sum insured with No Claim Bonus.</li><li><strong>Health checkup:</strong> Insured members can avail super annual health check-up regardless of their claim history.</li><li><strong>Medical examination: </strong>No pre-policy medical test required for sum insured less than Rs.25 lakh, till 50 years of age.</li><li><strong>Claim process: </strong>Religare Health Insurance doesn't deal with a third-party. The company has a hassle-free direct claim settlement process.</li><li><strong>Global healthcare treatment:</strong> With an add-on cover offered by Religare Health Insurance, insured members can receive global healthcare treatment from any of the network hospitals in the world.</li><li><strong>Premium payment: </strong>No paperwork needed to make premium payments to purchase or renew a health insurance policy as it can be done online through the company website.</li><li><strong>Insurance coverage: </strong>Pre and post-hospitalisation expenses covered, no sub-limit on vital expenses, and no co-payment up to 60 years of age.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Why Buy Religare Health Insurance Policy?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Here are some reasons why customers prefer Religare Health Insurance:</p><ul><li><strong>Network hospital: </strong>Insured members can avail cashless hospitalisation at more than 5420 network hospitals across India.</li><li><strong>Claim process: </strong>There is no third-party involvement in claim process. Claim requests will be attended to by <em>Religare Health Insurance</em> directly.</li><img title=\"Religare Health Insurance Plans\" alt=\"Religare Health Insurance Plans\" src=\"/images/india/infographic/Religare-Health-Insurance-Plans-India.png\" class=\"pull-right\"/><li><strong>Health insurance products:</strong> Religare Health Insurance offers a wide range of products to cater to the varying needs of the customers.</li><li><strong>Preventive healthcare: </strong>The insurer offers cover for preventive healthcare treatments such as annual health checkup and diagnostic tests.</li><li><strong>Excellence in healthcare: </strong>Promoters of Religare Health Insurance are also the founders of SRL Diagnostics, Religare Wellness, and Fortis Hospitals, leading wellness and pharmacy retailers.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Types of Health Insurance Policies Provided by Religare:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Policies forming a part of the company's <a href=\"/insurance/health-insurance.html\"><u>health insurance plans</u></a> portfolio are listed below:</p><ol><li>Religare Health Insurance Care Plan</li><li>Religare Health Insurance Enhance Plan</li><li>Religare Health Insurance Assure Plan</li><li>Religare Health Insurance Secure Plan</li><li>Religare Health Insurance Joy Plan</li><li>Religare Health Insurance Care Freedom Plan</li></ol><p>The <strong>main features</strong> to be considered in each of these policies are highlighted below:</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Care Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>This <a href=\"/insurance/religare-health-insurance/care.html\"><u>Religare health insurance care plan</u></a> a basic health insurance plan that offers the policyholder an affordable way to meet health care costs. It provides a lifetime cover for individuals and their families.</p><table><tbody><tr><td><strong>Entry Age</strong></td><td>91 days upwards; no maximum entry age.</td></tr><tr><td><strong>Policy Period</strong></td><td>1 yr.</td></tr><tr><td><strong>Renewability</strong></td><td>Lifetime</td></tr><tr><td><strong>Medical Screening</strong></td><td>Individual or Family Floater</td></tr><tr><td><strong>Basis</strong></td><td>Individual or Family Floater</td></tr><tr><td><strong>Sum Assured</strong></td><td>Rs.3, 4, 5, 7, 10, 15, 20, 25, 50 or 60 lakhs (Chosen coverage can be enhance at renewal) No-claim Bonus: 50% to 150% ( Available with No Claim Bonus:- SUPER) increase in chosen sum assured for every claim-free year; awarded at renewal.</td></tr><tr><td><strong>Co-payment</strong></td><td>20% Applicable on coverage option > 4 lakhs for entrants over 61 yrs</td></tr><tr><td><strong>Coverage</strong></td><td>- Inpatient hospitalisation expenses: Room charges: Up to 1% of sum assured or single private room charges depending on the chosen coverage; ICU costs: Up to 2% of sum assured or actuals depending on the chosen coverage; Medical Professional's fees and other medical treatment costs: On actuals - Pre/Post-hospitalisation: Up to 30 / 60 days respectively - 170 day care procedures - Daily Cash Allowance (up to 5 days): Rs.500 depending on the chosen coverage - Ambulance costs: Rs.1,500 to Rs.3,000 per hospitalisation depending on the chosen coverage - Domiciliary hospitalisation: up to 10% of the chosen sum assured - Donor's hospitalisation expenses: Rs.50,000 to Rs.3 lakhs depending on the chosen coverage - Yearly medical-check costs - Consultation costs for a second opinion depending on the chosen coverage - Pre-existing diseases: after a 4 yr. waiting period</td></tr><tr><td><strong>Benefits</strong></td><td>- Recharge of sum assured - Covers treatment globally</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Enhance Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>This <a href=\"/insurance/religare-health-insurance/enhance.html\"><u>Religare health insurance enhance plan</u></a> serves as a top-up policy to a basic health plan. Coverage under a basic health policy may not be adequate and a holder may not wish to take on a new policy to supplement his requirement. In this case, a top-up allows customers the option of enhancing protection without adversely affecting his/her personal finances.</p><table><tbody><tr><td><strong>Entry Age</strong></td><td>1 day upwards; no maximum entry age</td></tr><tr><td><strong>Renewability</strong></td><td>Lifetime</td></tr><tr><td><strong>Medical Screening</strong></td><td>Required for entrants over 45 yrs. for coverage options of Rs.15 lakhs and above.</td></tr><tr><td><strong>Basis</strong></td><td>Individual or Floater</td></tr><tr><td><strong>Sum Assured</strong></td><td>Enhance 1: Rs.1 lakh to Rs.25 lakhs Enhance 2: Rs.6 lakhs to Rs.30 lakhs (chosen sum assured can be enhanced on renewal) Sum assured is arrived as a multiple of the chosen deductible.</td></tr><tr><td><strong>Deductible</strong></td><td>Enhance 1: Rs.1, 2, 3, 4 or 5 lakhs Enhance 2: Rs. 6, 7, 8, 9 or 10 lakhs</td></tr><tr><td><strong>Co-payment</strong></td><td>20% on coverage of Rs.5 lakhs and above for entrants over 61 yrs.</td></tr><tr><td><strong>Premium</strong></td><td>Loading - 15%, 30% or 50% based on underwriting. Group discount: 5% to 20% depending on number of members.</td></tr><tr><td><strong>Coverage</strong></td><td>- Inpatient hospitalisation expenses: Up to chosen sum assured Room costs: For a single private room; ICU, Doctor's charges etc.: On actuals - Organ Donor Hospitalisation Expenses: Up to chosen sum assured - Pre/Post-hospitalisation expenses: Up to 30/60 days respectively - 170 day care procedures - Pre-existing diseases: After a 4 yr. waiting period - Health-checks - Expert opinion</td></tr><tr><td><strong>Benefits</strong></td><td>- Covers treatment globally - Option to convert to Comprehensive Health Insurance Plan, which doesn't feature deductibles, after 4 successive yrs. of coverage</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Assure Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Another variant of the health insurance plans on offer, this provides additional coverage targeting events generally excluded under basic <a href=\"/insurance/religare-health-insurance/assure.html\"><u>Religare health insurance assure plan</u></a> i.e. Critical Illnesses. Treatment of these ailments can prove to be very expensive, going beyond the amounts due under a regular health policy.</p><table><tbody><tr><td><strong>Entry Age</strong></td><td>18 yrs. to 65 yrs.</td></tr><tr><td><strong>Renewability</strong></td><td>Lifetime</td></tr><tr><td><strong>Coverage</strong></td><td>Lump sum payment on diagnosis/surgery irrespective of actual costs. - 20 Critical Illnesses: Cancer, Renal Failure, MS, Benign Brain Tumor, Motor Neuron DIsorder, Terminal Lung Disease, Major Organ Transplant, Heart Valve Replacement, CABG, Stroke, Paralysis, Myocardial Infarction, Severe Burns, Coma, Blindness, Terminal Liver Disease, Bacterial Meningitis, Aplastic Anemia. The below are covered only until 50 yrs. of age. Parkinson's Disease, Alzheimer's Disease - Annual health-checks - Consultation for a second opinion</td></tr><tr><td><strong>Add-on Covers</strong></td><td>In-built Accidental Death Cover: Lump sum payment in case of Death or Total Permanent Disablement resulting from an accident.</td></tr><tr><td><strong>Benefits</strong></td><td>Child Education: Lump sum payment 10% of chosen sum assured; age of child limited to 24 yrs.</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Secure Personal Accident Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Injury or ailments can arise due to accidental fallouts, in which case, the proposer or his/her family can run into a financial crisis. To provide protection to insured members in case of death or permanent disability caused by an accident, the company offers this <a href=\"/insurance/religare-health-insurance/secure.html\"><u>Religare health insurance secure plan</u></a>, made affordable through a variety of coverage options. The policy also comes in four variants – Secure 1, Secure 2, Secure 3, and Secure 4. The key features and benefits of this plan are listed in the table below.</p><table><tbody><tr><td><strong>Minimum Entry Age</strong></td><td>Age of the Insured: 91 days<br>Age of the Proposer: 18 years</td></tr><tr><td><strong>Maximum Entry Age</strong></td><td>Children: 24 years<br>Adult: 70 years</td></tr><tr><td><strong>Policy Tenure</strong></td><td>1 , 2 or 3 years</td></tr><tr><td><strong>Renewability</strong></td><td>Lifetime</td></tr><tr><td><strong>Sum Assured</strong></td><td><ul><li>Secure 1: Rs.10 lakh</li><li>Secure 2: Rs.15 lakh, Rs.20 lakh, Rs.25 lakh, Rs.30 lakh</li><li>Secure 3: Rs.20 lakh, Rs.1 crore, Rs.2 crore, Rs.3 crore</li><li>Secure 4: Rs.3 crore to Rs.25 crore</li></ul></td></tr><tr><td><strong>Coverage</strong></td><td>Coverage for the following critical illnesses are provided by this policy:<ul><li>Accidental Death</li><li>Permanent Disablement (Total/Partial)</li><li>Major Diagnostic Tests</li><li>Disappearance (minimum period of 1 year)</li><li>Mobility Cover</li><li>Burns</li><li>Daily Cash Allowance</li><li>Fractures</li><li>Child Education</li><li>Domestic Road Ambulance</li><li>Nursing Care</li><li>Reconstructive Surgery</li><li>Transport of Mortal Remains</li></ul>*Coverage limits will vary as per the plan variant</td></tr><tr><td><strong>Benefits</strong></td><td><ul><li>Loyalty Benefit</li><li>Option to choose longer policy tenures</li><li>Option to purchase add-ons – the cover against Accidental Hospitalisation Expenses and cover against permanent total disablement improvement</li></ul></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Group Secure Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The Group Secure Plan from Religare Health Insurance is a comprehensive cover against accidental death/disability that one might suffer as a result of an accident. Since this is a group scheme, this policy is ideal for employees of a company or members of an affinity group. Certain important features of this scheme are listed in the table below.</p><table><tbody><tr><td><strong>Coverage</strong></td><td><ul><li>Accidental Death</li><li>Permanent Disablement (Total/Partial)</li><li>Temporary Total Disablement</li><li>Cover against Disappearances</li><li>Child Education</li><li>Hospital Cash Allowance</li></ul></td></tr><tr><td><strong>Benefits</strong></td><td><ul><li>Global policy coverage is provided</li><li>Terrorism coverage is offered by the policy</li><li>Optional extensions can be availed by members</li></ul></td></tr></tbody></table><p>Plans should be studied in totality i.e. apart from the key points of consideration mentioned above, the terms and conditions and exclusions should also be perused. The key outcome of insurance should always be protection for which coverage should be adequate.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Joy Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The Joy Plan from Religare is a comprehensive that targets pregnant women - giving them a shield against hospitalization expenses through pregnancy and also, addressing the varied maternity and health-related expenditures that they might incur through this delicate duration. This <a href=\"/insurance/religare-health-insurance/joy.html\"><u>Religare health insurance joy plan</u></a> comes in two variants - Joy Today and Joy Tomorrow. Both plan options can be purchased on an individual or family floater basis. The main benefits and features of this plan are listed in the table below.</p><table><tbody><tr><td><strong>Minimum Entry Age</strong></td><td><ul><li>Adult- 18 years</li><li>Child- 1 day</li><li>Newborn: 1 day</li></ul></td></tr><tr><td><strong>Maximum Entry Age</strong></td><td><ul><li>Adult: 45 years</li><li>Child: 24 years</li><li>Newborn: 90 days</li></ul></td></tr><tr><td><strong>Policy Period</strong></td><td><ul><li>Joy Today: 3 years</li><li>Joy Tomorrow: 1 year, 2 years, 3 years</li></ul></td></tr><tr><td><strong>Renewability</strong></td><td>Lifetime</td></tr><tr><td><strong>Sum Assured</strong></td><td>Rs. 3 lakhs to 5 lakhs</td></tr><tr><td><strong>Cover Type</strong></td><td>Individual or Family Floater</td></tr><tr><td><strong>Co-Payment</strong></td><td>20% of the claim amount per the policy, provided that the eldest member of the family is over the age of 61. The rest will be paid by the company.</td></tr><tr><td><strong>Waiting Period</strong></td><td>Joy Today:<ul><li>Maternity Waiting Period: 9 months</li><li>Initial Waiting Period: 30 days</li><li>Specific Ailments: 2 years</li><li>Pre-Existing Diseases: 4 years</li></ul>Joy Tomorrow:<ul><li>Maternity Waiting Period: 24 months</li><li>Initial Waiting Period: 30 days</li><li>Specific Ailments: 2 years</li><li>Pre-Existing Diseases: 4 years</li></ul></td></tr><tr><td><strong>Benefits</strong></td><td><ul><li>Avail cashless hospitalization at all network hospitals across India.</li><li>Access combined benefits of hospitalization and maternity insurance.</li><li>Minimum waiting period for maternity claims.</li><li>Enjoy 100% increment in sum insured with 'No-Claim Bonanza', which is an optional, add-on cover.</li><li>Comprehensive cover for new-born baby.</li><li>Tax benefits & free look period of 15 days.</li></ul></td></tr><tr><td><strong>Exclusions</strong></td><td><ul><li>Diagnosis of any pre-existing ailment or injury that was diagnosed or contracted around 48 months before the issue of the policy</li><li>Non-allopathic treatment</li><li>Expenses arising from self-inflicted injury, attempted suicide, alcohol or drug use, AIDS</li><li>Congenital diseases</li><li>Diseases contracted within the first month of the start of the policy (except accidents)</li><li>Treatments relating to infertility and in-vitro fertilisation</li><li>Cost of spectacles/contact lenses, dental treatment, etc.</li></ul></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Care Freedom Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>A health insurance policy that focuses on letting you live your life the way you see fit, by minimizing the greatest worries people have – about health and wealth. <a href=\"/insurance/religare-health-insurance/care-freedom.html\"><u>Religare health insurance care freedom plan</u></a> does not require any health check-ups or medical tests, and the waiting period for pre-existing diseases is just 2 years. There is no maximum entry age, and there are discounts on premiums for longer policy terms. The plan also has lifetime renewability. This policy offers excellent coverage for a wide range of medical conditions, in addition to pre- and post-hospitalization care, ambulance charges reimbursement, day-care treatments, domiciliary hospitalisation, etc. With three tenure options, three additional coverage options and the option of covering up to 6 people under the same policy, the Religare Care Freedom plan truly puts all your worries at rest. The key features and benefits offered by the Care Freedom Plan from Religare are listed in the table below.</p><table><tbody><tr><td><strong>Entry Age</strong></td><td>Minimum age at entry for individuals/floater policies: 46 years Minimum age of entry of proposer: 18 years</td></tr><tr><td><strong>Policy Tenure</strong></td><td>1, 2, or 3 years</td></tr><tr><td><strong>Plan Basis</strong></td><td>Individual Policy or Family Floater Policy (cover can be extended to a maximum of 6 family members)</td></tr><tr><td><strong>Co-Pay</strong></td><td>Upon the eldest member of the family attaining 71 years of age, the existing co-pay will increase by 10%</td></tr><tr><td><strong>Renewability</strong></td><td>Lifelong</td></tr><tr><td><strong>Sum Assured</strong></td><td>Rs. 3 Lakhs and Rs. 5 lakhs</td></tr><tr><td><strong>Coverage</strong></td><td><ul><li>Covers 170 day care procedures</li><li>Covers in-patient hospitalisation, wherein the insured is hospitalised for over a 24-hour period</li><li>Pre and post hospitalisation expenses</li><li>Ambulance charges</li><li>Domiciliary treatment</li><li>Certain non-medical/consumable expenses</li><li>Companion benefit is provided</li><li>Dialysis cover</li><li>Room charges</li><li>Nursing charges, ICU charges, surgeon's fees, etc.</li></ul></td></tr><tr><td><strong>Benefits</strong></td><td><ul><li>Tax benefits on premiums paid under section 80D</li><li>Annual check-ups for all adults covered by the plan</li><li>Recharge of sum assured without paying extra premiums</li><li>Can be taken as a family floater or an individual plan</li></ul></td></tr></tbody></table><p>Plans should be studied in totality i.e. apart from the key points of consideration mentioned above, the <strong>terms and conditions</strong> and <strong>exclusions</strong> should also be perused. The key outcome of insurance should always be protection for which coverage should be adequate.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Policy Renewal:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>In order to provide a continuous comprehensive health insurance coverage for yourself and your family, make sure to renew your policy on time. For insurance plans provided by Religare Health Insurance, renewal can be done online through the company website. Renewal premium payment can also be paid online using net banking, credit card, or debit card. Click on the 'Renew' tab available on the top right-hand corner of the page. Enter your policy number and date of birth to initiate the renewal process.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Premium Calculator:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The online insurance premium calculator available on the <u>Religare Health Insurance</u> website can be used to calculate the monthly premium and gross premium including tax for the chosen policy. Here is how Religare Health Insurance premium calculator works:</p><ul><li>Navigate to the insurer's official website.</li><li>Enter the number of members to be insured (number of adults and children in the case of a floater plan).</li><li>Provide your contact details such as phone number and email ID.</li><li>Enter the sum insured amount and policy term in years.</li><li>Click on calculate and the total premium will be displayed onscreen.</li></ul><p>Religare Health Insurance premium calculator is simple and easy to use. Knowing the insurance premium of a policy can help you choose a suitable health insurance plan.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Health Insurance Customer Care:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Religare Health Insurance has a dedicated Helpdesk to resolve customer queries on its official website. Visit the website and click on 'Helpdesk' tab which on the top right corner of the page. The following customer service tools can be found under Helpdesk:</p><ul><li><strong>Customer Support:</strong> To give feedback, make a request or register a complaint, click on the Customer Support link and fill in the online form with your policy number and contact details. Queries can be regarding your policy, claim, refund, service, etc. The customer support centre of Religare Health Insurance is dedicated to making the process engaging for its customers.</li><li><strong>Contact us:</strong> For any policy-related queries, you can also contact the company's Customer Service Team on their dedicated toll-free numbers or send them an email. Customers can also use the 'Live Chat' feature on the insurer's website to communicate with the insurer's representative.</li><li><strong>Branch Locator: </strong>Religare Health Insurance branch offices are located across India. The nearest branch office can be located by selecting a state and city from the drop-down box.</li><li><strong>e-policy:</strong> Policyholders can view their e-policy and tax receipt by providing their policy number and date of birth.</li><li><strong>Hospital Locator:</strong> There are over 5420 network hospitals across India. You can use the Hospital Locator tool to check out the list of network hospitals in a particular location by selecting the state and city from the dropdown box. The address, phone number, and list of doctors working at the hospital will be displayed on screen. You can send an email or SMS to the hospital through the insurer's website regarding an appointment.</li><li><strong>Claim Search:</strong> For reimbursement claims, payments are made through online bank transfers for which a cancelled cheque, claim form, and supporting documents have to be submitted by the policyholder to the insurer. Claim forms can be downloaded from the company website.</li><li><strong>Grievance Redressal:</strong> In case you have any complaints or grievances, you can contact the insurer through the toll-free number or email ID provided on the website. Customers can also write to the insurer or walk into the nearest branch. If one is not satisfied with the resolution, the matter can be taken up with a higher authority, through the insurer's website.</li></ul><p>Know More About: <a href=\"/insurance/religare-health-insurance-customer-care-number.html\" title=\"Religare Health Insurance Customer Care Number\">Religare Health Insurance Customer Care Number</a></p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Religare Cashless Network Hospitals:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Individuals with a Religare Health Insurance policy can avail cashless hospitalisation at over 5,420 network hospital across India. Medical treatment can be availed at any one of the network hospitals that have tie-ups with Religare Health Insurance. In the case of a cashless treatment, you can avail treatment without paying for the medical expenses upfront. To locate a network hospital in your area, just enter your state and city on the Network Hospital Locator tool. You will instantly get a list of network hospitals with names, phone numbers, and addresses.</p><p>Find cashless network hospitals nearby: <a href=\"/health-insurance/network-hospitals-list/religare-health.html\" title=\"RELIGARE Cashless Network Hospitals\">RELIGARE Cashless Network Hospitals</a></p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to File a Claim With Religare Health Insurance?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Unplanned Hospitalisation:</strong> In the case of an emergency or unplanned hospitalisation, intimate the insurer within 24 hours of hospitalisation.</p><ul><li>Display your health card at the network hospital desk.</li><li>The hospital will submit a duly-filled and signed pre-authorisation request form to the insurance company or it's Third-Party Administrator (TPA) via fax.</li><li>The claim management will send an approval letter to the hospital.</li><li>The hospital will proceed with the cashless treatment for the insured member.</li><li>If the cashless claim is rejected, the insured member can initiate the treatment and file for a reimbursement claim after discharge.</li></ul><p>Incurred Claims Ratio of Religare Health Insurance for the year 2017-18</p><table><tbody><tr><td>Net Earned Premium (in Crore)</td><td>Net Claims Paid (in Crore)</td><td>Incurred Claims Ratio (in %)</td></tr><tr><td>Rs.679.67 crore</td><td>Rs.353.21 crore</td><td>51.97%</td></tr></tbody></table><p><strong>Planned Hospitalisation:</strong> In the case of a planned hospitalisation, intimate the insurer 48 hours prior to your hospitalisation.</p><ul><li>The reimbursement claim form has to be submitted to the insurer along with the required supporting documents such as discharge summary, medical reports, hospital bills, pharmacy bills, prescriptions, etc.</li><li>An approval letter will be sent by the claim management team. You will have to respond to the queries raised by the claim management team for a smooth claim processing experience.</li><li>The claim amount will be sent to the insured member after approval.</li></ul><p>Also Read: <a href=\"/insurance/religare-health-insurance/claims-procedure.html\" title=\"How to File a Claim with Religare Health?\">How to File a Claim with Religare Health?</a></p><p>Also Read: <a href=\"/health-insurance/incurred-claim-ratio-irda-data.html\" title=\"Check Incurred Claim Ratio of Health Insurers\">Check Incurred Claim Ratio of Health Insurers</a></p><p>Also Read: <a href=\"/health-insurance/top-health-insurance-plans-india.html\" title=\"Best Health Insurance Plans of\">Best Health Insurance Plans</a></p><h3>Examples of Network Hospitals in Major Cities</h3><table><tbody><tr><td><strong>CITY</strong></td><td><strong>NAME OF HOSPITAL</strong></td></tr><tr><td>BANGALORE</td><td>K.R.Puram Super Speciality Hospital</td></tr><tr><td>DELHI</td><td>Aakash Hospital</td></tr><tr><td>KOLKATA</td><td>Ruby General Hospital</td></tr><tr><td>CHENNAI</td><td>Aditya Hospital</td></tr><tr><td>MUMBAI</td><td>Phoenix Hospitals Pvt Ltd.</td></tr></tbody></table><p><strong>*Disclaimer -</strong><em> This is not an exhaustive list but an indicative representation of hospitals that form a part of the company's wider network.</em></p>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "Religare Health Insurance FAQs:",
+            "items": [
+                {
+                    "question": "What are the benefits of buying health insurance?",
+                    "answer": "<p>With the help of health insurance, you can enjoy a number of benefits such as nursing care, surgeries, consultation fees, cashless hospitalization for more than 24 hours, consultation fees, diagnostic tests, hospital accommodation etc. Your health insurance provider will pay off the coast incurred in your entire treatment procedure.</p>"
+                },
+                {
+                    "question": "What is a network hospital?",
+                    "answer": "<p>A network hospital is a hospital with which your health insurance provider has tie up. In a network hospital, you can enjoy cashless treatment. Religare Health Insurance has tie up with many leading hospitals where you can enjoy cashless hospitalization.</p>"
+                },
+                {
+                    "question": "What is a health card?",
+                    "answer": "<p>It is a kind of identity card that your health insurance provider gives you. You need to show this card at the network hospital to get the benefits of health insurance policy.</p>"
+                },
+                {
+                    "question": "What is the meaning of cashless hospitalization? Does Religare Health Insurance provide it?",
+                    "answer": "<p>Cashless hospitalization is a benefit you get from your health insurance provider under which your insurance company will pay for your hospitalization cost. Yes, Religare Health Insurance does provide cashless hospitalization facility at network hospitals, across India.</p>"
+                },
+                {
+                    "question": "What is the meaning of a premium?",
+                    "answer": "<p>A premium is the total amount of money you pay to your health insurance provider in return for the services it provides.</p>"
+                },
+                {
+                    "question": "What do you mean by a family floater plan?",
+                    "answer": "<p>A family floater plan refers to a health insurance policy that includes your entire family under it. It is a customised policy to meet the health needs of your family.</p>"
+                },
+                {
+                    "question": "How is the customer service at Religare Health Insurance?",
+                    "answer": "<p>Religare provides 24/7 customer support. You can call them at any time for any of your queries.</p>"
+                },
+                {
+                    "question": "Can I correct the relationship in my policy document?",
+                    "answer": "<p>Yes, you can correct or rectify the relationship in your policy. Religare will do it after proper verification. However, it is subject to your declaration of relationship at the time of buying the policy.</p>"
+                },
+                {
+                    "question": "Is it possible to increase or reduce the sum insured in the policy?",
+                    "answer": "<p>It is not possible to reduce or increase the sum insured in the main policy during the tenure of the policy. However, you can do it at the time of renewal. It is subject to terms and conditions of the policy.</p>"
+                },
+                {
+                    "question": "Can I add and remove family members in my current policy?",
+                    "answer": "<p>You can add and remove family members at the time of renewal of your policy, but not during the tenure of your policy. However, you can buy separate policy for separate members of your family.</p>"
+                },
+                {
+                    "question": "Can I change my date of birth, if it gets written incorrectly in the policy document?",
+                    "answer": "<p>Change in your DOB may affect your premium. For further details, you need to contact the nearest branch of Religare Health Insurance.</p>"
+                },
+                {
+                    "question": "What are the formalities do I need to do get a claim?",
+                    "answer": "<p>In order to enjoy a hassle-free completion of your claim settlement formalities, you can contact Religare's customer help desk. Also, you can visit its 'Claims' webpage to know more about your particular insurance cover.</p>"
+                },
+                {
+                    "question": "What are the benefits of a health card?",
+                    "answer": "<p>Health Card has to be displayed at the time of admission at a network hospital to avail cashless hospitalisation. This ID card has the contact details of the Third-Party Administrator in the case of a medical emergency, you can call the given number for assistance with cashless hospitalisation claims.</p>"
+                },
+                {
+                    "question": "Can I revise the relationship in my plan?",
+                    "answer": "<p>Revising relationship in a policy document is subject to verification of details with the proposal form at the time of purchasing the policy. Call the insurer's toll-free number 1800 200 4488 with your policy details or visit the nearest branch office to rectify the relationship in your policy document.</p>"
+                },
+                {
+                    "question": "Can I change my DOB and will that affect my policy?",
+                    "answer": "<p>Changing your Date of Birth (DOB) in the policy document can affect your insurance premium. Higher the age, higher the insurance premium.</p>"
+                },
+                {
+                    "question": "What is the need to buy a Religare Health Insurance Policy?",
+                    "answer": ""
+                },
+                {
+                    "question": "What are the benefits of buying Religare Health Insurance at an early age?",
+                    "answer": "<p>Here is a list of reasons why you should buy health insurance at a young age:</p><ul><li>Premium of a health insurance policy increases with age.</li><li>Senior citizen health insurance plans can be restrictive compared to a regular health insurance plan.</li><li>You can get coverage for medical conditions that may be diagnosed over the years, provided there is no break in the policy.</li><li>Every claim-free year will give you a no-claim bonus that can be accrued over the policy term, resulting in an increase in your sum insured at no extra cost.</li><li>You can avail tax deduction on premiums paid towards a health insurance policy under Section 80D of the Income Tax Act, 1961.</li></ul>"
+                },
+                {
+                    "question": "Explain the working of a floater cover under Religare Health Insurance?",
+                    "answer": "<p>The floater plan from Religare Health Insurance covers the entire family which includes self, spouse, children, and parents under one single policy and single premium payment. The sum insured can be utilised by a single individual or shared by all the insured members and any number of claims can be made during the policy term, subject to the sum insured limit. A floater plan is cost-effective in comparison to paying premium for an individual policy for each member for the family.</p>"
+                },
+                {
+                    "question": "What are excluded from a standard Religare Health Insurance Policy?",
+                    "answer": "<p>Exclusions of a standard Religare Health Insurance policy includes:</p><ul><li>There is an initial waiting period of 30 days for all illnesses except an accidental injury.</li><li>Treatment for AIDS/HIV.</li><li>Congenital disease treatment.</li><li>Pregnancy related treatments.</li><li>Hospitalisation due to a war or nuclear threat.</li><li>Medical expense incurred due to alcohol or drug abuse.</li><li>Self-inflicted injuries and suicide attempts.</li><li>Pre-existing diseases for a period of 4 years since the inception of the policy.</li></ul>"
+                },
+                {
+                    "question": "How does the auto recharge feature under Religare Health Insurance work?",
+                    "answer": "<p>If the sum insured and No-Claim Bonus has been exhausted during the policy year, the sum insured will be automatically recharged once in a policy year. The recharge sum insured can be used for future claims but not for an illness or disease for which a claim has already been made in the current policy year.</p>"
+                },
+                {
+                    "question": "What is a No-Claim Bonus under Religare Health Insurance?",
+                    "answer": "<p>For every claim-free year, the insurer will provide a No-Claim Bonus to the policyholder in the form of an increase in sum insured (up to 50%) or discount on premium. If a claim is made, the accrued bonus will be reduced by 10%.</p>"
+                },
+                {
+                    "question": "For what reasons can there be a deduction in the claim amount of Religare Health Insurance?",
+                    "answer": "<p>Claim amount can be deducted for the following reasons:</p><ul><li>Non-medical expenses like snacks and telephone bills are not payable.</li><li>Treatment details without supporting documents like original bills and prescriptions.</li><li>If the sum insured is exhausted.</li><li>If the expenses exceeds specified sub-limits for certain expenses like room rent and doctor's fees.</li><li>If the policy has a co-payment clause.</li><li>Investigative or experimental treatment expenses that are not related to the ailment for which the insured member has been admitted are not payable.</li></ul>"
+                },
+                {
+                    "question": "How can an individual make a cashless hospitalisation claim?",
+                    "answer": "<p>In the case of an emergency hospitalisation, intimate the insurer within 24 hours of hospitalisation. Intimate the insurance company 48 hours prior to admission for planned hospitalisation. For cashless hospitalisation claims, fill the pre-authorisation request form at the hospital desk, and the network hospital will send the filled form to the insurer. The approval or rejection letter will be sent by the claim management team. In the case of rejection, you can initiate the treatment and file for reimbursement.</p>"
+                },
+                {
+                    "question": "Explain the Claim Processing and Reimbursement under Religare Health Insurance Policy?",
+                    "answer": "<p>In the case of an emergency hospitalisation, intimate the insurer within 24 hours of hospitalisation. Intimate the insurance company 48 hours prior to admission for planned hospitalisation. For reimbursement claims, download the claim form from the insurer's website, fill it and submitted it at the nearest branch office along with the supporting documents such as discharge summary, hospital bill, prescription, etc. The approval or rejection letter will be sent by the claim management team. The claim amount will be transferred to the policyholder's bank account.</p>"
+                },
+                {
+                    "question": "How can one cancel his or her Religare Health Insurance Policy?",
+                    "answer": "<p>During the free-look period, the policyholder can return the policy and get a refund of the premium after certain deductions if he or she has an objection to the terms and conditions of the policy. Cancellation request can be made at any time during the policy period provided no claims have been made. If a claim has been made and he or she wants to cancel the policy then premium will not be refunded.</p>"
+                }
+            ]
+        },
+        "references": [
+            {
+                "title": "Other Products from Religare Group",
+                "items": [
+                    {
+                        "link": "/mutual-fund/religare-mutual-fund.html",
+                        "title": "Religare Mutual Fund"
+                    },
+                    {
+                        "link": "/insurance/religare-travel-insurance.html",
+                        "title": "Religare Travel Insurance"
+                    }
+                ]
+            }
+        ]
     },
     "856": {
         "title": "",
