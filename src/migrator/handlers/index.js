@@ -1,5 +1,5 @@
 // @flow
-import type {CheerioElemType} from "./BaseHandler";
+import type {CheerioElemType, CheerioDocType} from "./BaseHandler";
 
 import {assert} from "./Utils";
 
@@ -18,13 +18,14 @@ import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_Headin
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
-import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL } from "./ReferencesHandler";
-import {DisclaimerHandlerVariant_Regex} from "./DisclaimerHandler";
+import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions } from "./ReferencesHandler";
+import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandler } from "./LandingBanner";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
+    new DisclaimerHandlerVariant_GridOfAccordions(),
     new DeprecatedTOCHandlerVariant_ProductsInvest(),
     new DeprecatedTOCHandlerVariant_ULofAsOnly(),
     new ReferencesHandlerVariant_Nav(),
@@ -34,6 +35,7 @@ const handlers = [
     new ReferencesHandlerVariant_Accordion(),
     new ReferencesHandlerVariant_NewsWidget(),
     new ReferencesHandlerVariant_InterlinkOfStrongAndUL(),
+    new ReferencesHandlerVariant_GridOfAccordions(),
     new FAQHandlerVariant_HeadingRegexAndDivWithSchema(),
     new FAQHandlerVariant_HeadingRegexFollowedByPs(),
     new FAQHandlerVariant_HeadingRegexFollowedByH3AndPs(),
@@ -70,9 +72,9 @@ const handlers = [
     new UnwrapHandler()
 ];
 
-export const findHandlerForElement = ($e: CheerioElemType): BaseHandler => {
+export const findHandlerForElement = ($e: CheerioElemType, $: CheerioDocType): BaseHandler => {
     const e = $e.get(0);
-    const handler = handlers.find((h) => h.isCapableOfProcessingElement($e));
+    const handler = handlers.find((h) => h.isCapableOfProcessingElement($e, $));
     assert(Boolean(handler), `IdentifyHandler for ${e.tagName}${$e.attr("class") ? "." + $e.attr("class").replace(/ /g, ".") : ""}`, $e);
     // $SuppressFlowCheck: assert would have ensured that handler is not null.
     return handler;

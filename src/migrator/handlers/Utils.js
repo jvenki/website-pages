@@ -1,7 +1,7 @@
 import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex} from "./ReferencesHandler";
-import {without} from "lodash";
+import {without, times, constant} from "lodash";
 
 export const assert = (condition, errorMsg, $e) => {
     if (condition) {
@@ -314,4 +314,14 @@ const cleanseAndValidateElement = ($e) => {
     if ($e.get(0).tagName == "a") {
         assert($e.get(0).attribs.href.indexOf("#") == -1, "Local Link used", $e);
     }
+};
+
+export const hasClass = (node, regex) => ((node.attribs || {}).class || "").match(regex);
+
+export const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames) => {
+    const getAllChildrenAtDepth = (depth) => $e.find(times(depth+1, constant(" > * ")).join("")).get();
+    return descendentTagNames.every((descendentTagName, i) => {
+        const children = getAllChildrenAtDepth(i);
+        return children.length > 0 && children.every((child) => child.tagName == descendentTagName);
+    });
 };

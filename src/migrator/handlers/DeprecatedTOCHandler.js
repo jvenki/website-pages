@@ -1,11 +1,11 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractLinkText, assert, extractImgSrc } from "./Utils";
-import {times, constant} from "lodash";
+import {extractLinkText, assert, extractImgSrc, isElementMadeUpOfOnlyWithGivenDescendents } from "./Utils";
+
 
 export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType) {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("bb-products-invest")  ;
     }
 
@@ -19,7 +19,7 @@ export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
 }
 
 export class DeprecatedTOCHandlerVariant_ULofAsOnly extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType) {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return ["ul", "ol"].includes($e.get(0).tagName) && isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"]) && areAllAnchorsOnlyLocalLinks($e);
     }
 
@@ -31,14 +31,6 @@ export class DeprecatedTOCHandlerVariant_ULofAsOnly extends BaseHandler {
 const areAllAnchorsOnlyLocalLinks = ($e) => {
     const links = $e.find("a").get();
     return links.every((link) => link.attribs.href.startsWith("#"));
-};
-
-const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames) => {
-    const getAllChildrenAtDepth = (depth) => $e.find(times(depth+1, constant(" > * ")).join("")).get();
-    return descendentTagNames.every((descendentTagName, i) => {
-        const children = getAllChildrenAtDepth(i);
-        return children.length > 0 && children.every((child) => child.tagName == descendentTagName);
-    });
 };
 
 const extractLinks = ($e, $) => {

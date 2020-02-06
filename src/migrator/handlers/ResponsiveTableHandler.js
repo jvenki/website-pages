@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import { extractHeadingText, extractContentHtml } from "./Utils";
 
 export default class ResponsiveTableHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("tabular-section");
     }
 

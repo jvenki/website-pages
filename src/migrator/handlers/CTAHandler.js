@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {extractLinkText, assert, extractHeadingText, extractContentHtml} from "./Utils";
 
 export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("product-landing-btn-block");
     }
 
@@ -29,7 +29,7 @@ export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
 }
 
 export class CTAHandlerVariant_LonelyLink extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         const $p = $e.parent();
         return $e.get(0).tagName == "a" && $p.get(0).tagName == "div" 
             && ($p.hasClass("text-center") || $p.hasClass("text-left")) && $p.children().length == 1;
@@ -48,7 +48,7 @@ export class CTAHandlerVariant_LonelyLink extends BaseHandler {
 }
 
 export class CTAHandlerVariant_CtaSection extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         return $e.hasClass("link-section") || $e.hasClass("cta-section");
     }
 
@@ -75,7 +75,7 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
 }
 
 export class CTAHandlerVariant_TabularData extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         return $e.hasClass("tabular-data") 
             && $e.find(" > h3.lt-pad-10").length == 1 
             && $e.find(" > div.col-md-7").length == 1 

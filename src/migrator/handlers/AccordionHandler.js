@@ -7,7 +7,7 @@ import {headingRegex as referencesHeadingRegex, ReferencesHandlerVariant_Accordi
 import {extractHeadingText, extractContentHtml, assert} from "./Utils";
 
 export class AccordionHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("twi-accordion") || $element.hasClass("ln-accordion");
     }
 

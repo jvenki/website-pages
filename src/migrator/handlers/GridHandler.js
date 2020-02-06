@@ -6,7 +6,7 @@ import MigrationError, {ConversionIssueCode} from "../MigrationError";
 import { assert } from "./Utils";
 
 export default class GridHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.get(0).tagName == "div" && containsOnlyGridRowClasses($element.attr("class"))
             && $element.children().length > 1
             && $element.children().get().every((child) => containsOnlyGridCellClasses(child.attribs.class));

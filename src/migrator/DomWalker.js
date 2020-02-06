@@ -48,7 +48,7 @@ export default class DomWalker {
 }
 
 const handleElement = ($element, $, onElement, onIssue, onOpLog) => {
-    const handler = findHandlerForElement($($element));
+    const handler = findHandlerForElement($($element), $);
     logger.debug(`        Processing Node '${computeNodeName($element)}' : Identified Handler as '${handler.getName()}' : Path from BODY = '${computePathNameToElem($element)}'`);
 
     const sourceElements = handler.walkToPullRelatedElements($element, $);

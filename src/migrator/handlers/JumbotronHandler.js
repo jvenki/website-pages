@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert} from "./Utils";
 
 export class JumbotronHandlerVariant_Main extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("jumbotron");
     }
 
@@ -22,7 +22,7 @@ export class JumbotronHandlerVariant_Main extends BaseHandler {
 }
 
 export class JumbotronHandlerVariant_PrimaryKeyDetails extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("primary-key-details");
     }
 
