@@ -31083,5 +31083,282 @@
         "disclaimer": {
             "text": "<p>Display of any trademarks, tradenames, logos and other subject matters of intellectual property belong to their respective intellectual property owners. Display of such IP along with the related product information does not imply BankBazaar's partnership with the owner of the Intellectual Property or issuer/manufacturer of such products.</p>"
         }
+    },
+    "1764": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": "How can I get IT refund in India?",
+                                "link": "#how-can-i-get-it-refund"
+                            },
+                            {
+                                "linkText": "How can I claim my Income Tax refund?",
+                                "link": "#how-can-i-claim-it-refund"
+                            },
+                            {
+                                "linkText": "How is Income Tax refund processed?",
+                                "link": "#how-is-it-refund-processed"
+                            },
+                            {
+                                "linkText": "How is the payment of income tax refund made?",
+                                "link": "#how-is-payment"
+                            },
+                            {
+                                "linkText": "How do I track my Income Tax Refund?",
+                                "link": "#how-to-track"
+                            },
+                            {
+                                "linkText": "Due Date to Claim Income Tax Refund",
+                                "link": "#due-date-to-claim"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "$LPD_EMBEDDED_ITEM_TAX<p>Income Tax refund arises in case of a mismatch between the tax amount paid and the actual payable amount. If the amount paid is higher than the actual amount payable, a refund is initiated. The Form 30 is used for the same purpose.</p><p>Under the income tax and other <a href=\"/tax/direct-tax.html\">Direct Tax</a> laws, refunds arise in those cases where the amount of tax paid by a person (or paid on his/her behalf) is greater than the amount on which he/she is properly chargeable. This is noted under Sections 237 to 245 of the Income Tax Act, 1961.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How can I get IT refund in India?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>When you file the return of your income, you can avail tax refund. In general, the date for filing <a href=\"/tax/income-tax-return.html\">income tax returns</a> is July 31 of every year unless extended.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "What is the Income Tax amount that I will get back?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>In order to find the amount of <a href=\"/income-tax.html\">income tax</a> that you will get back as the refund, you must calculate the tax liability that is associated with you. If the amount that you have paid as taxes is more than the tax liability, then you will get the extra amount as a refund.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How can I claim my Income Tax refund?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The easiest way to file for your tax refund is to declare your investments in <a href=\"/tax/form-16.html\">Form 16</a> (life insurance premiums paid, house rent being paid, investments in equity/NSC/mutual funds, bank FDs, tuition fees, etc.) while filing your IT return and submit the necessary proofs. If you've failed to do so and have been paying extra taxes you think you could have avoided, you will need to fill out Form 30.</p><p>Form 30 is basically a request for your case to be looked into and the excess tax that you have paid is refunded. Your income tax refund claim needs to be submitted before the end of the financial year. Your claim needs to be accompanied by a return in the form (prescribed under section 139).</p><h3>The Form 30 format is as follows: (Sample)</h3><p>I, (your name), of (address), do hereby state that my total income computed in accordance with the provisions of the Income Tax Act, 1961, during the year ending on (year) being the previous year for the assessment year commencing on the 1st of April (year), amounted to Rs. (amount); that the total income tax chargeable in respect of such total income is Rs. (amount) and that the total amount of Income Tax paid or treated as paid under:</p><p>Section 199, is Rs. (amount).</p><p>I, therefore, request for a refund of Rs. (amount).</p><p>(Signature)</p><p>I hereby declare that I was resident/resident but not ordinarily resident/non-resident during the previous year relevant to the assessment year to which this claim relates and that what is stated in this application is correct.</p><p>Dated: (date)</p><p>(Signature)</p><strong>It is important to note that:</strong><ul><li>This claim should contain a document of proof of return of income in a prescribed form, unless you've already made such a claim to the Assessing Officer.</li><li>Non-residents whose income is subject to <a href=\"/tax/all-about-tds.html\">TDS</a> should make the claim for refund to the \"Assessing Officer, Non-resident Refund Circle, Bombay”.</li></ul><p>If you have been charged tax under the provisions of Section 192 – 194, Section 194A and Section 195 on your income (for dividends, etc.), the claim should be accompanied by the necessary certificates recommended under Section 203.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How is Income Tax refund processed?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The Income Tax authorities who are present at the Centralised Processing Centre (CPC) in Bengaluru are responsible for processing the Income Tax (IT) refund. The refunds are processed once the assessee files his/her Income Tax Returns (ITR). If any tax reimbursement arises at the time of processing the ITRs, the IT refund banker receives the orders for refund of income tax which are generated and transferred by the IT authorities.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How is the payment of income tax refund made?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The payment of income tax refund is made in one of the following methods:</p><ul><li><strong>Direct transfer of the amount to be refunded to the taxpayer's bank account:</strong> This is the usual method which is used for the purpose of transferring the income tax refund amount to the taxpayers. The transaction might be made through NECS/RTGS. It is important on the part of the taxpayer to make sure that all the details pertaining to his/her bank account are properly furnished in the return forms at the time of filing the returns. This enables the easy and fast movement of funds directly to the account.</li><li><strong>Income Tax Refund via cheque:</strong> This method is an alternative option for transferring the Income Tax refunds. In the case of the bank details provided by the taxpayer at the time of filing the Income Tax Returns (ITRs) is not unclear, incomplete, or wrong, the Income Tax authorities issue a cheque addressing the account number which is furnished by the taxpayer at the time of filing his/her returns.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How do I track my Income Tax Refund?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The IT department allows you to track the status of your refund. If your refund procedure has not been completed by your officer in charge, you will receive a message notifying you of the same.</p><p>Just follow these two steps to claim income tax refund.</p><ol><li><strong>Get Refund through Direct Transfer:</strong> Excess tax paid can be refunded to you by crediting your bank account with ECS transfer. RTGS/NECS are also used to transfer the tax refund directly into your account, using your 10-digit account number and MICR code, through the State Bank of India. You can track your income tax refund through the http://www.incometaxindia.gov.in website or through NSDL-TIN website by clicking on \"Status of Tax Refunds”. You will then need to enter your PAN number and assessment year for refund details.</li><li><strong>Refund by cheque:</strong> You can track this with the speed post service that has been tasked with delivering it, using the reference number that the IT department will give you.</li></ol>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Due Date to Claim Income Tax Refund ",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Income tax refunds must be claimed within one year from the date on which the assessment year ends. However, in certain cases, assessing officers tend to entertain refund claims that were filed after the specified due date. Here are some points you need to keep in mind: </p><ul><li>Income tax refund claims will not be considered if six successive assessment years have been completed. </li><li>The refund amount must be less than Rs.50 lakh for a single assessment year. </li><li>Interest will not be offered on refund of late claims.  </li><li>If the delayed claims require verification, the assessing officer could reconsider the claim.  </li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Interest on Delayed Income Tax Refund ",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Under Section 244A of the <a href=\"/tax/income-tax-act.html\">Income Tax Act</a>, in case the refund payment is delayed, the Income Tax Department is liable to pay interest at 6%. The interest applicable to your refund amount shall be computed from the date on which the tax was paid to the date on which the refund was made. For example, if you claim a refund of Rs.10,000 for AY 2017-18 and you received the refund in March 2018, the interest applicable to your refund will be computed from April 2017 to March 2018. </p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Am I eligible for an Income Tax refund?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>There are many cases wherein you will be eligible for a refund. Some of them are:</p><ul><li>If the tax you've paid in advance on the basis of self-assessment is more than the tax payable on the basis of regular assessment.</li><li>If your tax deducted at source (TDS) from salary, interest on securities or debentures, dividends, etc. is higher than the tax payable on the basis of regular assessment.</li><li>If the tax charged, based on regular assessments, gets reduced because an error in the assessment process was resolved.</li><li>The same income is taxed in a foreign country (with which the government of India has an agreement to avoid double-taxation) and in India as well.</li><li>If you have investments which offer tax benefits and deductions that you have not declared.</li><li>If you find, after considering the taxes you've paid and the deductions you are allowed, that the tax paid amount is in the negative.</li></ul>$LPD_EMBEDDED_ITEM_TAX_3"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Tax Top Pages",
+                "items": [
+                    {
+                        "link": "/income-tax.html",
+                        "title": "Income Tax"
+                    },
+                    {
+                        "link": "/tax/income-tax-act.html",
+                        "title": "Income Tax Act"
+                    },
+                    {
+                        "link": "/tax/income-tax-slabs.html",
+                        "title": "Income Tax Slabs"
+                    },
+                    {
+                        "link": "/tax/efiling-income-tax.html",
+                        "title": "Efiling Income Tax"
+                    },
+                    {
+                        "link": "/tax/income-tax-return.html",
+                        "title": "Income Tax Return"
+                    },
+                    {
+                        "link": "/tax/online-tax-payment.html",
+                        "title": "TDS Online Payment"
+                    },
+                    {
+                        "link": "/tax/tds-online-payment.html",
+                        "title": "Income Tax Refund"
+                    },
+                    {
+                        "link": "/tax/step-by-step-guide-efile-income-tax-return-online.html",
+                        "title": "Steps to efiling ITR online"
+                    },
+                    {
+                        "link": "/tax/gratuity.html",
+                        "title": "Gratuity"
+                    },
+                    {
+                        "link": "/tax/how-calculate-hra-from-basic-salary.html",
+                        "title": "How to Calculate HRA"
+                    },
+                    {
+                        "link": "/tax/gst.html",
+                        "title": "GST"
+                    },
+                    {
+                        "link": "/tax/gst-returns.html",
+                        "title": "GST Returns"
+                    },
+                    {
+                        "link": "/tax/7th-pay-commission.html",
+                        "title": "7th Pay Commission"
+                    },
+                    {
+                        "link": "/tax/all-about-tds.html",
+                        "title": "TDS"
+                    },
+                    {
+                        "link": "/tax/form-16.html",
+                        "title": "Form 16"
+                    }
+                ]
+            },
+            {
+                "title": "Tax Other Pages",
+                "items": [
+                    {
+                        "link": "/tax/form-15h.html",
+                        "title": "Form 15H"
+                    },
+                    {
+                        "link": "/tax/tax-credit.html",
+                        "title": "Tax Credit"
+                    },
+                    {
+                        "link": "/tax/stamp-duty.html",
+                        "title": "Stamp Duty"
+                    },
+                    {
+                        "link": "/tax/withholding-tax.html",
+                        "title": "Withholding Tax"
+                    },
+                    {
+                        "link": "/tax/cancelled-cheque.html",
+                        "title": "Cancelled Cheque"
+                    },
+                    {
+                        "link": "/tax/tax-evasion.html",
+                        "title": "Tax Evasion"
+                    },
+                    {
+                        "link": "/tax/tax-rebate.html",
+                        "title": "Tax Rebate"
+                    },
+                    {
+                        "link": "/tax/gross-salary.html",
+                        "title": "Gross Salary"
+                    },
+                    {
+                        "link": "/tax/professional-tax.html",
+                        "title": "Professional Tax"
+                    },
+                    {
+                        "link": "/tax/trademark-registration.html",
+                        "title": "Trademark Registration"
+                    },
+                    {
+                        "link": "/tax/corporate-tax.html",
+                        "title": "Corporate Tax"
+                    },
+                    {
+                        "link": "/tax/net-salary.html",
+                        "title": "Net Salary"
+                    },
+                    {
+                        "link": "/tax/tax-exemption.html",
+                        "title": "Tax Exemption"
+                    },
+                    {
+                        "link": "/tax/advance-tax-payment.html",
+                        "title": "Advance Tax Payment"
+                    },
+                    {
+                        "link": "/tax/ghmc-property-tax.html",
+                        "title": "Ghmc Property Tax"
+                    }
+                ]
+            }
+        ]
     }
 }
