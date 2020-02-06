@@ -83,7 +83,18 @@ export const isElementAContentNode = ($e) => {
 };
 
 const isElementASubHeadingNode = ($e) => ["h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
-const isElementATextualNode = ($e) => ["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName) || $e.get(0).type == "text";
+const isElementATextualNode = ($e) => {
+    if ($e.get(0).type == "text") {
+        return true;
+    }
+    if (["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
+        return true;
+    }
+    if ($e.get(0).tagName == "div" && $e.children().length == 1 && $e.children().first().get(0).tagName == "img" && $e.hasClass("pull-right")) {
+        return true;
+    }
+    return false;
+};
 export const isElementATableNode = ($e) => {
     if ($e.get(0).tagName == "table") {
         return true;
@@ -99,7 +110,7 @@ export const extractHeadingText = ($e, $) => {
     $e.find("*").each((i, d) => {
         const $d = $(d);
         cleanseAndValidateElement($d);
-        if (["p", "sub"].includes(d.tagName) && $d.text().trim() == "Updated on $date") {
+        if (["p", "sub"].includes(d.tagName) && ["Updated on $date", "Updated on #date"].includes($d.text().trim())) {
             // This was populated for tables tagged as product-hl-table. We will append this info directly.
             $d.remove();
         } else if (["strong"].includes(d.tagName)) {
@@ -164,14 +175,18 @@ export const extractContentHtml = ($e, $) => {
 
 export const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 
-const extractImgTag = ($e) => {
+const extractImgTag = ($e, addnClass) => {
     let output = "<img";
     ["title", "alt"].forEach((attrName) => {
         if ($e.attr(attrName)) {
             output += ` ${attrName}="${$e.attr(attrName)}"`;
         }
     });
-    output += ` src="${extractImgSrc($e)}"/>`;
+    output += ` src="${extractImgSrc($e)}"`;
+    if (addnClass) {
+        output += ` class="${addnClass}"`;
+    }
+    output += "/>";
     return output;
 };
 
@@ -207,6 +222,8 @@ const extractHtmlFromTextualNodes = ($e, $) => {
             return `<strong>${processChildNodes($n).join("")}</strong>`;
         } else if (isElementATableNode($n)) {
             return extractHtmlFromTableCreatedUsingTableNode($n, $);
+        } else if ($n.get(0).tagName == "div") {
+            return extractImgTag($n.find("img"), "pull-right");
         } else if (isElementATextualNode($n)) {
             return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
         } else {
