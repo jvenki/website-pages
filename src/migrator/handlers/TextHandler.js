@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {extractContentHtml, isElementAContentNode} from "./Utils";
 
 export class TextHandlerVariant_Main extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType) {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return isElementAContentNode($element);
     }
 
@@ -34,7 +34,7 @@ export class TextHandlerVariant_Main extends BaseHandler {
 }
 
 export class TextHandlerVariant_PointerView extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType) {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("pointer-view") && $element.next().hasClass("tcenter");
     }
 

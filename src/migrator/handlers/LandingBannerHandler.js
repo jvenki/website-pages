@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {extractImgSrc, extractLinkText, assert} from "./Utils";
 
 export class LandingBannerHandler extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType): boolean {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         return $e.hasClass("bb-landing-banner");
     }
 

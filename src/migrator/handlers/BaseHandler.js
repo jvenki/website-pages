@@ -9,7 +9,7 @@ export default class BaseHandler {
         return this.constructor.name;
     }
 
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         throw new Error("Child Class should override this method");
     }
 

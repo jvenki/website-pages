@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert} from "./Utils";
 
 export default class BlockQuoteHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.get(0).tagName == "blockquote";
     }
 

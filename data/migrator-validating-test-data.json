@@ -6489,15 +6489,6 @@
                     {
                         "type": "text",
                         "body": "<p>Most SBI cards allow you to earn <a href=\"/sbi-credit-card-reward-points.html\">Shop-and-Smile Reward Points</a> which have a validity of 2 years. Use your card to make purchases to earn points on each transaction. It is important to keep in mind the specific spend categories for which you can earn maximum Reward Points.</p><p>Once you have accumulated the points, you can redeem them for exclusive gifts, shopping vouchers, and more. Points redemption can be done on the SBI website or through the mobile app. Sign in with your login information and redeem your points for any of the products in the catalogue.</p><p>You can call SBI card helpline 1860 180 1290 or 39 02 02 02 with your local STD code or write to them to redeem your points. Your gift will be delivered to the registered address.</p>"
-                    },
-                    {
-                        "type": "accordion",
-                        "items": [
-                            {
-                                "title": " Find SBI IFSC Code:",
-                                "body": "<ul><li><a href=\"/ifsc-code/state-bank-of-india.html\">SBI IFSC Code</a></li></ul>"
-                            }
-                        ]
                     }
                 ]
             }
@@ -6553,6 +6544,15 @@
                     {
                         "link": "/canara-bank-credit-card.html",
                         "title": "Canara Bank Credit Card"
+                    }
+                ]
+            },
+            {
+                "title": " Find SBI IFSC Code:",
+                "items": [
+                    {
+                        "link": "/ifsc-code/state-bank-of-india.html",
+                        "title": "SBI IFSC Code"
                     }
                 ]
             }
@@ -8133,6 +8133,454 @@
                     "answer": "<p>It depends on your card type. If your credit card is accepted globally, you can use it in other countries as mentioned by your creditor. However, a certain fee known as the foreign transaction fee will be charged for all the purchases made abroad.</p>"
                 }
             ]
+        }
+    },
+    "898": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>A debit card is basically a card used for fund transactions. Going by the name plastic cash, bank card and more, you can enjoy electronic access to your savings account in any bank via ATMs. You can deposit and withdraw as per your convenience this way without the hassle of standing in long queues. The same can be utilized for mobile banking and <a href=\"/savings-account/internet-banking.html\" title=\"Internet Banking\">Internet Banking</a>.</p>"
+                    },
+                    {
+                        "type": "landing-banner",
+                        "link": "/debit-card.html#get-quote",
+                        "linkText": "Apply Now",
+                        "img": {
+                            "src": "/images/common/dc-landing-banner-img-v1.png",
+                            "title": "Debit Card"
+                        },
+                        "items": [
+                            {
+                                "text": "Make online transactions",
+                                "icon": "dc-online"
+                            },
+                            {
+                                "text": "Quick ATM withdrawals",
+                                "icon": "dc-quick-atm"
+                            },
+                            {
+                                "text": "Bonus points & gifts",
+                                "icon": "dc-bonus-points"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Types of Debit Cards in India",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ol><li><a href=\"/debit-card/visa-debit-card.html\">Visa Debit Cards</a>These debit cards are issued with the bank's tie-up with VISA payment services providing the Verified by Visa (VbV) platform for online transactions.</li><li><a href=\"/debit-card/visa-electron-debit-card.html\">Visa Electron Debit Cards</a>Visa Electron debit cards are very similar to Visa debit cards but these cards do not provide the overdraft feature.</li><li><a href=\"/debit-card/mastercard-debit-card.html\">MasterCard Debit Cards</a>A MasterCard Cirrus Card or a MasterCard Maestro Card gives customers access to their funds worldwide and they can perform online transactions using their bank accounts on the MasterCard SecureCode platform.</li><li><a href=\"/debit-card/contactless-debit-card.html\">Contactless Debit Cards</a>Customers can make payments with just a tap or wave of their contactless debit cards near PoS terminals, with the cards working on Near Field Technology (NFC) thereby making electronic payments safer.</li><li><a href=\"/debit-card/rupay-debit-card.html\">RuPay Debit Cards</a>Introduced as a domestic card scheme by the NPCI, RuPay debit cards facilitate online purchases and transactions on the Discover network and ATM transactions under the National Financial Switch network.</li><li><a href=\"/debit-card/maestro-debit-card.html\">Maestro Debit Card</a>Founded in 1992, Maestro from MasterCard is a premier, <a href=\"/debit-card/international-debit-cards.html\" title=\"International Debit Cards\">International Debit Cards</a> service that has been popularly adopted at over 13 million locations spread across 100+ countries around the world. Maestro, as easily identified by the signature logo on all partner cards, helps the customer gain immediate access to his/her money through a robust, international network of compatible ATMs, POS outlets, and online resources.</li></ol><p><strong>Learn more about </strong><a href=\"/debit-card/new-atm-transaction-charges.html\">New ATM Transaction Charges</a>, <a href=\"/debit-card/debit-cards-for-emi.html\">Debit Cards for EMI</a></p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How do I apply for a debit card on BankBazaar.com?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>BankBazaar provides an easy online process to apply for any debit card of your choice with instant e-approvals. Customers can also compare the different debit cards offered by banks and pick what they find suitable for themselves. The BankBazaar home page displays a Finance menu and customers can choose the debit cards option under the 'Cards' drop-down menu. Users will be then taken to a page containing links to specific debit card and credit card pages. Clicking on the debit card link will take them to an info page on debit cards. BankBazaar customers can understand what each card offers and select the card they want. Clicking on 'Apply now' will submit the customer's application to BankBazaar and they will receive an immediate e-approval via email. Their application will then be forwarded to the bank for further processing.</p><img title=\"Debit Card for New Age Banking\" alt=\"Debit Card Benefits\" src=\"/images/india/infographic/debit-card.jpg\"/>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Merchant Discount Rate on Debit Cards",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The Reserve Bank of India has made an amendment to the Merchant Discount Rate (MDR) that would be effective from 1 January 2018. For those that do not know, the Merchant Discount Rate is the amount the vendor/merchant has to pay the card associate (Visa, Mastercard, etc.) for every transaction. As per the new change, the MDR will now be based on the turnover of the merchant/company rather than the current slab-based structure. The MDR is applicable not only for transactions at POS terminals but also for online transactions and QR-based transactions. As already mentioned, merchants/vendors/companies will be charged based on their turnover for the year and are segregated into two categories - merchants with a turnover up to Rs.20 lakh and merchants with a turnover more than Rs.20 lakh. For merchants with a turnover (previous financial year) up to Rs.20 lakh, a limit of 0.40% or Rs.200 will be charged for transactions online or at POS terminals. For QR-Based transactions, the MDR will be capped to a maximum of 0.30% of the transaction or Rs.200. For merchants with a turnover (previous financial year) more than Rs.20 lakh, the applicable MDR for transactions made at POS terminals or online will be limited to 0.90% or Rs.1,000. For QR-based transactions, the MDR will be capped at 0.80% or Rs.1,000 per transaction.</p><table><tbody><tr><td>Merchant Category</td><td colspan=\"2\">Merchant Discount Rate (MDR) for debit card transactions</td></tr><tr><td></td><td>For POS Terminal and Online Transactions</td><td>For QR-Based Transactions</td></tr><tr><td>Merchants with a turnover up to Rs.20 lakh (based on previous financial year)</td><td>Limited to 0.40% or Rs.200 (per transaction)</td><td>Limited to 0.30% or Rs.200 (per transaction)</td></tr><tr><td>Merchants with a turnover above Rs.20 lakh (based on previous financial year)</td><td>Limited to 0.90% or Rs.1,000 (per transaction)</td><td>Limited to 0.80% or Rs.1,000 (per transaction)</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Difference between an ATM card, Debit card, and Credit card",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>ATM cards, debit cards, and credit cards are payment cards issued by a bank which allow customers to perform certain specific transactions. Not only does it make your purchases smooth and convenient, but some retailers require it for billing purposes. Banks these days are trying to add more value to the services offered by them and hence the cards come with a lot of offers and discounts. The most striking feature of card transactions is that it is secure and it reduces the need to carry hard cash. Given below are some of the main differences between an ATM card, debit card, and a credit card.</p><p>ATM Cards</p><ul><li>ATM cards can be used only at ATM machines to withdraw cash</li><li>You will require a Personal Identification Number(PIN) to carry out a transaction</li><li>An ATM card is linked to your <a href=\"/current-account.html\">current account</a> or savings account maintained in the bank</li><li>The card does not offer credits and hence money is deducted on a real-time basis</li><li>ATM withdrawals charge you a fee if the transaction is being carried out in an ATM machine of a different bank</li></ul><p>Debit cards</p><ul><li>Debit cards come with almost every feature of a credit card even though it doesn't allow credits</li><li>Just like an ATM card, you will require a four-digit Personal Identification Number to complete your purchases</li><li>In addition to ATM machines, your debit card can be used at stores or restaurants and can also be used for online payments</li><li>There are usually two types of debit cards—Visa debit cards and MasterCard debit cards</li><li>Much like ATM cards, the debit card allows you to use the money from your <a href=\"/savings-account.html\">savings account</a></li><li>It is different from a credit card as the customer does not have to pay interests or make a repayment schedule</li></ul><p>Credit cards</p><ul><li>Though credit cards facilitate ATM withdrawals, it is mostly used as a loan option and is issued by the bank after reviewing your creditworthiness</li><li>Your credit score impacts your credit card application. Too many credit card applications may have a negative effect on your overall score</li><li>It allows you to purchase any product that is within your spending limit and make payments later</li><li>It offers attractive discounts on certain brands and services</li><li>Besides standard and premium versions, there are many variants in credit cards which offer a wide range of activities, right from shopping and dining to booking an air ticket</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Transactions that can be done at ATMs",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Most individuals with ATM cards usually use ATM machines for the sole purpose of withdrawing cash. However, ATM machines perform other functions as well. They include:</p><p><strong>Payment of Utility Bills</strong></p><p>ATMs can be used to make payments for utilities such as electricity, insurance premiums, and telephone providers. However, these payments can be done only if the bills have not crossed their due dates.</p><p><strong>Requesting a cheque book</strong></p><p>Cardholders can make requests for a new cheque book through the ATM owned by his/her bank. One thing to remember when making a request for a new cheque book is that the address provided to the bank is updated.</p><p><strong>Making credit card payments</strong></p><p>Most ATMs have an option for paying credit card bills. However, it is essential that the payment is made at the ATM that is owned by the bank where the credit card was issued.</p><p><strong>Paying taxes</strong></p><p>Cardholders will have to register for the service of making their tax payments at an ATM. However, this service is only available for payment of direct taxes. After a cardholder has registered for the service, the amount payable will be debited from the card holder's account. Once debited, the cardholder receives a Special Item Number (SIN) that should be added as a reference when filing taxes.</p><p><strong>Recharging mobile phones</strong></p><p>Cardholders can use their debit card to recharge their pre-paid mobile numbers. This can be done by visiting the ATM owned by the card holder's bank. The process would require the cardholder to enter their mobile number and their ATM PIN to confirm and authenticate the transaction.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Transaction charges on debit card payments",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>In a survey conducted in 2015, it was revealed that there were around 61.5 crore debit card users and 2.3 crore credit card users in the country. Generally, customers pay a transaction cost on debit card payments which is also known as merchant discount rate (MDR). In a move to increase cashless transactions post demonetization, the government had notified banks to not charge customers for debit card transactions till December 31.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Safety Tips for First-Time Debit Card Users",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>As per RBI guidelines, banks issuing the debit cards are responsible for keeping the information of their customers safe. But there have been multiple instances of data breaches due to negligence on the part of debit card users as well. Listed below are some of the dos and don'ts for first-time users of a debit card.</p><ul><li>Sign on the back of your debit card as soon as you receive it. Your card is considered authentic only if you fix your signature in the space provided on your card.</li></ul><ul><li>Sometimes fraudsters may jam the Enter and Cancel button in an ATM machine to put your transaction on hold. In such cases, do not leave the ATM counter without cancelling the transaction.</li><li>Make sure that you have memorized your debit card PIN. Do not write down your debit card PIN number anywhere.</li><li>While making a transaction at an ATM counter, make sure that no one else is there with you.</li><li>As an enhanced security measure, keep changing your debit card PIN from time to time.</li><li>If you are withdrawing cash from ATM located in an open space, ensure that you hide the PIN combination while making the entry.</li><li>Dispose of your old debit cards if you are not using them anymore.</li><li>Do not dispose of balance receipt in the ATM counter itself. Hackers and fraudsters can use this information to gain access to your bank account.</li><li>Track your account transactions on a regular basis. This will help you in identifying any unusual activity in your account.</li><li>Register for email or SMS alerts. This will help you in staying up to date with your transactions.</li><li>While transacting at petrol bunks, restaurants, and similar places, ensure that your debit card is swiped in the POS machine only in your presence. Otherwise, there are chances of your information being skimmed. Skimming is the process of duplicating a debit card with the use of a skimming device.</li><li>In case you doubt a skimming device being installed in an ATM machine, refrain from making any transaction and inform the concerned authorities immediately.</li><li>Get your debit card blocked immediately, in case it is lost or stolen. You can do so by calling the bank on their hotline number.</li><li>Whenever you receive an email or a call asking for your account details or debit card information, report the incident to your bank.</li><li>Your bank will never ask for your debit card information. Never share your information with anyone over phone, call, or message, even if the person claims to be from the bank.</li><li>While shopping online with your debit card, make sure that the website of the e-tailer starts with 'http'. This is a sign that the website is secure and genuine.</li><li>Do not save your debit card details on merchant websites for ease of making payments. Because in case the website is hacked, you will be at the risk of losing your baking information to hackers and fraudsters.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Transferring Money Using Your ATM Card",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>With advancements in technology in the banking sector, it has become easier for people to carry out a number of banking transactions with the touch of a few buttons. Almost all banks these days offer internet banking facilities to help customers transfer funds to other bank accounts instantly. For those individuals who do not use their bank's internet banking facilities, funds transfers can also be carried out using their debit cards.</p><p>While this facility is not available for all bank debit cards, but most of the popular banks do offer this facility to their customers. Money transfers can be made through ATMs using a debit card by following the steps listed below:</p><ul><li>Visit the bank ATM</li><li>Insert the debit card and enter the PIN number</li><li>Select the option titled 'Transfer'</li><li>Enter the beneficiary's debit card number</li><li>Enter the amount to be transferred</li><li>Select the account type—savings or current</li><li>Confirm the transfer</li></ul><p>Funds transferred through an ATM card are credited instantly to the beneficiary's account.</p><h3>Cashback system on Debit Cards:</h3><p>There are a number of banks in India that offer rewards on their debit cards in the form of cashback. The cashback can be redeemed by the customer and used for future purchases. Different banks offer a wide variety of debit cards. The reward system is generally based on the type of the debit card. Banks often tie up with different retailers for a period of time. Customers are eligible to receive cashback (occasionally other rewards) on the purchase of goods and/or services from these sellers. For example, consider the Big Billion Day sale by Flipkart or The Great Indian Sale by Amazon. During these sales, banks tie up with the seller companies to offer rewards to the debit card and/or credit card users. These rewards are often given in the form of cashback or additional discounts. The discount or cashback is often quite lucrative.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How does the cashback system work on debit cards?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The process is quite simple. The card companies like VISA, American Express, MasterCard, Maestro, RuPay, etc. earn a certain percentage in the form of commission every time a transaction is made using their cards. On the successful completion of a transaction, a certain part of the transaction amount goes to these card companies. Out of these commissions, the card companies make a small payment to the banks. The banks utilise a small percentage of this amount to provide reward points or cashback to their customers. This is done by the banks with the sole purpose of giving an edge to their products.</p><p>Some of the banks in India that provide great cashback offers and reward point systems on their debit cards are The State Bank of India (SBI), ICICI Bank, and HDFC Bank. There are a number of other banks as well, both public and private, that are constantly coming up with new cards and new offers on their debit cards.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "EMV Chip Cards: How is it better or different from the magnetic strip cards?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>EMV is the acronym for Europay, MasterCard, and Visa. They are the original card schemes that developed the EMV technology jointly. It serves as the international standard for debit and credit card transactions that are based on chips. EMV was developed to ensure that the card transactions are secure and the cards can be accepted globally.</p><p>The EMV Chip Cards come with a magnetic strip as well as a microchip. The chip cards are more secured as it is very difficult to counterfeit a chip card. You might be familiar with the frauds that have taken place in numerous instances with a magnetic strip card. EMV chips curb that problem to a huge extent. Moreover, the chip cards help the issuer of the cards to get complete information about the payment history of the users. As the cards use a point-to-point encryption for the transactions, the data is highly protected. This feature is not a standard for the EMV module, however, most of the new EMV terminals come with this technology. The data of the transactions of the card are transmitted in encrypted formats, making the transactions highly secure.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How does the EMV Chip Card function?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Unlike the cards with just a magnetic strip, the EMV chip cards follow a much more secure format of completing transactions. A typical chip card will follow the steps mentioned below to complete a transaction:</p><ol><li>Insert the card into the terminal.</li><li>The terminal makes contact with the chip on the card.</li><li>Once the chip on the card is activated, the issuer of the card is verified.</li><li>The chip verifies the PIN details after that.</li><li>The chip provides a public key which is used by the terminal to sign the transaction.</li><li>The terminal then sends the information to the bank to receive an official authorisation. Hence, the transaction is completed.</li></ol><p>The EMV Chip Cards cannot be misused as each transaction generates an unique code. The EMV chips also make it easier for the algorithms of credit cards to identify the activities which are fraud in nature.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "What is an NFC Debit Card or Contactless Debit Card?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>As per the norms of the Reserve Bank of India (RBI), transactions which do not cross the mark of Rs.2,000 can be processed without using a PIN. Reports also provide the statistics that in India more than 60% of the financial transactions are below the mark of Rs.2,000. This is where the NFC cards or Contactless cards enter the scene. NFC stands for Near Field Communication. The principle of NFC is applicable for the contactless cards. A contact is established using radio transmission when an NFC-enabled card is waved near a POS terminal. This process does not require the user to swipe the card and enter the PIN. The transaction can be completed just by waving the card.</p><p>Both VISA and MasterCard have rolled out this feature and quite a number of banks are offering the feature on their debit cards and credit cards. If your VISA card has payWave written on it, you can use the card for contactless transactions. In the case of MasterCard, the cards have PayPass written on them.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Things to know about IRCTC RuPay Debit Card",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>IRCTC RuPay debit card was launched by the National Payment Corporation of India (NPCI) and it comes as an additional unit to augment the system of cashless transactions. It functions much like the Visa card or MasterCard and offers both virtual and physical options to cardholders. The card can be used exclusively for booking train tickets through the IRCTC portal. It's the first payment gateway system ever launched in India. Here's a listing of some of the key features and benefits of the IRCTC RuPay prepaid card:</p><ul><li>Enables easy booking of train tickets through the IRCTC portal</li><li>No transaction charges will be deducted for the first six months and users can book up to 5 railway tickets each month</li><li>The project is a result of the combined efforts of IRCTC and Union Bank of India</li><li>After the free usage limit, a transaction charge of Rs.10 will be deducted on each booking</li><li>Accident benefits ranging up to Rs.2,00,000 will be provided to customers who have successfully completed KYC submission</li><li>Reward points will be generated on the transactions. However, IRCTC is yet to specify how to redeem the points collected</li></ul><h3>Options available on IRCTC RuPay Debit Card</h3><p>There are two options available on the card namely Virtual card and Physical card. The Virtual card requires only partial completion of KYC details and the transaction limit offered on the cards is Rs.10,000. It comes with a 1-year validity. Even for a physical card, the max card limit is Rs.10,000 with partial KYC details but with the completion of KYC, the limit can be extended to Rs.50,000. The Virtual card comes for free whereas the physical card will be sent to your registered address for a nominal fee of Rs.50. The Virtual card credentials are sent to the applicant's email address which can be used at the time of booking tickets.</p><p>Add-ons with Rupay Debit Card</p><p>IRCTC has tied up with various brands such as Amazon, BookMyTrain.com, Jubilant Foodworks, etc., to provide more exciting offers on the card. For example, passengers can use the card to order a pizza at some selected stations. The scope of the card is yet to be determined as the government is working out ways to enhance the range of activities it covers. It is likely to be linked with e-catering, tourism, archaeological websites, etc.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Top Banks providing Debit Cards in India",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Indian consumers can choose from a wide range of debit cards offered by various Indian banks which are made to suit their banking requirements. The list of banks are as follows:</p><ol><li>State Bank of India Debit Card SBI provides an eclectic array of Visa, MasterCard, and RuPay debit cards customizing the card features depending on the customer's needs. State Bank of India offers 10 different debit cards comprising of personal and business cards.</li><li>HDFC Bank Debit Card Hassle-free cashless shopping with HDFC debit cards and secure online transactions can be done with on Visa and MasterCard SecureCode platforms. Eleven debit card alternatives are offered by HDFC to Indian customers.</li><li>ICICI Bank Debit Card Pick an ICICI bank debit card of your choice and customize it with an image that is a reflection of your personality. ICICI customers can choose from an extensive selection of 31 cards categorised under Premium, Personal, Business, Expressions and Unifare.</li><li>Axis Bank Debit Card Axis Bank debit cards are packed with privileges and offers and customers also have the option of designing their own debit card. The bank offers a total of 17 debit cards categorised as Business, commercial, premium and other segment cards.</li><li>PNB Debit Card PNB debit cards are offered in collaboration with MasterCard and RuPay and are accepted at multiple merchant outlets worldwide. Customers can choose from 5 different types of debit cards along with add-on card if required.</li><li>Canara Bank Debit Card Customers can enjoy the convenience of cashless shopping with a Canara Bank MasterCard or Visa debit card. Offered in two variants the Canara Bank debit card comes loaded with exclusive privileges and features.</li><li>Bank of India Debit Card Offered on MasterCard, Visa and RuPay payment platforms, the Bank of India debit card is a one-of-a-kind card which is valid for domestic and international transactions. With a wide assortment of cards totalling up to 14, BOI debit cards are customised to suit the needs of every Indian consumer.</li><li>Bank of Baroda Debit Card Bank of Baroda offers six different types of personalized debit cards in association with Visa, MasterCard and RuPay to suit the lifestyle requirements of customers.</li><li>Union Bank of India Debit Card Union Bank of India provides international debit cards with multiple account access and add-on cards on the Verified by Visa (VbV) platform. Union Bank provides two types of debit cards to customers including a RuPay debit card.</li><li>Syndicate Bank Debit Card Customers can transact in a currency of their choice but pay in Rupees using their Syndicate Bank Global Debit Card. With half a dozen debit cards, Syndicate Bank tries to offer convenience and efficiency to its banking customers.</li><li>HSBC Debit Card HSBC offers Visa based debit cards to personal banking customers and HSBC debit cards can be used at multiple merchant outlets and ATMs worldwide. HDFC offers 11 types of debit cards and customers can choose a debit card depending on their savings account.</li><li>IndusInd Bank Debit Card IndusInd Bank offers a mix of international and platinum debit cards on the Verified by Visa platform along with an exciting rewards program for customers. The bank offers four different types of debit cards depending on the account held by the customer.</li><li>Citibank Debit Card Citibank offers debit cards along with savings accounts and customers can enjoy unlimited benefits and add-on features with their Citibank debit cards.</li><li>Standard Chartered Debit Card Access your bank accounts from anywhere in the world, enjoying attractive privileges and offers with a Standard Chartered debit card. Offered in seven different variants, a standard Chartered debit card is a must-have card.</li></ol><p>YES Bank Debit Card YES Bank offers two variants of international MasterCard debit cards namely - Gold and Silver, with unparalleled benefits. YES Bank provides four types of debit cards depending on the customer's requirements.</p>"
+                    },
+                    {
+                        "type": "accordion",
+                        "items": [
+                            {
+                                "title": " Debit Cards in India",
+                                "body": "<p>With the advent of debit cards in the 1970s, a consumer’s life became much simpler. Gone are the days when shoppers across the globe used to carry wads of cash in their wallets and stand in long queues to withdraw money from their banks. Payments these days are done with just a swipe or a tap of a card. Older generations would probably have faced challenges like falling short of cash and not having enough to cover a bill but today users would just pick up their debit cards to pay up in a matter of minutes. The popularity of ‘plastic money’ or a debit card has increased phenomenally with financial institutions issuing them with personalized features and designs. As an easy alternative to cash, debits cards are useful to manage your day-to-day expenses, allowing you to plan your budget without overspending. The biggest advantage that a debit card offers to a user is that during every transaction the money is drawn from the customer’s bank account that the card is linked to. Debit cards have been increasingly used for online transactions or purchases on secure payment platforms offered by banks as part of their e-banking solutions.</p><p>Almost every bank in India offers debit cards with different features and benefits depending on the bank account held by the user. Generally these debits cards are issued in collaboration with various payment platforms to provide a secure platform for users to transact on. The most common payment platforms used by banks in India include the following</p>"
+                            },
+                            {
+                                "title": " How does a debit card work?",
+                                "body": "<p>Debits cards are generally linked to a particular bank account belonging to a customer. Banks provide customers with debit cards for every savings, current or overseas accounts they open. In some cases a single debit card can also be linked to multiple bank accounts. A debit card allows a user to purchase goods at merchant outlets or online stores and also doubles up as an ATM card to perform various bank transactions and withdraw cash. When a debit card swipe happens, the money comes directly out of the customer’s bank account and is immediately transferred to the merchant. Instant payments with instantly available cash. Unlike credit cards, debit cards do not require bill payments on a later date as the money is paid then and there. Debit card users receive monthly statements which give them an idea about their card spends and ATM transactions, helping them track and plan their expenses.</p>"
+                            },
+                            {
+                                "title": " What is a debit card PIN?",
+                                "body": "<p>‘PIN’ stands for Personal Identification Number. A debit card PIN is a four digit numerical code, provided as a security feature while performing card purchase transactions. When a customer opens a savings or a current account, the bank provides a debit card along with the corresponding PIN to be used while transacting using the debit card. Customers have the option of changing or setting PINs of their choice if they have forgotten or lost their current PINs. The Reserve Bank of India mandates the use of PIN while making purchases at merchant outlets using debit cards as a security measure. Banking customers are always advised to keep their PINs safe and not share it with other individuals as a move to provide protection to their bank accounts.</p>"
+                            },
+                            {
+                                "title": "How do I choose a debit card?",
+                                "body": "<p>Customers holding savings or current accounts must always choose a debit card suitable to their accounts and the expenses they would incur. Compare a few debit cards before you actually make your choice. Understand what each card offers, the fees levied, the services offered and the minimum balance requirements before signing off on a card. Additionally some debit cards also offer rewards programs and these would be beneficial to higher spenders. Also make sure that while performing e-commerce or online transactions, the bank and the payment platforms are secure to avoid any fraudulent activity on your debit cards. Always choose a card best suited to your financial needs and not because the card is packed with privileges and offers.</p>"
+                            },
+                            {
+                                "title": " Tips to use your debit card safely",
+                                "body": "<p>Debit cards serve different purposes, and are convenient to use. It relieves us of the burden of carrying a cash heavy wallet around. But as every good thing comes with a flipside, debit cards are easily susceptible to fraudulent attacks. It is true that every debit card transaction is conducted through secure platforms yet they are susceptible to all kinds of hacking and cyber-attacks. To avoid being a victim of debit card frauds, you need to know how to use your debit cards safely.</p><p>Here are a few useful tips to prevent misuse of your debit card -</p><p><strong>Keep your PIN a secret -</strong> The first rule that governs the usage of a debit card is to keep your debit card PIN safe and secure. Memorise the 4 digit PIN by heart, and make sure that you don't write it down anywhere, or share it with anyone. Also, never give your PIN to anyone over the phone, email, social media, and such like.</p><p><strong>Report loss of your Debit Card -</strong> Loss of card should be immediately reported to the financial institution to hot list the card, in an effort to prevent fraud.</p><p><strong>Keep an eye on your email -</strong> This is the easiest and most common way to identify fraudulent transactions, if any, occurring via your debit card. As soon as a transaction is made using the card, an email is generated intimating the cardholder about it.</p><p><strong>Follow RBI's mandate -</strong> Make sure that you authenticate every PoS transaction by entering your PIN and completing the entire purchase transaction.</p><p><strong>Make online payments through secure platforms -</strong> With the advent of online shopping, cyber safety has become a cause of deep concern. You have to be cautious while carrying out a transaction online and paying via your debit card. Look for secure online payment symbols, and ensure that you use your debit cards only on secure websites asking for authentication. The two-tier authentication process that secure sites require is a measure to prevent debit card credentials from getting leaked.</p><p><strong>Follow SMS alerts -</strong> An easy way to keep a track of your debit card spend is to set-up alerts from your bank in the form of SMS or mail statements containing details of every single purchase or transactions you have done.</p><p><strong>Keep your card protected -</strong> If the magnetic strip behind your card gets damaged, you cannot carry out any transactions by swiping your card. Please make sure that you do not expose your card to dirt, sharp objects, and other magnetic objects.</p><p><strong>Keep a track of your money in the account -</strong>Review your account statement often to know where and how much have you been spending. If you come across any unauthorised transactions, report it to the bank, immediately. This can be a significant step in preventing you from becoming a victim of fraudulent transactions.</p>"
+                            },
+                            {
+                                "title": " Benefits of Debit Card",
+                                "body": "<ul><li>Debit cards are a convenient alternative to cash. They are easy to carry and can be handled easily. Since you do not have carry cash or cheque book if you have a debit card, it is a safe option when travelling.</li><li>Debit cards can be used to withdraw cash from an ATM and also for merchant transactions at Point of Sale (PoS) terminals. A debit card ensures instant transfer of funds and receipts of services.</li><li>With banks offering exciting features like bonus points, cash back offers, free insurance coverage and an array of redeeming options for accumulated points, debit cards will make your whole purchase experience more rewarding.</li><li>Debit cards encourages a habit of responsible spending since the cardholder can only utilize their own money within account limits. It also helps in better budgeting and money management since the transactions are recorded.</li><li>A debit card offers greater security and thus decreases the chances of fraud, theft and misuse.</li><li>You can easily keep tracks of your spends with features like email and SMS alerts that contain details of transactions done using the debit card. Many banks also allow you to customize the add-on benefits to gain the maximum from your debit card.</li></ul>"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "Debit Cards-FAQs",
+            "items": [
+                {
+                    "question": "Q. Can multiple accounts be linked to a debit card?",
+                    "answer": "<p>A. Yes, some banks give customers the option of linking several bank accounts to a single debit card.</p>"
+                },
+                {
+                    "question": "Q.Do banks block debit cards if customers enter the wrong PIN during cash withdrawals?",
+                    "answer": "<p>A. Yes, any bank would block a customer's debit card after three unsuccessful attempts at an ATM as a protective measure.</p>"
+                },
+                {
+                    "question": "Q. Is the overdraft facility available with debit cards?",
+                    "answer": "<p>A. Overdraft facility is available with the savings account linked to a debit card but is not applicable on a particular debit card.</p>"
+                },
+                {
+                    "question": "Q.What are the different costs associated with a debit card?",
+                    "answer": "<p>A. Some banks might charge issuance fees, ATM withdrawal charges, and annual fees for the use of debit cards.</p>"
+                },
+                {
+                    "question": "Q.In India, what are the two types of debit cards generally issued to users?",
+                    "answer": "<p>A. Indian Banks provide personalized and non-personalized variants to debit card users. Personalized debit cards additionally contain the user's name and photograph. Non-Personalized cards will just have the bank logo, card details and the payment platform logo without any user related information.</p>"
+                }
+            ]
+        },
+        "references": [
+            {
+                "title": " Read More about Debit Cards",
+                "items": [
+                    {
+                        "link": "/debit-card/debit-cards-vs-credit-cards.html",
+                        "title": "Debit Cards Vs Credit Cards"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-fuel.html",
+                        "title": "Debit Cards for Fuel"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-online-shopping.html",
+                        "title": "Debit Cards for Online Shopping"
+                    },
+                    {
+                        "link": "/debit-card/prepaid-cards-for-international-travel.html",
+                        "title": "Prepaid Cards for International Travel"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-movie-tickets.html",
+                        "title": "Debit Cards for Movie Tickets"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-students.html",
+                        "title": "Debit Cards for Students"
+                    },
+                    {
+                        "link": "/debit-card/international-debit-cards.html",
+                        "title": "International Debit Cards"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-shopping.html",
+                        "title": "Debit Cards for Shopping"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-restaurants.html",
+                        "title": "Debit Cards for Restaurants"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-emi.html",
+                        "title": "Debit Cards for EMI"
+                    },
+                    {
+                        "link": "/debit-card/new-atm-transaction-charges.html",
+                        "title": "New ATM Transaction Charges"
+                    },
+                    {
+                        "link": "/debit-card/rupay-debit-card.html",
+                        "title": "Rupay Debit Card"
+                    },
+                    {
+                        "link": "/debit-card/prepaid-cards.html",
+                        "title": "Prepaid Card"
+                    },
+                    {
+                        "link": "/debit-card/international-debit-cards.html",
+                        "title": "International Debit Card"
+                    }
+                ]
+            },
+            {
+                "title": " Related Saving Schemes Pages",
+                "items": [
+                    {
+                        "link": "/saving-schemes/how-to-check-your-epf-balance-online.html",
+                        "title": "EPF Balance"
+                    },
+                    {
+                        "link": "/saving-schemes/know-about-epfo-universal-account-number.html",
+                        "title": "UAN Registration"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-access-uan-account-after-changing-mobile-number.html",
+                        "title": "UAN Login"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-check-pf-status-online.html",
+                        "title": "EPF Status"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-check-epf-balance-sms.html",
+                        "title": "EPF Balance Enquiry SMS"
+                    },
+                    {
+                        "link": "/saving-schemes/ppf.html",
+                        "title": "PPF Account"
+                    },
+                    {
+                        "link": "/saving-schemes/pf-withdrawal-rules.html",
+                        "title": "EPF Withdrawal Rules"
+                    },
+                    {
+                        "link": "/saving-schemes/sukanya-samriddhi-account-calculator.html",
+                        "title": "Sukanya Samriddhi Yojana Calculator"
+                    },
+                    {
+                        "link": "/saving-schemes/sbi-ppf-account.html",
+                        "title": "SBI PPF"
+                    },
+                    {
+                        "link": "/saving-schemes/atal-pension-yojana.html",
+                        "title": "Atal Pension Yojna"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-login-to-epfo-member-portal.html",
+                        "title": "EPFO Member Login"
+                    },
+                    {
+                        "link": "/saving-schemes/public-provident-fund-withdrawal-rules-and-process.html",
+                        "title": "PPF Withdrawal"
+                    },
+                    {
+                        "link": "/saving-schemes/epf.html",
+                        "title": "EPF"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-get-your-name-changed-in-the-epf.html",
+                        "title": "How to Change Name in UAN"
+                    },
+                    {
+                        "link": "/saving-schemes/all-about-the-employee-pf-account-number.html",
+                        "title": "PF Number"
+                    },
+                    {
+                        "link": "/saving-schemes/uan.html",
+                        "title": "UAN"
+                    }
+                ]
+            },
+            {
+                "title": " Related Savings Account Pages",
+                "items": [
+                    {
+                        "link": "/savings-account/sbi-savings-account.html",
+                        "title": "SBI Saving Account Interest Rate"
+                    },
+                    {
+                        "link": "/savings-account/zero-balance-saving-account.html",
+                        "title": "Zero Balance Account"
+                    },
+                    {
+                        "link": "/savings-account.html",
+                        "title": "Best Bank in India"
+                    },
+                    {
+                        "link": "/savings-account/savings-account-interest-rates.html",
+                        "title": "Savings Account Interest Rate"
+                    },
+                    {
+                        "link": "/savings-account/hdfc-bank-savings-account.html",
+                        "title": "HDFC Saving Account"
+                    },
+                    {
+                        "link": "/savings-account/banks-with-highest-savings-account-interest-rates-in-india.html",
+                        "title": "High Interest Savings Accounts"
+                    },
+                    {
+                        "link": "/savings-account/axis-bank-savings-account.html",
+                        "title": "Axis Bank Minimum Balance"
+                    },
+                    {
+                        "link": "/savings-account/punjab-national-bank-savings-account.html",
+                        "title": "PNB Saving Account Interest Rate"
+                    },
+                    {
+                        "link": "/savings-account/icici-bank-savings-account.html",
+                        "title": "ICICI Bank Minimum Balance"
+                    },
+                    {
+                        "link": "/savings-account/kotak-net-banking.html",
+                        "title": "Kotak Mahindra Bank Net Banking"
+                    },
+                    {
+                        "link": "/savings-account/citibank-savings-account.html",
+                        "title": "Citibank Savings Account"
+                    },
+                    {
+                        "link": "/savings-account/yes-bank-savings-account.html",
+                        "title": "Yes Bank Saving Account"
+                    },
+                    {
+                        "link": "/savings-account/rbl-bank-savings-account.html",
+                        "title": "RBL Bank Account Opening"
+                    },
+                    {
+                        "link": "/savings-account/kotak-mahindra-bank-saving-account.html",
+                        "title": "Kotak Saving Account"
+                    },
+                    {
+                        "link": "/savings-account/andhra-bank-savings-account.html",
+                        "title": "Andhra Bank Online Account Opening"
+                    }
+                ]
+            }
+        ],
+        "disclaimer": {
+            "text": "<p>Display of any trademarks, tradenames, logos and other subject matters of intellectual property belong to their respective intellectual property owners. Display of such IP along with the related product information does not imply BankBazaar's partnership with the owner of the Intellectual Property or issuer/manufacturer of such products.</p>"
         }
     }
 }

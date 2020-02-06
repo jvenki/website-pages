@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import { extractHeadingText } from "./Utils";
 
 export default class SectionHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.get(0).tagName == "h2";
     }
 

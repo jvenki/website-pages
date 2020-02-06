@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {assert} from "./Utils";
 
 export class VideoHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("video-section");
     }
 

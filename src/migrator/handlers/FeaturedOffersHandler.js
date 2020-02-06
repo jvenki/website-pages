@@ -5,7 +5,7 @@ import {assert, extractHeadingText, extractContentHtml, extractImgSrc} from "./U
 import { ConversionIssueCode } from "../MigrationError";
 
 export class FeaturedOffersHandlerVariant_BorderBlue extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType) {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return $e.get(0).tagName == "div" && $e.hasClass("border-blue") 
             && $e.find("h5").length > 0 && $e.find("img").length > 0;
     }
@@ -55,7 +55,7 @@ export class FeaturedOffersHandlerVariant_BorderBlue extends BaseHandler {
 
 
 export class FeaturedOffersHandlerVariant_Template extends BaseHandler {
-    isCapableOfProcessingElement($e: CheerioElemType) {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return $e.get(0).tagName == "div" && $e.hasClass("col-md-12") && $e.hasClass("top-pad-10") 
             && $e.children().eq(0).get(0).tagName == "h2"
             && $e.find("img").length > 0;

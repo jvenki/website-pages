@@ -3,10 +3,10 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import {findHandlerForElement} from ".";
 import {logger} from "../Logger";
-import {computePathNameToElem, removePaddingClass, removePositioningClass, removeBorderClasses, removeBGClasses} from "./Utils";
+import {computePathNameToElem, removePaddingClass, removePositioningClass, removeBorderClasses, removeBGClasses, hasClass} from "./Utils";
 
 export default class UnwrapHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.get(0).tagName == "div" && isDivUnnecessary($element);
     }
 
@@ -74,7 +74,7 @@ export const processElementsInsideDiv = ($element: CheerioElemType, $: CheerioDo
     
     while (i < $element.children().length) {
         const $currElem = $element.children().eq(i);
-        const childElemHandler = findHandlerForElement($currElem);
+        const childElemHandler = findHandlerForElement($currElem, $);
         if (!currHandler || (currHandler.getName() == childElemHandler.getName())) {
             logger.debug(`                ${handlerName}: Processing Child Node '${computePathNameToElem($currElem, $)}' : Identified Handler as '${childElemHandler.getName()}' - Adding it to collection`);
             currHandler = childElemHandler;
@@ -89,5 +89,3 @@ export const processElementsInsideDiv = ($element: CheerioElemType, $: CheerioDo
     process(currElements, currHandler);
     return output;
 };
-
-const hasClass = (node, regex) => ((node.attribs || {}).class || "").match(regex);

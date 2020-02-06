@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import { assert } from "./Utils";
 
 export default class IFrameHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.get(0).tagName == "iframe";
     }
 

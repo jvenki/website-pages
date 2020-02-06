@@ -3,7 +3,7 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 
 export default class NoopWarningHandler extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType): boolean {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         const e = $element.get(0);
         if (e.tagName == "div") {
             // We dont blindly allow DIVs in our conversion. 
