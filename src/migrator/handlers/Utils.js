@@ -1,6 +1,6 @@
 import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
-import {headingRegex as referenceesHeadingRegex} from "./ReferencesHandler";
+import {headingRegex as referencesHeadingRegex} from "./ReferencesHandler";
 import {without} from "lodash";
 
 export const assert = (condition, errorMsg, $e) => {
@@ -65,7 +65,22 @@ export const removeBGClasses = (classNames) => {
 };
 
 export const isElementAHeadingNode = ($e) => ["h2", "h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
-export const isElementAContentNode = ($e) => isElementATextualNode($e) || isElementATableNode($e) || (isElementASubHeadingNode($e) && !$e.text().match(faqHeadingRegex) && !$e.text().match(referenceesHeadingRegex));
+export const isElementAContentNode = ($e) => {
+    if (isElementATableNode($e)) {
+        return true;
+    } else if (isElementATextualNode($e)) {
+        if ($e.find("strong") && ($e.find("strong").text().match(faqHeadingRegex) || $e.find("strong").text().match(referencesHeadingRegex))) {
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
+        }
+        return true;
+    } else if (isElementASubHeadingNode($e)) {
+        if ($e.text().match(faqHeadingRegex) || $e.text().match(referencesHeadingRegex)) {
+            return false;
+        }
+        return true;
+    }
+    return false;
+};
 
 const isElementASubHeadingNode = ($e) => ["h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
 const isElementATextualNode = ($e) => ["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName) || $e.get(0).type == "text";
