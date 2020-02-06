@@ -23,6 +23,9 @@ const isDivUnnecessary = ($e) => {
     classNames = removeBGClasses(removeBorderClasses(removePositioningClass(removePaddingClass(classNames))));
     if (classNames == "") {
         return true;
+    } else if ($e.hasClass("hungry-table") || $e.hasClass("js-hungry-table")) {
+        // We dont care about this DIV. We care only about the table inside. Therefore lets remove this.
+        return true;
     } else if (containsOnlyGridRowClasses(classNames) && ($e.children().length == 1 || !allChildrenAreGridCell())) {
         return true;
     } else if (containsOnlyGridCellClasses(classNames) && isOnlyChild()) {
@@ -73,11 +76,13 @@ export const processElementsInsideDiv = ($element: CheerioElemType, $: CheerioDo
         const $currElem = $element.children().eq(i);
         const childElemHandler = findHandlerForElement($currElem);
         if (!currHandler || (currHandler.getName() == childElemHandler.getName())) {
-            logger.debug(`            ${handlerName}: Processing Child Node '${computePathNameToElem($currElem, $)}' : Identified Handler as '${childElemHandler.getName()}'`);
+            logger.debug(`                ${handlerName}: Processing Child Node '${computePathNameToElem($currElem, $)}' : Identified Handler as '${childElemHandler.getName()}' - Adding it to collection`);
             currHandler = childElemHandler;
-            currElements.push($currElem);
-            i++;
+            const elementsExpandedFromI = childElemHandler.walkToPullRelatedElements($currElem, $);
+            currElements.push(...elementsExpandedFromI);
+            i+=elementsExpandedFromI.length;
         } else {
+            logger.debug(`            ${handlerName}: Processing Collection  of size ${currElements.length} using '${currHandler.getName()}'`);
             process(currElements, currHandler);
         }
     }
