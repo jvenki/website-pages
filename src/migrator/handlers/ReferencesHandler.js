@@ -115,17 +115,25 @@ export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
 export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         const allChildrenAreAccordion = () => $e.children().get().every((c) => $(c).hasClass("twi-accordion"));
-        const allAccordionAreReferences = () => {
+        const allPanelBodiesAreReferences = () => {
             const panelBodies = $e.find(".twi-accordion .panel-body").get();
             return panelBodies.length > 0 && panelBodies.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "li", "a"]));
         };
-        return $e.hasClass("row") && allChildrenAreAccordion() && allAccordionAreReferences();
+        const allPanelHeadingsAreReferences = () => {
+            const panelHeadings = $e.find(".twi-accordion .panel-heading").get();
+            return panelHeadings.length > 0 
+                && panelHeadings.every((panel) => {
+                    const currPanelChildren = $(panel).children().get();
+                    return currPanelChildren[0].tagName == "h2" && currPanelChildren.slice(1).every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"]));
+                });
+        };
+        return $e.hasClass("row") && allChildrenAreAccordion() && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences());
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const targetElements = elements[0].find(".twi-accordion").map((i, root) => {
-            const title = extractHeadingText($(root).find("strong.panel-title a"));
-            const items = $(root).find(".panel-body a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+            const title = extractHeadingText($(root).find("strong.panel-title a, .panel-heading h2 strong"));
+            const items = $(root).find("ul li a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
             return {type: "references", title, items};
         }).get();
         return {elements: targetElements};
