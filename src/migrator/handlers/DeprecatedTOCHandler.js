@@ -32,9 +32,12 @@ export class DeprecatedTOCHandlerVariant_TableOfAsOnly extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         const containsOnly2Cells = () => $e.find("td,th").length == 2;
         const lastCellMadeUpOfOnlyULofLIofA = () => {
-            return isElementMadeUpOfOnlyWithGivenDescendents($e.find("td").last(), ["ul", "li", "a"], $);
+            return isElementMadeUpOfOnlyWithGivenDescendents($e.find("td").last(), ["ul", "li", "a"], $)
+             || isElementMadeUpOfOnlyWithGivenDescendents($e.find("td").last(), ["ol", "li", "a"], $)
+             || isElementMadeUpOfOnlyWithGivenDescendents($e.find("td").last(), [  "li", "a"], $);
         };
-        return $e.hasClass("hungry-table") && containsOnly2Cells() && lastCellMadeUpOfOnlyULofLIofA() && areAllAnchorsOnlyLocalLinks($e);
+        return ($e.hasClass("hungry-table") || $e.get(0).tagName == "table") 
+            && containsOnly2Cells() && lastCellMadeUpOfOnlyULofLIofA() && areAllAnchorsOnlyLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {

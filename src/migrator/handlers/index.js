@@ -18,7 +18,7 @@ import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_Headin
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly, DeprecatedTOCHandlerVariant_TableOfAsOnly } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
-import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_CntrOfLinks } from "./ReferencesHandler";
+import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandler } from "./LandingBanner";
@@ -39,7 +39,8 @@ const handlers = [
     new ReferencesHandlerVariant_GridOfAccordions(),
     new ReferencesHandlerVariant_UsefulLinks(),
     new ReferencesHandlerVariant_GridOfInterlink(),
-    new ReferencesHandlerVariant_CntrOfLinks(),
+    new ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks(),
+    new ReferencesHandlerVariant_TableOfLinks(),
     new FAQHandlerVariant_HeadingRegexAndDivWithSchema(),
     new FAQHandlerVariant_HeadingRegexFollowedByPs(),
     new FAQHandlerVariant_HeadingRegexFollowedByH3AndPs(),
