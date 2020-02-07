@@ -141,3 +141,19 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
         return {elements: targetElements};
     }
 }
+
+export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
+        return $element.hasClass("useful-links") 
+            && $element.children().length == 2
+            && isElementAHeadingNode($element.children().eq(0))
+            && ["ul", "ol"].includes($element.children().eq(1).get(0).tagName);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].children().first(), $);
+        const items = elements[0].find("ul > li > a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title, elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
