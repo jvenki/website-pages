@@ -27475,15 +27475,6 @@
                     {
                         "type": "text",
                         "body": "<p>Most SBI cards allow you to earn <a href=\"/sbi-credit-card-reward-points.html\">Shop-and-Smile Reward Points</a> which have a validity of 2 years. Use your card to make purchases to earn points on each transaction. It is important to keep in mind the specific spend categories for which you can earn maximum Reward Points.</p><p>Once you have accumulated the points, you can redeem them for exclusive gifts, shopping vouchers, and more. Points redemption can be done on the SBI website or through the mobile app. Sign in with your login information and redeem your points for any of the products in the catalogue.</p><p>You can call SBI card helpline 1860 180 1290 or 39 02 02 02 with your local STD code or write to them to redeem your points. Your gift will be delivered to the registered address.</p>"
-                    },
-                    {
-                        "type": "accordion",
-                        "items": [
-                            {
-                                "title": " Find SBI IFSC Code:",
-                                "body": "<ul><li><a href=\"/ifsc-code/state-bank-of-india.html\">SBI IFSC Code</a></li></ul>"
-                            }
-                        ]
                     }
                 ]
             }
@@ -27539,6 +27530,15 @@
                     {
                         "link": "/canara-bank-credit-card.html",
                         "title": "Canara Bank Credit Card"
+                    }
+                ]
+            },
+            {
+                "title": " Find SBI IFSC Code:",
+                "items": [
+                    {
+                        "link": "/ifsc-code/state-bank-of-india.html",
+                        "title": "SBI IFSC Code"
                     }
                 ]
             }
@@ -31833,6 +31833,75 @@
                     {
                         "link": "/tax/income-declaration-scheme.html",
                         "title": "Income Declaration Scheme"
+                    }
+                ]
+            }
+        ]
+    },
+    "5536": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Darcl is one among the most well-reputed transport and logistics companies and it has been in the industry for around 30 years. The firm has an impressive customer base, good turnover and a wide network of branches. <a href=\"/fixed-deposit/darcl-fixed-deposit.html\">Darcl fixed deposits (FD)</a> offer an attractive rate of return and customers can choose to invest in cumulative and non-cumulative time deposit schemes.</p><p><strong>Given below are the revised and updated Darcl fixed deposit rates for non-cumulative and cumulative schemes for regular and senior citizens:</strong></p><table><thead><tr><th colspan=\"3\">Cumulative Deposit Scheme</th></tr><tr><th>Tenure</th><th>Regular Interest rate (per annum)</th><th>Senior Citizen Interest rate (per annum)</th></tr></thead><tbody><tr><td>6 months</td><td>6.75%</td><td>7.25%</td></tr><tr><td>1 year</td><td>7.25%</td><td>7.75%</td></tr><tr><td>2 years</td><td>7.50%</td><td>8.00%</td></tr><tr><td>3 years</td><td>7.75%</td><td>8.25%</td></tr></tbody></table><p>*The minimum deposit amount should be Rs.20,000</p><table><thead><tr><th colspan=\"3\">Non-Cumulative Deposit Scheme</th></tr><tr><th>Tenure</th><th>Regular Interest rate (per annum)</th><th>Senior Citizen Interest rate (per annum)</th></tr></thead><tbody><tr><td>6 months to less than 1 year</td><td>6.75%</td><td>7.25%</td></tr><tr><td>1 year to less than 2 years</td><td>7.25%</td><td>7.75%</td></tr><tr><td>2 years to less than 3 years</td><td>7.50%</td><td>8.00%</td></tr><tr><td>3 years</td><td>7.75%</td><td>8.25%</td></tr></tbody></table><p>*The minimum deposit amount should be Rs.50,000</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Darcl Fixed Deposit Interest Rates - Cumulative",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>In a cumulative FD scheme, the interest will be paid to the depositor at the time of maturity along with the principal.</li><li>The range at which interest is paid begins from 6.75% p.a. and can go up to 7.75% p.a.</li><li>The yearly interest yield is estimated to stand at 8.63% p.a. for a tenure of 3 years and 8.01% p.a. for a tenure of 24 months. These are the high-yielding tenure slabs.</li><li>As far as the interest rate is concerned, the highest FD rate paid is 7.75% p.a. for an investment period of 3 years.</li><li>It is important to note here that for any investment that is made for 1 year and more, the interest rate paid will be more than 7.00% p.a.</li><li>For 2 years, the rate paid is 7.50%, while for 1 year, the rate paid is 7.25% p.a.</li><li>The shortest tenure of 6 months will still give the investor more than 6.00% p.a. - that is exactly 6.75% p.a. for a minimum deposit amount of Rs.20,000</li><li>Lets say a customer decides to invest Rs.20,000 for 1 year. The maturity value of the deposit in this case will be approximately Rs.21,450.</li><li>Interest is compounded on a quarterly basis for all Darcl cumulative deposit schemes.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Darcl Fixed Deposit Interest Rates - Non- Cumulative",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>The interest payment in case of non-cumulative Darcl deposits will be made every quarter (once in three months).</li><li>While the interest rates paid are on similar lines with that of cumulative deposits, the tenure slab will vary.</li><li>The rate at which interest is paid will again range from 6.75% p.a. to 7.75% p.a.</li><li>The tenure slabs start from a minimum of 6 months to less than 12 months, 12 months to less than 2 years, and so on as mentioned in the table above.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Darcl Senior Citizen Fixed Deposit Interest Rates",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>All senior citizens will be paid at least 0.50% higher than the regular individual and this category of customers can choose to invest in both cumulative and non-cumulative FD schemes.</li><li>The highest interest rate that is paid for a person who fits in to this age group is 8.25% p.a. for a deposit that is held for a minimum of 3 years.</li><li>For those pensioners who keep their money in a Darcl FD from 2 years to less than 3 years, the interest payment will be at the rate of 8.00% p.a.</li><li>All other remaining tenure slabs also pay a good rate of interest that will work out to be more than 7.00% p.a.</li><li>Specifically, an investment made in a non-cumulative FD for 6 months to less than 1 year will pay the senior citizen depositor at the rate of 7.25% p.a.</li></ul>"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Useful Links",
+                "items": [
+                    {
+                        "link": "/fixed-deposit-rate.html",
+                        "title": "Compare Fixed Deposit rates of Darcl Logistics Limited with other institutions »"
+                    },
+                    {
+                        "link": "/fixed-deposit/darcl-fixed-deposit.html",
+                        "title": "Check your eligibility for an Darcl Logistics Limited Fixed Deposit »"
+                    },
+                    {
+                        "link": "/fixed-deposit/apply-for-darcl-fixed-deposit.html",
+                        "title": "Check for Darcl Logistics Limited Fixed Deposit »"
                     }
                 ]
             }
