@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractImgSrc, extractLinkText, assert} from "./Utils";
+import {extractImgSrc, extractLink, extractLinkText, assert} from "./Utils";
 
 export class LandingBannerHandler extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
@@ -16,7 +16,7 @@ export class LandingBannerHandler extends BaseHandler {
         const imgTitle = $imgElem.attr("title") || $imgElem.attr("alt");
 
         const $linkElem = $element.find("div.cta-btn > a");
-        const link = $linkElem.attr("href");
+        const link = extractLink($linkElem);
         const linkText = extractLinkText($linkElem, $);
 
         const $itemsElem = $element.find("div.column-right > ul");

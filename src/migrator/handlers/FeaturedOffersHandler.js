@@ -1,8 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {assert, extractHeadingText, extractContentHtml, extractImgSrc} from "./Utils";
-import { ConversionIssueCode } from "../MigrationError";
+import {assert, extractLink, extractHeadingText, extractContentHtml, extractImgSrc} from "./Utils";
 
 export class FeaturedOffersHandlerVariant_BorderBlue extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
@@ -42,7 +41,7 @@ export class FeaturedOffersHandlerVariant_BorderBlue extends BaseHandler {
             const $bodyBox = $titleBox.nextAll("div");
         
             const title = extractHeadingText($titleBox.find("h5 > a"), $) || extractHeadingText($titleBox.find("h5"), $);
-            const link = $titleBox.find("h5 > a").attr("href");
+            const link = extractLink($titleBox.find("h5 > a"));
             const imgSrc = extractImgSrc($titleBox.find("img"));
             const body = extractContentHtml($bodyBox, $);
             assert(Boolean(title) && Boolean(imgSrc) && Boolean(body), "FeaturedOffersHandlerVariant_BorderBlue-ConditionNotMet#5", $offerElement);

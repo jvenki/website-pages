@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import { extractHeadingText, extractLinkText, isElementAHeadingNode, isElementATableNode, assert, isElementMadeUpOfOnlyWithGivenDescendents } from "./Utils";
+import { extractHeadingText, extractLink, extractLinkText, isElementAHeadingNode, isElementATableNode, assert, isElementMadeUpOfOnlyWithGivenDescendents } from "./Utils";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), "ReferencesHandler-CannotExtractReferences", $e);
 
@@ -15,7 +15,7 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const title = extractHeadingText($element.find("h2,h3,h4,h5,h6,h7").eq(0), $);
-        const items = $element.find("li > a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = $element.find("li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, $element);
         return {elements: [{type: "references", title, items}]};
     }
@@ -35,7 +35,7 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0], $);
-        const items = elements[1].find("a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -48,7 +48,7 @@ export class ReferencesHandlerVariant_InterlinksOfAccordion extends BaseHandler 
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = elements[0].find(".panel-heading a").text();
-        const items = elements[0].find(".panel-body a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find(".panel-body a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -61,7 +61,7 @@ export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("> strong"), $);
-        const items = elements[0].find("> ul a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("> ul a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -74,7 +74,7 @@ export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("nav h3"), $);
-        const items = elements[0].find("nav a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("nav a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -90,7 +90,7 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".panel-title a"), $);
-        const items = elements[0].find(".panel-body a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find(".panel-body a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -106,7 +106,7 @@ export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("h3.news-head"), $);
-        const items = elements[0].find("ul.insurer-widget > li > a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("ul.insurer-widget > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -135,7 +135,7 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const targetElements = elements[0].find(".twi-accordion").map((i, root) => {
             const title = extractHeadingText($(root).find("strong.panel-title a, .panel-heading h2 strong"));
-            const items = $(root).find("ul li a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+            const items = $(root).find("ul li a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
             return {type: "references", title, items};
         }).get();
         return {elements: targetElements};
