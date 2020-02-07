@@ -9205,5 +9205,482 @@
                 ]
             }
         ]
-    }
+    },
+    "5336": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "$LPD_EMBEDDED_ITEM_TAX<p>Incorporated in 2004, Yes Bank has grown steadily to offer various types of products and services such as wealth management, investment banking and corporate finance among others. Headquartered in Mumbai, Yes Bank is the fifth biggest (private sector) bank with 630 branches spread across India.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Tax Saving Options Offered by Yes Bank:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Your choice of investments should encompass your tax saving goals as well. Your tax saving options will, however, depend on your age, income, lifestyle, financial goals and so forth. There are various tax saving instruments such as life insurance, health insurance, ELSS, ULIPS and RGESS among others.</p><p><strong>Yes Bank </strong>offers various <strong>tax saving instruments </strong>as listed below:</p><ol><li><p><strong>Tax Saving Fixed Deposit</strong></p></li><li><p><strong>Life Insurance</strong></p></li><li><p><strong>Health Insurance</strong></p></li><li><p><strong>Equity-linked Savings Schemes</strong></p></li></ol>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "1.Yes Bank Tax Saver Fixed Deposit:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Yes Bank offers a five-year fixed deposit scheme with assured returns. Yes Bank offers competitive interest rates on its tax saver fixed deposit scheme. The minimum deposit amount is Rs.10,000 while the maximum deposit amount is Rs.1 lakh. Senior citizens can avail of an additional interest of 0.75% above the interest offered for regular depositors. You can avail of the option to reinvest the interest you earned on a quarterly basis.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "2. Yes Bank Life Insurance:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Yes Bank offers life insurance policies which offer protection in the long term along with investment options. You can avail of tax exemptions at the time of growth and maturity.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "3. Yes Bank Health Insurance:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Yes Bank offers a health insurance cover which helps you not only fund your medical emergencies but also save on tax</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "4. Yes Bank Equity-linked Savings Schemes:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Yes Bank offers equity mutual funds with a minimum lock-in period of 3 years. You can avail of tax exemption at all stages of the product’s lifecycle.</p>$LPD_EMBEDDED_ITEM_TAX_3"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Tax Saving Options",
+                "items": [
+                    {
+                        "link": "/tax/tax-saving-schemes.html",
+                        "title": "Tax Saving Schemes"
+                    },
+                    {
+                        "link": "/tax/tax-savings-bonds.html",
+                        "title": "Tax Saving Bonds"
+                    },
+                    {
+                        "link": "/tax/save-money-on-tax.html",
+                        "title": "How to Save Tax"
+                    },
+                    {
+                        "link": "/tax/save-tax-with-andhra-bank.html",
+                        "title": "Save Tax With Andhra Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-allahabad-bank.html",
+                        "title": "Save Tax With Allahabad Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-axis-bank.html",
+                        "title": "Save Tax With Axis Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-bank-of-baroda.html",
+                        "title": "Save Tax With Bank Of Baroda"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-canara-bank.html",
+                        "title": "Save Tax With Canara Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-central-bank-of-india.html",
+                        "title": "Save Tax With Central Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-city-union-bank.html",
+                        "title": "Save Tax With City Union Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-corporation-bank.html",
+                        "title": "Save Tax With Corporation Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-dcb-bank.html",
+                        "title": "Save Tax With Dcb Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-dena-bank.html",
+                        "title": "Save Tax With Dena Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-dhanlaxmi-bank.html",
+                        "title": "Save Tax With Dhanlaxmi Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-federal-bank.html",
+                        "title": "Save Tax With Federal Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-hdfc-bank.html",
+                        "title": "Save Tax With Hdfc Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-icici-bank.html",
+                        "title": "Save Tax With Icici Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-idbi-bank.html",
+                        "title": "Save Tax With Idbi"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-indian-bank.html",
+                        "title": "Save Tax With Indian Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-indusind-bank.html",
+                        "title": "Save Tax With Indusind Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-iob.html",
+                        "title": "Save Tax With Iob"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-karur-vysya-bank.html",
+                        "title": "Save Tax With Karur Vysya Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-kotak-mahindra-bank.html",
+                        "title": "Save Tax With Kotak Mahindra Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-lakshmi-vilas-bank.html",
+                        "title": "Save Tax With Lakshmi Vilas Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-nainital-bank.html",
+                        "title": "Save Tax With Nainital Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-punjab-and-sind-bank.html",
+                        "title": "Save Tax With Punjab And Sind Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-punjab-national-bank.html",
+                        "title": "Save Tax With Pnb"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-rbl-bank.html",
+                        "title": "Save Tax With Rbl Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-sbi-bank.html",
+                        "title": "Save Tax With Sbi Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-south-indian-bank.html",
+                        "title": "Save Tax With South Indian Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-state-bank-of-mysore.html",
+                        "title": "Save Tax With State Bank Of Mysore"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-tamilnad-mercantile-bank.html",
+                        "title": "Save Tax With Tamilnad Mercantile Bank Limited"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-uco-bank.html",
+                        "title": "Save Tax With Uco Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-union-bank.html",
+                        "title": "Save Tax With Union Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-united-bank.html",
+                        "title": "Save Tax With United Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-yes-bank.html",
+                        "title": "Save Tax With Yes Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-vijaya-bank.html",
+                        "title": "Save Tax With Vijaya Bank"
+                    },
+                    {
+                        "link": "/tax/how-to-save-tax-with-oriental-bank-of-commerce.html",
+                        "title": "Save Tax With Oriental Bank Of Commerce"
+                    },
+                    {
+                        "link": "/tax/5-things-know-before-submitting-investment-proofs-for-tax-saving.html",
+                        "title": "Investment Proofs For Tax Saving"
+                    }
+                ]
+            },
+            {
+                "title": "Union Budget 2018",
+                "items": [
+                    {
+                        "link": "/tax/union-budget-agriculture-sector.html",
+                        "title": "Agriculture in Union Budget"
+                    },
+                    {
+                        "link": "/tax/union-budget-rural-population.html",
+                        "title": "Union Budget for Rural Sector"
+                    },
+                    {
+                        "link": "/tax/union-budget-youth-employment.html",
+                        "title": "Budget for Youth Employment"
+                    },
+                    {
+                        "link": "/tax/union-budget-poor-underprivilege-health-care.html",
+                        "title": "Budget for Health Care Sector"
+                    },
+                    {
+                        "link": "/tax/railway-budget.html",
+                        "title": "Railway Budget"
+                    },
+                    {
+                        "link": "/tax/union-budget-energy-sector.html",
+                        "title": "Union Budget for Energy Sector"
+                    },
+                    {
+                        "link": "/tax/union-budget-financial-sector.html",
+                        "title": "Union Budget for Financial Sector"
+                    },
+                    {
+                        "link": "/tax/union-budget-fiscal-situation.html",
+                        "title": "Fiscal Situation"
+                    },
+                    {
+                        "link": "/tax/union-budget-funding-of-political-parties.html",
+                        "title": "Funding of Political Parties in Budget"
+                    },
+                    {
+                        "link": "/tax/union-budget-defence-sector.html",
+                        "title": "Union Budget for Defence Sector"
+                    },
+                    {
+                        "link": "/tax/union-budget-expenditure.html",
+                        "title": "Union Budget Expenditure"
+                    },
+                    {
+                        "link": "/tax/union-budget-receipts.html",
+                        "title": "Union Budget Receipts"
+                    },
+                    {
+                        "link": "/tax/union-budget-appropriation-bill.html",
+                        "title": "Budget Appropriation Bill"
+                    },
+                    {
+                        "link": "/tax/union-budget-finance-bill.html",
+                        "title": "Finance Bill"
+                    },
+                    {
+                        "link": "/tax/union-budget-analysis.html",
+                        "title": "Union Budget Analysis"
+                    },
+                    {
+                        "link": "/tax/union-budget-senior-citizens.html",
+                        "title": "Union Budget for Senior Citizen"
+                    },
+                    {
+                        "link": "/tax/union-budget-logistics-sector.html",
+                        "title": "Union Budget for Logistics Sector"
+                    },
+                    {
+                        "link": "/tax/union-budget-maternity-benefit-schemes.html",
+                        "title": "Maternity Benefits from Union Budget"
+                    }
+                ]
+            },
+            {
+                "title": "Tax Related Topics",
+                "items": [
+                    {
+                        "link": "/tax.html",
+                        "title": "TAX"
+                    },
+                    {
+                        "link": "/income-tax.html",
+                        "title": "Income Tax"
+                    },
+                    {
+                        "link": "/sales-tax.html",
+                        "title": "Sales Tax"
+                    },
+                    {
+                        "link": "/tax/service-tax.html",
+                        "title": "Service Tax"
+                    },
+                    {
+                        "link": "/tax/goods-and-services-tax.html",
+                        "title": "Goods and Service Tax(GST)"
+                    },
+                    {
+                        "link": "/tax/income-tax-slabs-and-rates-for-assessment-year-2016-17.html",
+                        "title": "Income Tax Slab"
+                    },
+                    {
+                        "link": "/tax/income-tax-return.html",
+                        "title": "Income Tax Return"
+                    },
+                    {
+                        "link": "/tax/income-tax-refund.html",
+                        "title": "Income Tax Refund"
+                    },
+                    {
+                        "link": "/tax/checking-income-tax-return-verification-status.html",
+                        "title": "Income Tax Refund Status"
+                    },
+                    {
+                        "link": "/tax/how-calculate-income-tax-on-salary-with-example.html",
+                        "title": "Income Tax Calculator"
+                    },
+                    {
+                        "link": "/tax/step-by-step-guide-efile-income-tax-return-online.html",
+                        "title": "e-Filing ITR"
+                    },
+                    {
+                        "link": "/tax/house-rent-allowance.html",
+                        "title": "House Rent Allowance(HRA)"
+                    },
+                    {
+                        "link": "/tax/how-calculate-hra-from-basic-salary.html",
+                        "title": "HRA Calculation"
+                    },
+                    {
+                        "link": "/tax/how-calculate-income-from-house-property.html",
+                        "title": "Income From House Property"
+                    },
+                    {
+                        "link": "/tax/how-calculate-taxable-income-from-salary.html",
+                        "title": "How To Calculate Income Tax"
+                    },
+                    {
+                        "link": "/tax/epayment-of-taxes.html",
+                        "title": "e-Payment"
+                    },
+                    {
+                        "link": "/tax/how-to-pay-income-tax-which-is-due.html",
+                        "title": "How To Pay Income Tax Online"
+                    },
+                    {
+                        "link": "/tax/which-itr-to-file.html",
+                        "title": "Which ITR To File"
+                    },
+                    {
+                        "link": "/tax/how-send-your-itr-v-income-tax-department-cpc-bangalore.html",
+                        "title": "ITR-V to Income Tax Department"
+                    },
+                    {
+                        "link": "/tax/use-challan-280-to-pay-your-income-tax-online.html",
+                        "title": "Challan 280"
+                    },
+                    {
+                        "link": "/tax/all-about-tds.html",
+                        "title": "TDS"
+                    },
+                    {
+                        "link": "/tax/how-calculate-tds-from-salary.html",
+                        "title": "TDS On Salary"
+                    },
+                    {
+                        "link": "/tax/how-claim-tds-refund.html",
+                        "title": "TDS Refund"
+                    },
+                    {
+                        "link": "/tax/tds-rates-for-ay-2015-2016.html",
+                        "title": "TDS Rates"
+                    },
+                    {
+                        "link": "/tax/capital-gains-tax.html",
+                        "title": "Capital Gains Tax"
+                    },
+                    {
+                        "link": "/tax/how-calculate-capital-gains.html",
+                        "title": "Capital Gain Calculator"
+                    },
+                    {
+                        "link": "/tax/income-tax-medical-bills-exemption.html",
+                        "title": "Medical Reimbursement"
+                    },
+                    {
+                        "link": "/tax/tax-exemption.html",
+                        "title": "Tax Exemption"
+                    },
+                    {
+                        "link": "/tax/cost-inflation-index.html",
+                        "title": "Inflation Index"
+                    },
+                    {
+                        "link": "/tax/custom-duty.html",
+                        "title": "Custom Duty"
+                    },
+                    {
+                        "link": "/tax/conveyance-allowance.html",
+                        "title": "Conveyance Allowance"
+                    },
+                    {
+                        "link": "/tax/dearness-allowance.html",
+                        "title": "Dearness Allowance"
+                    },
+                    {
+                        "link": "/tax/value-added-tax.html",
+                        "title": "VAT"
+                    },
+                    {
+                        "link": "/tax/professional-tax.html",
+                        "title": "Professional Tax"
+                    },
+                    {
+                        "link": "/tax/property-tax.html",
+                        "title": "Property Tax"
+                    },
+                    {
+                        "link": "/tax/union-budget-2016-17.html",
+                        "title": "Union Budget"
+                    },
+                    {
+                        "link": "/tax/tax-calendar.html",
+                        "title": "Tax Calendar"
+                    },
+                    {
+                        "link": "/tax/online-tax-accounting-system-oltas.html",
+                        "title": "OLTAS"
+                    },
+                    {
+                        "link": "/tax/tax-identification-number.html",
+                        "title": "Tin Number"
+                    },
+                    {
+                        "link": "/tax/income-declaration-scheme.html",
+                        "title": "Income Declaration Scheme"
+                    }
+                ]
+            }
+        ]
+    }    
 }
