@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractLinkText, assert, extractHeadingText, extractContentHtml} from "./Utils";
+import {extractLink, extractLinkText, assert, extractHeadingText, extractContentHtml} from "./Utils";
 
 export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -19,7 +19,7 @@ export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
-        const link = $element.find("a").attr("href");
+        const link = extractLink($element.find("a"));
         if (!link) {
             return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
         }
@@ -37,7 +37,7 @@ export class CTAHandlerVariant_LonelyLink extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
-        const link = $element.attr("href");
+        const link = extractLink($element);
         if (!link) {
             return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
         }
@@ -58,7 +58,7 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
-        const link = $element.find("a").attr("href");
+        const link = extractLink($element.find("a"));
         if (!link) {
             return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
         }
@@ -84,7 +84,7 @@ export class CTAHandlerVariant_TabularData extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
-        const link = $element.find("a").attr("href");
+        const link = extractLink($element.find("a"));
         if (!link) {
             return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
         }

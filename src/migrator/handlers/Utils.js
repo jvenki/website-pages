@@ -109,7 +109,7 @@ export const isElementATableNode = ($e) => {
 export const extractHeadingText = ($e, $) => {
     $e.find("*").each((i, d) => {
         const $d = $(d);
-        cleanseAndValidateElement($d);
+        cleanseAndValidateElement($d, $);
         if (["p", "sub"].includes(d.tagName) && ["Updated on $date", "Updated on #date"].includes($d.text().trim())) {
             // This was populated for tables tagged as product-hl-table. We will append this info directly.
             $d.remove();
@@ -128,7 +128,24 @@ export const extractHeadingText = ($e, $) => {
     // Do a final check to ensure that we just have these allowed tags after all the removals above
     const finalChildElemTagNames = without($e.find("*").map((i, d) => d.tagName).get(), ...["a"]);
     assert(finalChildElemTagNames.length == 0, ConversionIssueCode.HEADING_HAS_CHILDREN, finalChildElemTagNames.join(","));
-    return $e.html();
+    return ($e.html() || "").trim();
+};
+
+export const extractLink = ($e) => {
+    const link = $e.attr("href");
+    if (!link || link.indexOf("#") == -1) {
+        // Excellent. We have not used a local link. Return
+        return link;
+    }
+
+    if (link.indexOf("#") == link.length-1) {
+        // Either the link is just # or an URL with # at the end in which case its fine as the user is not going to navigate anywhere to some section of the URL
+        return link;
+    } else if (link.substring(link.indexOf("#")+1, link.length) == "get-quote") {
+        // We will allow this for now
+        return link;
+    }
+    assert(false, "Local Link used", $e);
 };
 
 export const extractLinkText = ($e, $) => {
@@ -140,14 +157,14 @@ export const extractLinkText = ($e, $) => {
             }
         });        
     }
-    return $e.text();
+    return $e.text().trim();
 };
 
 export const extractContentHtml = ($e, $) => {
     let html;
     if ($e.get(0).tagName == "a" && $e.parent().hasClass("pull-right") && $e.children().length == 1 && $e.children().length == $e.find("img").length) {
         const linkTitle = $e.attr("title") || $e.find("img").attr("title");
-        html = `<a href="${$e.attr("href")}" title="${linkTitle}" class="pull-right">${extractImgTag($e.find("img"))}</a>`;
+        html = `<a href="${extractLink($e)}" title="${linkTitle}" class="pull-right">${extractImgTag($e.find("img"))}</a>`;
     } else if (isElementATextualNode($e)) {
         html = extractHtmlFromTextualNodes($e, $);
     } else if (isElementATableNode($e)) {
@@ -155,7 +172,7 @@ export const extractContentHtml = ($e, $) => {
     } else if (["div"].includes($e.get(0).tagName)) {
         html = $e.children().map((i, c) => extractContentHtml($(c), $)).get().join("");
     } else if (["td"].includes($e.get(0).tagName)) {
-        cleanseAndValidateElement($e);
+        cleanseAndValidateElement($e, $);
         html = $e.html();
     } else if (isElementASubHeadingNode($e)) {
         if ($e.get(0).tagName != "h3") {
@@ -293,7 +310,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     return output;
 };
 
-const cleanseAndValidateElement = ($e) => {
+const cleanseAndValidateElement = ($e, $) => {
     const whiteListedAttrs = ["href", "src", "title", "data-original", "colspan", "rowspan"];
     const blackListedAttrs = ["id", "style", "align", "alt", "class", "rel"];
     const validateAttrs = (c) => {
@@ -309,10 +326,10 @@ const cleanseAndValidateElement = ($e) => {
     validateAttrs($e.get(0));
 
     $e.find("a").each((i, link) => {
-        assert(link.attribs.href.indexOf("#") == -1, "Local Link used", $e);
+        extractLink($(link));
     });
     if ($e.get(0).tagName == "a") {
-        assert($e.get(0).attribs.href.indexOf("#") == -1, "Local Link used", $e);
+        extractLink($e);
     }
 };
 

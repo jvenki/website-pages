@@ -600,28 +600,28 @@
                         "type": "custom_toc",
                         "items": [
                             {
-                                "linkText": " Fees and Charges",
+                                "linkText": "Fees and Charges",
                                 "link": "#feesandcharges",
                                 "img": {
                                     "src": "/images/india/infographic/fees-and-charges.png"
                                 }
                             },
                             {
-                                "linkText": " Eligibility",
+                                "linkText": "Eligibility",
                                 "link": "#eligibility",
                                 "img": {
                                     "src": "/images/india/infographic/eligibility.png"
                                 }
                             },
                             {
-                                "linkText": " Documentation",
+                                "linkText": "Documentation",
                                 "link": "#documentation",
                                 "img": {
                                     "src": "/images/india/infographic/document.png"
                                 }
                             },
                             {
-                                "linkText": " FAQ",
+                                "linkText": "FAQ",
                                 "link": "#faq",
                                 "img": {
                                     "src": "/images/india/infographic/faq.png"
@@ -682,7 +682,7 @@
             },
             {
                 "type": "section",
-                "title": "How the EMI calculation works for Kotak Mahindra Bank personal loans? ",
+                "title": "How the EMI calculation works for Kotak Mahindra Bank personal loans?",
                 "body": "",
                 "elements": [
                     {
@@ -698,7 +698,7 @@
             },
             {
                 "type": "section",
-                "title": "How Kotak Mahindra Bank compares with other lenders? ",
+                "title": "How Kotak Mahindra Bank compares with other lenders?",
                 "body": "",
                 "elements": [
                     {
@@ -826,7 +826,7 @@
                         "type": "accordion",
                         "items": [
                             {
-                                "title": " Standard Chartered Personal Loan Eligibility:",
+                                "title": "Standard Chartered Personal Loan Eligibility:",
                                 "body": "<p>Standard Chartered personal loan can be availed by both salaried and self-employed individuals. The <a href=\"/personal-loan-eligibility.html\">Personal Loan Eligibility criteria</a></p><ul><li>You are eligible for a Standard Chartered personal loan if you are at least 21 years old and your maximum age is not more than 58 years.</li><li>Salaried and self-employed individuals can avail Standard Chartered personal loans</li><li>Your minimum incomes needs to be Rs.22,000/- per month.</li><li>Should have valid ID proof like passport, pan card, driving license, voter ID card and photo ration card.</li><li>Should have valid address proof like passport, telephone bill, electricity bill, driving license, life or medical insurance policy, ration card, apartment allocation letter, and rental agreement.</li></ul><p>Know more about <strong><a href=\"/standard-chartered-personal-loan-eligibility-calculator.html\" title=\"Standard Chartered Personal Loan Eligibility\">Standard Chartered Personal Loan Eligibility</a></strong></p>"
                             },
                             {
@@ -834,7 +834,7 @@
                                 "body": "<p>Standard Chartered (SC) Bank offers personal loans to meet multiple contingencies, with the interest on these loans being extremely competitive. The final interest payable by an individual is computed on the basis of standard slabs, with MCLR and Base Rate being the most commonly used ones. Changes in these slabs could have an impact on the rate charged by the bank.</p><h3>Standard Chartered Bank Marginal Cost of Funds Based Lending Rate (MCLR) (For new borrowers)</h3><p>All borrowers who avail a personal loan from SC Bank after 01/04/2016 will be charged an interest which is computed on the basis of MCLR. This follows a notification by the RBI, with the benchmark taking operating costs and current financial trends into account while computing the interest.</p><table><tbody><tr><td><strong>MCLR Benchmark Tenure (Period)</strong></td><td><strong>Benchmark Rates (MCLR)</strong></td></tr><tr><td>Overnight</td><td>8.45%</td></tr><tr><td>1 month</td><td>8.75%</td></tr><tr><td>3 months</td><td>8.95%</td></tr><tr><td>6 months</td><td>9.15%</td></tr><tr><td>1 year</td><td>9.25%</td></tr><tr><td>2 year</td><td>9.35%</td></tr><tr><td>3 year</td><td>9.45%</td></tr></tbody></table><h3>Personal loan interest rates (MCLR)</h3><p>Standard Chartered Bank typically provides personal loans at a starting interest of 11.99% per annum. This means that a certain percentage will be added over and above the current MCLR benchmark, with the final interest determined after taking factors like the quantum of finance, borrower's relationship with the bank, repayment tenure, etc. into consideration.</p><h3>Standard Chartered Bank Base Rate (For existing borrowers)</h3><table><tbody><tr><td>Base Rate</td><td>9.50% per annum, effective October 5, 2015</td></tr></tbody></table><h3>Standard Chartered Bank personal loan interest rate (Base Rate)</h3><p>Individuals who availed a loan before MCLR benchmarks were introduced can continue with their existing benchmark or migrate to MCLR. Borrowers who choose to continue with the base rate benchmark will be charged an additional interest over and above the current base rate. The final interest depends on a number of factors, with SC Bank having the authority to modify interest on a case to case basis.</p><p><em><strong>Note:</strong> All interest rates mentioned above are as of June 15, 2016. These rates are subject to change without prior notice, at the sole discretion of Standard Chartered Bank. Borrowers should check rates prevailing at the time of loan application.</em></p><p>Know more about <a href=\"/standard-chartered-personal-loan-interest-rates.html\" title=\"Standard Chartered Personal Loan Interest rates\">Standard Chartered Personal Loan Interest rates</a> for taking Personal loan</p>"
                             },
                             {
-                                "title": " Why apply for a Standard Chartered Personal Loan at BankBazaar?",
+                                "title": "Why apply for a Standard Chartered Personal Loan at BankBazaar?",
                                 "body": "<p>Applying through BankBazaar enables you to enjoy many added benefits. BankBazaar, being the largest online platform for your financial needs, helps you to compare and choose your financial products. You can enjoy the following extra benefits if you apply through BankBazaar.</p><p><strong>Instant Approval: </strong>You can get instant approval on your loan application if you apply through BankBazaar.</p><p><strong>Personalized quotes: </strong>You can <a href=\"/personal-loan.html\">Compare Personal Loans</a> offered by various banks on BankBazaar and choose among them comparing their interest rates, processing fee and EMI amount.</p><p><strong>Assured Confidentiality: </strong>BankBazaar does not disclose your personal and financial information to anybody. Your application form directly goes to your chosen lender. There is no third party involved in the whole process.</p><p><strong>Best interest rates assured: </strong>Having tie-ups with many major banks in India, BankBazaar can offer you the best interest rate on your personal loan.</p><p><strong>Online tracking: </strong>BankBazaar keeps you updated about each and every step of your application form. You can track it online at BankBazaar and get notification via Email and SMS.</p>"
                             },
                             {
@@ -842,7 +842,7 @@
                                 "body": "<p>Instead of contacting Standard Chartered personally, you can apply for your <em>Standard Chartered Personal Loan</em> at BankBazaar. Applying through BankBazaar is easy, simple and hassle free. For that, you need to follow the following steps:</p><ul><li>First select your personal loan.</li><li>Then check your eligibility by filling up the loan eligibility form wherein you need to fill your personal and financial details. Then you will receive instant and personalized quotes based on your eligibility.</li><li>Once you get the quotes, select a personal loan based on your requirement, or choose Standard Chartered personal loan. BankBazaar helps you can select among a variety of personal loans offered by various banks.</li><li>After finalizing on the loan, click on the \"submit” button. Your application will directly go to your lender who will contact you soon.</li></ul>"
                             },
                             {
-                                "title": " How to calculate EMI for Standard Chartered Bank Personal Loans?",
+                                "title": "How to calculate EMI for Standard Chartered Bank Personal Loans?",
                                 "body": "<p>At BankBazaar <a href=\"/personal-loan/emi-calculator.html\">Calculating Personal Loan EMI</a> is very easy. It has a unique EMI calculator which enables you to get the accurate amount of your monthly EMI instantly. You can get your EMI amount by filling in the following information:</p><ul><li>Chosen loan amount</li><li>Loan tenure</li><li>Processing fee ( if any)</li><li>The applicable rate of interest.</li></ul><p>When you put this information in the Personal Loan EMI Calculator, it will immediately display your monthly EMI liability for the loan.</p><p>Calculate your Loan EMI with <strong><a href=\"/standard-chartered-personal-loan-calculator.html\" title=\"Standard Chartered Bank Personal Loan EMI Calculator\">Standard Chartered Bank Personal Loan EMI Calculator</a></strong></p>"
                             }
                         ]
@@ -877,7 +877,7 @@
             }
         ],
         "faq": {
-            "title": " Standard Chartered Personal Loan FAQs:",
+            "title": "Standard Chartered Personal Loan FAQs:",
             "items": [
                 {
                     "question": "What are the purposes for which Standard Chartered offers personal loan?",
@@ -1073,7 +1073,7 @@
             },
             {
                 "type": "section",
-                "title": "Why should I choose Bajaj Finserv Personal Loan? ",
+                "title": "Why should I choose Bajaj Finserv Personal Loan?",
                 "body": "",
                 "elements": [
                     {
@@ -1101,7 +1101,7 @@
             },
             {
                 "type": "section",
-                "title": "How the EMI calculation on Bajaj Finserv Personal Loan work? ",
+                "title": "How the EMI calculation on Bajaj Finserv Personal Loan work?",
                 "body": "",
                 "elements": [
                     {
@@ -1128,22 +1128,22 @@
             }
         ],
         "faq": {
-            "title": "FAQs on Bajaj Finserv Personal Loan ",
+            "title": "FAQs on Bajaj Finserv Personal Loan",
             "items": [
                 {
-                    "question": "Can I apply for a Bajaj Finserv Personal Loan online? ",
+                    "question": "Can I apply for a Bajaj Finserv Personal Loan online?",
                     "answer": "<p>A: Yes, Bajaj Finserv offers the online application option on their website through which you can easily apply for a personal loan. </p>"
                 },
                 {
-                    "question": "How to check Bajaj Finserv personal loan status?  ",
+                    "question": "How to check Bajaj Finserv personal loan status?",
                     "answer": "<p>A: <a href=\"/bajaj-finserv-personal-loan-status.html\">Bajaj Finserv personal loan application status</a> at can be checked either online or offline. You can call on 1800 103 3535 or send an SMS to 9773633633 by typing 'SHOL' to know the status. Alternatively, you can visit www.bajajfinserv.in and get to know the status by entering the loan ID, application ID or the registered mobile number.  </p>"
                 },
                 {
-                    "question": "How do I get complete loan details of my Bajaj Finserv Personal Loan? ",
+                    "question": "How do I get complete loan details of my Bajaj Finserv Personal Loan?",
                     "answer": "<p>A: You can get to know the complete details of your Bajaj Finserv Personal Loan through the welcome kit that will be sent to your email ID which is registered at the time of making the loan application. </p>"
                 },
                 {
-                    "question": "What all details can I find in my Bajaj Finserv Personal Loan welcome kit? ",
+                    "question": "What all details can I find in my Bajaj Finserv Personal Loan welcome kit?",
                     "answer": "<p>A: You can find the following details in your welcome kit: </p><ul><li>A reference service guide which will help you use the self-service tool and have a better understanding of the product. </li><li>Your user ID and password for Experia </li><li>A unique virtual account number </li><li>The account details of the registered bank account which will be used for drawdown transactions </li><li>The registered mobile phone number </li></ul>"
                 },
                 {
@@ -1151,7 +1151,7 @@
                     "answer": "<p>A: If you are applying for a personal loan online, you will be required to pay a charge which is known as secure fee. This fee is charged for the submission and processing of the online loan application form. </p>"
                 },
                 {
-                    "question": "How can I make a part-prepayment of my Bajaj Finserv Personal Loan? ",
+                    "question": "How can I make a part-prepayment of my Bajaj Finserv Personal Loan?",
                     "answer": "<p>A: A unique account number will be generated and provided to you by Bajaj Finserv when your personal loan is approved. You will be required to make all payments and part-payments for your loan to this unique account through internet banking. The payments you make to this account will be credited towards your loan account as per the stipulated time period according to the banking guidelines. </p>"
                 },
                 {
@@ -1500,7 +1500,7 @@
             },
             {
                 "type": "section",
-                "title": "Compare AXIS personal loan with loans from other lenders? ",
+                "title": "Compare AXIS personal loan with loans from other lenders?",
                 "body": "",
                 "elements": [
                     {
@@ -1577,7 +1577,7 @@
         "sections": [
             {
                 "type": "section",
-                "title": "Citibank Personal Loan Fees and Charges ",
+                "title": "Citibank Personal Loan Fees and Charges",
                 "body": "",
                 "elements": [
                     {
@@ -1588,7 +1588,7 @@
             },
             {
                 "type": "section",
-                "title": "Citibank Interest Rates for Salaried Individuals  ",
+                "title": "Citibank Interest Rates for Salaried Individuals",
                 "body": "",
                 "elements": [
                     {
@@ -1599,7 +1599,7 @@
             },
             {
                 "type": "section",
-                "title": "For Self-Employed Individuals (Professionals) ",
+                "title": "For Self-Employed Individuals (Professionals)",
                 "body": "",
                 "elements": [
                     {
@@ -1610,7 +1610,7 @@
             },
             {
                 "type": "section",
-                "title": "For Self-Employed Individuals (Non-professionals) ",
+                "title": "For Self-Employed Individuals (Non-professionals)",
                 "body": "",
                 "elements": [
                     {
@@ -1621,7 +1621,7 @@
             },
             {
                 "type": "section",
-                "title": "Why Choose Citibank Personal Loan? ",
+                "title": "Why Choose Citibank Personal Loan?",
                 "body": "",
                 "elements": [
                     {
@@ -1632,7 +1632,7 @@
             },
             {
                 "type": "section",
-                "title": "Citibank Personal Loan Eligibility Criteria ",
+                "title": "Citibank Personal Loan Eligibility Criteria",
                 "body": "",
                 "elements": [
                     {
@@ -1648,7 +1648,7 @@
             },
             {
                 "type": "section",
-                "title": "Documents Required for Citibank Personal Loan ",
+                "title": "Documents Required for Citibank Personal Loan",
                 "body": "",
                 "elements": [
                     {
@@ -1659,7 +1659,7 @@
             },
             {
                 "type": "section",
-                "title": "Citibank Personal Loan Penalties and Charges ",
+                "title": "Citibank Personal Loan Penalties and Charges",
                 "body": "",
                 "elements": [
                     {
@@ -1670,34 +1670,34 @@
             }
         ],
         "faq": {
-            "title": "Citibank Personal Loan FAQ ",
+            "title": "Citibank Personal Loan FAQ",
             "items": [
                 {
-                    "question": "What are the reasons for which I can take a Citibank personal loan? ",
+                    "question": "What are the reasons for which I can take a Citibank personal loan?",
                     "answer": "<p>Citibank offers personal loans for a variety of reasons such as home renovation, meeting wedding expenses, debt consolidation, travel, etc. However, the regulations set forth by the Reserve Bank of India state that you cannot use the funds for any speculative, unlawful, or antisocial purposes.  </p>"
                 },
                 {
-                    "question": "How long does it take for my Citibank personal loan application to be approved?  ",
+                    "question": "How long does it take for my Citibank personal loan application to be approved?",
                     "answer": "<p>Citibank usually takes a few hours to process your loan application and decide whether it is approved or rejected. However, there could be situations where the bank may require more information before the application is processed and that may take a couple of working days. </p>"
                 },
                 {
-                    "question": "When will the EMI payments for my Citibank personal loan start? ",
+                    "question": "When will the EMI payments for my Citibank personal loan start?",
                     "answer": "<p>In case you apply for a Citibank personal loan in March ${currentYear}, the first EMI will have to be paid on 1st May, ${currentYear}. The commencement of EMI payments starts during the second succeeding month from the month in which the loan was taken.  </p>"
                 },
                 {
-                    "question": "Who can take a Citibank personal loan? ",
+                    "question": "Who can take a Citibank personal loan?",
                     "answer": "<p>Citibank offers personal loans to salaried employees, business owners, and self-employed professionals. Customers of Citibank with a Branch, Suvidha, or a Mortgage relationship also qualify for a Citibank personal loan. </p>"
                 },
                 {
-                    "question": "How do I pre-pay my Citibank personal loan? ",
+                    "question": "How do I pre-pay my Citibank personal loan?",
                     "answer": "<p>Customers have two options when it comes to pre-paying their Citibank personal loans – Partial pre-payment and Full pre-payment. When you go in for a full pre-payment, the entire outstanding amount will have to be repaid in one shot. Partial pre-payment, on the other hand, will mean that you will be partially repaying some of the outstanding amount. Call the bank's 24x7 helpline in order to make partial or full pre-payment.  </p>"
                 },
                 {
-                    "question": "Does the bank levy any late payment charges? ",
+                    "question": "Does the bank levy any late payment charges?",
                     "answer": "<p>The due date to pay your EMIs towards your Citibank personal loan is the 7th day of each month. However, Citibank does not levy any late payment charges.  </p>"
                 },
                 {
-                    "question": "Are there any eligibility criteria for partial pre-payment? ",
+                    "question": "Are there any eligibility criteria for partial pre-payment?",
                     "answer": "<p>In order for you to be eligible for partial pre-payment, you will have to have paid your EMIs for a minimum of 12 months, and your pre-payment amount must be equivalent to at least two EMIs and a maximum of five EMIs.  </p>"
                 },
                 {
@@ -1825,7 +1825,7 @@
         "sections": [
             {
                 "type": "section",
-                "title": "HSBC Personal Loan Overview ",
+                "title": "HSBC Personal Loan Overview",
                 "body": "",
                 "elements": [
                     {
@@ -1836,7 +1836,7 @@
             },
             {
                 "type": "section",
-                "title": "Documents required for HSBC Bank Personal Loan ",
+                "title": "Documents required for HSBC Bank Personal Loan",
                 "body": "",
                 "elements": [
                     {
@@ -1847,7 +1847,7 @@
             },
             {
                 "type": "section",
-                "title": "Why choose HSBC Bank personal loan? ",
+                "title": "Why choose HSBC Bank personal loan?",
                 "body": "",
                 "elements": [
                     {
@@ -1858,7 +1858,7 @@
             },
             {
                 "type": "section",
-                "title": "What are the eligibility criteria for HSBC Bank Personal Loan? ",
+                "title": "What are the eligibility criteria for HSBC Bank Personal Loan?",
                 "body": "",
                 "elements": [
                     {
@@ -1869,7 +1869,7 @@
             },
             {
                 "type": "section",
-                "title": "Fees and Charges ",
+                "title": "Fees and Charges",
                 "body": "",
                 "elements": [
                     {
@@ -1880,7 +1880,7 @@
             },
             {
                 "type": "section",
-                "title": "How the EMI calculation for HSBC Bank personal loan work? ",
+                "title": "How the EMI calculation for HSBC Bank personal loan work?",
                 "body": "",
                 "elements": [
                     {
@@ -1891,7 +1891,7 @@
             },
             {
                 "type": "section",
-                "title": "How HSBC Personal Loan compares with other personal loans? ",
+                "title": "How HSBC Personal Loan compares with other personal loans?",
                 "body": "",
                 "elements": [
                     {
@@ -1905,23 +1905,23 @@
             "title": "FAQs on HSBC personal loan",
             "items": [
                 {
-                    "question": "Where will I receive the personal loan amount once the loan has been approved? Will I receive all the money at once? ",
+                    "question": "Where will I receive the personal loan amount once the loan has been approved? Will I receive all the money at once?",
                     "answer": "<p>Following the submission of the application form and the relevant documents, the customer will receive the disbursed loan amount in the bank account he/she has mentioned in the personal loan application form.</p><p>Yes, when the personal loan money is disbursed, you will receive the entire amount that you have applied for as there is no partial disbursement for HSBC Bank personal loans. </p>"
                 },
                 {
-                    "question": "What factors are taken into consideration when the EMIs (Equated monthly installments) are calculated by HSBC Bank? ",
+                    "question": "What factors are taken into consideration when the EMIs (Equated monthly installments) are calculated by HSBC Bank?",
                     "answer": "<p>When calculating the EMI which is basically the monthly repayment of the loan, HSBC Bank takes into consideration the interest rate applicable over the loan amount and the principal loan amount divided by the repayment tenure chosen by the customer. The interest rate will depend on the repayment tenure chosen by the customer. The longer the repayment tenure chosen by the customer, the higher will be the interest rate set by HSBC Bank. </p>"
                 },
                 {
-                    "question": " What will happen if I miss my EMI payment? Which is the best way to avoid missing my EMI payment? ",
+                    "question": "What will happen if I miss my EMI payment? Which is the best way to avoid missing my EMI payment?",
                     "answer": "<p>If you do miss your EMI payment by the due date, then your credit rating will be affected, and other credit facilities of HSBC Bank will be affected as well. In addition, HSBC Bank might initiate a recovering proceeding for late payment charges. </p>"
                 },
                 {
-                    "question": " Is it possible to pre-close an HSBC Bank personal loan? How will I know if the loan is actually closed by the bank once I have pre-closed the loan? Can I make a partial pre-payment towards my personal loan? ",
+                    "question": "Is it possible to pre-close an HSBC Bank personal loan? How will I know if the loan is actually closed by the bank once I have pre-closed the loan? Can I make a partial pre-payment towards my personal loan?",
                     "answer": "<p>Yes, you can pre-close an HSBC Bank personal loan one year from the date of disbursement of the loan. Customers that do not know, personal loan pre-closure is basically when the customer decides to repay the loan before the set repayment tenure of the personal loan. For pre-closures, HSBC Bank charges up to 3.75% of the outstanding principal amount of the personal loan. </p><p>If the customer chooses to pre-close the loan or when the loan is completely paid back to HSBC Bank, the bank will issue a No Due Certificate to the customer to confirm that the personal loan has been closed. </p><p>HSBC Bank allows partial prepayments for personal loans up to 20% of the original disbursed amount. The customer can make 2 partial prepayments in a year and this can be done only after one year since the loan has been disbursed. You can choose to reduce the EMI amount after the partial pre-closure of the loan. The customer will have to visit the bank branch to make the EMI changes.</p>"
                 },
                 {
-                    "question": "What are the most probable EMI due dates that will be set by HSBC Bank? ",
+                    "question": "What are the most probable EMI due dates that will be set by HSBC Bank?",
                     "answer": "<p>The EMI due date will depend on the disbursal date of the personal loan. Usually, the EMI due date will be set between the 5th and the 15th of each calendar month.  </p>"
                 },
                 {
@@ -2539,11 +2539,11 @@
                         "type": "accordion",
                         "items": [
                             {
-                                "title": " Why Choose Karnataka Bank Personal Loan?",
+                                "title": "Why Choose Karnataka Bank Personal Loan?",
                                 "body": "<p>Choosing Karnataka Bank’s personal loan can help you to fulfill your various requirements. The bank offers low interest rate and charges minimum processing fee. You can use this loan amount to perform various tasks such as buying household objects, educational needs of children, wedding, medical expense of self and dependents, house repairing etc.</p>"
                             },
                             {
-                                "title": " Karnataka Bank Personal Loan Interest Rate:",
+                                "title": "Karnataka Bank Personal Loan Interest Rate:",
                                 "body": "<p><strong>Karnataka Bank Personal Loan MCLR and ROI</strong></p><p>All the loans which are sanctioned post April 2017 has to follow the new lending rate system – MCLR (Marginal Cost Based Lending Rate). This is a tenure based benchmark. Existing Karnataka Bank Personal Loan borrowers have the option to continue with the interest based on the Base Rate or to migrate to the new MCLR lending rate system. MCLR rates are subject to change from the next reset date, as per RBI regulations.</p><p>The current interest rate based on MCLR = <strong>10.25% p.a.</strong></p><p>Karnataka Bank follows the following MCLR rates:</p><table><tbody><tr><td><strong>Tenure</strong></td><td><strong>MLCR Percentage</strong></td></tr><tr><td>Overnight</td><td>8.40%</td></tr><tr><td>1 month</td><td>8.45%</td></tr><tr><td>3 months</td><td>8.55%</td></tr><tr><td>6 months</td><td>8.70%</td></tr><tr><td>1 year</td><td>8.90%</td></tr></tbody></table><p><strong>Note:</strong> All rates mentioned above are applicable as of April, 2017. Karnataka Bank can change these rates at its own discretion. Borrowers are advised to check prevailing rates while applying for a loan.</p><p>Check more details about <strong><a href=\"/karnataka-bank-personal-loan-interest-rates.html\" title=\"Karnataka Bank Personal Loan Interest rates\">Karnataka Bank Personal Loan Interest rates</a></strong></p>"
                             },
                             {
@@ -2560,7 +2560,7 @@
             }
         ],
         "faq": {
-            "title": " Karnataka Bank Personal Loan FAQs:",
+            "title": "Karnataka Bank Personal Loan FAQs:",
             "items": [
                 {
                     "question": "What are the benefits of opting for a personal loan?",
@@ -2766,12 +2766,12 @@
             },
             {
                 "type": "section",
-                "title": "How the EMI calculation works for SBI personal loans? ",
+                "title": "How the EMI calculation works for SBI personal loans?",
                 "body": "",
                 "elements": [
                     {
                         "type": "text",
-                        "body": "<p>Consider a scenario where a person earning Rs.40,000 per month takes a personal loan of Rs.1 lakh under the <a href=\"/personal-loan/sbi-xpress-credit-loan.html\">SBI Xpress Credit personal loan</a> scheme. The bank charges an interest rate of 12.05% p.a. and a processing fee of 1% on the loan amount. For a loan repayment tenure of 6 months, he must pay an EMI amount of Rs.17,257 every month. His loan repayment schedule is given as follows: </p><table><tbody><tr><td><strong>Month</strong></td><td><strong>Principal</strong></td><td><strong>Interest amount</strong></td><td><strong>Total EMI payment</strong></td><td><strong>Balance</strong></td><td><strong>Percentage of loan paid to date</strong></td></tr><tr><td>Apr</td><td>Rs.16,253</td><td>Rs.1,004</td><td>Rs.17,257</td><td>Rs.83,747</td><td>16.25%</td></tr><tr><td>May</td><td>Rs.16,416</td><td>Rs.841</td><td>Rs.17,257</td><td>Rs.67,331</td><td>32.67%</td></tr><tr><td>Jun</td><td>Rs.16,581</td><td>Rs.676</td><td>Rs.17,257</td><td>Rs.50,749</td><td>49.25%</td></tr><tr><td>Jul</td><td>Rs.16,748</td><td>Rs.510</td><td>Rs.17,257</td><td>Rs.34,002</td><td>66.00%</td></tr><tr><td>Aug</td><td>Rs.16,916</td><td>Rs.341</td><td>Rs.17,257</td><td>Rs.17,086</td><td>82.91%</td></tr><tr><td>Sep</td><td>Rs.17,086</td><td>Rs.172</td><td>Rs.17,257</td><td>Rs.0</td><td>100.00%</td></tr></tbody></table><h3>How SBI compares with other lenders? </h3><table><tbody><tr><td><strong>Fees and charges </strong></td><td><strong>SBI Personal Loan </strong></td><td><strong>Bank of Baroda Personal Loan </strong></td><td><strong>Bank of India Personal Loan </strong></td><td><strong>Citibank Personal Loan </strong></td></tr><tr><td>Interest rate</td><td>10.50% p.a. onwards</td><td>11.35% p.a. onwards</td><td>12.90% p.a. onwards</td><td>10.99% p.a. onwards</td></tr><tr><td>Processing fee</td><td>1% + GST</td><td>2% + GST</td><td>2% + GST</td><td>0.25% to 3.00% + GST</td></tr><tr><td>Foreclosure charges</td><td>3% of the outstanding loan amount</td><td>N/A</td><td>N/A</td><td>Nil</td></tr><tr><td>Late payment fee</td><td>2% of the overdue amount</td><td>2% of the overdue amount</td><td>Contact the bank for details</td><td>Contact the bank for details</td></tr></tbody></table><p>Given that State Bank of India offers three personal loans as part of its suite of offerings, prospective borrowers can evaluate their needs and opt for a suitable type of loan.</p><h3>Other loan schemes for NRI from SBI</h3><ul><li>NRI's can go for this loan scheme from SBI to meet any of their needs such as buying a house or meeting immediate financial needs. The bank will not be repatriating your loan amount abroad.</li><li>This SBI loan will be handed over solely to the depositor.</li><li>You can procure this loan in foreign currency or Indian Rupee by pledging a security of your NRE or FCNR or NRO deposit.</li><li>You can choose a demand loan, an overdraft, or a foreign currency loan.</li><li>The loan period for this loan is up to the outstanding maturity period.</li><li>The margin for this loan scheme is 10% which includes accrued interest as well principal.</li></ul><h3>SBI online overdraft (OD) against your NRI deposit</h3><p>For SBI online OD, you will not have to come down to India to complete the application process in India. You can utilise the bank's internet banking platform to apply for the loan facility.</p><table><tbody><tr><td>Eligibility criteria</td><td>Any customer with an NRE or NRO fixed deposit</td></tr><tr><td>Minimum residual period</td><td>6 months</td></tr><tr><td>Permissible limit</td><td><ul><li>TDR or eTDR: 75% of the face value of the deposit</li><li>STDR or eSTDR: 90% of the face value of the deposit</li></ul></td></tr><tr><td>Minimum loan amount</td><td>Rs.25,000</td></tr><tr><td>Maximum loan amount</td><td>Rs.5 crore</td></tr><tr><td>Cut-off time</td><td>Online application for overdraft facility will be open from 8 a.m. to 8 p.m. IST</td></tr><tr><td>Interest rate</td><td>1% above the interest payable on the fixed deposit</td></tr><tr><td>Loan tenure for TDR or eTDR</td><td>3 years or the outstanding maturity period of fixed deposit, whichever is lower.</td></tr><tr><td>Loan tenure for STDR or eSTDR</td><td>5 years or the outstanding maturity period of fixed deposit, whichever is lower.</td></tr></tbody></table><ul><li>In the above-mentioned table, the NRE or NRO fixed deposit in the eligibility criteria includes Special term deposit (STDR) or eSTDR or Term Deposit Receipt (TDR) or eTDR in a single name holder only.</li><li>In the above-mentioned table, the permissible limit section refers to the overdraft limit against deposits. You will not be able to make any modifications to the overdraft limit.</li><li>This loan scheme is not given to joint holders of deposits.</li><li>The loan will be provided to you with the help of internet banking. If you want to withdraw or shift the fund, you can do it via cheque or online banking.</li><li>If you want to close the SBI NRI overdraft account, you will have to visit any of the branches in India. This overdraft account closure cannot be done online as of now.</li></ul><h3>Know before getting a Loan</h3><ul><li><a href=\"/how-to-choose-personal-loan-tenure-wisely.html\">How to choose Personal Loan Tenure Wisely</a></li><li><a href=\"/personal-loan/checklist-for-first-time-applicants-of-personal-loan.html\">A Comprehensive Checklist for First-time Applicants of Personal Loans</a></li><li><a href=\"/how-to-deal-credit-card-debt-using-personal-loans.html\">How to deal Credit Card Debt using Personal Loans</a></li></ul>"
+                        "body": "<p>Consider a scenario where a person earning Rs.40,000 per month takes a personal loan of Rs.1 lakh under the <a href=\"/personal-loan/sbi-xpress-credit-loan.html\">SBI Xpress Credit personal loan</a> scheme. The bank charges an interest rate of 12.05% p.a. and a processing fee of 1% on the loan amount. For a loan repayment tenure of 6 months, he must pay an EMI amount of Rs.17,257 every month. His loan repayment schedule is given as follows: </p><table><tbody><tr><td><strong>Month</strong></td><td><strong>Principal</strong></td><td><strong>Interest amount</strong></td><td><strong>Total EMI payment</strong></td><td><strong>Balance</strong></td><td><strong>Percentage of loan paid to date</strong></td></tr><tr><td>Apr</td><td>Rs.16,253</td><td>Rs.1,004</td><td>Rs.17,257</td><td>Rs.83,747</td><td>16.25%</td></tr><tr><td>May</td><td>Rs.16,416</td><td>Rs.841</td><td>Rs.17,257</td><td>Rs.67,331</td><td>32.67%</td></tr><tr><td>Jun</td><td>Rs.16,581</td><td>Rs.676</td><td>Rs.17,257</td><td>Rs.50,749</td><td>49.25%</td></tr><tr><td>Jul</td><td>Rs.16,748</td><td>Rs.510</td><td>Rs.17,257</td><td>Rs.34,002</td><td>66.00%</td></tr><tr><td>Aug</td><td>Rs.16,916</td><td>Rs.341</td><td>Rs.17,257</td><td>Rs.17,086</td><td>82.91%</td></tr><tr><td>Sep</td><td>Rs.17,086</td><td>Rs.172</td><td>Rs.17,257</td><td>Rs.0</td><td>100.00%</td></tr></tbody></table><h3>How SBI compares with other lenders?</h3><table><tbody><tr><td><strong>Fees and charges </strong></td><td><strong>SBI Personal Loan </strong></td><td><strong>Bank of Baroda Personal Loan </strong></td><td><strong>Bank of India Personal Loan </strong></td><td><strong>Citibank Personal Loan </strong></td></tr><tr><td>Interest rate</td><td>10.50% p.a. onwards</td><td>11.35% p.a. onwards</td><td>12.90% p.a. onwards</td><td>10.99% p.a. onwards</td></tr><tr><td>Processing fee</td><td>1% + GST</td><td>2% + GST</td><td>2% + GST</td><td>0.25% to 3.00% + GST</td></tr><tr><td>Foreclosure charges</td><td>3% of the outstanding loan amount</td><td>N/A</td><td>N/A</td><td>Nil</td></tr><tr><td>Late payment fee</td><td>2% of the overdue amount</td><td>2% of the overdue amount</td><td>Contact the bank for details</td><td>Contact the bank for details</td></tr></tbody></table><p>Given that State Bank of India offers three personal loans as part of its suite of offerings, prospective borrowers can evaluate their needs and opt for a suitable type of loan.</p><h3>Other loan schemes for NRI from SBI</h3><ul><li>NRI's can go for this loan scheme from SBI to meet any of their needs such as buying a house or meeting immediate financial needs. The bank will not be repatriating your loan amount abroad.</li><li>This SBI loan will be handed over solely to the depositor.</li><li>You can procure this loan in foreign currency or Indian Rupee by pledging a security of your NRE or FCNR or NRO deposit.</li><li>You can choose a demand loan, an overdraft, or a foreign currency loan.</li><li>The loan period for this loan is up to the outstanding maturity period.</li><li>The margin for this loan scheme is 10% which includes accrued interest as well principal.</li></ul><h3>SBI online overdraft (OD) against your NRI deposit</h3><p>For SBI online OD, you will not have to come down to India to complete the application process in India. You can utilise the bank's internet banking platform to apply for the loan facility.</p><table><tbody><tr><td>Eligibility criteria</td><td>Any customer with an NRE or NRO fixed deposit</td></tr><tr><td>Minimum residual period</td><td>6 months</td></tr><tr><td>Permissible limit</td><td><ul><li>TDR or eTDR: 75% of the face value of the deposit</li><li>STDR or eSTDR: 90% of the face value of the deposit</li></ul></td></tr><tr><td>Minimum loan amount</td><td>Rs.25,000</td></tr><tr><td>Maximum loan amount</td><td>Rs.5 crore</td></tr><tr><td>Cut-off time</td><td>Online application for overdraft facility will be open from 8 a.m. to 8 p.m. IST</td></tr><tr><td>Interest rate</td><td>1% above the interest payable on the fixed deposit</td></tr><tr><td>Loan tenure for TDR or eTDR</td><td>3 years or the outstanding maturity period of fixed deposit, whichever is lower.</td></tr><tr><td>Loan tenure for STDR or eSTDR</td><td>5 years or the outstanding maturity period of fixed deposit, whichever is lower.</td></tr></tbody></table><ul><li>In the above-mentioned table, the NRE or NRO fixed deposit in the eligibility criteria includes Special term deposit (STDR) or eSTDR or Term Deposit Receipt (TDR) or eTDR in a single name holder only.</li><li>In the above-mentioned table, the permissible limit section refers to the overdraft limit against deposits. You will not be able to make any modifications to the overdraft limit.</li><li>This loan scheme is not given to joint holders of deposits.</li><li>The loan will be provided to you with the help of internet banking. If you want to withdraw or shift the fund, you can do it via cheque or online banking.</li><li>If you want to close the SBI NRI overdraft account, you will have to visit any of the branches in India. This overdraft account closure cannot be done online as of now.</li></ul><h3>Know before getting a Loan</h3><ul><li><a href=\"/how-to-choose-personal-loan-tenure-wisely.html\">How to choose Personal Loan Tenure Wisely</a></li><li><a href=\"/personal-loan/checklist-for-first-time-applicants-of-personal-loan.html\">A Comprehensive Checklist for First-time Applicants of Personal Loans</a></li><li><a href=\"/how-to-deal-credit-card-debt-using-personal-loans.html\">How to deal Credit Card Debt using Personal Loans</a></li></ul>"
                     }
                 ]
             }
@@ -3093,7 +3093,7 @@
                         "type": "accordion",
                         "items": [
                             {
-                                "title": " Features of UCO Bank Personal Loan",
+                                "title": "Features of UCO Bank Personal Loan",
                                 "body": "<p>Some of the key features of the <em>UCO Bank Personal Loan</em> or UCO Bank Cash is below:</p><ul><li>The maximum loan amount is Rs. 10,00, 000</li><li>No collateral is required for a loan of up to Rs. 2, 00, 000</li><li>Women have a concessional rate of interest</li><li>Processing charges are just 1 % amounting to a minimum of Rs. 750/-</li></ul><table><tbody><tr><td></td><td>Salaried</td><td>Self employed</td></tr><tr><td>Loan scheme</td><td>UCO Cash</td><td>UCO Cash</td></tr><tr><td>Loan Amount</td><td>Minimum – Rs. 50,000<br>Maximum – Rs. 10, 00, 000</td><td>Minimum – Rs. 50,000<br>Maximum – Rs. 10, 00, 000</td></tr><tr><td>Repayment tenure</td><td>12 - 48 EMIs for men<br>12 - 60 EMIs for women</td><td>12 - 48 EMIs for men<br>12 - 60 EMIs for women</td></tr><tr><td>Rate of interest</td><td>base + 5.40% = 15.35% for men<br>base + 4.40% = 14.35% for women</td><td>base + 5.40% = 15.35% for men<br>base + 4.40% = 14.35% for women</td></tr></tbody></table>"
                             },
                             {
@@ -3101,7 +3101,7 @@
                                 "body": "<p>UCO Bank offers a host of personal loan schemes to eligible borrowers, with the interest varying according to the scheme. Benchmarks adopted by the bank help in computing this interest, with two benchmarks currently in use. While interest rates computed according to base rates have been used for a while, MCLR benchmarks were introduced recently, following RBI directives.</p><h3>UCO Bank Marginal Cost of Funds Based Lending Rate (MCLR) (For new borrowers)</h3><p>UCO Bank introduced MCLR based benchmarks following RBI directives, with these benchmarks offering a better picture of current financial conditions. Factors like CRR, repo rate, loan tenure, operating costs, etc. have a direct correlation with MCLR, with any change in these parameters having an impact on rates payable by a borrower. The table below highlights the rates applicable as of June 2016.</p><table><tbody><tr><td><strong>MCLR Benchmark Tenure (Period)</strong></td><td><strong>Benchmark Rates (MCLR)</strong></td></tr><tr><td>Overnight</td><td>8.10%</td></tr><tr><td>1 month</td><td>8.20%</td></tr><tr><td>3 months</td><td>8.30%</td></tr><tr><td>6 months</td><td>8.55%</td></tr><tr><td>1 year</td><td>8.65%</td></tr><tr><td>2 years</td><td>9.65%</td></tr></tbody></table><h3>Personal loan interest rates (MCLR)</h3><p>As per RBI guidelines, all consumers who avail a loan after April 1, 2016 will automatically fall under the ambit of MCLR. UCO Bank can choose to add a certain spread over and above this benchmark, with the final interest generally varying from case to case. The loan amount, repayment tenure, repayment mode (salary account with/without check-off), borrower income, etc. can all play a role in computing the final interest rate.</p><h3>UCO Bank Base and Prime Lending Rates (For existing borrowers)</h3><p>The base and prime lending rates at UCO Bank are highlighted below.</p><table><tbody><tr><td>Base Rate</td><td>9.70% per annum, effective October 5, 2015</td></tr><tr><td>Prime Lending Rate</td><td>14.25% per annum, effective October 5, 2015</td></tr></tbody></table><h3>UCO Bank personal loan interest rate (Base Rate)</h3><p>The date of loan approval plays a key role in determining the benchmark one falls under, with all borrowers who availed a loan before MCLR benchmarks were introduced having an option to choose their interest mode. They can either continue paying interest determined by factoring the base rate or move to MCLR. Those who refrain from migrating will pay an interest according to the loan scheme, with rates typically ranging between <strong>12% per annum and 16% per annum</strong>. This is computed by adding a spread over the base rate, with it possible for one to avail preferential rates based on their relationship with the bank.</p><p><em>Note: UCO Bank reserves the right to change the aforementioned interest rates at its own discretion. All rates mentioned above are effective as of June 2016. Individuals looking to avail a loan from the bank are advised to check rates prevailing at the time of application.</em></p><p>Find more details about <strong><a href=\"/uco-bank-personal-loan-interest-rates.html\" title=\"UCO Personal Loan Interest rates\">UCO Personal Loan Interest rates</a></strong></p>"
                             },
                             {
-                                "title": " UCO Bank Personal Loan Eligibility",
+                                "title": "UCO Bank Personal Loan Eligibility",
                                 "body": "<p><strong>Minimum age: </strong>21 years for salaried individuals and must have completed 3 years of service in the same organisation.</p><p><strong>Maximum age: </strong>58 years for salaried individuals</p><p><strong>Minimum income:</strong> Monthly take home, is more than 40% of your gross salary.</p><strong>Documentation required while applying:</strong><ul><li>Signed application along with photograph</li><li>Identity proof: Voter's ID/ Passport/ Driving License</li><li>Cheque for the processing fees</li><li>3 months bank statement</li><li>For salaried applicants: 3 months pay slip and Form 16 with the latest salary certificate</li><li>For self employed applicants: Latest bank statement and Income tax returns or Form 16</li></ul><p>Know more about <a href=\"/uco-bank-personal-loan-eligibility-calculator.html\" title=\"UCO Bank Personal Loan Eligibility Criteria\">UCO Bank Personal Loan Eligibility</a> for taking Personal loan</p>"
                             },
                             {
@@ -3114,7 +3114,7 @@
             }
         ],
         "faq": {
-            "title": " UCO Bank Personal Loan FAQs",
+            "title": "UCO Bank Personal Loan FAQs",
             "items": [
                 {
                     "question": "Can I check my UCO Bank Personal Loan status?",
@@ -3598,7 +3598,7 @@
                     {
                         "type": "cta",
                         "link": "/credit-card.html?variant=slide&utm_source=bb&utm_medium=seo&utm_campaign=SEO_INLINE_CONTENT",
-                        "linkText": " Get A Card",
+                        "linkText": "Get A Card",
                         "prefix": "Mr. Sharma enjoys great discounts on dining with his Credit Card. What about you?"
                     },
                     {
@@ -5853,7 +5853,7 @@
                     {
                         "type": "cta",
                         "link": "/credit-card.html?variant=slide&utm_source=bb&utm_medium=seo&utm_campaign=SEO_INLINE_CONTENT",
-                        "linkText": " Get A Card",
+                        "linkText": "Get A Card",
                         "prefix": "Mr. Sharma is enjoying free airport lounge access with his Credit Card. What about you?"
                     },
                     {
@@ -5874,7 +5874,7 @@
                     {
                         "type": "cta",
                         "link": "/credit-card.html?variant=slide&utm_source=bb&utm_medium=seo&utm_campaign=SEO_INLINE_CONTENT",
-                        "linkText": " Get A Card",
+                        "linkText": "Get A Card",
                         "prefix": "Did you know that Mr. Kumar's Credit Card gets him free movie tickets every month?"
                     },
                     {
@@ -5933,7 +5933,7 @@
                     {
                         "type": "cta",
                         "link": "/credit-card.html?variant=slide&utm_source=bb&utm_medium=seo&utm_campaign=SEO_INLINE_CONTENT",
-                        "linkText": " Get A Card",
+                        "linkText": "Get A Card",
                         "prefix": "Mr. Sharma enjoys great discounts on dining with his Credit Card. What about you?"
                     }
                 ]
@@ -5961,7 +5961,7 @@
             }
         ],
         "faq": {
-            "title": "RBL Bank credit card FAQs: ",
+            "title": "RBL Bank credit card FAQs:",
             "items": [
                 {
                     "question": "What should I do in case I lose my RBL Bank credit card?",
@@ -5987,7 +5987,7 @@
         },
         "references": [
             {
-                "title": " Other Products from RBL Bank",
+                "title": "Other Products from RBL Bank",
                 "items": [
                     {
                         "link": "/savings-account/rbl-bank-savings-account.html",
@@ -6030,42 +6030,42 @@
                         "type": "custom_toc",
                         "items": [
                             {
-                                "linkText": " SBI Credit Card Offers",
+                                "linkText": "SBI Credit Card Offers",
                                 "link": "/sbi-credit-card-offers.html",
                                 "img": {
                                     "src": "/images/india/cc-images/small/top-five-mini.png"
                                 }
                             },
                             {
-                                "linkText": " Features of SBI Cards",
+                                "linkText": "Features of SBI Cards",
                                 "link": "#features-SBI-cards",
                                 "img": {
                                     "src": "/images/india/cc-images/small/features-mini.png"
                                 }
                             },
                             {
-                                "linkText": " Fees and Charges",
+                                "linkText": "Fees and Charges",
                                 "link": "#fees-charges",
                                 "img": {
                                     "src": "/images/india/cc-images/small/fees-and-charges-mini.png"
                                 }
                             },
                             {
-                                "linkText": " Eligibility Criteria",
+                                "linkText": "Eligibility Criteria",
                                 "link": "/credit-card/sbi-cc-eligibility.html",
                                 "img": {
                                     "src": "/images/india/cc-images/small/eligibility-mini.png"
                                 }
                             },
                             {
-                                "linkText": " How to Apply SBI Credit Card",
+                                "linkText": "How to Apply SBI Credit Card",
                                 "link": "#documents-required",
                                 "img": {
                                     "src": "/images/india/cc-images/small/how-to-apply-mini.png"
                                 }
                             },
                             {
-                                "linkText": " Customer Care",
+                                "linkText": "Customer Care",
                                 "link": "#customer-care",
                                 "img": {
                                     "src": "/images/india/cc-images/small/customer-care-mini.png"
@@ -6548,7 +6548,7 @@
                 ]
             },
             {
-                "title": " Find SBI IFSC Code:",
+                "title": "Find SBI IFSC Code:",
                 "items": [
                     {
                         "link": "/ifsc-code/state-bank-of-india.html",
@@ -6652,7 +6652,7 @@
                     {
                         "type": "cta",
                         "link": "/credit-card.html?variant=slide",
-                        "linkText": " Apply Now",
+                        "linkText": "Apply Now",
                         "prefix": "Mr. Sharma enjoys great discounts on dining with his Credit Card. What about you?"
                     }
                 ]
@@ -8675,15 +8675,15 @@
                         "type": "accordion",
                         "items": [
                             {
-                                "title": " Debit Cards in India",
+                                "title": "Debit Cards in India",
                                 "body": "<p>With the advent of debit cards in the 1970s, a consumer’s life became much simpler. Gone are the days when shoppers across the globe used to carry wads of cash in their wallets and stand in long queues to withdraw money from their banks. Payments these days are done with just a swipe or a tap of a card. Older generations would probably have faced challenges like falling short of cash and not having enough to cover a bill but today users would just pick up their debit cards to pay up in a matter of minutes. The popularity of ‘plastic money’ or a debit card has increased phenomenally with financial institutions issuing them with personalized features and designs. As an easy alternative to cash, debits cards are useful to manage your day-to-day expenses, allowing you to plan your budget without overspending. The biggest advantage that a debit card offers to a user is that during every transaction the money is drawn from the customer’s bank account that the card is linked to. Debit cards have been increasingly used for online transactions or purchases on secure payment platforms offered by banks as part of their e-banking solutions.</p><p>Almost every bank in India offers debit cards with different features and benefits depending on the bank account held by the user. Generally these debits cards are issued in collaboration with various payment platforms to provide a secure platform for users to transact on. The most common payment platforms used by banks in India include the following</p>"
                             },
                             {
-                                "title": " How does a debit card work?",
+                                "title": "How does a debit card work?",
                                 "body": "<p>Debits cards are generally linked to a particular bank account belonging to a customer. Banks provide customers with debit cards for every savings, current or overseas accounts they open. In some cases a single debit card can also be linked to multiple bank accounts. A debit card allows a user to purchase goods at merchant outlets or online stores and also doubles up as an ATM card to perform various bank transactions and withdraw cash. When a debit card swipe happens, the money comes directly out of the customer’s bank account and is immediately transferred to the merchant. Instant payments with instantly available cash. Unlike credit cards, debit cards do not require bill payments on a later date as the money is paid then and there. Debit card users receive monthly statements which give them an idea about their card spends and ATM transactions, helping them track and plan their expenses.</p>"
                             },
                             {
-                                "title": " What is a debit card PIN?",
+                                "title": "What is a debit card PIN?",
                                 "body": "<p>‘PIN’ stands for Personal Identification Number. A debit card PIN is a four digit numerical code, provided as a security feature while performing card purchase transactions. When a customer opens a savings or a current account, the bank provides a debit card along with the corresponding PIN to be used while transacting using the debit card. Customers have the option of changing or setting PINs of their choice if they have forgotten or lost their current PINs. The Reserve Bank of India mandates the use of PIN while making purchases at merchant outlets using debit cards as a security measure. Banking customers are always advised to keep their PINs safe and not share it with other individuals as a move to provide protection to their bank accounts.</p>"
                             },
                             {
@@ -8691,11 +8691,11 @@
                                 "body": "<p>Customers holding savings or current accounts must always choose a debit card suitable to their accounts and the expenses they would incur. Compare a few debit cards before you actually make your choice. Understand what each card offers, the fees levied, the services offered and the minimum balance requirements before signing off on a card. Additionally some debit cards also offer rewards programs and these would be beneficial to higher spenders. Also make sure that while performing e-commerce or online transactions, the bank and the payment platforms are secure to avoid any fraudulent activity on your debit cards. Always choose a card best suited to your financial needs and not because the card is packed with privileges and offers.</p>"
                             },
                             {
-                                "title": " Tips to use your debit card safely",
+                                "title": "Tips to use your debit card safely",
                                 "body": "<p>Debit cards serve different purposes, and are convenient to use. It relieves us of the burden of carrying a cash heavy wallet around. But as every good thing comes with a flipside, debit cards are easily susceptible to fraudulent attacks. It is true that every debit card transaction is conducted through secure platforms yet they are susceptible to all kinds of hacking and cyber-attacks. To avoid being a victim of debit card frauds, you need to know how to use your debit cards safely.</p><p>Here are a few useful tips to prevent misuse of your debit card -</p><p><strong>Keep your PIN a secret -</strong> The first rule that governs the usage of a debit card is to keep your debit card PIN safe and secure. Memorise the 4 digit PIN by heart, and make sure that you don't write it down anywhere, or share it with anyone. Also, never give your PIN to anyone over the phone, email, social media, and such like.</p><p><strong>Report loss of your Debit Card -</strong> Loss of card should be immediately reported to the financial institution to hot list the card, in an effort to prevent fraud.</p><p><strong>Keep an eye on your email -</strong> This is the easiest and most common way to identify fraudulent transactions, if any, occurring via your debit card. As soon as a transaction is made using the card, an email is generated intimating the cardholder about it.</p><p><strong>Follow RBI's mandate -</strong> Make sure that you authenticate every PoS transaction by entering your PIN and completing the entire purchase transaction.</p><p><strong>Make online payments through secure platforms -</strong> With the advent of online shopping, cyber safety has become a cause of deep concern. You have to be cautious while carrying out a transaction online and paying via your debit card. Look for secure online payment symbols, and ensure that you use your debit cards only on secure websites asking for authentication. The two-tier authentication process that secure sites require is a measure to prevent debit card credentials from getting leaked.</p><p><strong>Follow SMS alerts -</strong> An easy way to keep a track of your debit card spend is to set-up alerts from your bank in the form of SMS or mail statements containing details of every single purchase or transactions you have done.</p><p><strong>Keep your card protected -</strong> If the magnetic strip behind your card gets damaged, you cannot carry out any transactions by swiping your card. Please make sure that you do not expose your card to dirt, sharp objects, and other magnetic objects.</p><p><strong>Keep a track of your money in the account -</strong>Review your account statement often to know where and how much have you been spending. If you come across any unauthorised transactions, report it to the bank, immediately. This can be a significant step in preventing you from becoming a victim of fraudulent transactions.</p>"
                             },
                             {
-                                "title": " Benefits of Debit Card",
+                                "title": "Benefits of Debit Card",
                                 "body": "<ul><li>Debit cards are a convenient alternative to cash. They are easy to carry and can be handled easily. Since you do not have carry cash or cheque book if you have a debit card, it is a safe option when travelling.</li><li>Debit cards can be used to withdraw cash from an ATM and also for merchant transactions at Point of Sale (PoS) terminals. A debit card ensures instant transfer of funds and receipts of services.</li><li>With banks offering exciting features like bonus points, cash back offers, free insurance coverage and an array of redeeming options for accumulated points, debit cards will make your whole purchase experience more rewarding.</li><li>Debit cards encourages a habit of responsible spending since the cardholder can only utilize their own money within account limits. It also helps in better budgeting and money management since the transactions are recorded.</li><li>A debit card offers greater security and thus decreases the chances of fraud, theft and misuse.</li><li>You can easily keep tracks of your spends with features like email and SMS alerts that contain details of transactions done using the debit card. Many banks also allow you to customize the add-on benefits to gain the maximum from your debit card.</li></ul>"
                             }
                         ]
@@ -8730,7 +8730,7 @@
         },
         "references": [
             {
-                "title": " Read More about Debit Cards",
+                "title": "Read More about Debit Cards",
                 "items": [
                     {
                         "link": "/debit-card/debit-cards-vs-credit-cards.html",
@@ -8791,7 +8791,7 @@
                 ]
             },
             {
-                "title": " Related Saving Schemes Pages",
+                "title": "Related Saving Schemes Pages",
                 "items": [
                     {
                         "link": "/saving-schemes/how-to-check-your-epf-balance-online.html",
@@ -8860,7 +8860,7 @@
                 ]
             },
             {
-                "title": " Related Savings Account Pages",
+                "title": "Related Savings Account Pages",
                 "items": [
                     {
                         "link": "/savings-account/sbi-savings-account.html",
@@ -9041,7 +9041,7 @@
             },
             {
                 "type": "section",
-                "title": "Due Date to Claim Income Tax Refund ",
+                "title": "Due Date to Claim Income Tax Refund",
                 "body": "",
                 "elements": [
                     {
@@ -9052,7 +9052,7 @@
             },
             {
                 "type": "section",
-                "title": "Interest on Delayed Income Tax Refund ",
+                "title": "Interest on Delayed Income Tax Refund",
                 "body": "",
                 "elements": [
                     {
@@ -9751,5 +9751,5 @@
                 ]
             }
         ]
-    }    
+    }
 }
