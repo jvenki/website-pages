@@ -117,7 +117,9 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
         const allChildrenAreAccordion = () => $e.children().get().every((c) => $(c).hasClass("twi-accordion"));
         const allPanelBodiesAreReferences = () => {
             const panelBodies = $e.find(".twi-accordion .panel-body").get();
-            return panelBodies.length > 0 && panelBodies.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "li", "a"]));
+            return panelBodies.length > 0 
+                && panelBodies.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "li", "a"]) 
+                    || isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "ul", "li", "a"]));
         };
         const allPanelHeadingsAreReferences = () => {
             const panelHeadings = $e.find(".twi-accordion .panel-heading").get();
