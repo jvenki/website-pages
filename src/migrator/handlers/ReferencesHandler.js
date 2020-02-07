@@ -2,6 +2,7 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import { extractHeadingText, extractLink, extractLinkText, isElementAHeadingNode, isElementATableNode, assert, isElementMadeUpOfOnlyWithGivenDescendents } from "./Utils";
+import {containsOnlyGridCellClasses} from "./UnwrapHandler";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), "ReferencesHandler-CannotExtractReferences", $e);
 
@@ -56,11 +57,11 @@ export class ReferencesHandlerVariant_InterlinksOfAccordion extends BaseHandler 
 
 export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return $element.hasClass("product_interlink") && $element.find(" > strong").length == 1 && $element.find(" > ul").length == 1;
+        return $element.hasClass("product_interlink") && $element.find(" > strong, > h3").length == 1 && $element.find(" > ul").length == 1;
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].find("> strong"), $);
+        const title = extractHeadingText(elements[0].find("> strong, > h3"), $);
         const items = elements[0].find("> ul a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
@@ -139,6 +140,23 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
             return {type: "references", title, items};
         }).get();
         return {elements: targetElements};
+    }
+}
+
+export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const allChildrenAreGridCells = () => $e.children().get().every((c) => containsOnlyGridCellClasses($(c).attr("class")));
+        const allULsAreJustReferences = () => {
+            const lists = $e.find("ul").get();
+            return lists.length > 0 && lists.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"]));
+        };
+        return $e.hasClass("row") && allChildrenAreGridCells() && $e.find(".product_interlink").length > 0 && allULsAreJustReferences();
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find("h3"), $);
+        const items = elements[0].find("ul li a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        return {elements: [{type: "references", title, items}]};
     }
 }
 

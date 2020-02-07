@@ -31361,6 +31361,131 @@
             }
         ]
     },
+    "4316": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "$LPD_EMBEDDED_ITEM_SS<p>The Pradhan Mantri Jan Dhan Yojana, launched in August 2014 is a national mission aimed at financial inclusion of all sections of society across the country. The primary purpose of the scheme is to extend various types of banking products and services to all (both rural and urban) households in India.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "What does Pradhan Mantri Jan Dhan Yojana entail?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Under the Pradhan Mantri Jan Dhan Yojana, eligible citizens can open zero-balance Jan Dhan savings accounts with any private or private bank. Central government has taken care to ensure that the scheme has simple Know-Your-Customer (KYC) rules for effective utilisation. The Jan Dhan scheme offers accident insurance up to Rs.1 lakh on one account and a life cover of Rs.30,000 (subject to conditions). An individual can avail of an overdraft facility of up to Rs.5000 upon completion of six months of satisfactory maintenance of the account. Account holders can also avail of RuPay debit card and mobile banking services.</p><p>In case an individual does not produce any ‘valid document’, he or she can open a temporary ‘small account’. However, the concerned account holder should submit any valid document in one year or aadhaar card. According to experts, Pradhan Mantri Jan Dhan Yojana will help plug loopholes to rein in fiscal deficit. Also, akin to Direct Benefit Transfer, all proceeds from various government schemes are transferred to beneficiaries’ accounts. There is a view that Pradhan Mantri Jan Dhan Yojana will rein in black money in the economy. Also, with more number of people utilising RuPay debit cards, virtual currency is expected to gain traction.</p>$LPD_EMBEDDED_ITEM_SS_1"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Opening an account for a minor",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>While Pradhan Mantri Jan Dhan Yojana is primarily meant for individuals who do not have access to proper banking facilities, even those with existing accounts can open an account under the scheme upon submission of their Aadhaar cards. A unique id will be provided to an individual who submits an aadhaar card with which he or she can log into the system. Individuals can open a joint Jan Dhan Yojana account - minor and guardian. Under the scheme, not even a single transaction can be done without approval of both the account holders. However, a guardian has to submit the required documents on behalf of a minor. Upon attainment of 18 years, the concerned bank will demand an identity proof of the child. After due verification of the necessary documents, the Jan Dhan Yojana account will be transferred to the child.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documentation required to open an account for a minor",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The following documents have to be submitted to open a Pradhan Mantri Jan Dhan Yojana account</p><ul><li>A guardian has to submit any valid proof of residence such as Aadhaar card, passport or ration card</li><li>In case an individual cannot submit any of the aforementioned documents, he or she has to produce any identity proof either issued by the central government of India or an authority letter by a gazette officer</li><li>If an individual cannot submit any valid official document, he or she can still open a temporary Jan Dhan account known as ‘small bank account’, provided a bank declares the concerned individual as ‘low risk’. In such a scenario, he or she has to sign an account opening form in the presence of bank officials. However, the temporary account is valid for only one year. If the account holder wishes to maintain the account, he or she needs to submit the aforementioned documents under one year.</li></ul>$LPD_EMBEDDED_ITEM_SS_3"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Read more on PMJDY Related Pages",
+                "items": [
+                    {
+                        "link": "/saving-schemes/pradhan-mantri-jan-dhan-yojana.html",
+                        "title": "Pradhan Mantri Jan Dhan Yojana"
+                    },
+                    {
+                        "link": "/saving-schemes/application-form-for-pradhan-mantri-jan-dhan-yojana.html",
+                        "title": "Application Form for Pradhan Mantri Jan Dhan Yojana"
+                    },
+                    {
+                        "link": "/saving-schemes/how-is-pradhan-mantri-jan-dhan-yojana-beneficial.html",
+                        "title": "Pradhan Mantri Jan Dhan Yojana Beneficial"
+                    },
+                    {
+                        "link": "/saving-schemes/pradhan-mantri-jan-dhan-yojana-online.html",
+                        "title": "Pradhan Mantri Jan Dhan Yojana Online"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-open-jan-dhan-yojana-account-for-a-minor.html",
+                        "title": "How to Open Jan Dhan Yojana Account for a Minor"
+                    },
+                    {
+                        "link": "/saving-schemes/pradhan-mantri-jan-dhan-yojana-account-eligibility-criteria.html",
+                        "title": "Pradhan Mantri Jan Dhan Yojana Account Eligibility Criteria"
+                    },
+                    {
+                        "link": "/saving-schemes/pradhan-mantri-jan-dhan-yojana-overdraft-facilities-and-benefits.html",
+                        "title": "PMJDY Overdraft Facilities and Benefits"
+                    },
+                    {
+                        "link": "/saving-schemes/small-account-or-chota-khata-account-under-pmjdy.html",
+                        "title": "Small Account or Chota Khata Account Under PMJDY"
+                    },
+                    {
+                        "link": "/saving-schemes/documents-required-for-pm-Jan-dhan-yojana-account.html",
+                        "title": "Documents Required for PM Jan Dhan Yojana Account"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-transfer-old-accounts-under-jan-dhan-yojana.html",
+                        "title": "How to Transfer Old Accounts Under Jan Dhan Yojana"
+                    },
+                    {
+                        "link": "/saving-schemes/zero-balance-account-through-pm-jan-dhan-yojana.html",
+                        "title": "Zero Balance Account Through PM Jan Dhan Yojana"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-make-withdrawals-from-pmjdy-bank-account.html",
+                        "title": "How to Make Withdrawals from PMJDY Bank Account"
+                    },
+                    {
+                        "link": "/saving-schemes/how-can-you-contact-pmjdy-team.html",
+                        "title": "How Can You Contact PMJDY Team"
+                    },
+                    {
+                        "link": "/saving-schemes/ndlm.html",
+                        "title": "NDLM"
+                    },
+                    {
+                        "link": "/saving-schemes/nrega.html",
+                        "title": "NREGA"
+                    },
+                    {
+                        "link": "/saving-schemes/iay.html",
+                        "title": "IAY"
+                    },
+                    {
+                        "link": "/saving-schemes/nsdl.html",
+                        "title": "NSDL"
+                    }
+                ]
+            }
+        ]
+    },
     "5336": {
         "title": "",
         "body": "",
