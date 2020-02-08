@@ -34,7 +34,7 @@ export default class Cleanser {
 
 const makeHTMLValid = (html) => {
     let cleansedHtml = 
-        html.replace(/“/g, "\"").replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'")  // Remove MSWord style Quotations
+        html.replace(/“/g, "\"").replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'").replace(/–/g, "-")  // Remove MSWord style Quotations
             .replace(/<<\s*>>/g, "&lt;&lt; &gt;&gt;").replace(/< Rs/g, "&lt; Rs")   // Escape the angle-brackets
             .replace(/<ins>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/ins>/g, "<u>$1</u>")  // Found in LPD#856
             .replace(/<ins><strong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/strong><\/ins>/g, "<u><strong>$1</strong></u>")  // Found in LPD#856
