@@ -6,7 +6,7 @@ import {containsOnlyGridCellClasses} from "./UnwrapHandler";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), "ReferencesHandler-CannotExtractReferences", $e);
 
-export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other/i;
+export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other|read more/i;
 
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
@@ -119,18 +119,18 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
         const allPanelBodiesAreReferences = () => {
             const panelBodies = $e.find(".twi-accordion .panel-body").get();
             return panelBodies.length > 0 
-                && panelBodies.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "li", "a"]) 
-                    || isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "ul", "li", "a"]));
+                && panelBodies.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "li", "a"], $) 
+                    || isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "ul", "li", "a"], $));
         };
         const allPanelHeadingsAreReferences = () => {
             const panelHeadings = $e.find(".twi-accordion .panel-heading").get();
             return panelHeadings.length > 0 
                 && panelHeadings.every((panel) => {
                     const currPanelChildren = $(panel).children().get();
-                    return currPanelChildren[0].tagName == "h2" && currPanelChildren.slice(1).every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"]));
+                    return currPanelChildren[0].tagName == "h2" && currPanelChildren.slice(1).every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"], $));
                 });
         };
-        return $e.hasClass("row") && allChildrenAreAccordion() && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences());
+        return $e.hasClass("row") && allChildrenAreAccordion() && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences()) && areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li a"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -148,9 +148,9 @@ export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
         const allChildrenAreGridCells = () => $e.children().get().every((c) => containsOnlyGridCellClasses($(c).attr("class")));
         const allULsAreJustReferences = () => {
             const lists = $e.find("ul").get();
-            return lists.length > 0 && lists.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"]));
+            return lists.length > 0 && lists.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"], $));
         };
-        return $e.hasClass("row") && allChildrenAreGridCells() && $e.find(".product_interlink").length > 0 && allULsAreJustReferences();
+        return $e.hasClass("row") && allChildrenAreGridCells() && $e.find(".product_interlink").length > 0 && allULsAreJustReferences() && areAllAnchorsOnlyNonLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -175,3 +175,38 @@ export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
         return {elements: [{type: "references", title, items}]};
     }
 }
+
+export class ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const nextNodeIsCntrOfLinks = ($n) => {
+            if ($n.length == 0) {
+                return false;
+            }
+            if (["ul", "ol"].includes($n.get(0).tagName) && isElementMadeUpOfOnlyWithGivenDescendents($n, ["li", "a"], $)) {
+                return true;
+            }
+            if ($n.get(0).tagName == "div" && $n.hasClass("hungry-table") && isElementMadeUpOfOnlyWithGivenDescendents($n, ["table", "tbody", "tr", "td", "a"], $)) {
+                return true;
+            }
+            return false;
+        };
+        return isElementAHeadingNode($e) && nextNodeIsCntrOfLinks($e.next()) && areAllAnchorsOnlyNonLocalLinks($e.next());
+    }
+
+    walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
+        return [$element, $element.next()];
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const items = elements[1].find("a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title, elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
+
+const areAllAnchorsOnlyNonLocalLinks = ($e) => {
+    const links = $e.find("a").get();
+    return links.every((link) => !link.attribs.href.startsWith("#"));
+};
