@@ -90,9 +90,6 @@ const isElementATextualNode = ($e) => {
     if (["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
         return true;
     }
-    if ($e.get(0).tagName == "div" && $e.children().length == 1 && $e.children().first().get(0).tagName == "img" && $e.hasClass("pull-right")) {
-        return true;
-    }
     return false;
 };
 export const isElementATableNode = ($e) => {
@@ -162,18 +159,12 @@ export const extractLinkText = ($e, $) => {
 
 export const extractContentHtml = ($e, $) => {
     let html;
-    if ($e.get(0).tagName == "a" && $e.parent().hasClass("pull-right") && $e.children().length == 1 && $e.children().length == $e.find("img").length) {
-        const linkTitle = $e.attr("title") || $e.find("img").attr("title");
-        html = `<a href="${extractLink($e)}" title="${linkTitle}" class="pull-right">${extractImgTag($e.find("img"))}</a>`;
-    } else if (isElementATextualNode($e)) {
+    if (isElementATextualNode($e)) {
         html = extractHtmlFromTextualNodes($e, $);
     } else if (isElementATableNode($e)) {
         html = extractHtmlFromTableCreatedUsingTableNode($e, $);
     } else if (["div"].includes($e.get(0).tagName)) {
         html = $e.children().map((i, c) => extractContentHtml($(c), $)).get().join("");
-    } else if (["td"].includes($e.get(0).tagName)) {
-        cleanseAndValidateElement($e, $);
-        html = $e.html();
     } else if (isElementASubHeadingNode($e)) {
         if ($e.get(0).tagName != "h3") {
             if ($e.children().length == 1 && $e.children().get(0).tagName == "u") {
@@ -192,7 +183,7 @@ export const extractContentHtml = ($e, $) => {
 
 export const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 
-const extractImgTag = ($e, addnClass) => {
+const extractImgTag = ($e) => {
     let output = "<img";
     ["title", "alt"].forEach((attrName) => {
         if ($e.attr(attrName)) {
@@ -200,20 +191,28 @@ const extractImgTag = ($e, addnClass) => {
         }
     });
     output += ` src="${extractImgSrc($e)}"`;
-    if (addnClass) {
-        output += ` class="${addnClass}"`;
+    const $p = $e.parent();
+    if ($p.get(0).tagName == "div") {
+        if ($p.hasClass("pull-right")) {
+            output += " class=\"pull-right\"";
+        } else if ($p.hasClass("text-center")) {
+            output += " class=\"text-center\"";
+        }
     }
     output += "/>";
     return output;
 };
 
-const createLinkTag = ($n, innerHtml) => {
+const createLinkTag = ($e, innerHtml) => {
     let output = "<a";
     ["href", "title"].forEach((attrName) => {
-        if ($n.attr(attrName)) {
-            output += ` ${attrName}="${$n.attr(attrName)}"`;
+        if ($e.attr(attrName)) {
+            output += ` ${attrName}="${$e.attr(attrName)}"`;
         }
     });
+    if ($e.parent().hasClass("pull-right") && $e.children().length == 1 && $e.children().length == $e.find("img").length) {
+        output += " class=\"pull-right\"";
+    }
     output += ">";
     output += innerHtml || "";
     output += "</a>";
@@ -233,14 +232,12 @@ const extractHtmlFromTextualNodes = ($e, $) => {
             return extractImgTag($n);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "a") {
             return createLinkTag($n, processChildNodes($n));  // Has Attributes that needs to be pulled out
-        } else if (n.tagName == "ul" && $n.children().get().every((li) => $(li).text().trim().match(/^\d+./))) {
-            return `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+.\s*/, "<li>")).join("")}</ol>`;
+        } else if (n.tagName == "ul" && $n.children().get().every((li) => $(li).text().trim().match(/^\d+\.\s+/)) && $n.hasClass("list-group")) {
+            return `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+\.\s+/, "<li>")).join("")}</ol>`;   // Convert UL with manual numbering to OL
         } else if (isElementASubHeadingNode($n)) {
             return `<strong>${processChildNodes($n).join("")}</strong>`;
         } else if (isElementATableNode($n)) {
             return extractHtmlFromTableCreatedUsingTableNode($n, $);
-        } else if ($n.get(0).tagName == "div") {
-            return extractImgTag($n.find("img"), "pull-right");
         } else if (isElementATextualNode($n)) {
             return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
         } else {
@@ -278,7 +275,8 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
             const cellCount = $(tr).children().length;
             const cells = $(tr).children().map((ci, td) => {
                 const isTDActuallyATH = (Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0)) || isTRActuallyAHeader;
-                return createCell(isTDActuallyATH ? "th" : "td", extractContentHtml($(td), $), td.attribs);
+                const cellBody = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get().join(" ");
+                return createCell(isTDActuallyATH ? "th" : "td", cellBody, td.attribs);
             }).get();
             maxColumnCount = Math.max(cells.length, maxColumnCount);
             return `<tr>${cells.join("")}</tr>`;

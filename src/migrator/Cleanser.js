@@ -41,11 +41,11 @@ const makeHTMLValid = (html) => {
             .replace(/<h2 id="faq">([a-zA-Z0-9\s]*)<\/h3>/, "<h2>$1</h2>")  // Found in LPD#8
             .replace(/<i>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/i>/g, "<em>$1</em>")  // Found in LPD#9
             .replace(/<b>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/b>/g, "<strong>$1</strong>")  // Found in LPD#57
-            .replace(/<span style="text-decoration: underline;">([[a-zA-Z0-9?\-.:\s]*)<\/span>/, "<u>$1</u>") // Found in #LPD#37
-            .replace(/\s*tax-img-responsive\s*/, "") // Found in LPD#38
-            .replace(/<srtong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/srtong>/, "<strong>$1</strong>") // Found in LPD#48
-            .replace(/<stong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/stong>/, "<strong>$1</strong>") // Found in LPD#230
-            .replace(/<h1>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/h1>/, "<h2>$1</h2>") // Found in LPD#123
+            .replace(/<span style="text-decoration: underline;">([[a-zA-Z0-9?\-.:\s]*)<\/span>/g, "<u>$1</u>") // Found in #LPD#37
+            .replace(/\s*tax-img-responsive\s*/g, "") // Found in LPD#38
+            .replace(/<srtong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
+            .replace(/<stong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/stong>/g, "<strong>$1</strong>") // Found in LPD#230
+            .replace(/<h1>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/h1>/g, "<h2>$1</h2>") // Found in LPD#123
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
     cleansedHtml = 
