@@ -333,10 +333,17 @@ const cleanseAndValidateElement = ($e, $) => {
 
 export const hasClass = (node, regex) => ((node.attribs || {}).class || "").match(regex);
 
-export const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames) => {
-    const getAllChildrenAtDepth = (depth) => $e.find(times(depth+1, constant(" > * ")).join("")).get();
-    return descendentTagNames.every((descendentTagName, i) => {
-        const children = getAllChildrenAtDepth(i);
-        return children.length > 0 && children.every((child) => child.tagName == descendentTagName);
-    });
+export const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames, $) => {
+    const recurse = ($n, depth) => {
+        return $n.contents().get().every((d) => {
+            if (d.tagName != descendentTagNames[depth]) {
+                return false;
+            }
+            if (depth < descendentTagNames.length) {
+                return recurse($(d), depth+1);
+            }
+            return true;
+        });
+    };
+    return recurse($e, 0);
 };

@@ -20,7 +20,21 @@ export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
 
 export class DeprecatedTOCHandlerVariant_ULofAsOnly extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        return ["ul", "ol"].includes($e.get(0).tagName) && isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"]) && areAllAnchorsOnlyLocalLinks($e);
+        return ["ul", "ol"].includes($e.get(0).tagName) && isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"], $) && areAllAnchorsOnlyLocalLinks($e);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        return extractLinks(elements[0], $);
+    }
+}
+
+export class DeprecatedTOCHandlerVariant_TableOfAsOnly extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const containsOnly2Cells = () => $e.find("td,th").length == 2;
+        const lastCellMadeUpOfOnlyULofLIofA = () => {
+            return isElementMadeUpOfOnlyWithGivenDescendents($e.find("td").last(), ["ul", "li", "a"], $);
+        };
+        return $e.hasClass("hungry-table") && containsOnly2Cells() && lastCellMadeUpOfOnlyULofLIofA() && areAllAnchorsOnlyLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
