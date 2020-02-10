@@ -46,6 +46,7 @@ const makeHTMLValid = (html) => {
             .replace(/<srtong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
             .replace(/<stong>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/stong>/g, "<strong>$1</strong>") // Found in LPD#230
             .replace(/<h1>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/h1>/g, "<h2>$1</h2>") // Found in LPD#123
+            .replace(/”/g, "\"").replace(/”/g, "\"")  // Found in LPD#3574
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
     cleansedHtml = 

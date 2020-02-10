@@ -3,9 +3,11 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import {extractContentHtml} from "./Utils";
 
+const regex = /\*This article is provided only for consumer information on an|^\*Disclaimer: Bankbazaar makes no guarantee/g;
+
 export class DisclaimerHandlerVariant_Regex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
-        return $element.find("*").length == 0 && $element.text().match(/\*This article is provided only for consumer information on an/);
+        return $element.find("*").length == 0 && $element.text().match(regex);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
