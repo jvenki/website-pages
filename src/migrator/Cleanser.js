@@ -111,7 +111,7 @@ const removeDivsWithHFMClassNamesUnderBody = ($, onIssue) => {
             unwrapIfNeccessary($e);
         }
     };
-    $("body").children().each((i, c) => unwrapIfNeccessary($(c)));
+    $("*").children().each((i, c) => unwrapIfNeccessary($(c)));
     $("*").removeClass("ir-section");   //Used in LPD#9
 };
 
