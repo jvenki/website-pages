@@ -64,7 +64,7 @@ export const removeBGClasses = (classNames) => {
         .trim();
 };
 
-export const isElementAHeadingNode = ($e) => ["h2", "h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
+export const isElementAHeadingNode = ($e) => $e.length > 0 && ["h2", "h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
 export const isElementAContentNode = ($e) => {
     if (isElementATableNode($e)) {
         return true;
@@ -84,16 +84,19 @@ export const isElementAContentNode = ($e) => {
 
 const isElementASubHeadingNode = ($e) => ["h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
 const isElementATextualNode = ($e) => {
-    if ($e.get(0).type == "text") {
+    if ($e.length == 0) {
+        return false;
+    } else if ($e.get(0).type == "text") {
         return true;
-    }
-    if (["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
+    } else if (["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
         return true;
     }
     return false;
 };
 export const isElementATableNode = ($e) => {
-    if ($e.get(0).tagName == "table") {
+    if ($e.length == 0) {
+        return false;
+    } if ($e.get(0).tagName == "table") {
         return true;
     } else if ($e.hasClass("hungry-table") || $e.hasClass("js-hungry-table")) {
         return $e.children().length == 1 && $e.children().first().get(0).tagName == "table";
@@ -159,7 +162,9 @@ export const extractLinkText = ($e, $) => {
 
 export const extractContentHtml = ($e, $) => {
     let html;
-    if (isElementATextualNode($e)) {
+    if ($e.length == 0) {
+        return undefined;
+    } else if (isElementATextualNode($e)) {
         html = extractHtmlFromTextualNodes($e, $);
     } else if (isElementATableNode($e)) {
         html = extractHtmlFromTableCreatedUsingTableNode($e, $);

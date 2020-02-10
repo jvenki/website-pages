@@ -25,7 +25,7 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
 export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         const allowedNextTagNames = ["table", "div", "ul"];
-        const nextElementIsAppro = ($n) => allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
+        const nextElementIsAppro = ($n) => $n.length > 0 && allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
         return (isElementAHeadingNode($element) || $element.get(0).tagName == "strong") 
             && $element.text().match(headingRegex) && nextElementIsAppro($element.next());
     }
@@ -135,7 +135,7 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const targetElements = elements[0].find(".twi-accordion").map((i, root) => {
-            const title = extractHeadingText($(root).find("strong.panel-title a, .panel-heading h2 strong"));
+            const title = extractHeadingText($(root).find("strong.panel-title a, .panel-heading h2 strong"), $);
             const items = $(root).find("ul li a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
             return {type: "references", title, items};
         }).get();
