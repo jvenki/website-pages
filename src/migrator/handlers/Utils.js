@@ -113,7 +113,7 @@ export const extractHeadingText = ($e, $) => {
         if (["p", "sub"].includes(d.tagName) && ["Updated on $date", "Updated on #date"].includes($d.text().trim())) {
             // This was populated for tables tagged as product-hl-table. We will append this info directly.
             $d.remove();
-        } else if (["strong"].includes(d.tagName)) {
+        } else if (["strong", "em"].includes(d.tagName)) {
             $d.contents().each((i, childOfD) => {
                 $(childOfD).insertAfter($d);
             });
