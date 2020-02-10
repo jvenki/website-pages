@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, Button, Pagination } from "semantic-ui-react";
 import PropTypes from "prop-types";
-import SingleDocView from "./SingleDocView";
+import DetailedSingleDocView from "./DetailedSingleDocView";
 
 export default class ListingView extends React.Component {
     static propTypes = {
@@ -26,7 +26,7 @@ export default class ListingView extends React.Component {
     }
 
     renderSingleDocument() {
-        return <SingleDocView lpdId={this.state.docId} onValidationCompletion={this.handleValidationResult} onClose={() => this.setState({docId: undefined})}/>;
+        return <DetailedSingleDocView lpdId={this.state.docId} onValidationCompletion={this.handleValidationResult} onClose={() => this.setState({docId: undefined})}/>;
     }
 
     renderDocumentsListing() {

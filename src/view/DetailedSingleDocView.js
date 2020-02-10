@@ -7,7 +7,7 @@ import { Grid, Segment, Header, Tab, Label, Button, Message, Modal, Form, Feed, 
 import Page from "./page/Page";
 import { CleanserIssueCode } from "../migrator/MigrationError";
 
-export default class SingleDocView extends React.Component {
+export default class DetailedSingleDocView extends React.Component {
     static propTypes = {
         lpdId: PropTypes.number.isRequired,
         onClose: PropTypes.func,
