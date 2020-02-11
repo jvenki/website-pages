@@ -33277,6 +33277,181 @@
             }
         ]
     },
+    "5535": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Individuals who have availed loans from lenders or banks before 1 April, 2016 will be paying the base rate and not MCLR. MCLR or marginal cost of funds based lending rate, when compared to the base rate compared, is seen to be lower by 5 to 50 basis points. This happens as the marginal cost of funds based lending rate is closely linked with the repo rate. Thus, there is better transmission of Reserve Bank of India's rate cut to the borrower.</p>"
+                    },
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": "Apply for Home Loan",
+                                "link": "/home-loan.html"
+                            },
+                            {
+                                "linkText": "Home Loan Eligibility",
+                                "link": "/home-loan-eligibility.html"
+                            },
+                            {
+                                "linkText": "Home Loan Calculator",
+                                "link": "/home-loan/emi-calculator.html"
+                            },
+                            {
+                                "linkText": "Home Loan Interest Rate",
+                                "link": "/home-loan-interest-rate.html"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "MCLR Rates Offered By Top Banks:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><thead><tr><th colspan=\"4\" rowspan=\"1\">Bank Wise MCLR Rates : Tenor More Than 1 Year</th></tr><tr><th>Banks</th><th>3 years</th><th>2 years</th><th>1 year</th></tr></thead><tbody><tr><td><a href=\"/home-loan/sbi-mclr-base-rate.html\">State Bank of India</a></td><td>8.20%</td><td>8.10%</td><td>7.90%</td></tr><tr><td><a href=\"/home-loan/hdfc-bank-mclr-base-rate.html\">HDFC Bank</a></td><td>8.35%</td><td>8.25%</td><td>8.15%</td></tr><tr><td><a href=\"/home-loan/icici-bank-mclr-base-rate.html\">ICICI Bank</a></td><td>NA</td><td>NA</td><td>8.45%</td></tr><tr><td><a href=\"/home-loan/axis-bank-mclr-base-rate.html\">Axis Bank</a></td><td>8.50%</td><td>8.45%</td><td>8.35%</td></tr><tr><td><a href=\"/home-loan/pnb-mclr-base-rate.html\">PNB</a></td><td>8.45%</td><td>NA</td><td>8.25%</td></tr><tr><td>Citibank</td><td>NA</td><td>NA</td><td>7.95%</td></tr><tr><td>IndusInd Bank</td><td>9.55%</td><td>9.50%</td><td>9.45%</td></tr><tr><td>Yes Bank</td><td>NA</td><td>NA</td><td>9.70%</td></tr><tr><td>RBL</td><td>NA</td><td>NA</td><td>9.80%</td></tr><tr><td>DBS</td><td>NA</td><td>NA</td><td>8.30%</td></tr><tr><td>IDFC</td><td>9.55%</td><td>9.40%</td><td>9.30%</td></tr><tr><td>Bank of India</td><td>NA</td><td>NA</td><td>8.20%</td></tr><tr><td>Andhra Bank</td><td>NA</td><td>NA</td><td>8.30%</td></tr><tr><td>Allahabad Bank</td><td>NA</td><td>NA</td><td>8.30%</td></tr><tr><td>Nainital Bank</td><td>9.00%</td><td>8.60%</td><td>8.30%</td></tr><tr><td>Lakshmi Vilas Bank</td><td>NA</td><td>NA</td><td>10.55%</td></tr><tr><td>Jammu and Kashmir Bank</td><td>8.95%</td><td>8.90%</td><td>8.45%</td></tr><tr><td>Central Bank of India</td><td>NA</td><td>NA</td><td>8.15%</td></tr><tr><td>Bandhan Bank</td><td>11.14%</td><td>10.85%</td><td>10.06%</td></tr><tr><td>United Bank of India</td><td>NA</td><td>NA</td><td>8.40%</td></tr><tr><td>Union Bank of India</td><td>8.45%</td><td>8.40%</td><td>8.25%</td></tr><tr><td>UCO Bank</td><td>NA</td><td>NA</td><td>8.30%</td></tr><tr><td>Punjab and Sind Bank</td><td>8.90%</td><td>NA</td><td>8.45%</td></tr><tr><td>Bank of Baroda</td><td>NA</td><td>NA</td><td>8.25%</td></tr><tr><td>Federal Bank</td><td>NA</td><td>NA</td><td>8.90%</td></tr><tr><td>South Indian Bank</td><td>NA</td><td>NA</td><td>9.10%</td></tr><tr><td>Standard Chartered</td><td>9.70%</td><td>9.60%</td><td>9.20%</td></tr><tr><td>Deutsche Bank</td><td>NA</td><td>NA</td><td>9.40%</td></tr><tr><td>BNP Paribas</td><td>7.65%</td><td>7.65%</td><td>7.65%</td></tr><tr><td>Corporation Bank</td><td>NA</td><td>NA</td><td>8.60%</td></tr><tr><td>Karnataka Bank</td><td>NA</td><td>NA</td><td>9.25%</td></tr><tr><td>Dhanlaxmi Bank</td><td>NA</td><td>NA</td><td>9.80%</td></tr><tr><td><a href=\"/home-loan/idbi-bank-mclr-base-rate.html\">IDBI Bank</a></td><td>8.90%</td><td>8.75%</td><td>8.65%</td></tr><tr><td><a href=\"/home-loan/obc-bank-mclr-base-rate.html\">OBC</a></td><td>NA</td><td>NA</td><td>8.30%</td></tr><tr><td>Indian Overseas Bank</td><td>8.70%</td><td>8.60%</td><td>8.50%</td></tr><tr><td>Karur Vysya Bank</td><td>NA</td><td>NA</td><td>9.40%</td></tr></tbody></table><table><thead><tr><th colspan=\"5\" rowspan=\"1\">Bank Wise MCLR Rates :Tenor Less Than 1 Year</th></tr><tr><th>Banks</th><th>6 months</th><th>3 months</th><th>1 months</th><th>Overnight</th></tr></thead><tbody><tr><td>State Bank of India</td><td>7.85%</td><td>7.70%</td><td>7.65%</td><td>7.65%</td></tr><tr><td>HDFC Bank</td><td>8.00%</td><td>7.90%</td><td>7.85%</td><td>7.80%</td></tr><tr><td>ICICI Bank</td><td>8.40%</td><td>8.25%</td><td>8.20%</td><td>8.20%</td></tr><tr><td>Axis Bank</td><td>8.30%</td><td>8.20%</td><td>8.00%</td><td>8.00%</td></tr><tr><td>PNB</td><td>8.15%</td><td>7.95%</td><td>7.90%</td><td>7.85%</td></tr><tr><td>Citibank</td><td>8.00%</td><td>7.85%</td><td>7.85%</td><td>7.75%</td></tr><tr><td>IndusInd Bank</td><td>9.40%</td><td>9.25%</td><td>8.95%</td><td>8.90%</td></tr><tr><td>Yes Bank</td><td>9.40%</td><td>9.20%</td><td>8.75%</td><td>7.90%</td></tr><tr><td>RBL</td><td>9.45%</td><td>9.30%</td><td>9.10%</td><td>9.05%</td></tr><tr><td>DBS</td><td>8.30%</td><td>8.15%</td><td>8.05%</td><td>7.80%</td></tr><tr><td>IDFC</td><td>9.15%</td><td>9.00%</td><td>8.85%</td><td>8.85%</td></tr><tr><td>Bank of India</td><td>8.20%</td><td>8.15%</td><td>8.10%</td><td>7.75%</td></tr><tr><td>Andhra Bank</td><td>8.20%</td><td>8.05%</td><td>7.85%</td><td>7.80%</td></tr><tr><td>Allahabad Bank</td><td>8.15%</td><td>8.10%</td><td>7.90%</td><td>7.80%</td></tr><tr><td>Nainital Bank</td><td>8.15%</td><td>8.05%</td><td>8.00%</td><td>8.00%</td></tr><tr><td>Lakshmi Vilas Bank</td><td>10.45%</td><td>10.35%</td><td>10.30%</td><td>10.25%</td></tr><tr><td>Jammu and Kashmir Bank</td><td>8.25%</td><td>7.95%</td><td>7.70%</td><td>7.60%</td></tr><tr><td>Central Bank of India</td><td>8.05%</td><td>7.90%</td><td>7.80%</td><td>7.65%</td></tr><tr><td>Bandhan Bank</td><td>9.62%</td><td>9.57%</td><td>9.52%</td><td>9.49%</td></tr><tr><td>United Bank of India</td><td>8.30%</td><td>8.25%</td><td>8.15%</td><td>7.95%</td></tr><tr><td>Union Bank of India</td><td>8.10%</td><td>8.00%</td><td>7.90%</td><td>7.85%</td></tr><tr><td>UCO Bank</td><td>8.20%</td><td>7.95%</td><td>7.85%</td><td>7.70%</td></tr><tr><td>Punjab and Sind Bank MCLR</td><td>8.35%</td><td>8.20%</td><td>8.15%</td><td>8.10%</td></tr><tr><td>Bank of Baroda</td><td>8.10%</td><td>7.80%</td><td>7.65%</td><td>7.65%</td></tr><tr><td>Federal Bank</td><td>8.80%</td><td>8.70%</td><td>8.55%</td><td>8.45%</td></tr><tr><td>South Indian Bank</td><td>8.75%</td><td>8.55%</td><td>8.45%</td><td>8.40%</td></tr><tr><td>Standard Chartered</td><td>9.20%</td><td>9.20%</td><td>8.85%</td><td>8.20%</td></tr><tr><td>Deutsche Bank</td><td>8.95%</td><td>8.95%</td><td>7.90%</td><td>7.40%</td></tr><tr><td>BNP Paribas</td><td>7.45%</td><td>7.30%</td><td>7.25%</td><td>7.20%</td></tr><tr><td>Corporation Bank</td><td>8.45%</td><td>8.30%</td><td>7.85%</td><td>7.70%</td></tr><tr><td>Karnataka Bank</td><td>8.95%</td><td>8.80%</td><td>8.60%</td><td>8.50%</td></tr><tr><td>Dhanlaxmi Bank</td><td>9.60%</td><td>8.80%</td><td>8.10%</td><td>8.10%</td></tr><tr><td>IDBI Bank</td><td>8.35%</td><td>8.20%</td><td>8.10%</td><td>8.00%</td></tr><tr><td>OBC</td><td>8.05%</td><td>7.90%</td><td>7.75%</td><td>7.70%</td></tr><tr><td>Indian Overseas Bank</td><td>8.40%</td><td>8.35%</td><td>8.20%</td><td>8.05%</td></tr><tr><td>Karur Vysya Bank</td><td>9.10%</td><td>8.55%</td><td>8.40%</td><td>8.30%</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "What Is MCLR?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>MCLR (marginal cost of funds based lending rate) is the lowest interest rate that a bank or lender can offer. Most banks cannot offer <a href=\"/home-loan.html\">HOME LOAN</a> interest rates lower than the marginal cost of funds based lending rate. However, certain exceptions can be made when allowed by the Reserve Bank of India (RBI).</p><img title=\"Difference Between MCLR And Base Rate\" alt=\"Difference Between MCLR And Base Rate\" src=\"/images/india/infographic/Difference-Between-Mclr-And-Base-Rate-2018.png\" class=\"pull-right\"/><p>The MCLR is a reference rate or internal benchmark for the financial institution. Marginal cost of funds based lending rate defines the process used to determine the <strong>minimum home loan rate of interest</strong>. The MCLR method was introduced in the Indian financial system by the Reserve Bank of India in the year 2016. The MCLR system has replaced the base rate system that was introduced in the year 2010. Thus, renewal of credit limits and sanctioning of loans is done as per MCLR norms.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Aims Of MCLR:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>Improving transmission of the policy rate into lending rates of the banks.</li><li>Bringing in transparency in the method followed by various banks for the determination of interest rates.</li><li>Ensuring the availability of bank loan at rates that fair to both lenders and borrowers.</li><li>Enabling the lenders and banks to be competitive and improve their worth in the long run.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "What Is MCLR Rate In Home Loan?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>MCLR is closely linked with the repo rate and fund costs of the banks. Thus, if there is a change in the repo rate, it will have an impact on your home loan's floating rate of interest. If a bank brings down the marginal cost of funds based lending rate, the floating rate of interest associated with your home loan also comes down. This will not be affecting your equated monthly instalments but the tenure of the loan will get impacted.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Difference Between MCLR And Base Rate",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><thead><tr><th>MCLR</th><th>Base Rate</th></tr></thead><tbody><tr><td><ul><li>MCLR or marginal cost of funds based lending rate has been introduced so that end borrowers can enjoy the benefits associated with repo rate cuts by the Reserve Bank of India (RBI). This has been implemented to make banking system even more transparent.</li><li>MCLR depends on factors like CRR (Cash Reserve Ratio), marginal cost of funds, tenor premium, and operating cost.</li><li>It is dependent on the repo rate changes made by the RBI.</li><li>Marginal cost of funds based lending rate can be different for different loan tenures.</li></ul></td><td><ul><li>The minimum rate of interest at which banks offer loan to their customers is called the base rate.</li><li>Base rate depends on different factors like profit, bank deposit rates, bank costs, etc.</li><li>It is not dependent on the repo rate set by the Reserve Bank of India.</li><li>Banks can choose to change the base rate quarterly.</li></ul></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to calculate MCLR?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>In order to calculate the marginal cost of funds based lending rate, you must consider all the borrowing sources for a bank. A bank borrows from several sources including, fixed deposits, current accounts, savings accounts, etc. The rate of interest in these borrowing sources can be used by you for the calculation of marginal borrowing cost. You must understand that the source of a bank's funds is not only borrowing, but also the equity (retained or infused earnings). Thus, return on equity can also be expected.</p><p>The formula prescribed by the Reserve Bank of India for calculation of MCLR is given below:</p><p><em><strong>Marginal cost of funds = Marginal borrowing cost x 92% + return on the net worth x 8%</strong></em></p><p>Banks must also maintain a cash reserve ratio of 4%. On this deposit, no interest is earned by the bank. Under MCLR, banks can avail some allowance called Negative Carry on CRR. Also, the operating costs must be considered and taken care of. There are several expenses of a bank that includes raising funds, opening branches, paying salary to its employees etc. These are not charged to the customers. Finally comes the discount or tenor premium. The reset period for the interest rate is called the tenor. It is directly proportional to the reset period i.e. the tenor is higher if the reset period is higher.</p><p>Thus, MCLR depends on</p><ol><li>Tenor premium,</li><li>Operating costs of the bank,</li><li>Negative carry on Cash Reserve Ratio, and</li><li>Marginal cost of funds.</li></ol><img title=\"Impact of MCLR on your Home Loan\" alt=\"Impact of MCLR on your Home Loan\" src=\"/images/india/infographic/mclr-marginal-cost-funds-infographic-2018.png\" class=\"pull-right\"/>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How To Convert Base Rate Home Loan To MCLR?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The decision to switch to MCLR from base rate depends majorly on the actual benefits and the transfer cost. Various banks charge differently for this switch. However, there are certain banks that allow you to <strong>convert home loan to MCLR</strong> without charging anything.</p><p><strong>Example: </strong>Consider you have borrowed an amount of Rs.40 as home loan and you intend to repay it over a tenure of 20 years. The base associated with your home loan stands at 9.95%. After a period of three years from the commencement of the loan tenure, you would have paid an amount of Rs.38,468 as your monthly instalments. You have also paid an interest amount of Rs.11,63,514. If you choose to continue on the same path with your base rate, you will be paying a total interest of Rs.52,32,428. However, if you choose you switch to MCLR for your home loan at 8.55% for the remaining tenure (17 years in this case), you will be paying an interest of Rs.34,00,396. This is the amount that you pay for 17 years. So, the total interest that you pay for your home loan is (Rs.11,63,514 + Rs.34,00,396) which comes up to Rs.45,63,910. It shows that you save a substantial amount of Rs.6,68,518 by switching to MCLR from base rate.</p><p>So, a spending a few thousand for converting to MCLR from base rate can reward you a hefty sum in the long run.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Impact Of MCLR On Home Loans:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>MCLR is associated with floating rate home loans only. In case the home loan that you opted for comes with fixed rates of interest, MCLR will not affect the home loan. Change in repo rate will decide whether you gain or lose with the MCLR. The home loan interest is following a downward trend currently. So, it can prove to be beneficial to switch to MCLR if you are planning to purchase a house.</p>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "http://bbzr.co/2uYeKoi",
+                        "linkText": "Explore Home Loans",
+                        "prefix": "Owning a house is a smart investment and comes with great tax benefits."
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>RBI Guidelines About MCLR:</h3><ul><li>Fixed rate home loan will not be affected by MCLR.</li><li>Deposit balances and other borrowings are considered while computation of marginal cost of funds.</li><li>Banks must publish marginal cost of funds based lending rate for different tenors.</li><li>MCLR as on the sanction date of the floating rate home loan will stand the same till next reset date.</li></ul>"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Bank Wise MCLR Rates",
+                "items": [
+                    {
+                        "link": "/home-loan/sbi-mclr-base-rate.html",
+                        "title": "SBI MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/hdfc-bank-mclr-base-rate.html",
+                        "title": "HDFC Bank MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/icici-bank-mclr-base-rate.html",
+                        "title": "ICICI Bank MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/axis-bank-mclr-base-rate.html",
+                        "title": "Axis Bank MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/pnb-mclr-base-rate.html",
+                        "title": "PNB MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/canara-bank-mclr-base-rate.html",
+                        "title": "Canara Bank MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/idbi-bank-mclr-base-rate.html",
+                        "title": "IDBI Bank MCLR Rate"
+                    },
+                    {
+                        "link": "/home-loan/obc-bank-mclr-base-rate.html",
+                        "title": "OBC Bank MCLR Rate"
+                    }
+                ]
+            }
+        ]
+    },
     "5536": {
         "title": "",
         "body": "",

@@ -100,14 +100,14 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return ($element.hasClass("news-widget") || $element.hasClass("news-widget-aside"))
-            && $element.find("h3.news-head,strong.news-head").length == 1
+            && $element.find(".news-head").length == 1
             && $element.find(".insurer-widget > li").length > 0
             && $element.find(".insurer-widget > li").length == $element.find(".insurer-widget > li > a").length
             && areAllAnchorsOnlyNonLocalLinks($element.find(".insurer-widget > li"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].find("h3.news-head, strong.news-head"), $);
+        const title = extractHeadingText(elements[0].find(".news-head"), $);
         const items = elements[0].find(".insurer-widget > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
