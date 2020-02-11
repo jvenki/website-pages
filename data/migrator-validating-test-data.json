@@ -10667,6 +10667,190 @@
             }
         ]
     },
+    "11478": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "$LPD_EMBEDDED_ITEM_STOCK<p>State Bank of India (SBI) is one of the country's largest public-sector banks and financial institutions. It serves more than 400 million customers in 35 plus countries.</p><p>*Note: Prices that are specified below is based on INR</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Historical Share Price (NSE)",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><thead><tr><th>Date</th><th>Open</th><th>Close</th><th>High</th><th>Low</th><th>Change</th></tr></thead><tbody><tr><td>26-Oct-18</td><td>252.00</td><td>248.10</td><td>252.50</td><td>247.40</td><td>-1.55%</td></tr><tr><td>25-Oct-18</td><td>254.50</td><td>249.55</td><td>255.00</td><td>248.40</td><td>-1.94%</td></tr><tr><td>24-Oct-18</td><td>260.25</td><td>255.70</td><td>261.80</td><td>252.80</td><td>-1.75%</td></tr><tr><td>23-Oct-18</td><td>258.00</td><td>255.65</td><td>259.00</td><td>255.00</td><td>-0.91%</td></tr><tr><td>22-Oct-18</td><td>266.00</td><td>260.35</td><td>266.00</td><td>259.45</td><td>-2.12%</td></tr><tr><td>19-Oct-18</td><td>259.70</td><td>261.10</td><td>264.20</td><td>258.10</td><td>0.54%</td></tr><tr><td>17-Oct-18</td><td>273.75</td><td>261.15</td><td>275.00</td><td>260.00</td><td>-4.60%</td></tr><tr><td>16-Oct-18</td><td>264.60</td><td>270.30</td><td>270.85</td><td>263.35</td><td>2.15%</td></tr><tr><td>15-Oct-18</td><td>264.40</td><td>263.20</td><td>265.70</td><td>261.10</td><td>-0.45%</td></tr><tr><td>12-Oct-18</td><td>266.00</td><td>263.75</td><td>267.90</td><td>261.50</td><td>-0.85%</td></tr><tr><td>11-Oct-18</td><td>268.00</td><td>262.15</td><td>271.50</td><td>260.60</td><td>-2.18%</td></tr><tr><td>10-Oct-18</td><td>261.60</td><td>278.65</td><td>280.45</td><td>261.20</td><td>6.52%</td></tr><tr><td>09-Oct-18</td><td>268.00</td><td>262.95</td><td>268.15</td><td>260.00</td><td>-1.88%</td></tr><tr><td>08-Oct-18</td><td>259.75</td><td>265.75</td><td>268.50</td><td>258.35</td><td>2.30%</td></tr><tr><td>05-Oct-18</td><td>271.00</td><td>258.35</td><td>271.00</td><td>256.00</td><td>-4.66%</td></tr><tr><td>04-Oct-18</td><td>267.95</td><td>271.35</td><td>272.70</td><td>265.70</td><td>1.26%</td></tr><tr><td>03-Oct-18</td><td>273.35</td><td>271.70</td><td>278.70</td><td>270.60</td><td>-0.60%</td></tr><tr><td>01-Oct-18</td><td>265.50</td><td>273.85</td><td>275.20</td><td>264.10</td><td>3.14%</td></tr><tr><td>28-Sep-18</td><td>266.40</td><td>265.50</td><td>273.50</td><td>262.50</td><td>-0.33%</td></tr><tr><td>27-Sep-18</td><td>264.50</td><td>265.35</td><td>268.60</td><td>263.75</td><td>0.32%</td></tr><tr><td>26-Sep-18</td><td>274.00</td><td>270.90</td><td>272.95</td><td>260.80</td><td>2.61%</td></tr><tr><td>25-Sep-18</td><td>264.00</td><td>270.90</td><td>272.95</td><td>260.80</td><td>2.61%</td></tr><tr><td>24-Sep-18</td><td>272.70</td><td>264.35</td><td>273.00</td><td>262.60</td><td>-3.16%</td></tr><tr><td>21-Sep-18</td><td>274.20</td><td>270.60</td><td>279.45</td><td>253.40</td><td>-1.31%</td></tr><tr><td>19-Sep-18</td><td>275.40</td><td>271.50</td><td>282.85</td><td>270.50</td><td>-1.42%</td></tr><tr><td>18-Sep-18</td><td>285.00</td><td>273.80</td><td>286.90</td><td>272.40</td><td>-3.92%</td></tr><tr><td>17-Sep-18</td><td>288.50</td><td>285.30</td><td>288.50</td><td>284.10</td><td>-1.10%</td></tr><tr><td>14-Sep-18</td><td>290.10</td><td>290.65</td><td>291.80</td><td>288.70</td><td>0.19%</td></tr><tr><td>12-Sep-18</td><td>284.00</td><td>285.30</td><td>286.70</td><td>280.00</td><td>0.46%</td></tr><tr><td>11-Sep-18</td><td>287.35</td><td>282.60</td><td>291.45</td><td>281.65</td><td>-1.65%</td></tr><tr><td>10-Sep-18</td><td>290.65</td><td>284.85</td><td>293.25</td><td>283.80</td><td>-1.99%</td></tr><tr><td>07-Sep-18</td><td>295.90</td><td>291.65</td><td>295.90</td><td>289.45</td><td>-1.43%</td></tr><tr><td>06-Sep-18</td><td>298.00</td><td>296.45</td><td>299.85</td><td>294.50</td><td>-0.52%</td></tr><tr><td>05-Sep-18</td><td>296.50</td><td>296.55</td><td>298.85</td><td>290.40</td><td>0.01%</td></tr><tr><td>04-Sep-18</td><td>306.80</td><td>296.40</td><td>307.45</td><td>295.45</td><td>-3.39%</td></tr><tr><td>03-Sep-18</td><td>312.50</td><td>306.35</td><td>312.50</td><td>304.80</td><td>-1.97%</td></tr><tr><td>31-Aug-18</td><td>307.90</td><td>309.60</td><td>310.65</td><td>304.55</td><td>0.55%</td></tr><tr><td>30-Aug-18</td><td>309.30</td><td>308.60</td><td>310.50</td><td>306.00</td><td>-0.22%</td></tr><tr><td>29-Aug-18</td><td>306.80</td><td>309.70</td><td>312.00</td><td>305.75</td><td>0.94%</td></tr><tr><td>28-Aug-18</td><td>308.05</td><td>305.35</td><td>310.25</td><td>303.40</td><td>-0.87%</td></tr><tr><td>27-Aug-18</td><td>304.00</td><td>308.00</td><td>310.35</td><td>303.30</td><td>1.31%</td></tr><tr><td>24-Aug-18</td><td>300.60</td><td>300.45</td><td>305.70</td><td>299.00</td><td>-0.05%</td></tr><tr><td>23-Aug-18</td><td>306.95</td><td>302.45</td><td>306.95</td><td>298.30</td><td>-1.46%</td></tr><tr><td>21-Aug-18</td><td>308.30</td><td>307.00</td><td>308.85</td><td>303.35</td><td>-0.42%</td></tr><tr><td>20-Aug-18</td><td>304.10</td><td>307.65</td><td>308.70</td><td>303.60</td><td>1.16%</td></tr><tr><td>17-Aug-18</td><td>295.00</td><td>302.10</td><td>302.70</td><td>294.05</td><td>2.40%</td></tr><tr><td>16-Aug-18</td><td>293.50</td><td>292.70</td><td>298.40</td><td>290.25</td><td>-0.27%</td></tr><tr><td>14-Aug-18</td><td>296.70</td><td>294.90</td><td>298.95</td><td>293.35</td><td>-0.60%</td></tr><tr><td>13-Aug-18</td><td>296.40</td><td>294.15</td><td>302.80</td><td>291.10</td><td>-0.76%</td></tr><tr><td>10-Aug-18</td><td>317.70</td><td>304.45</td><td>325.85</td><td>301.10</td><td>-4.17%</td></tr><tr><td>09-Aug-18</td><td>312.95</td><td>317.40</td><td>319.85</td><td>310.15</td><td>1.42%</td></tr><tr><td>08-Aug-18</td><td>304.05</td><td>308.70</td><td>310.90</td><td>303.05</td><td>1.52%</td></tr><tr><td>07-Aug-18</td><td>309.85</td><td>304.05</td><td>311.70</td><td>303.05</td><td>-1.87%</td></tr><tr><td>06-Aug-18</td><td>300.60</td><td>308.50</td><td>311.35</td><td>300.60</td><td>2.62%</td></tr><tr><td>03-Aug-18</td><td>294.60</td><td>299.25</td><td>299.95</td><td>294.50</td><td>1.57%</td></tr><tr><td>02-Aug-18</td><td>293.00</td><td>293.90</td><td>296.40</td><td>290.55</td><td>0.30%</td></tr><tr><td>01-Aug-18</td><td>294.50</td><td>295.10</td><td>298.00</td><td>288.35</td><td>0.20%</td></tr><tr><td>31-Jul-18</td><td>297.00</td><td>293.50</td><td>302.40</td><td>291.80</td><td>-0.63%</td></tr><tr><td>30-Jul-18</td><td>289.20</td><td>297.40</td><td>299.55</td><td>289.20</td><td>2.83%</td></tr><tr><td>27-Jul-18</td><td>289.50</td><td>286.75</td><td>297.00</td><td>285.10</td><td>-0.96%</td></tr><tr><td>26-Jul-18</td><td>268.00</td><td>287.70</td><td>289.40</td><td>274.20</td><td>4.58%</td></tr><tr><td>25-Jul-18</td><td>268.00</td><td>271.85</td><td>272.85</td><td>265.65</td><td>1.43%</td></tr><tr><td>24-Jul-18</td><td>267.20</td><td>266.85</td><td>269.20</td><td>265.55</td><td>-0.13%</td></tr><tr><td>23-Jul-18</td><td>262.00</td><td>266.35</td><td>267.50</td><td>260.60</td><td>1.66%</td></tr><tr><td>20-Jul-18</td><td>259.90</td><td>261.50</td><td>263.00</td><td>258.55</td><td>0.62%</td></tr><tr><td>19-Jul-18</td><td>259.40</td><td>260.20</td><td>263.50</td><td>256.20</td><td>0.30%</td></tr><tr><td>18-Jul-18</td><td>260.10</td><td>259.55</td><td>262.50</td><td>256.15</td><td>-0.21%</td></tr><tr><td>17-Jul-18</td><td>250.70</td><td>259.05</td><td>259.85</td><td>250.45</td><td>3.33%</td></tr><tr><td>16-Jul-18</td><td>257.00</td><td>251.60</td><td>257.50</td><td>251.00</td><td>-2.105</td></tr><tr><td>13-Jul-18</td><td>262.10</td><td>257.75</td><td>262.40</td><td>256.80</td><td>-1.65%</td></tr><tr><td>12-Jul-18</td><td>261.40</td><td>262.75</td><td>264.50</td><td>261.15</td><td>0.51%</td></tr><tr><td>11-Jul-18</td><td>262.65</td><td>259.10</td><td>262.65</td><td>257.90</td><td>-1.37%</td></tr><tr><td>10-Jul-18</td><td>263.85</td><td>263.75</td><td>265.75</td><td>262.40</td><td>-0.04%</td></tr><tr><td>09-Jul-18</td><td>258.20</td><td>261.55</td><td>262.40</td><td>257.95</td><td>1.28%</td></tr><tr><td>06-Jul-18</td><td>256.10</td><td>257.20</td><td>260.80</td><td>255.55</td><td>0.43%</td></tr><tr><td>05-Jul-18</td><td>257.90</td><td>256.45</td><td>258.70</td><td>255.15</td><td>-0.56%</td></tr><tr><td>04-Jul-18</td><td>255.75</td><td>257.45</td><td>257.45</td><td>254.50</td><td>-6.5%</td></tr><tr><td>03-Jul-18</td><td>259.60</td><td>257.50</td><td>260.90</td><td>256.40</td><td>-0.03%</td></tr><tr><td>02-Jul-18</td><td>258.95</td><td>258.85</td><td>261.75</td><td>254.00</td><td>-0.03%</td></tr><tr><td>29-Jun-18</td><td>258.25</td><td>259.35</td><td>263.45</td><td>258.20</td><td>0.42%</td></tr><tr><td>28-Jun-18</td><td>260.40</td><td>257.00</td><td>262.00</td><td>255.70</td><td>-1.32%</td></tr><tr><td>27-Jun-18</td><td>267.35</td><td>261.70</td><td>267.35</td><td>261.00</td><td>-2.15%</td></tr><tr><td>26-Jun-18</td><td>267.25</td><td>267.40</td><td>271.20</td><td>265.40</td><td>0.05%</td></tr><tr><td>25-Jun-18</td><td>271.85</td><td>268.45</td><td>273.15</td><td>267.20</td><td>-1.26</td></tr><tr><td>22-Jun-18</td><td>269.00</td><td>273.05</td><td>273.70</td><td>265.75</td><td>1.48%</td></tr><tr><td>21-Jun-18</td><td>274.75</td><td>268.65</td><td>274.75</td><td>268.10</td><td>-2.27%</td></tr><tr><td>20-Jun-18</td><td>273.20</td><td>273.30</td><td>274.75</td><td>271.10</td><td>0.03%</td></tr><tr><td>19-Jun-18</td><td>278.00</td><td>272.60</td><td>276.70</td><td>269.75</td><td>-1.24%</td></tr><tr><td>18-Jun-18</td><td>278.00</td><td>276.00</td><td>276.85</td><td>279.75</td><td>-0.41%</td></tr><tr><td>15-Jun-18</td><td>282.75</td><td>277.45</td><td>283.45</td><td>276.60</td><td>-1.91%</td></tr><tr><td>14-Jun-18</td><td>286.55</td><td>282.60</td><td>286.55</td><td>281.30</td><td>-1.39%</td></tr><tr><td>13-Jun-18</td><td>284.00</td><td>287.70</td><td>289.65</td><td>283.65</td><td>1.29%</td></tr><tr><td>12-Jun-18</td><td>274.00</td><td>282.85</td><td>284.40</td><td>274.00</td><td>3.12%</td></tr><tr><td>11-Jun-18</td><td>273.30</td><td>274.00</td><td>278.40</td><td>273.15</td><td>0.25%</td></tr><tr><td>08-Jun-18</td><td>268.95</td><td>273.00</td><td>273.90</td><td>267.00</td><td>1.48%</td></tr><tr><td>07-Jun-18</td><td>271.05</td><td>269.65</td><td>272.90</td><td>268.40</td><td>-0.52%</td></tr><tr><td>06-Jun-18</td><td>263.00</td><td>270.15</td><td>271.40</td><td>262.20</td><td>2.65%</td></tr><tr><td>05-Jun-18</td><td>262.00</td><td>263.50</td><td>265.05</td><td>261.00</td><td>0.57%</td></tr><tr><td>04-Jun-18</td><td>268.85</td><td>263.10</td><td>268.95</td><td>261.65</td><td>-2.19%</td></tr><tr><td>01-Jun-18</td><td>269.50</td><td>266.75</td><td>269.70</td><td>264.60</td><td>-1.03%</td></tr><tr><td>31-May-18</td><td>267.40</td><td>269.20</td><td>272.85</td><td>263.20</td><td>0.67%</td></tr><tr><td>30-May-18</td><td>261.60</td><td>266.90</td><td>268.05</td><td>260.00</td><td>1.96%</td></tr><tr><td>29-May-18</td><td>270.10</td><td>264.90</td><td>271.00</td><td>263.45</td><td>-1.96%</td></tr><tr><td>28-May-18</td><td>267.50</td><td>272.25</td><td>274.00</td><td>266.25</td><td>1.74%</td></tr></tbody></table><p><strong>Market Capitalisation</strong></p><p>The total market cap of SBI, as of early 2018 is more than Rs.2,30,500 crore.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Wealth and Performance",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<strong>Q1 FY 2018-19</strong><p>The key financial highlights of SBI's performance in Q1 FY 2018-19, ended 31 June 2018 are as follows:</p><ul><li>The operating profit of SBI reported a marginal increase of 0.83% and stood at Rs.11,973 crore, up from Rs.11,874 crore in Q1 FY18.</li><li>The bank incurred a net loss of Rs.4,876 crore that was attributed mainly towards lower trading income and higher provision for wage revision.</li><li>The net interest income recorded an increase of 23.81% and stood at Rs.21,798 crore, up from Rs.17,606 crore in Q1 FY18.</li><li>The operating income reported an increase of 11.19% and stood at Rs.28,478 crore, up from Rs. 25,612 crore in Q1 FY18.</li><li>Interest Expenses on deposits decreased by 2.09% YoY and stood at Rs.34,258 crore, as against Rs.34,990 in the previous year.</li><li>As on June 2018, deposits of the SBI Bank recorded an increase of 5.58% and stood at Rs.27,47,813 crore, up from Rs.26,02,534 crore in June 2017.</li><li>The domestic CASA Deposits increased by 7.43% and stood at Rs.11,96,195 crore, up from Rs.11,13,455 crore as on June 2017.</li><li>CASA Ratio (ratio of a bank is the ratio of deposits in current and savings accounts to total deposits) improved by 69 bps and stood at 45.07%, up from 44.38% as on June 2017. On the other hand, the daily average CASA improved by 103 bps to 44.84%.</li><li>SBI's domestic advances reported an increase of 7.21% and stood at Rs.17,23,443 crore, up from Rs.16,07,583 crore in June 2017.</li><li>As on June 2018, the gross NPAs declined and stood at Rs. 2,12,840 crore, as against Rs. 2,23,427 crore on March 2018. Meanwhile, net NPA stood at Rs.99,236 crore as against Rs.1,10,855 crore during the same period.</li><li>As on June 2018, the average cost of deposits recorded a decline by 43 bps and stood at 5.11%, as against 5.54% in June 2017.</li><li>The Cost to Income Ratio recorded an increased by 432 bps YoY and stood at 57.96%, up from 53.64% in same period last year.</li><li>SBI's domestic net interest margin stood at 2.95% and reported an increased by 45 bps YoY from 2.50% as on June 2017.</li></ul><strong>FY 2017-18</strong><p>The key financial results of SBI Bank's performance for the entire FY 2017-18 (ended 31 March 2018) in comparison with FY 2016-17 are as follows:</p><ul><li>The operating profit recorded a marginal growth of 0.08% and stood at Rs.59,511 crore, up from Rs. 59,461 Cr.</li><li>The net interest income also remained flat at Rs.74,854 crore as against Rs.75,199 crore.</li><li>Deposits at the whole Bank level reported an increase of 4.68% YoY and stood at Rs.27,06,343 crore, up from Rs. 25,85,320 crore.</li><li>The CASA ratio was at 45.68% with an increase of 128 bps, up from 44.40%.</li><li>Domestic CASA Deposits registered a growth of 7.21% YoY and stood at Rs.11,87,294 crore, up from Rs. 11,07,434 crore.</li><li>SBI displayed digital dominance as 80% of the total transactions were via alternate channels and was up by 500 bps YoY.</li><li>The bank holds the top position in Debit Card spends with a market share of 30.40%, that has</li></ul><strong>improved by 107 bps YoY.</strong><ul><li>The Average cost of deposits reported a decline by 54 bps YoY and stood at 5.30%, down from 5.84%.</li><li>SBI's average yield on advances saw a decline by 104 bps and stood at 8.28%, from 9.32%.</li><li>The domestic net interest margin declined by 26 bps and stood at 2.67%, from 2.93%.</li><li>The bank's cost to income ratio slipped by 64 bps from 49.54% in FY17 to 50.18% in FY18, while sequentially it went up by 34 bps.</li></ul><ul><li>In its quarterly update for Q3 FY 2017-18, SBI reported a massive drop in net profit, in comparison to the Third Quarter results for FY 2016-17. In fact, the public-sector lender reported a loss of Rs.2,416 crore for the past quarter, in contrast to the net profit of Rs 1,820 crore it made in the same quarter last year.</li></ul><ul><li>However, if we are to look at the bigger picture and consider the 9 month period for the two financial years, we will notice that SBI is still making a profit, although the number has dropped considerably. SBI's net profit, as of December 2017, is standing at Rs.1,171 crore, in comparison to Rs.1,637 crore for the previous financial year.</li></ul><ul><li>The decrease in profit for the past quarter is primarily due to a substantial hit in investment depreciation, hardening of bond yields, higher provisions, and higher corporate slippages.</li></ul><ul><li>At the same time, SBI's net interest income has improved by 5.17% for the Q3 FY18. This is owing to a significant reduction in interest expenses. However, when we consider the bank's income from other sources, chiefly non-interest based, we'll observe that there has been a 29.75% drop in Q3 FY18 over Q3 FY17. The amount for the two periods stands respectively at Rs.8,048 crore and Rs.11,507 crore respectively. This is because of poor gains from the sale of investments.</li><li>The lender's asset quality has also deteriorated over the last quarter. Gross NPAs (Non-performing assets) rose to Rs.1,99,141 crore from Rs.1,86,115 crore, while Net NPA rose to Rs.1,02,370 crore from Rs.97,896 crore.</li></ul><strong>SBI Stock Trends in 2018</strong><ul><li>The opening price of the stock at the beginning of January 2018 on NSE was Rs.310. Towards the end of the month, the stock price had reached Rs.332. In the month of February, the scrip fell marginally and stood at Rs.264. The scrip continued to decrease in March and ended the month at Rs.252. In April, the stock price decreased further and was at Rs.244 by the end of the month.</li><li>The price of the stock picked up the pace in the month of May and stood at Rs.266. In June, the scrip increased further and reached Rs.282 by the mid-June however, it declined by the end of the month and was at Rs.258. The scrip gained strength in July and reached Rs.297 by the end of the month.</li><li>In August, the stock price increased marginally and ended the month at Rs.307.</li></ul>$LPD_EMBEDDED_ITEM_STOCK_1<h3>SBI Stock Returns in 2016 and 2017</h3><ul><li>SBI stocks commenced trading on January 1, 2016, at Rs.225 on NSE and BSE. However, over the course of the next few weeks, the SBI share price fell dramatically. When the month came to an end, the SBI shares were recorded trading below Rs.200.</li><li>This was primarily driven by the bank's decision to monetise non-core assets, change in directors, and other factors. At the same time, SBI secured a $500 million loan from Korean EXIM bank and launched its wealth management service. However, it did little to boost the confidence of investors as the SBI share price had plummeted to Rs.184.20 by the end of the month.</li><li>Things didn't change a lot in February either. SBI, in its Q3 FY16 results, announced a 61% dip in net profit. This led to SBI shares take another hit, with the stock price hitting Rs.155 after a selling spree by the investors.</li><li>However, by early March, things had taken a different turn for the investors. On March 2, 2016, SBI share price rose by nearly 9 percent owing to new RBI Basel norms. Furthermore, the bank also got the approval to operate in Myanmar, which took the SBI share price to Rs.187.50 on March 8, 2016.</li><li>The sentiment of the investors had also improved when SBI decided to raise Rs.500 crore through tier-II bonds. In addition to this, the bank also established a separate board for Chinese investors. By the end of March, the bank revised its lending rates based on new methodology - Marginal Cost of Fund Based Lending Rate (MCLR).</li><li>The month of April did not witness any major nosedive in SBI share price on NSE and BSE. Investors were taken aback in May when the government announced that SBI is yet to raise funds worth Rs.15,000 crore from the market and asked the lender to merge five associate banks. By the end of the first week, SBI share price was down to Rs.180.</li><li>The share price took another hit when the bank praised the decision to restrict lending limits for large borrowers. On May 24, 2016, SBI stocks commenced trading at Rs.168.95 on BSE and NSE.</li><li>Thereafter, there was a sharp spike in SBI share price. The price rose steadily due to the upcoming announcement of Q4 and FY16 results. On May 27, when the bank declared its quarterly results, SBI shares hit a high of Rs.202 and closed trading at Rs.195.55 on BSE. This was primarily due to the fact that the lender also declared a dividend.</li><li>In June, SBI shares were being traded above Rs.200, primarily because of the bank's merger with associate banks. With this merger set to improve the bank's market share, investors began buying SBI shares, thus pushing the price higher. By the end of June, the opening price, on average, was more than Rs.215.</li><li>By August, SBI shares were being traded for more than Rs.230. On August 19, 2016, the opening price was Rs.255 and it hit a high of Rs.260, mainly because the SBI board approved the merger with associate banks.</li><li>The onset of demonetisation pushed the stock price even higher. On November 10, 2016, the closing price of SBI stock was Rs.281.30. At the end of the year on December 30, 2016, the share price had gone down to Rs.249.75.</li><li>In January 2017, SBI shares were trading steadily above the Rs.250 benchmark. The trend did not vary significantly in the month of February as well. After the Q3 FY17 results were announced, the SBI share price hit a high of Rs.282.80.</li><li>This terrific run continued in the month of March as well, when SBI announced its plan to complete the merger with six associate banks by the end of June, along with raising its stake in SBI card. By this time, the share price of State Bank of India was hovering around Rs.290.</li><li>The lender extended its rally to the month of May when the Cabinet approved its policy pertaining to non-performing assets (NPA). This resulted in the stock price hitting a 52-week high of Rs.304.90.</li><li>However, the share price failed to stabilise at the Rs.300 benchmark. Throughout the months of May and June, the stock price continued to hover around Rs.290. The change in the directorate, coupled with rising concerns over NPA, did little to earn investors' faith. By early July, the share price was once again down to Rs.274.10</li><li>By mid-July, the share price was once again inching towards Rs.290, primarily driven by updates and the approval of SBI Life IPO by the board. This, coupled with other updates pushed the stock price of SBI to Rs.310.</li><li>Despite this great run, the stock price once again failed to stabilise and fell down dramatically. Q1 FY18 results were announced which reported a massive surge in net profit after the merger. However, this wasn't enough to keep the investors around owing to the change in directorate. As a result, the price went down to Rs.270.45 on September 19, 2017.</li><li>On October 24, 2017, the SBI stock price was recorded to be at Rs.246. However, the price recovered by 3% in late October when the bank announced a deal with Escorts for tractor financing. The very next, the share price hit a daily high of Rs.328.05 and closed at Rs.324.90. This was in anticipation of the recapitalisation package announced by the government.</li><li>From that point on till the end of the year, the share price continued to remain above Rs.300. It ended the year at Rs.309.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Should you invest in SBI right now?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>SBI's P/E ratio, as of February 2018, is close to 58. Among all the public sector banks in the market, it is the State Bank of India which leads in the P/E column, followed by Bank of Baroda at 41. This means that for every rupee that SBI currently makes, investors are willing to pay Rs.58 in the present scenario.</li><li>However, the government-owned lender is troubled by NPA related issues, which has been increasing by the year as shown in the recent quarterly updates. This may be because of poor management at macro and micro levels and is something that needs to be rectified in order to boost investor confidence. The recent change in directorship may appear to be a step taken in the right direction, though its true impact will be known in the coming years.</li><li>Higher provisioning is another factor that must be considered when looking at purchasing SBI stocks as a long-term investment. In its Q3 FY18 report, the lender reported a 12.64% increase in total provisions over Q3 FY17 which, in turn, led to a decrease in net profit. Even though the company is still making a profit, investors will not be impressed with a poor showing on other fronts.</li><li>Even though SBI is a government-owned entity and there is very little chance that the bank will 'crash' drastically, it is still better to invest in private banks mainly because there is better governance and the NPAs are lower. Furthermore, over the last five years, SBI stock returns haven't been that impressive when compared to the returns by private banks in the same term.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Company Information",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>State Bank of India is a multinational financial institution known for its wide range of financial products and services such as home loan, personal loan, education loan, fixed deposits, et cetera. It is a public sector bank owned by the Government of India and is one of the largest banks in the country. It is also one of the few Indian banks to have a strong international presence - more than 190 offices spread across 36 countries and 300 plus correspondents in 70 plus nations. The company was also listed on the Fortune Global 500 list in 2016. Considering its performance in the Indian market, SBI holds a 20% market share in terms of loans and deposits.</p><h3>Management</h3><p><strong>Rajnish Kumar - Chairman</strong></p><p>Kumar assumed office in early October 2017, after Arundhati Bhattacharya retired. He joined SBI back in 1980 as a probationary officer and since then, he has risen remarkably well among the ranks. Before becoming the chairman, he served as the Managing Director of the National Banking Group, and Compliance & Risk department of SBI, separately. He also served as the MD and CEO of the SBI Capitals Market Limited.</p><p><strong>B. Sriram - Managing Director (Corporate & Global Banking)</strong></p><p>Mr. Sriram has an impressive career, ranging over 35 years. He has held several important managerial positions such as Head of the National Banking Group, MD of SBI's associate, State Bank of Bikaner & Jaipur. He is also well-versed in international banking, having served in the bank's Singapore branch.</p><p><strong>Praveen Kumar Gupta - Managing Director (Retail & Digital Banking)</strong></p><p>Mr. Gupta's extraordinary career has made him the perfect candidate for this particular post. Over the years, he has been tasked with several crucial positions like MD & CEO of SBI Capital Markets Limited, and MD & CFO of the State Bank of India. He has also been a key official in operations pertaining to the Bahrain Offshore Banking Unit and has also served as the Regional Head for the Middle East and North African regions.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Company History",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>SBI's history can be traced back to the beginning of 19th century when it was founded as Bank of Calcutta in 1806. The bank was later renamed to Bank of Bengal and along with Bank of Bombay (founded in 1843) and Bank of Madras (founded in 1846), it served at the pinnacle of the banking sector in India throughout the 19th century.</p><p>In January 1921, the three banks were blended into one, and the re-structured banking entity came to be known as Imperial Bank of India. Following the provisions of the State Bank of India Act of 1955, the Reserve Bank of India acquired a controlling interest in Imperial Bank of India and was later renamed to State Bank of India. In 2008, the Government of India acquired the stake held by the RBI.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "State Bank of India Listing in NSE & BSE",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>SBI shares can be purchased from NSE (National Stock Exchange) and BSE (Bombay Stock Exchange) in India. Its share price, along with previous closings, P/E ratio and other metrics can be found on the two exchanges. Furthermore, SBI shares can also be traded on the London Stock Exchange.</p><p>SBI is also a part of many prominent market indices in India such as BSE SENSEX (also known as S&P BSE SENSEX), NIFTY 50, BSE 100, BSE 200, et cetera. Among all these indices, it is the BSE SENSEX and NIFTY which are the important ones.</p><h3>SBI Location</h3><p>Corporate and Central Office</p><p>The Chairman,</p><p>State Bank of India</p><p>State Bank Bhavan</p><p>Madam Cama Road</p><p>Mumbai 400-021</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Stocks vs. Mutual Funds: here's what we recommend",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Stock market investments require a lot of research and knowledge. They do not generally offer any tax benefits and are regarded as high-risk investments. Hence,it is crucial to have a diversified portfolio. At Bankbazaar, we encourage our readers to invest on <strong><a href=\"https://www.bankbazaar.com/mutual-fund.html\">mutual funds</a></strong>.It doesn't require a lot of knowledge and equity linked mutual fund schemes offer tax benefits. Additionally, since mutual funds comprise stocks from multiple companies, they help in building a diversified portfolio.</p>$LPD_EMBEDDED_ITEM_STOCK_3"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Other Public SB Stocks",
+                "items": [
+                    {
+                        "link": "/share-market/banks-public-sector/bank-of-baroda-share-price-bob.html",
+                        "title": "Bank of Baroda Share Price"
+                    },
+                    {
+                        "link": "/share-market/banks-public-sector/pnb-share-price-punjab-national-bank.html",
+                        "title": "Punjab National Bank Share Price"
+                    }
+                ]
+            },
+            {
+                "title": "Trending Stocks",
+                "items": [
+                    {
+                        "link": "/share-market/cement-major/shree-cement-share-price-sc.html",
+                        "title": "Shree Cements Share Price"
+                    },
+                    {
+                        "link": "/share-market/computers-software/ofss-share-price-oracle-financial-services-software.html",
+                        "title": "Oracle Financial Service Share Price"
+                    },
+                    {
+                        "link": "/share-market/diversified/icici-lombard-insurance-share-price-ilgic.html",
+                        "title": "ICICI Lombard General Insurance Company Share Price"
+                    },
+                    {
+                        "link": "/share-market/finance-investments/bajaj-holdings-investment-share-price-bhai.html",
+                        "title": "Bajaj Holdings & Investment Share Price"
+                    },
+                    {
+                        "link": "/share-market/infrastructure-general/bhel-share-price-bhe.html",
+                        "title": "BHEL Share price"
+                    }
+                ]
+            },
+            {
+                "title": "Tax Top Pages",
+                "items": [
+                    {
+                        "link": "/income-tax.html",
+                        "title": "Income Tax"
+                    },
+                    {
+                        "link": "/tax/gst.html",
+                        "title": "GST"
+                    },
+                    {
+                        "link": "/tax/efiling.html",
+                        "title": "Efiling"
+                    },
+                    {
+                        "link": "/tax/efiling-income-tax.html",
+                        "title": "Efiling Income Tax"
+                    },
+                    {
+                        "link": "/tax/income-tax-return.html",
+                        "title": "Income Tax Return"
+                    }
+                ]
+            },
+            {
+                "title": "Saving Schemes Top Pages",
+                "items": [
+                    {
+                        "link": "/saving-schemes/epf.html",
+                        "title": "EPF"
+                    },
+                    {
+                        "link": "/saving-schemes/how-to-check-your-epf-balance-online.html",
+                        "title": "EPF Balance"
+                    },
+                    {
+                        "link": "/saving-schemes/nps.html",
+                        "title": "NPS"
+                    },
+                    {
+                        "link": "/saving-schemes/know-about-epfo-universal-account-number.html",
+                        "title": "UAN Registration"
+                    },
+                    {
+                        "link": "/saving-schemes/ppf.html",
+                        "title": "PPF"
+                    }
+                ]
+            }
+        ]
+    },
     "26409": {
         "title": "",
         "body": "",

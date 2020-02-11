@@ -146,17 +146,42 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
 export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         const allChildrenAreGridCells = () => $e.children().get().every((c) => containsOnlyGridCellClasses($(c).attr("class")));
+        const allCellsAreRefCntrs = () => $e.children().get().every((cell) => {
+            if ($(cell).find(".product_interlink").length == 1) {
+                cell = $(cell).find(".product_interlink");
+            }
+            let check = false;
+            if ($(cell).children().length == 1) {
+                check = ["ul"].includes($(cell).children().eq(0).get(0).tagName);
+            } else if ($(cell).children().length == 2) {
+                check = ["h3"].includes($(cell).children().eq(0).get(0).tagName) && ["ul", "ol"].includes($(cell).children().eq(1).get(0).tagName);
+            }
+            return check;
+        });
         const allULsAreJustReferences = () => {
             const lists = $e.find("ul").get();
             return lists.length > 0 && lists.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"], $));
         };
-        return $e.hasClass("row") && allChildrenAreGridCells() && $e.find(".product_interlink").length > 0 && allULsAreJustReferences() && areAllAnchorsOnlyNonLocalLinks($e);
+
+        return $e.hasClass("row") && $e.find(".product_interlink").length > 0 
+            && allChildrenAreGridCells() && allCellsAreRefCntrs() 
+            && allULsAreJustReferences() && areAllAnchorsOnlyNonLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].find("h3"), $);
-        const items = elements[0].find("ul li a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
-        return {elements: [{type: "references", title, items}]};
+        const targetElements = [];
+        elements[0].find("div > ul").each((i, ul) => {
+            const hasTitleElem = $(ul).prev().length > 0 && ["h3"].includes($(ul).prev().get(0).tagName);
+            const items = $(ul).find(" > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            if (hasTitleElem) {
+                const title = extractHeadingText($(ul).prev(), $);
+                targetElements.push({type: "references", title, items});
+            } else {
+                targetElements[targetElements.length-1].items.push(...items);
+            }
+        });
+
+        return {elements: targetElements};
     }
 }
 

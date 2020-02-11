@@ -80,7 +80,7 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
         if (whiteListedTagsThatCanBeEmpty.includes(e.tagName)) {
             return;
         }
-        if (whiteListedClassNamesThatCanBeEmpty.some((tagNclass) => {const [tagName, className] = tagNclass.split("."); return e.tagName == tagName && $(e).hasClass(className)})) {
+        if (whiteListedClassNamesThatCanBeEmpty.some((tagNclass) => {const [tagName, className] = tagNclass.split("."); return e.tagName == tagName && $(e).hasClass(className);})) {
             return;
         }
 
@@ -94,7 +94,7 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    ["style", "script", "figcaption", ".js-infographic-content", "mark", "ins"].forEach((sel) => {
+    ["style", "script", "figcaption", ".js-infographic-content", "mark", "ins", "div.table-view-more"].forEach((sel) => {
         const elems = $(sel);
         if (elems.length == 0) {
             return;
