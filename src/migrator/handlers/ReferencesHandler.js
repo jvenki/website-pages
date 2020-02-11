@@ -101,14 +101,14 @@ export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("news-widget")
             && $element.find("h3.news-head,strong.news-head").length == 1
-            && $element.find("ul.insurer-widget > li").length > 0
-            && $element.find("ul.insurer-widget > li").length == $element.find("ul.insurer-widget > li > a").length
-            && areAllAnchorsOnlyNonLocalLinks($element.find("ul.insurer-widget > li"));
+            && $element.find(".insurer-widget > li").length > 0
+            && $element.find(".insurer-widget > li").length == $element.find(".insurer-widget > li > a").length
+            && areAllAnchorsOnlyNonLocalLinks($element.find(".insurer-widget > li"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("h3.news-head, strong.news-head"), $);
-        const items = elements[0].find("ul.insurer-widget > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find(".insurer-widget > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
