@@ -54,6 +54,7 @@ const makeHTMLValid = (html) => {
             .replace(/<\/p><br>/g, "</p>") // Found in LPD#856
             .replace(/<address><p>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/p><\/address>/g, "<p>$1</p>")  //Found in LPD#33
             .replace(/<ul><li><h2>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/h2><\/li><\/ul>/g, "<h2>$1</h2>")
+            .replace(/<small>([a-zA-Z0-9?\-.,:()\s\\/]*)<\/small>/g, "<em>$1</em>")
     ;
 
     return cleansedHtml;

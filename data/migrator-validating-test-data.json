@@ -10666,5 +10666,67 @@
                 ]
             }
         ]
+    },
+    "26409": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Possession certificate in Karnataka is issued by the Bangalore Development Authority. It is one of the most important documents that the buyer gives to the seller stating the date pf <a href=\"/home-loan/possession-certificate.html\">property possession</a>. The certificate is also used to include the concerned property in the land revenue records.</p><strong>Documents Required</strong><ul><li>Sale deed agreement copy</li><li>Registered sale agreement copy</li><li>Applicants identity and signature proof</li><li>Certificate of encumbrance (Form 15)</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Steps to Apply for Possession Certificate in Karnataka",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li><strong>Step 1:</strong> Visit the website <a href=\"http://www.sakala.kar.nic.in/gsc_home.aspx\" title=\"Sakala Karnataka Official Site\">Sakala Karnataka Official Site</a><br><img title=\"Sakala website\" alt=\"Sakala website\" src=\"/images/india/infographic/possession-certificate1.jpg\"/></li><li><strong>Step 2:</strong> Click on the \"Sakala Online Services\" tab.</li><li><strong>Step 3:</strong> Click on the \"Bangalore Development Authority\" tab.<br><img title=\"Sakala Online Services\" alt=\"Sakala Online Services\" src=\"/images/india/infographic/possession-certificate2.jpg\"/></li><li><strong>Step 4:</strong> Alternatively, you can also visit the Bengaluru Development Authority website and go to \"Services Under Sakala\" section.<br><img title=\"Sakala Services\" alt=\"Sakala Services\" src=\"/images/india/infographic/possession-certificate3.jpg\"/></li><li><strong>Step 5:</strong> Click on \"Apply Online Possession Certificate Under SAKALA\" as highlighted in the picture above.</li><li><strong>Step 6:</strong> You will be redirected to \"Seva Sindhu\" portal (<em>https://sevasindhu.karnataka.gov.in</em>).</li><li><strong>Step 7:</strong> Again, click on the \"Bangalore Development Authority\" tab and proceed to click on \"Application for Possession Certificate for Sites\" or \"Application for Possession Certificate for Flats\".<br><img title=\"Bangalore Development Authority\" alt=\"Bangalore Development Authority\" src=\"/images/india/infographic/possession-certificate4.jpg\"/></li><li><strong>Step 8:</strong> Upon clicking, you will be able to check your eligibility and the documents required.<br><img title=\"Eligibility documents\" alt=\"Eligibility documents\" src=\"/images/india/infographic/possession-certificate5.jpg\"/></li><li><strong>Step 9:</strong> Click \"Apply Online\". You will be asked to key in your registered mobile number and then click \"Get OTP\". You will get a one-time password. Enter the OTP along with the captcha code and hit the \"Submit\" button.<br><img title=\"Submit Sakala\" alt=\"Submit Sakala\" src=\"/images/india/infographic/possession-certificate6.jpg\"/></li><li><strong>Step 10:</strong> You will also be required to upload all the mandatory documents. Upon completion of the process, your possession certificate will be issued.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Offline Procedure",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>To apply offline, submit the application for possession certificate along with all the necessary documents to the concerned officer at the Deputy Secretary's Office. Ensure to get a note of acknowledgement. You won't be charged any fee for the application. It will take a maximum of 7 working days to process the application. You will then receive a notification to collect the possession certificate. You will be required to sign in a register as an acknowledgment of receiving the certificate.</p>"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "For Other States",
+                "items": [
+                    {
+                        "link": "/home-loan/possession-certificate-in-telangana.html",
+                        "title": "Possession Certificate Telangana"
+                    },
+                    {
+                        "link": "/home-loan/possession-certificate-in-andhra-pradesh.html",
+                        "title": "Possession Certificate Andhara Pradesh"
+                    },
+                    {
+                        "link": "/home-loan/possession-certificate-in-bihar.html",
+                        "title": "Possession Certificate Bihar"
+                    },
+                    {
+                        "link": "/home-loan/possession-certificate-in-arunachal-pradesh.html",
+                        "title": "Possession Certificate Arunachal Pradesh"
+                    }
+                ]
+            }
+        ]
     }
 }
