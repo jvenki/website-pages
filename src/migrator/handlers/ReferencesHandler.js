@@ -100,9 +100,10 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("news-widget")
-            && $element.find("h3.news-head,strong.news-head").text().match(headingRegex)
+            && $element.find("h3.news-head,strong.news-head").length == 1
             && $element.find("ul.insurer-widget > li").length > 0
-            && $element.find("ul.insurer-widget > li").length == $element.find("ul.insurer-widget > li > a").length;
+            && $element.find("ul.insurer-widget > li").length == $element.find("ul.insurer-widget > li > a").length
+            && areAllAnchorsOnlyNonLocalLinks($element.find("ul.insurer-widget > li"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
