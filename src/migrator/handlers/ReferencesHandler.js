@@ -99,7 +99,7 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 
 export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return $element.hasClass("news-widget")
+        return ($element.hasClass("news-widget") || $element.hasClass("news-widget-aside"))
             && $element.find("h3.news-head,strong.news-head").length == 1
             && $element.find(".insurer-widget > li").length > 0
             && $element.find(".insurer-widget > li").length == $element.find(".insurer-widget > li > a").length
