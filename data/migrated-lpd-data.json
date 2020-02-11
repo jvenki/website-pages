@@ -31357,6 +31357,227 @@
             "text": "<p>Display of any trademarks, tradenames, logos and other subject matters of intellectual property belong to their respective intellectual property owners. Display of such IP along with the related product information does not imply BankBazaar's partnership with the owner of the Intellectual Property or issuer/manufacturer of such products.</p>"
         }
     },
+    "903": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "landing_banneer",
+                        "link": "/debit-card/hsbc-debit-card.html#get-quote",
+                        "linkText": "Apply Now",
+                        "img": {
+                            "src": "/images/common/dc-landing-banner-img-v1.png",
+                            "title": "Debit Card"
+                        },
+                        "items": [
+                            {
+                                "text": "Make online transactions",
+                                "icon": "dc-online"
+                            },
+                            {
+                                "text": "Quick ATM withdrawals",
+                                "icon": "dc-quick-atm"
+                            },
+                            {
+                                "text": "Bonus points & gifts",
+                                "icon": "dc-bonus-points"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Your HSBC debit card at a glance!",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>An international debit card with high transaction limits.</li><li>Bank and shop with your HSBC debit card!</li><li>Cashless transactions directly from your savings account.</li><li>Get rewarded for every debit card transaction that you do.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Overview",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>With a banking history spanning over 150 years, HSBC India is one of the top international banks to establish a stronghold in the Indian market, constantly looking to expand its customer base. Catering to Indian customers with world class products comprising of commercial banking, corporate banking, personal banking, business banking, treasury, cash management, institutional banking and trade services, HSBC is well established with a widespread branch network across various cities in India. Leveraging the latest technology, HSBC strives to deliver innovative banking solutions to its diverse clientele with real-time accesses, state-of-the-art self-service banking systems and other e-banking services on a secure and integrated platform.</p><p>In India, HSBC mainly aims to build on its personal banking customer base by offering a wide spectrum of products involving retail banking, wealth management, deposits, international credit cards and Visa debit cards. Aiding in this effort, is HSBC's well strategized e-banking service complete with 24 hour banking services, net banking and an extensive network of ATMs.</p><p>Offered as an 'easy to use' banking cum shopping card, the HSBC debit card is a global card which can be used in various countries for cash withdrawals at any HSBC ATM or Visa-Plus ATMs and for purchases at Visa merchant outlets. The HSBC debit card gives a customer higher purchase transaction limits along with zero charges on ATM withdrawals done at any HSBC ATM in India. Cash withdrawals done using other bank ATMs will be charged a fee of Rs.20 per transaction, after the completion of 5 free withdrawals.</p><p>The customer purchase limits vary depending on the tier of the customer - Savings Accounts customer have a cap of Rs.25,000/- per day, HSBC Advance customers have a limit of Rs.100,000/- per day and HSBC Premier customers have a limit of up to Rs.150,000/- per day.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Types of HSBC debit cards",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>HSBC offers three types of debit cards classified as per the tier of a personal banking customer.</p><p><strong>HSBC Visa Debit Card</strong></p><ul><li>Presented as a versatile card, the HSBC Visa international debit card doubles up as an ATM card as well as an instrument for making purchases at various merchant outlets worldwide.</li><li>Along with the flexibility of making purchase transactions from any corner of the globe, a HSBC Visa debit card also gives the customer an opportunity to earn rewards points, redeemable for exciting gifts as part of HSBC's premium loyalty program.</li><li>Providing a secure platform for card holders to transact, a HSBC debit card allows customers to conveniently make payments directly from their savings accounts without the requirement of cash and to also track their bills with itemized billing statements.</li><li>HSBC also provides complete lost card liability coverage for lost or stolen cards, ensuring protection against fraudulent purchase transactions after the occurrence of the incident.</li></ul><p><strong>HSBC Advance Platinum Debit Card</strong></p><p>As a HSBC Advance Platinum debit card holder, a customer is entitled to higher cash withdrawal and transaction limits upon usage at Visa ATMs and free cash withdrawals at HSBC ATMs worldwide. The HSBC Advance Platinum debit card comes with extra security in the form of an embedded chip that protects it from fraudulent transactions. ATM PIN verification, 3D secure technology with OTPs and the Verified by Visa (VbV) service for making secure online transactions are the other additional features provided with this debit card.</p><p><strong>HSBC Premier Platinum Debit Card</strong></p><p>The HSBC Premier Platinum International debit card caters to the lifestyle requirements of HSBC's Premier customers, providing exceptional privileges and offers with access to HSBC ATMs, Visa ATMS and Visa merchant outlets worldwide.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Indians and NRIs above the required legal age, holding SmartMoney, Savings or Current Accounts with HSBC India are eligible to <a href=\"/debit-card.html\">apply for a debit card</a>. The account held by the applicant can be either a single holder account or a joint account.</p><p>NRI customers holding NRO accounts with HSBC will be issued domestic debit cards. Additionally, the Power of Attorney holders nominated by NRIs for their NRE accounts will also be issued domestic debit cards by HSBC.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "HSBC Debit Card Offers",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>Your globetrotting starts here! Customers can enjoy attractive discounts while booking tickets, hotels and flights at thomascook.in with their HSBC debit cards.</li><li>HSBC customers can get a 10% cash back at bigbasket while using their HSBC Debit Cards for grocery shopping.</li><li>HSBC gives debit card customers a reason to celebrate with compelling discounts on dining, retail, lifestyle, electronics, travel and online shopping.</li><li>Sip on your favorite cup of coffee while enjoying a 15% discount on your spend using a HSBC debit card at Cafe Coffee Day outlets.</li><li>Get rewarded with a 10% cashback as you splurge using your HSBC debit card at jabong.com</li><li>Shop and save with HSBC debit card purchases on eBay.in with 7.5% discounts for every transaction performed.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Benefits of holding a HSBC debit card",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>As a 'Chip and PIN' card, HSBC provides debit cards with extra protection using an embedded chip along with a PIN, guaranteeing a completely secure user experience. Enabling cashless purchases at merchant outlets, the amount spent using a HSBC debit card is immediately debited from a user's bank account.</li><li>Customers can withdraw cash, get mini statements, check their account balance, transfer funds between HSBC accounts, change PIN, deposit cash or cheques and place requests for cheque books using their HSBC debit card at any ATM.</li><li>The HSBC debit card comes with an additional level of protection from its tie up with Visa, offering the Verified by Visa (VbV) service for online transactions.</li><li>Being an international bank, HSBC offers 24/7 global assistance to all its debit card customers with instant services available.</li><li>HSBC debit card holders can also enjoy the benefit of getting additional cards for joint accounts with nominal annual fees.</li><li>HSBC provides consolidated account statements periodically for debit card users reflecting their card activity, ensuring maximum transparency and convenience to a customer.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Quick tips to use your HSBC debit card",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>While making an online transaction or an ATM withdrawal ensure that the transaction process is complete to prevent any occurrence of fraudulent activity on your HSBC debit card.</li><li>Every POS transaction done in India requires a PIN authentication and it is important for debit card users to keep their PINs safe and secure.</li><li>HSBC mandates users to sign at the back of their debit cards, which makes it easy for merchants to validate a customer's signature if required.</li><li>Loss of your HSBC debit card should be reported immediately to avoid unauthorized transactions.</li></ul><p>GST of 18% is applicable on all banking products and services from July 1, 2017 onwards.</p>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "FAQs for HSBC Debit Cards",
+            "items": [
+                {
+                    "question": "Is there a transaction limit for ATM withdrawals done at other bank ATMs?",
+                    "answer": "<p>Yes, HSBC debit card users can withdraw up to Rs.10000/- per transaction at any other banks ATM across India.</p>"
+                },
+                {
+                    "question": "What is OTP? How does it protect my online transactions?",
+                    "answer": "<p>OTP is a One Time Password required to be entered by customers using their HSBC debit cards to shop online. As part of the VbV authentication process, the OTP prevents fraudulent transactions and verifies that it is the actual card owner making the transaction.</p>"
+                },
+                {
+                    "question": "Can I use my HSBC debit card outside India?",
+                    "answer": "<p>Yes, the HSBC debit card can be used at international merchant outlets and ATMs with a pre-determined transaction limit set by the bank.</p>"
+                },
+                {
+                    "question": "Do I require a new PIN for my replaced HSBC debit card?",
+                    "answer": "<p>No, customers can retain their existing ATM PINs for any card that has been replaced or renewed by HSBC and will be valid for the new card issued.</p>"
+                },
+                {
+                    "question": "Are there any limits set for online transactions done using my HSBC debit card?",
+                    "answer": "<p>No, the bank does not have any present limits for online transactions but a customer must make sure that he has sufficient funds in his account to complete the transaction. The cumulative value of a customer's online transaction must not exceed the daily purchase limit set by the bank for an HSBC debit card.</p>"
+                }
+            ]
+        },
+        "references": [
+            {
+                "title": "Read More about Debit Cards",
+                "items": [
+                    {
+                        "link": "/debit-card/debit-cards-vs-credit-cards.html",
+                        "title": "Debit Cards Vs Credit Cards"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-fuel.html",
+                        "title": "Debit Cards for Fuel"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-online-shopping.html",
+                        "title": "Debit Cards for Online Shopping"
+                    },
+                    {
+                        "link": "/debit-card/prepaid-cards-for-international-travel.html",
+                        "title": "Prepaid Cards for International Travel"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-movie-tickets.html",
+                        "title": "Debit Cards for Movie Tickets"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-students.html",
+                        "title": "Debit Cards for Students"
+                    },
+                    {
+                        "link": "/debit-card/international-debit-cards.html",
+                        "title": "International Debit Cards"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-shopping.html",
+                        "title": "Debit Cards for Shopping"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-restaurants.html",
+                        "title": "Debit Cards for Restaurants"
+                    },
+                    {
+                        "link": "/debit-card/debit-cards-for-emi.html",
+                        "title": "Debit Cards for EMI"
+                    },
+                    {
+                        "link": "/debit-card/new-atm-transaction-charges.html",
+                        "title": "New ATM Transaction Charges"
+                    }
+                ]
+            },
+            {
+                "title": "Other Products from HSBC",
+                "items": [
+                    {
+                        "link": "/hsbc-credit-card.html",
+                        "title": "HSBC Credit Card"
+                    },
+                    {
+                        "link": "/hsbc-personal-loan.html",
+                        "title": "HSBC Personal Loan"
+                    },
+                    {
+                        "link": "/hsbc-car-loan.html",
+                        "title": "HSBC Car Loan"
+                    },
+                    {
+                        "link": "/fixed-deposit/hsbc-fixed-deposit-rate.html",
+                        "title": "HSBC Fixed Deposit Rates"
+                    },
+                    {
+                        "link": "/hsbc-home-loan.html",
+                        "title": "HSBC Home Loan"
+                    },
+                    {
+                        "link": "/ifsc-code/hsbc-bank.html",
+                        "title": "HSBC IFSC Code"
+                    }
+                ]
+            }
+        ],
+        "disclaimer": {
+            "text": "<p>Display of any trademarks, tradenames, logos and other subject matters of intellectual property belong to their respective intellectual property owners. Display of such IP along with the related product information does not imply BankBazaar's partnership with the owner of the Intellectual Property or issuer/manufacturer of such products.</p>"
+        }
+    },
     "1408": {
         "title": "",
         "body": "",

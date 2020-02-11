@@ -1,6 +1,6 @@
 // @flow
 import MigrationError, {ConversionIssueCode} from "./MigrationError";
-import {omit} from "lodash";
+import {omit, isEqual} from "lodash";
 
 export default class DocBuilder {
     doc: Object;
@@ -44,10 +44,14 @@ export default class DocBuilder {
     }
     
     addDisclaimer(disclaimer: Object) {
+        disclaimer = omit(disclaimer, ["type"]);
         if (this.doc.disclaimer) {
-            throw new MigrationError(ConversionIssueCode.MULTIPLE_DISCLAIMER);
+            if (!isEqual(this.doc.disclaimer, disclaimer)) {
+                throw new MigrationError(ConversionIssueCode.MULTIPLE_DISCLAIMER);
+            }
+            return;
         }
-        this.doc.disclaimer = omit(disclaimer, ["type"]);
+        this.doc.disclaimer = disclaimer;
     }
 
     addFAQ(element: Object) {
