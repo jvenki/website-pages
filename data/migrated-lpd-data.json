@@ -1132,31 +1132,31 @@
             "items": [
                 {
                     "question": "Can I apply for a Bajaj Finserv Personal Loan online?",
-                    "answer": "<p>A: Yes, Bajaj Finserv offers the online application option on their website through which you can easily apply for a personal loan. </p>"
+                    "answer": "<p>Yes, Bajaj Finserv offers the online application option on their website through which you can easily apply for a personal loan. </p>"
                 },
                 {
                     "question": "How to check Bajaj Finserv personal loan status?",
-                    "answer": "<p>A: <a href=\"/bajaj-finserv-personal-loan-status.html\">Bajaj Finserv personal loan application status</a> at can be checked either online or offline. You can call on 1800 103 3535 or send an SMS to 9773633633 by typing 'SHOL' to know the status. Alternatively, you can visit www.bajajfinserv.in and get to know the status by entering the loan ID, application ID or the registered mobile number.  </p>"
+                    "answer": "<p><a href=\"/bajaj-finserv-personal-loan-status.html\">Bajaj Finserv personal loan application status</a> at can be checked either online or offline. You can call on 1800 103 3535 or send an SMS to 9773633633 by typing 'SHOL' to know the status. Alternatively, you can visit www.bajajfinserv.in and get to know the status by entering the loan ID, application ID or the registered mobile number.  </p>"
                 },
                 {
                     "question": "How do I get complete loan details of my Bajaj Finserv Personal Loan?",
-                    "answer": "<p>A: You can get to know the complete details of your Bajaj Finserv Personal Loan through the welcome kit that will be sent to your email ID which is registered at the time of making the loan application. </p>"
+                    "answer": "<p>You can get to know the complete details of your Bajaj Finserv Personal Loan through the welcome kit that will be sent to your email ID which is registered at the time of making the loan application. </p>"
                 },
                 {
                     "question": "What all details can I find in my Bajaj Finserv Personal Loan welcome kit?",
-                    "answer": "<p>A: You can find the following details in your welcome kit: </p><ul><li>A reference service guide which will help you use the self-service tool and have a better understanding of the product. </li><li>Your user ID and password for Experia </li><li>A unique virtual account number </li><li>The account details of the registered bank account which will be used for drawdown transactions </li><li>The registered mobile phone number </li></ul>"
+                    "answer": "<p>You can find the following details in your welcome kit: </p><ul><li>A reference service guide which will help you use the self-service tool and have a better understanding of the product. </li><li>Your user ID and password for Experia </li><li>A unique virtual account number </li><li>The account details of the registered bank account which will be used for drawdown transactions </li><li>The registered mobile phone number </li></ul>"
                 },
                 {
                     "question": "What is a secure fee?",
-                    "answer": "<p>A: If you are applying for a personal loan online, you will be required to pay a charge which is known as secure fee. This fee is charged for the submission and processing of the online loan application form. </p>"
+                    "answer": "<p>If you are applying for a personal loan online, you will be required to pay a charge which is known as secure fee. This fee is charged for the submission and processing of the online loan application form. </p>"
                 },
                 {
                     "question": "How can I make a part-prepayment of my Bajaj Finserv Personal Loan?",
-                    "answer": "<p>A: A unique account number will be generated and provided to you by Bajaj Finserv when your personal loan is approved. You will be required to make all payments and part-payments for your loan to this unique account through internet banking. The payments you make to this account will be credited towards your loan account as per the stipulated time period according to the banking guidelines. </p>"
+                    "answer": "<p>A unique account number will be generated and provided to you by Bajaj Finserv when your personal loan is approved. You will be required to make all payments and part-payments for your loan to this unique account through internet banking. The payments you make to this account will be credited towards your loan account as per the stipulated time period according to the banking guidelines. </p>"
                 },
                 {
                     "question": "How to contact Bajaj Finserv customer care?",
-                    "answer": "<p>A: In order to <a href=\"/bajaj-finserv-personal-loan-customer-care-number.html\">contact Bajaj Finserv customer care</a> executives, you can call on 08698010101.</p>"
+                    "answer": "<p>In order to <a href=\"/bajaj-finserv-personal-loan-customer-care-number.html\">contact Bajaj Finserv customer care</a> executives, you can call on 08698010101.</p>"
                 }
             ]
         }
@@ -11330,16 +11330,16 @@
             "title": "FAQs on the Air India SBI Platinum Card",
             "items": [
                 {
-                    "question": "Q. When I apply for Air India SBI Platinum Card, can I save my half-done application and continue later?",
-                    "answer": "<p>A. Yes, you may. The SBI web page has that feature.</p>"
+                    "question": "When I apply for Air India SBI Platinum Card, can I save my half-done application and continue later?",
+                    "answer": "<p>Yes, you may. The SBI web page has that feature.</p>"
                 },
                 {
-                    "question": "Q. How can I retrieve my Air India SBI Platinum Card saved application?",
-                    "answer": "<p>A. To retrieve your Air India SBI Platinum Card saved application, you can simply log in to the application page and click the retrieve option.</p>"
+                    "question": "How can I retrieve my Air India SBI Platinum Card saved application?",
+                    "answer": "<p>To retrieve your Air India SBI Platinum Card saved application, you can simply log in to the application page and click the retrieve option.</p>"
                 },
                 {
-                    "question": "Q. How do I use my Air India SBI Platinum Card for air miles?",
-                    "answer": "<p>A. For converting the reward points on the Air India SBI Platinum Card to Air India Air Miles, call SBI Card helpline at 1860 180 1290 or 39020202. You require a minimum of 5,000 reward points for availing the redemption option.</p><p>Air Mile redemption has to be in multiples of 5,000 and will be converted within 7 working days from the date of receiving the request.</p>"
+                    "question": "How do I use my Air India SBI Platinum Card for air miles?",
+                    "answer": "<p>For converting the reward points on the Air India SBI Platinum Card to Air India Air Miles, call SBI Card helpline at 1860 180 1290 or 39020202. You require a minimum of 5,000 reward points for availing the redemption option.</p><p>Air Mile redemption has to be in multiples of 5,000 and will be converted within 7 working days from the date of receiving the request.</p>"
                 }
             ]
         }
@@ -29564,7 +29564,7 @@
                 "body": "",
                 "elements": [
                     {
-                        "type": "landing_banneer",
+                        "type": "landing-banner",
                         "linkText": "",
                         "img": {
                             "src": "/images/common/health-insurance-landing-img.png",
@@ -30923,7 +30923,7 @@
                         "body": "<p>A debit card is basically a card used for fund transactions. Going by the name plastic cash, bank card and more, you can enjoy electronic access to your savings account in any bank via ATMs. You can deposit and withdraw as per your convenience this way without the hassle of standing in long queues. The same can be utilized for mobile banking and <a href=\"/savings-account/internet-banking.html\" title=\"Internet Banking\">Internet Banking</a>.</p>"
                     },
                     {
-                        "type": "landing_banneer",
+                        "type": "landing-banner",
                         "link": "/debit-card.html#get-quote",
                         "linkText": "Apply Now",
                         "img": {
@@ -31135,24 +31135,24 @@
             "title": "Debit Cards-FAQs",
             "items": [
                 {
-                    "question": "Q. Can multiple accounts be linked to a debit card?",
-                    "answer": "<p>A. Yes, some banks give customers the option of linking several bank accounts to a single debit card.</p>"
+                    "question": "Can multiple accounts be linked to a debit card?",
+                    "answer": "<p>Yes, some banks give customers the option of linking several bank accounts to a single debit card.</p>"
                 },
                 {
-                    "question": "Q.Do banks block debit cards if customers enter the wrong PIN during cash withdrawals?",
-                    "answer": "<p>A. Yes, any bank would block a customer's debit card after three unsuccessful attempts at an ATM as a protective measure.</p>"
+                    "question": "Do banks block debit cards if customers enter the wrong PIN during cash withdrawals?",
+                    "answer": "<p>Yes, any bank would block a customer's debit card after three unsuccessful attempts at an ATM as a protective measure.</p>"
                 },
                 {
-                    "question": "Q. Is the overdraft facility available with debit cards?",
-                    "answer": "<p>A. Overdraft facility is available with the savings account linked to a debit card but is not applicable on a particular debit card.</p>"
+                    "question": "Is the overdraft facility available with debit cards?",
+                    "answer": "<p>Overdraft facility is available with the savings account linked to a debit card but is not applicable on a particular debit card.</p>"
                 },
                 {
-                    "question": "Q.What are the different costs associated with a debit card?",
-                    "answer": "<p>A. Some banks might charge issuance fees, ATM withdrawal charges, and annual fees for the use of debit cards.</p>"
+                    "question": "What are the different costs associated with a debit card?",
+                    "answer": "<p>Some banks might charge issuance fees, ATM withdrawal charges, and annual fees for the use of debit cards.</p>"
                 },
                 {
-                    "question": "Q.In India, what are the two types of debit cards generally issued to users?",
-                    "answer": "<p>A. Indian Banks provide personalized and non-personalized variants to debit card users. Personalized debit cards additionally contain the user's name and photograph. Non-Personalized cards will just have the bank logo, card details and the payment platform logo without any user related information.</p>"
+                    "question": "In India, what are the two types of debit cards generally issued to users?",
+                    "answer": "<p>Indian Banks provide personalized and non-personalized variants to debit card users. Personalized debit cards additionally contain the user's name and photograph. Non-Personalized cards will just have the bank logo, card details and the payment platform logo without any user related information.</p>"
                 }
             ]
         },
@@ -31367,7 +31367,7 @@
                 "body": "",
                 "elements": [
                     {
-                        "type": "landing_banneer",
+                        "type": "landing-banner",
                         "link": "/debit-card/hsbc-debit-card.html#get-quote",
                         "linkText": "Apply Now",
                         "img": {
@@ -33167,6 +33167,207 @@
                 ]
             }
         ]
+    },
+    "7750": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "landing-banner",
+                        "linkText": "",
+                        "img": {
+                            "src": "/images/common/life-insurance-landing-img.png",
+                            "title": "Life Insurance"
+                        },
+                        "items": [
+                            {
+                                "text": "Reduce taxable income by up to Rs. 1,50,000 deduction under section 80C**",
+                                "icon": "sa-attractive-interest"
+                            },
+                            {
+                                "text": "Convenient payment options - annual, half-yearly, quarterly or monthly premium payments",
+                                "icon": "sa-instant-money"
+                            },
+                            {
+                                "text": "Do more with plans that offer pure protection, retirement planning and investment options",
+                                "icon": "choose-payout-option"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<p>The Easy Protect Insurance Plan from Aegon Life is a <a href=\"/term-insurance.html\">comprehensive protection policy</a> that ensures that your family will be able to sustain the same standard of living even in case of your untimely demise. In case of the death of the policyholder, the Easy Protect Insurance Plan pays the beneficiary Rs.10,000 per month for a period of 10 years. With the annual premium set at just Rs.2,021, the <strong>Aegon Life Easy Protect Insurance Plan</strong> is affordable and effective. Customers who purchase this plan can also avail tax benefits in addition to ensuring the financial protection of their loved ones.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility - Who is the Easy Protect Insurance Policy for?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>To be eligible to purchase the <em>Easy Protect Insurance Plan</em>, individuals must be of a certain age when purchasing the policy as well as at the time of maturity. Following are the criteria you must meet if you wish to purchase an Easy Protect Insurance Plan:</p><table><tbody><tr><td><strong>Plan Type</strong></td><td>Individual</td></tr><tr><td><strong>Minimum Entry Age</strong></td><td>20 years completed</td></tr><tr><td><strong>Maximum Entry Age</strong></td><td>50 years completed</td></tr><tr><td><strong>Maximum Maturity Age</strong></td><td>60 years completed</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Sum Assured and Premium Range - What you Get and What it Costs?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The premium payments made towards your Easy Protect Insurance Policy will determine the benefits you will receive. Following are some of the features of the Easy Protect Insurance Plan:</p><table><tbody><tr><td><strong>Sum Assured</strong></td><td>Rs.12 lakhs</td></tr><tr><td><strong>Premium Payment Frequency</strong></td><td>Annual</td></tr><tr><td><strong>Premium Payment Term</strong></td><td>Equal to policy term</td></tr><tr><td><strong>Policy Term</strong></td><td>10 years</td></tr><tr><td><strong>Minimum Premium</strong></td><td>Rs.2,021</td></tr></tbody></table><p>*Premiums may vary based on age, location, plan term and other factors.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Plan Coverage - What the Easy Protect Insurance Plan Covers?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><td><strong>Maturity Benefit</strong></td><td>There is no maturity benefit under the Easy Protect Insurance Plan.</td></tr><tr><td><strong>Death Benefit</strong></td><td>In case of the death of the life assured, the beneficiary will receive Rs.10,000 per month for a period of 10 years commencing from the next monthly anniversary after the date of death and acceptance of claim.</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Exclusions - What the Aegon Easy Protect Insurance Policy Doesn't Cover:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The Easy Protect Insurance policy has certain exceptions which are as follow:</p><ul><li><strong>Suicide:</strong> In case of the death of the policyholder due to suicide within a year from the date on which the policy commenced, the beneficiary or nominee will receive a minimum of 80% of the premiums paid, provided the policy is still active.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Other Key Features of Aegon Life Easy Protect Insurance Plan:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Following are some of the other key features of the <u>Aegon Life Easy Protect Insurance Policy</u>:</p><table><tbody><tr><td><strong>Free Look Period</strong></td><td>Customers who are not satisfied with the terms and conditions of the Easy Protect Insurance Plan have the option of returning the policy to the company within 15 days (or 30 days if bought via distance marketing mode). Once the policy is cancelled during the free look period, the company will return the premiums to the customer after deducting stamp duty charges, proportionate risk premium, and any other expenses incurred by Aegon Life on medical examination, if any.</td></tr><tr><td><strong>Grace Period</strong></td><td>In case you have not made your premium payment on time, you will receive a grace period of 30 days to ensure that due premium payments have been made.</td></tr><tr><td><strong>Discontinuance of Premium</strong></td><td>In case the customer fails to pay the premium within the grace period, the policy will lapse and no benefit will be paid in case of the demise of the life assured.</td></tr><tr><td><strong>Reinstatement</strong></td><td>In case your policy has lapsed, you can apply for reinstatement within two years from the date on which the first unpaid premium was due. The unpaid premiums will have to be paid along with an additional interest charge to reinstate the policy, and the final decision regarding the reinstatement of a policy is at the discretion of Aegon Life based on the provision of satisfactory evidence about the insurability of the life assured.</td></tr><tr><td><strong>Surrender Value</strong></td><td>The Easy Protect Insurance Plan will not acquire a surrender value. Once the policy is surrendered, the plan and all benefits will extinguish immediately.</td></tr></tbody></table><p> </p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Tax Benefits - How you Can Save with the Aegon Easy Protect Insurance Policy?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The benefits received through the Guaranteed Growth Insurance plan are eligible for tax benefits under Section 10(10D) of the Income Tax Act, while the premiums paid towards the policy are also eligible for tax benefits under Section 80C of the Income Tax Act, 1961.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Why you should buy the Easy Protect Insurance Plan from Aegon Life?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><a href=\"/aegon-life-insurance.html\">Aegon Life</a> is one of India's most popular and trusted insurance companies. Headquartered in Mumbai, it has almost 60 branches across 46 cities across the country, and employs around 9600 insurance agents who reach out to a customer base exceeding 4 lakh policyholders. Aegon life continues to grow steadily thanks to its provision of quality products and services, and an impressive portfolio along with quality customer service which will ensure that the Easy Protect Insurance plan from Aegon Life is a worthwhile investment.</p>"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Other Term Insurance Plans Provided by Aegon Life",
+                "items": [
+                    {
+                        "link": "/aegon-life-term-insurance/iterm-plan.html",
+                        "title": "Aegon Life iTerm Insurance Plan"
+                    },
+                    {
+                        "link": "/aegon-life-term-insurance/ireturn-insurance-plan.html",
+                        "title": "Aegon Life iReturn Insurance Plan"
+                    },
+                    {
+                        "link": "/aegon-life-term-insurance/term-plan.html",
+                        "title": "Aegon Life Term Insurance Plan"
+                    },
+                    {
+                        "link": "/aegon-life-term-insurance/easy-protect-plan.html",
+                        "title": "Aegon Life Easy Protect Insurance Plan"
+                    }
+                ]
+            },
+            {
+                "title": "",
+                "items": [
+                    {
+                        "link": "/life-insurance-sitemap.html",
+                        "title": "Life Insurance Sitemap"
+                    },
+                    {
+                        "link": "https://blog.bankbazaarinsurance.com/category/life-insurance/",
+                        "title": "Life Insurance Blog"
+                    },
+                    {
+                        "link": "/reviews/all-banks/life-insurance.html",
+                        "title": "Life Insurance Reviews"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "Aegon Life Easy Protect Insurance Plan FAQs:",
+            "items": [
+                {
+                    "question": "How can I check the status of my Easy Protect Insurance Policy?",
+                    "answer": "<p>You can check the status of your Easy Protect Insurance Plan by either calling the company on the toll free number or emailing them.</p>"
+                },
+                {
+                    "question": "Can I avail a loan against the Easy Protect Insurance Plan?",
+                    "answer": "<p>No, the Easy Protect Insurance Plan does not have a facility for customers to take a loan against the policy.</p>"
+                },
+                {
+                    "question": "Can I change the nominee of my Easy Protect Insurance Policy?",
+                    "answer": "<p>Yes. To change the name of the nominee of your Easy Protect Insurance Plan, all you have to do is call the toll-free number and provide an endorsement form before informing the company that the name of the nominee needs to be changed.</p>"
+                },
+                {
+                    "question": "What is the grace period for this policy?",
+                    "answer": "<p>Customers who fail to make their premium payments on time receive a 30-day grace period to do the same.</p>"
+                },
+                {
+                    "question": "How do the claims under the Easy Protect Insurance Plan work?",
+                    "answer": "<p>In case of the death of the life assured, Aegon Life must be notified immediately and the filed claims must be submitted along with all the required documents as mentioned in the policy document. The claim will be processed by the company after it has verified your documents and confirmed the authenticity of the claim.</p>"
+                },
+                {
+                    "question": "How do I apply for a duplicate policy document?",
+                    "answer": "<p>To avail a duplicate policy document from the company, you will have to submit an endorsement form or a duly signed requisition letter to Aegon Life along with a guaranteed bond on a Rs.200 stamp paper.</p>"
+                },
+                {
+                    "question": "Under what circumstances can my policy be terminated?",
+                    "answer": "<p>Your Easy Protect Insurance plan can be terminated either on the death of the life assured, or on the date of maturity, or on the date of surrender, or if the first 12 monthly premiums are not paid and the policy has not been reinstated within the specified period.</p>"
+                },
+                {
+                    "question": "What is distance marketing mode?",
+                    "answer": "<p>Purchasing a policy through distance marketing mode means purchasing it through voice mode, such as telephone-calling, SMS, electronic mode such as DTH, internet or email, physical mode such as magazine and newspaper inserts and direct postal mail, or any other means except in person.</p>"
+                },
+                {
+                    "question": "Will there be a service tax on my insurance policy?",
+                    "answer": "<p>Yes, service tax will be levied as per prevailing tax laws.</p>"
+                },
+                {
+                    "question": "What is the difference between grace period and free look period?",
+                    "answer": "<p>A grace period is usually the additional time give to make due premium payments, while a free look period is the time frame within which you can return your policy to the company if you are not satisfied with the terms and conditions.</p>"
+                }
+            ]
+        }
     },
     "11478": {
         "title": "",

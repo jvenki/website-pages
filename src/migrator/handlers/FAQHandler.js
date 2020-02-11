@@ -6,7 +6,13 @@ import {chunk, uniq, difference} from "lodash";
 
 export const headingRegex = /Frequently Asked Questions|FAQ/i;
 
-const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.question && item.answer) && Boolean(title), "FAQHandler-CannotExtractQ&A", $e);
+const assertExtractedDataAndProcess = (items, title, $e) => {
+    assert(items.length > 0 && items.every((item) => item.question && item.answer) && Boolean(title), "FAQHandler-CannotExtractQ&A", $e);
+    items.forEach((item) => {
+        item.question = item.question.replace(/^Q[:.]\s*/, "").replace(/^\d+\. /, "");
+        item.answer = item.answer.replace(/^A[:.]\s*/, "").replace(/^<p>A[:.]\s*/, "<p>").replace(/<strong>A[:.]\s*<\/strong>/, "");
+    });
+};
 
 class FAQBaseHandler extends BaseHandler {
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
@@ -32,7 +38,7 @@ export class FAQHandlerVariant_HeadingRegexAndDivWithSchema extends FAQBaseHandl
             };
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -73,12 +79,12 @@ export class FAQHandlerVariant_HeadingRegexFollowedByPs extends FAQBaseHandler {
         const title = extractHeadingText(elements[0], $);
         const tuples = this._createQnATuples(elements.slice(1));
         const items = tuples.map((tuple) => {
-            const question = extractHeadingText(tuple[0], $).replace(/^Q: /, "");
-            const answer = tuple[1].map(($a) => extractContentHtml($a, $)).join("").replace(/^A: /, "");
+            const question = extractHeadingText(tuple[0], $);
+            const answer = tuple[1].map(($a) => extractContentHtml($a, $)).join("");
             return {question, answer};
         });
         
-        assertExtractedData(items, title, elements[0]);
+        assertExtractedDataAndProcess(items, title, elements[0]);
         return {elements: [{type: "faq", title, items}]};
     }
 
@@ -135,12 +141,12 @@ export class FAQHandlerVariant_HeadingRegexFollowedByH3AndPs extends FAQBaseHand
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0], $);
         const items = chunk(elements.slice(1), 2).map(([$q, $a]) => {
-            const question = extractHeadingText($q, $).replace(/^\d+. /, "").replace(/^Q: /, "");
-            const answer = extractContentHtml($a, $).replace(/^A: /, "");
+            const question = extractHeadingText($q, $);
+            const answer = extractContentHtml($a, $);
             return {question, answer};
         });
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -178,7 +184,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDetails extends FAQBaseHand
             return {question: qns, answer: ans};
         });
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}], issues};
     }    
 }
@@ -198,7 +204,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }    
 }
@@ -225,7 +231,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP e
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -245,7 +251,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong extends
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -271,7 +277,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBas
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -303,7 +309,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP exten
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -341,7 +347,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP extends F
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -373,7 +379,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP extends FAQBa
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -406,7 +412,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA extends FAQBas
             return {question: qns, answer: ans};
         });
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 
@@ -438,7 +444,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOLofH3 extends FAQBaseHandl
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}], issues};
     }
 }
@@ -467,7 +473,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP extends FAQ
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }
@@ -489,7 +495,7 @@ export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
             return {question: qns, answer: ans};
         }).get();
         
-        assertExtractedData(items, title, elements[1]);
+        assertExtractedDataAndProcess(items, title, elements[1]);
         return {elements: [{type: "faq", title, items}]};
     }
 }

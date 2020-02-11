@@ -100,13 +100,13 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("news-widget")
-            && $element.find("h3.news-head").text().match(headingRegex)
+            && $element.find("h3.news-head,strong.news-head").text().match(headingRegex)
             && $element.find("ul.insurer-widget > li").length > 0
             && $element.find("ul.insurer-widget > li").length == $element.find("ul.insurer-widget > li > a").length;
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].find("h3.news-head"), $);
+        const title = extractHeadingText(elements[0].find("h3.news-head, strong.news-head"), $);
         const items = elements[0].find("ul.insurer-widget > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
@@ -230,6 +230,26 @@ export class ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks extends BaseHan
     }
 }
 
+export class ReferencesHandlerVariant_TableOfLinks extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const nodeIsCntrOfLinks = ($e) => {
+            if ($e.find("td").get().filter((td) => Boolean($(td).text().trim())).every((td) => isElementMadeUpOfOnlyWithGivenDescendents($(td), ["a"], $))) {
+                return true;
+            }
+            return false;
+        };
+        return $e.get(0).tagName == "div" && $e.hasClass("hungry-table") 
+            // && $e.find("th").text().match(headingRegex) 
+            && nodeIsCntrOfLinks($e);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find("th"), $);
+        const items = elements[0].find("a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title || "NA", elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
 
 const areAllAnchorsOnlyNonLocalLinks = ($e) => {
     const links = $e.find("a").get();
