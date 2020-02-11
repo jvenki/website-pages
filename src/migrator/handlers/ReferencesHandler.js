@@ -57,13 +57,15 @@ export class ReferencesHandlerVariant_InterlinksOfAccordion extends BaseHandler 
 
 export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return $element.hasClass("product_interlink") && $element.find(" > strong, > h3").length == 1 && $element.find(" > ul").length == 1;
+        return $element.hasClass("product_interlink") 
+            && $element.find("li a").length > 0
+            && areAllAnchorsOnlyNonLocalLinks($element.find("li"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("> strong, > h3"), $);
-        const items = elements[0].find("> ul a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
-        assertExtractedData(items, title, elements[0]);
+        const items = elements[0].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
 }
