@@ -151,8 +151,8 @@ export const extractLink = ($e) => {
     assert(false, "Local Link used", $e);
 };
 
-export const extractLinkText = ($e, $) => {
-    const whilelistedTags = ["img", "picture", "p", "span", "a"];
+export const extractLinkText = ($e, $, conditionallyWhitelistedTags) => {
+    const whilelistedTags = ["img", "picture", "p", "span", "a", ...(conditionallyWhitelistedTags || [])];
     if ($e.children().length > 0) {
         $e.find("*").each((i, c) => {
             if (!whilelistedTags.includes(c.tagName)) {

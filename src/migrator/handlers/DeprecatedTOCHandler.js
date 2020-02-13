@@ -43,15 +43,29 @@ export class DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly extends BaseHandl
     }
 }
 
+export class DeprecatedTOCHandlerVariant_TableOfAsOnly extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const containsOnly1Row = () => $e.find("tr").length == 1;
+        const cellsMadeUpOfOnlyA = () => {
+            return $e.find("th").get().every((th) => $(th).children().length == 1 && $(th).find("> a").length == 1);
+        };
+        return $e.hasClass("hungry-table") && containsOnly1Row() && cellsMadeUpOfOnlyA() && areAllAnchorsOnlyLocalLinks($e);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        return extractLinks(elements[0], $);
+    }
+}
+
 const areAllAnchorsOnlyLocalLinks = ($e) => {
     const links = $e.find("a").get();
     return links.every((link) => link.attribs.href.startsWith("#"));
 };
 
 const extractLinks = ($e, $) => {
-    const items = $e.find("li > a").map((i, link) => {
+    const items = $e.find("a").map((i, link) => {
         const $link = $(link);
-        const output = {linkText: extractLinkText($link, $), link: $link.attr("href")};
+        const output = {linkText: extractLinkText($link, $, ["strong"]), link: $link.attr("href")};
         if ($link.find("img").length > 0) {
             // $SuppressFlowCheck
             output["img"] = {src: extractImgSrc($link.find("img"))};
