@@ -1,7 +1,7 @@
 import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex} from "./ReferencesHandler";
-import {without, times, constant} from "lodash";
+import {without} from "lodash";
 
 export const assert = (condition, errorMsg, $e) => {
     if (condition) {
@@ -69,7 +69,10 @@ export const isElementAContentNode = ($e) => {
     if (isElementATableNode($e)) {
         return true;
     } else if (isElementATextualNode($e)) {
-        if ($e.find("strong") && ($e.find("strong").text().match(faqHeadingRegex) || $e.find("strong").text().match(referencesHeadingRegex))) {
+        if ($e.children().length == 1 && $e.find("strong").length == 1 
+            && $e.text() == $e.find("strong").text() 
+            && ($e.find("strong").text().match(faqHeadingRegex) || $e.find("strong").text().match(referencesHeadingRegex))
+            && $e.find("strong").children().length == 0) {
             throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
         }
         return true;
@@ -149,7 +152,7 @@ export const extractLink = ($e) => {
 };
 
 export const extractLinkText = ($e, $) => {
-    const whilelistedTags = ["img", "picture", "p", "span"];
+    const whilelistedTags = ["img", "picture", "p", "span", "a"];
     if ($e.children().length > 0) {
         $e.find("*").each((i, c) => {
             if (!whilelistedTags.includes(c.tagName)) {

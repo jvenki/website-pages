@@ -14,23 +14,25 @@ import NoopWarningHandler from "./NoopWarningHandler";
 import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData} from "./CTAHandler";
 import { AccordionHandler } from "./AccordionHandler";
 import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
-import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP} from "./FAQHandler";
+import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisText} from "./FAQHandler";
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly, DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
-import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks } from "./ReferencesHandler";
-import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions} from "./DisclaimerHandler";
+import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy } from "./ReferencesHandler";
+import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandler } from "./LandingBannerHandler";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
     new DisclaimerHandlerVariant_GridOfAccordions(),
+    new DisclaimerHandlerVariant_Link(),
     new DeprecatedTOCHandlerVariant_ProductsInvest(),
     new DeprecatedTOCHandlerVariant_ULofAsOnly(),
     new DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly(),
     new ReferencesHandlerVariant_Nav(),
     new ReferencesHandlerVariant_HeadingRegex(),
+    new ReferencesHandlerVariant_HeadingRegex_Buggy(),
     new ReferencesHandlerVariant_InterlinksOfAccordion(),
     new ReferencesHandlerVariant_InterlinksOfNav(),
     new ReferencesHandlerVariant_Accordion(),
@@ -53,6 +55,7 @@ const handlers = [
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP(),
     new FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA(),
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP(),
+    new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisText(),
     new FAQHandlerVariant_HeadingRegexFollowedByOLofH3(),
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP(),
     new SectionHandler(), 

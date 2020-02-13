@@ -6,7 +6,15 @@ import {containsOnlyGridCellClasses} from "./UnwrapHandler";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), "ReferencesHandler-CannotExtractReferences", $e);
 
-export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other|read more/i;
+export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other|read more|more read on/i;
+
+const headingRegexMatches = ($element) => {
+    const elemIsAppro = isElementAHeadingNode($element)
+        || $element.get(0).tagName == "strong"
+        || ($element.get(0).tagName == "p" && $element.children().length == 1 && $element.find (" > strong").length == 1);
+    
+    return elemIsAppro && $element.text().match(headingRegex);
+};
 
 export class ReferencesHandlerVariant_Nav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
@@ -26,8 +34,7 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         const allowedNextTagNames = ["table", "div", "ul"];
         const nextElementIsAppro = ($n) => $n.length > 0 && allowedNextTagNames.includes($n.get(0).tagName) || isElementATableNode($n);
-        return (isElementAHeadingNode($element) || $element.get(0).tagName == "strong") 
-            && $element.text().match(headingRegex) && nextElementIsAppro($element.next());
+        return headingRegexMatches($element) && nextElementIsAppro($element.next());
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
@@ -39,6 +46,39 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
         const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
+    }
+}
+
+export class ReferencesHandlerVariant_HeadingRegex_Buggy extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        return headingRegexMatches($e) && this._isElementAReference($e.next(), $);
+    }
+
+    walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
+        const elements = [$element];
+        while (true) {
+            $element = $element.next();
+            if (!this._isElementAReference($element, $)) {
+                break;
+            }
+            elements.push($element);
+        }
+        return elements;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0], $);
+        const items = elements.slice(1).map(($e) => ({link: extractLink($($e.find("> a"))), title: extractLinkText($e, $)}));
+        assertExtractedData(items, title, elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+
+    _isElementAReference($n: CheerioElemType, $: CheerioDocType) {
+        const buggyTagNames = ["p", "li"];
+        return $n.length > 0 && buggyTagNames.includes($n.get(0).tagName) 
+            && $n.children().length == 1 && $n.find("> a").length == 1
+            && areAllAnchorsOnlyNonLocalLinks($n)
+            && $n.find("a").get().every((a) => $(a).attr("href").indexOf("disclaimer") == -1);
     }
 }
 
@@ -193,7 +233,13 @@ export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
         return $element.hasClass("useful-links") 
             && $element.children().length == 2
             && isElementAHeadingNode($element.children().eq(0))
-            && ["ul", "ol"].includes($element.children().eq(1).get(0).tagName);
+            && (
+                ["ul", "ol"].includes($element.children().eq(1).get(0).tagName)
+                || ($element.children().eq(1).hasClass("useful-links") 
+                    && $element.children().eq(1).children().length == 1 
+                    && ["ul", "ol"].includes($element.children().eq(1).children().eq(0).get(0).tagName)
+                )
+            );
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
