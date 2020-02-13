@@ -95,7 +95,7 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    ["style", "script", "figcaption", ".js-infographic-content", "mark", "ins", "div.table-view-more"].forEach((sel) => {
+    ["style", "script", "figcaption", ".js-infographic-content", "mark", "ins", "div.table-view-more", "h1"].forEach((sel) => {
         const elems = $(sel);
         if (elems.length == 0) {
             return;

@@ -1,5 +1,6 @@
 const parseString = require("xml2js").parseString;
 import MigrationError, {ErrorCode} from "./MigrationError";
+import cheerio from "cheerio";
 
 export default class LPDRowFieldExtractor {
     extractFrom(row) {
@@ -30,6 +31,9 @@ export default class LPDRowFieldExtractor {
             throw new MigrationError(ErrorCode.LPD_CORRUPTED);
         }
         
+        if (!output.title) {
+            output.title = deduceTitleFromContent(output.primaryContent);
+        }
         return output;
     }
 }
@@ -44,4 +48,10 @@ const parseXmlString = function(xml) {
         output = jsonRow;
     });
     return output;
+};
+
+
+const deduceTitleFromContent = function (html) {
+    const $ = cheerio.load(html, {decodeEntities: false});
+    return $("h1").first().text();
 };
