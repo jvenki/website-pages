@@ -222,10 +222,18 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP e
             return $n.length > 0
                 && $n.get(0).tagName == "ol" 
                 && $n.find(" > li").length > 0 
-                && $n.find(" > li > strong").length == $n.find(" > li").length 
-                && $n.find(" > li > p, > li > ul").length >= $n.find(" > li").length;
+                && $n.find(" > li > strong").length > 0 
+                && $n.find(" > li > p, > li > ul").length > 0;
         };
         return headingMatchesRegex($e) && nextElemIsOL($e.next()); 
+    }
+
+    validate($e: CheerioElemType, $: CheerioDocType): void {
+        if ($e.get(0).tagName == "ol") {
+            const numberOfItems = $e.find(" > li").length;
+            assert($e.find("> li > strong").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP-ConditionNotMet#1", $e);
+            assert($e.find(" > li > p, > li > ul").length >= numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP-ConditionNotMet#2", $e);
+        }
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -245,8 +253,15 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP e
 
 export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        const nextElemIsOL = ($n) => $n.length > 0 && $n.get(0).tagName == "ol" && $n.find(" > li").length > 0 && $n.find(" > li > p:first-child > strong").length == $n.find(" > li").length;
+        const nextElemIsOL = ($n) => $n.length > 0 && $n.get(0).tagName == "ol" && $n.find(" > li").length > 0 && $n.find(" > li > p:first-child > strong").length > 0;
         return headingMatchesRegex($e) && nextElemIsOL($e.next()); 
+    }
+
+    validate($e: CheerioElemType, $: CheerioDocType): void {
+        if ($e.get(0).tagName == "ol") {
+            const numberOfItems = $e.find(" > li").length;
+            assert($e.find(" > li > p:first-child > strong").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong-ConditionNotMet#1", $e);
+        }
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -269,10 +284,18 @@ export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBas
             return $n.length > 0 
                 && ["ul", "ol"].includes($n.get(0).tagName) 
                 && $n.find(" > li").length > 0 
-                && $n.find(" > li > h3").length == $n.find(" > li").length 
-                && $n.find(" > li > p").length == $n.find(" > li").length;
+                && $n.find(" > li > h3").length > 0 
+                && $n.find(" > li > p").length > 0;
         };
         return headingMatchesRegex($e) && nextElemIsUL($e.next()); 
+    }
+
+    validate($e: CheerioElemType, $: CheerioDocType): void {
+        if (["ol", "ul"].includes($e.get(0).tagName)) {
+            const numberOfItems = $e.find(" > li").length;
+            assert($e.find(" > li > h3").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3-ConditionNotMet#1", $e);
+            assert($e.find(" > li > p").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3-ConditionNotMet#2", $e);
+        }
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -291,8 +314,22 @@ export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBas
 
 export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP extends FAQBaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        const nextElemIsOL = ($n) => $n.length > 0 && ["ul", "ol"].includes($n.get(0).tagName) && $n.find(" > li").length > 0 && $n.find(" > li > strong").length == $n.find(" > li").length && $n.find(" > p").length == $n.find(" > li").length;
+        const nextElemIsOL = ($n) => {
+            return $n.length > 0 
+                && ["ul", "ol"].includes($n.get(0).tagName) 
+                && $n.find(" > li").length > 0 
+                && $n.find(" > li > strong").length > 0 
+                && $n.find(" > p").length > 0;
+        };
         return headingMatchesRegex($e) && nextElemIsOL($e.next()); 
+    }
+
+    validate($e: CheerioElemType, $: CheerioDocType): void {
+        if (["ol", "ul"].includes($e.get(0).tagName)) {
+            const numberOfItems = $e.find(" > li").length;
+            assert($e.find(" > li > strong").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP-ConditionNotMet#1", $e);
+            assert($e.find(" > p").length >= numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP-ConditionNotMet#2", $e);
+        }
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -327,10 +364,18 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP extends F
             return $n.length > 0 
                 && ["ul", "ol"].includes($n.get(0).tagName) 
                 && $n.find(" > li").length > 0 
-                && $n.find(" > li > h3").length == $n.find(" > li").length 
-                && $n.find(" > p, > ul").length >= $n.find(" > li").length;
+                && $n.find(" > li > h3").length > 0
+                && $n.find(" > p, > ul").length > 0;
         };
         return headingMatchesRegex($e) && nextElemIsOL($e.next()); 
+    }
+
+    validate($e: CheerioElemType, $: CheerioDocType): void {
+        if (["ol", "ul"].includes($e.get(0).tagName)) {
+            const numberOfItems = $e.find(" > li").length;
+            assert($e.find(" > li > h3").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP-ConditionNotMet#1", $e);
+            assert($e.find(" > p, > ul").length == numberOfItems, "FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP-ConditionNotMet#2", $e);
+        }
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
