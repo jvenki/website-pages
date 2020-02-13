@@ -40,6 +40,7 @@ export const removePaddingClass = (classNames) => {
 export const removePositioningClass = (classNames) => {
     return classNames
         .replace(/text-center/g, "")
+        .replace(/tcenter/g, "")
         .replace(/text-right/g, "")
         .replace(/text-left/g, "")
         .replace(/pull-left/, "")
@@ -191,7 +192,15 @@ export const extractContentHtml = ($e, $) => {
 
 export const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
 
-const extractImgTag = ($e) => {
+const isAncestorPulledRight = ($e, $) => {
+    return $e.parentsUntil("body").get().some((anc) => $(anc).hasClass("pull-right"));
+};
+
+const isAncestorCentered = ($e, $) => {
+    return $e.parentsUntil("body").get().some((anc) => $(anc).hasClass("text-center"));
+};
+
+const extractImgTag = ($e, $) => {
     let output = "<img";
     ["title", "alt"].forEach((attrName) => {
         if ($e.attr(attrName)) {
@@ -211,7 +220,7 @@ const extractImgTag = ($e) => {
     return output;
 };
 
-const createLinkTag = ($e, innerHtml) => {
+const createLinkTag = ($e, innerHtml, $) => {
     let output = "<a";
     ["href", "title"].forEach((attrName) => {
         if ($e.attr(attrName)) {
@@ -237,9 +246,9 @@ const extractHtmlFromTextualNodes = ($e, $) => {
         } else if (n.tagName == "br") {
             return "<br>";
         } else if (n.tagName == "img") {
-            return extractImgTag($n);  // Has Attributes that needs to be pulled out
+            return extractImgTag($n, $);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "a") {
-            return createLinkTag($n, processChildNodes($n));  // Has Attributes that needs to be pulled out
+            return createLinkTag($n, processChildNodes($n), $);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "ul" && $n.children().get().every((li) => $(li).text().trim().match(/^\d+\.\s+/)) && $n.hasClass("list-group")) {
             return `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+\.\s+/, "<li>")).join("")}</ol>`;   // Convert UL with manual numbering to OL
         } else if (isElementASubHeadingNode($n)) {

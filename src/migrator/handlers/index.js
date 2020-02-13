@@ -6,7 +6,7 @@ import {assert} from "./Utils";
 import BaseHandler from "./BaseHandler";
 import SectionHandler from "./SectionHandler";
 import {TextHandlerVariant_Main, TextHandlerVariant_PointerView} from "./TextHandler";
-import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails} from "./JumbotronHandler";
+import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails_SingleP, JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs} from "./JumbotronHandler";
 import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
 import UnwrapHandler from "./UnwrapHandler";
@@ -70,7 +70,8 @@ const handlers = [
     new LandingBannerHandler(),
     new AccordionHandler(),
     new JumbotronHandlerVariant_Main(),
-    new JumbotronHandlerVariant_PrimaryKeyDetails(),
+    new JumbotronHandlerVariant_PrimaryKeyDetails_SingleP(),
+    new JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs(),
     new BlockQuoteHandler(),
     new ResponsiveTableHandler(),
     new VideoHandler(),

@@ -49,7 +49,10 @@ export class DeprecatedTOCHandlerVariant_TableOfAsOnly extends BaseHandler {
         const cellsMadeUpOfOnlyA = () => {
             return $e.find("th").get().every((th) => $(th).children().length == 1 && $(th).find("> a").length == 1);
         };
-        return $e.hasClass("hungry-table") && containsOnly1Row() && cellsMadeUpOfOnlyA() && areAllAnchorsOnlyLocalLinks($e);
+        const cellsMadeUpOfOnlyStrongOfA = () => {
+            return $e.find("th").get().every((th) => isElementMadeUpOfOnlyWithGivenDescendents($(th), ["strong", "a"], $));
+        };
+        return $e.hasClass("hungry-table") && containsOnly1Row() && (cellsMadeUpOfOnlyA() || cellsMadeUpOfOnlyStrongOfA()) && areAllAnchorsOnlyLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
