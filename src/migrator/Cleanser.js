@@ -14,12 +14,12 @@ export default class Cleanser {
         const cleansedHtml = minifyHtml(html);
 
         const cleansers = [
+            removeStyleAndScriptNodes, 
             removeEmptyNodesAndEmptyLines, 
             removeDivsWithHFMClassNamesUnderBody,
             removeRowLevelGridsUnderRows,
             removeUnwantedGridsUnderBody, 
             removeDivsWithHFMClassNamesUnderBody,
-            removeStyleAndScriptNodes, 
             // removeTableOfContents,
             removeDisqusElements,
             removeOfferTableElements
@@ -103,6 +103,14 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
         }
         onIssue(new MigrationError(CleanserIssueCode.REMOVED_NODES, sel, "Count = " + elems.length));
         elems.remove();
+    });
+
+    $("a").each((i, a) => {
+        const $a = $(a);
+        const link = $a.attr("href");
+        if (link && link.indexOf("-elections") != -1 && $a.parent().get(0).tagName == "strong") {
+            $a.parent().remove();
+        }
     });
 };
 
