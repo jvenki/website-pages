@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractLinkText, assert, extractImgSrc, isElementMadeUpOfOnlyWithGivenDescendents } from "./Utils";
+import {extractLinkText, assert, extractImgSrc, isElementMadeUpOfOnlyWithGivenDescendents, extractHeadingText } from "./Utils";
 
 
 export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
@@ -50,6 +50,22 @@ export class DeprecatedTOCHandlerVariant_TableOfAsOnly extends BaseHandler {
             return $e.find("th").get().every((th) => $(th).children().length == 1 && $(th).find("> a").length == 1);
         };
         return $e.hasClass("hungry-table") && containsOnly1Row() && cellsMadeUpOfOnlyA() && areAllAnchorsOnlyLocalLinks($e);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        return extractLinks(elements[0], $);
+    }
+}
+
+export class DeprecatedTOCHandlerVariant_DivOfULOfLinks extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const nodeIsCntrOfLinks = ($e) => {
+            if ($e.find("ul").get().every((ul) => isElementMadeUpOfOnlyWithGivenDescendents($(ul), ["li", "a"], $))) {
+                return true;
+            }
+            return false;
+        };
+        return $e.get(0).tagName == "div" && $e.find("> ul").length > 0 && nodeIsCntrOfLinks($e)  && areAllAnchorsOnlyLocalLinks($e);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
