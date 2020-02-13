@@ -220,7 +220,11 @@ export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
                 const title = extractHeadingText($(ul).prev(), $);
                 targetElements.push({type: "references", title, items});
             } else {
-                targetElements[targetElements.length-1].items.push(...items);
+                if (targetElements.length > 0) {
+                    targetElements[targetElements.length-1].items.push(...items);
+                } else {
+                    targetElements.push({type: "references", items});
+                }
             }
         });
 
