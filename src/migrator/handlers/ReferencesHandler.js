@@ -6,7 +6,7 @@ import {containsOnlyGridCellClasses} from "./UnwrapHandler";
 
 const assertExtractedData = (items, title, $e) => assert(items.length > 0 && items.every((item) => item.link && item.title) && Boolean(title), "ReferencesHandler-CannotExtractReferences", $e);
 
-export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other|read more|more read on/i;
+export const headingRegex = /related [a-z]* product|other [a-z]* product|other [a-z\s]* by|other products from|offered by other|read more|read on/i;
 
 const headingRegexMatches = ($element) => {
     const elemIsAppro = isElementAHeadingNode($element)
@@ -131,9 +131,9 @@ export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
 export class ReferencesHandlerVariant_Accordion extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion") || $element.hasClass("panel"))
-            && $element.find(".panel-title").text().match(headingRegex)
-            && $element.find(".panel-body li").length > 0
-            && $element.find(".panel-body li").length == $element.find(".panel-body li > a").length;
+            // && $element.find(".panel-title").text().match(headingRegex)
+            && isElementMadeUpOfOnlyWithGivenDescendents($element.find(".panel-body"), ["ul", "li", "a"], $)
+            && areAllAnchorsOnlyNonLocalLinks($element.find("a"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -178,7 +178,10 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
                     return currPanelChildren[0].tagName == "h2" && currPanelChildren.slice(1).every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"], $));
                 });
         };
-        return $e.hasClass("row") && allChildrenAreAccordion() && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences()) && areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li a"));
+        return ($e.hasClass("row") || $e.hasClass("col-md-12"))
+            && allChildrenAreAccordion() 
+            && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences()) 
+            && areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li a"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {

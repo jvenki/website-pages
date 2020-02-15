@@ -40,14 +40,15 @@ export class AccordionHandler extends BaseHandler {
         let faq, reference;
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
-                const $be = $(panel).find(".panel-body");
-                const title = extractHeadingText($(panel).find(".panel-heading a"), $);
-                if (isPanelActuallyAFAQ(title)) {
+                const $panel = $(panel);
+                if (isPanelActuallyAFAQ($panel, $)) {
                     faq = new FAQInsideAccordionPanelHandler().convert([$(panel)], $).elements[0];
-                } else if (isPanelActuallyAReference(title)) {
+                } else if (isPanelActuallyAReference($panel, $)) {
                     reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
                 } else {
-                    const body = extractContentHtml($be, $);
+                    const title = extractHeadingText($(panel).find(".panel-heading a"), $);
+                    const $bodyElem = $(panel).find(".panel-body");
+                    const body = extractContentHtml($bodyElem, $);
                     assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#5", $element);
                     items.push({title, body});
                 }
@@ -71,5 +72,9 @@ export class AccordionHandler extends BaseHandler {
     }
 }
 
-const isPanelActuallyAFAQ = (title) => title.match(faqHeadingRegex);
-const isPanelActuallyAReference = (title) => title.match(referencesHeadingRegex);
+const isPanelActuallyAFAQ = ($panel, $) => {
+    const title = extractHeadingText($panel.find(".panel-heading a"), $);
+    return title.match(faqHeadingRegex);
+};
+
+const isPanelActuallyAReference = ($panel, $) => new ReferencesHandlerVariant_Accordion().isCapableOfProcessingElement($panel, $);

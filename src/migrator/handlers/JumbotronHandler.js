@@ -66,3 +66,18 @@ export class JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs extends Base
         return {elements: [{type: "panel", title, body}], issues: ["PrimaryKeyDetails converted into Jumbotron"]};
     }
 }
+
+export class JumbotronHandlerVariant_NewsWeek extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
+        return $element.hasClass("insurance-weekpick") && $element.find("> ul").length == 1 && $element.find("> ul > li").length == 1;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const $titleElem = $element.find("> ul > li > h3:first-child");
+        const title = extractHeadingText($titleElem, $);
+        const body = $titleElem.nextAll().map((i, c) => extractContentHtml($(c), $)).get().join(" ");
+        assert(Boolean(body), "JumbotronHandlerVariant_NewsWeek-CannotExtractBody", $element);
+        return {elements: [{type: "panel", title, body}], issues: ["NewsWeek converted into Jumbotron"]};
+    }    
+}
