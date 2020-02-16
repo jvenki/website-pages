@@ -101,8 +101,8 @@ export class CTAHandlerVariant_InsuranceWeekPick extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         return $e.hasClass("insurance-weekpick")
             && (
-                $e.children().length == 1 && $e.children().eq(0).hasClass("col-md-12") 
-                && isElementMadeUpOfOnlyWithGivenDescendents($e, ["div", "a"], $)
+                ($e.children().length == 1 && $e.children().eq(0).hasClass("col-md-12")  && isElementMadeUpOfOnlyWithGivenDescendents($e, ["div", "a"], $))
+                || ($e.children().length == 1 && isElementMadeUpOfOnlyWithGivenDescendents($e, ["a"], $))
             );
     }
 
