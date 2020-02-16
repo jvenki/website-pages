@@ -6,7 +6,7 @@ import {assert} from "./Utils";
 import BaseHandler from "./BaseHandler";
 import SectionHandler from "./SectionHandler";
 import {TextHandlerVariant_Main, TextHandlerVariant_PointerView} from "./TextHandler";
-import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails_SingleP, JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs, JumbotronHandlerVariant_NewsWeek} from "./JumbotronHandler";
+import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails_SingleP, JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs, JumbotronHandlerVariant_InsuranceWeek, JumbotronHandlerVariant_LpRelatedInfo} from "./JumbotronHandler";
 import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
 import UnwrapHandler from "./UnwrapHandler";
@@ -78,7 +78,8 @@ const handlers = [
     new JumbotronHandlerVariant_Main(),
     new JumbotronHandlerVariant_PrimaryKeyDetails_SingleP(),
     new JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs(),
-    new JumbotronHandlerVariant_NewsWeek(),
+    new JumbotronHandlerVariant_InsuranceWeek(),
+    new JumbotronHandlerVariant_LpRelatedInfo(),
     new NewsFeedHandlerVariant_Main(),
     new NewsFeedFullPostHandlerVariant_Main(),
     new BlockQuoteHandler(),

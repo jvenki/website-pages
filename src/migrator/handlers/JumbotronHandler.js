@@ -67,7 +67,7 @@ export class JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs extends Base
     }
 }
 
-export class JumbotronHandlerVariant_NewsWeek extends BaseHandler {
+export class JumbotronHandlerVariant_InsuranceWeek extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("insurance-weekpick") && $element.find("> ul").length == 1 && $element.find("> ul > li").length == 1;
     }
@@ -77,7 +77,21 @@ export class JumbotronHandlerVariant_NewsWeek extends BaseHandler {
         const $titleElem = $element.find("> ul > li > h3:first-child");
         const title = extractHeadingText($titleElem, $);
         const body = $titleElem.nextAll().map((i, c) => extractContentHtml($(c), $)).get().join(" ");
-        assert(Boolean(body), "JumbotronHandlerVariant_NewsWeek-CannotExtractBody", $element);
+        assert(Boolean(body), "JumbotronHandlerVariant_InsuranceWeek-CannotExtractBody", $element);
         return {elements: [{type: "panel", title, body}], issues: ["NewsWeek converted into Jumbotron"]};
+    }    
+}
+
+export class JumbotronHandlerVariant_LpRelatedInfo extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.hasClass("news-widget") && $e.find("div.lp-related-info").length == 1 && $e.find("h3.lp-related-head").length == 1;
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const title = extractHeadingText($element.find("h3.lp-related-head"), $);
+        const body = $element.find("h3.lp-related-head").nextAll().map((i, c) => extractContentHtml($(c), $)).get().join(" ");
+        assert(Boolean(body), "JumbotronHandlerVariant_LpRelatedInfo-CannotExtractBody", $element);
+        return {elements: [{type: "panel", title, body}], issues: ["LpRelatedInfo converted into Jumbotron"]};
     }    
 }
