@@ -352,6 +352,10 @@ export const hasClass = (node, regex) => ((node.attribs || {}).class || "").matc
 
 export const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames, $) => {
     const recurse = ($n, depth) => {
+        if ($n.contents().length == 0) {
+            return false;
+        }
+
         return $n.contents().get().every((d) => {
             if (d.tagName != descendentTagNames[depth]) {
                 return false;

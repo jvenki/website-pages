@@ -14,6 +14,7 @@ export const ConversionIssueCode = {
     GRID_MULTIPLE_ITEMS_IN_CELL: {code: "GRID_MULTIPLE_ITEMS_IN_CELL", message: "Grid has more than one item in a single cell"},
     MULTIPLE_DISCLAIMER: {code: "MULTIPLE_DISCLAIMER", message: "We already have added one Disclaimer"},
     MULTIPLE_FAQ: {code: "MULTIPLE_FAQ", message: "We already have added one FAQ"},
+    MULTIPLE_SITEMAP: {code: "MULTIPLE_SITEMAP", message: "We already have added one Sitmap"},
     HEADING_HAS_CHILDREN: {code: "HEADING_HAS_CHILDREN", message: "Heading Node should not have any children"},
     NON_CONTENT_NODE: {code: "NON_CONTENT_NODE", message: "The element has HTML tags used which dont represent Textual/Tabular Nodes"},
     OTHERS: {code: "OTHERS", message: ""}

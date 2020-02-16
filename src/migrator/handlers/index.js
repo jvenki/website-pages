@@ -11,7 +11,7 @@ import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
 import UnwrapHandler from "./UnwrapHandler";
 import NoopWarningHandler from "./NoopWarningHandler";
-import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData} from "./CTAHandler";
+import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData, CTAHandlerVariant_InsuranceWeekPick} from "./CTAHandler";
 import { AccordionHandler } from "./AccordionHandler";
 import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
 import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisText} from "./FAQHandler";
@@ -22,11 +22,13 @@ import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, Re
 import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandler } from "./LandingBannerHandler";
+import { SitemapHandler_Link } from "./SitemapHandler";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
     new DisclaimerHandlerVariant_GridOfAccordions(),
     new DisclaimerHandlerVariant_Link(),
+    new SitemapHandler_Link(),
     new DeprecatedTOCHandlerVariant_ProductsInvest(),
     new DeprecatedTOCHandlerVariant_ULofAsOnly(),
     new DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly(),
@@ -65,6 +67,7 @@ const handlers = [
     new CTAHandlerVariant_LonelyLink(),
     new CTAHandlerVariant_CtaSection(),
     new CTAHandlerVariant_TabularData(),
+    new CTAHandlerVariant_InsuranceWeekPick(),
     new TextHandlerVariant_Main(),
     new TextHandlerVariant_PointerView(),
     new LandingBannerHandler(),

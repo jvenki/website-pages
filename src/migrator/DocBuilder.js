@@ -15,6 +15,7 @@ export default class DocBuilder {
             case "disclaimer": this.addDisclaimer(item); break;
             case "references": this.addReferences(item); break;
             case "faq": this.addFAQ(item); break;
+            case "sitemap": this.addSitemap(item); break;
             default: this.addElement(item);
         }
     }
@@ -59,6 +60,13 @@ export default class DocBuilder {
             throw new MigrationError(ConversionIssueCode.MULTIPLE_FAQ);
         }
         this.doc.faq = omit(element, "type");
+    }
+
+    addSitemap(sitemap: Object) {
+        if (this.doc.sitemap) {
+            throw new MigrationError(ConversionIssueCode.MULTIPLE_SITEMAP);
+        }
+        this.doc.sitemap = omit(sitemap, ["type"]);
     }
 
     lastSection() {

@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractLink, extractLinkText, assert, extractHeadingText, extractContentHtml} from "./Utils";
+import {extractLink, extractLinkText, assert, extractHeadingText, extractContentHtml, isElementMadeUpOfOnlyWithGivenDescendents} from "./Utils";
 
 export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -94,5 +94,26 @@ export class CTAHandlerVariant_TabularData extends BaseHandler {
         const title = extractHeadingText($element.find("h3"), $);
         const prefix = extractContentHtml($element.find("> div.col-md-7"), $);
         return {elements: [{type: "cta", link, linkText, prefix, title}]};
+    }
+}
+
+export class CTAHandlerVariant_InsuranceWeekPick extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.hasClass("insurance-weekpick")
+            && (
+                $e.children().length == 1 && $e.children().eq(0).hasClass("col-md-12") 
+                && isElementMadeUpOfOnlyWithGivenDescendents($e, ["div", "a"], $)
+            );
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = extractLink($element.find("a"));
+        if (!link) {
+            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
+        }
+
+        const linkText = extractLinkText($element.find("a"), $);
+        return {elements: [{type: "cta", link, linkText}]};
     }
 }

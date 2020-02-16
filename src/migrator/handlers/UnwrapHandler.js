@@ -72,8 +72,8 @@ export const processElementsInsideDiv = ($element: CheerioElemType, $: CheerioDo
     const currElements = [];
     let currHandler;
     
-    while (i < $element.children().length) {
-        const $currElem = $element.children().eq(i);
+    while (i < $element.contents().length) {
+        const $currElem = $element.contents().eq(i);
         const childElemHandler = findHandlerForElement($currElem, $);
         if (!currHandler || (currHandler.getName() == childElemHandler.getName())) {
             logger.debug(`                ${handlerName}: Processing Child Node '${computePathNameToElem($currElem, $)}' : Identified Handler as '${childElemHandler.getName()}' - Adding it to collection`);
