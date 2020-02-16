@@ -19,15 +19,17 @@ import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
 import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy } from "./ReferencesHandler";
-import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link} from "./DisclaimerHandler";
+import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link, DisclaimerHandlerVariant_Accordion} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandler } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main } from "./NewsFeedHandler";
+import { NewsFeedFullPostHandlerVariant_Main } from "./NewsFeedFullPostHandler";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
     new DisclaimerHandlerVariant_GridOfAccordions(),
+    new DisclaimerHandlerVariant_Accordion(),
     new DisclaimerHandlerVariant_Link(),
     new SitemapHandler_Link(),
     new DeprecatedTOCHandlerVariant_ProductsInvest(),
@@ -78,6 +80,7 @@ const handlers = [
     new JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs(),
     new JumbotronHandlerVariant_NewsWeek(),
     new NewsFeedHandlerVariant_Main(),
+    new NewsFeedFullPostHandlerVariant_Main(),
     new BlockQuoteHandler(),
     new ResponsiveTableHandler(),
     new VideoHandler(),

@@ -4,7 +4,7 @@ import BaseHandler from "./BaseHandler";
 import {headingRegex as faqHeadingRegex, FAQInsideAccordionPanelHandler} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex, ReferencesHandlerVariant_Accordion} from "./ReferencesHandler";
 
-import {extractHeadingText, extractContentHtml, assert} from "./Utils";
+import {extractHeadingText, extractContentHtml, assert, isElementMadeUpOfOnlyWithGivenDescendents} from "./Utils";
 
 export class AccordionHandler extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -37,14 +37,16 @@ export class AccordionHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const items = [];
-        let faq, reference;
+        let faq;
+        const references = [];
         elements.forEach(($element) => {
             $element.find(".panel").each((i, panel) => {
                 const $panel = $(panel);
                 if (isPanelActuallyAFAQ($panel, $)) {
                     faq = new FAQInsideAccordionPanelHandler().convert([$(panel)], $).elements[0];
                 } else if (isPanelActuallyAReference($panel, $)) {
-                    reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
+                    const reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
+                    references.push(reference);
                 } else {
                     const title = extractHeadingText($(panel).find(".panel-heading a"), $);
                     const $bodyElem = $(panel).find(".panel-body");
@@ -61,9 +63,9 @@ export class AccordionHandler extends BaseHandler {
             targetElements.push(faq);
             issues.push("Accordion Panel converted to FAQ");
         }
-        if (reference) {
-            targetElements.push(reference);
-            issues.push("Accordion Panel converted to RelatedArticles");
+        if (references.length > 0) {
+            targetElements.push(...references);
+            issues.push("Accordion Panels converted to RelatedArticles");
         }
         if (items.length > 0) {
             targetElements.push({type: "accordion", items});
@@ -77,4 +79,19 @@ const isPanelActuallyAFAQ = ($panel, $) => {
     return title.match(faqHeadingRegex);
 };
 
-const isPanelActuallyAReference = ($panel, $) => new ReferencesHandlerVariant_Accordion().isCapableOfProcessingElement($panel, $);
+const isPanelActuallyAReference = ($panel, $) => {
+    const $panelBody = $panel.find(".panel-body");
+    if (new ReferencesHandlerVariant_Accordion().isCapableOfProcessingElement($panel, $)) {
+        return true;
+    } else if ($panelBody.children().length == 1 && $panelBody.find(">table td > a").length > 0) {
+        const cells = $panelBody.find(">table td").get();
+        const check = cells.filter((cell) => Boolean($(cell).html())).every((cell) => {
+            const $cell = $(cell);
+            if ($cell.children().length == 1 && $cell.find(">a").length == 1 && $cell.text() == ("• " + $cell.find(">a").text())) {
+                return true;
+            }
+        });
+        return check;
+    }
+    return false;
+};

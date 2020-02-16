@@ -35,6 +35,20 @@ export class DisclaimerHandlerVariant_GridOfAccordions extends BaseHandler {
     }
 }
 
+export class DisclaimerHandlerVariant_Accordion extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        return $e.hasClass("twi-accordion") && $e.hasClass("disclaimer-ft");
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const targetElements = elements[0].find(".panel-body").map((i, body) => {
+            const text = extractContentHtml($(body), $);
+            return {type: "disclaimer", text};
+        }).get();
+        return {elements: targetElements};
+    }
+}
+
 export class DisclaimerHandlerVariant_Link extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         const doesLinkPointToDisclaimer = (link) => link && link.indexOf("disclaimer") >= 0;
