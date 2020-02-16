@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import toHTMLText from "html-react-parser";
+import cheerio from "cheerio";
 import pretty from "pretty";
 import {isPlainObject, startCase} from "lodash";
 import { Grid, Segment, Header, Tab, Label, Button, Message, Modal, Form, Feed, Icon, List } from "semantic-ui-react";
@@ -197,7 +198,14 @@ const createSummaryTabPane = (data) => {
 };
 
 const createRenderingDiffTabPane = (data) => {
-    const oldHtml = (data.old.primaryContent || "").replace(/style="height: 0px;"/g, "").replace(/class="panel-collapse collapse"/g, "class=\"panel-collapse collapse in\"");
+    let oldHtml = (data.old.primaryContent || "").replace(/style="height: 0px;"/g, "").replace(/class="panel-collapse collapse"/g, "class=\"panel-collapse collapse in\"");
+    const $ = cheerio.load(oldHtml, {decodeEntities: false});
+    $("img").each((i, e) => {
+        if ($(e).attr("data-original")) {
+            $(e).attr("src", $(e).attr("data-original"));
+        }
+    });
+    oldHtml = $.html();
     return (
         <Tab.Pane>
             <Grid columns={2} padded style={{height: 600, overflowY: "scroll"}}>

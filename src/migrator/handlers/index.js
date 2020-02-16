@@ -23,6 +23,7 @@ import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordion
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandler } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
+import { NewsFeedHandlerVariant_Main } from "./NewsFeedHandler";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
@@ -76,6 +77,7 @@ const handlers = [
     new JumbotronHandlerVariant_PrimaryKeyDetails_SingleP(),
     new JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs(),
     new JumbotronHandlerVariant_NewsWeek(),
+    new NewsFeedHandlerVariant_Main(),
     new BlockQuoteHandler(),
     new ResponsiveTableHandler(),
     new VideoHandler(),

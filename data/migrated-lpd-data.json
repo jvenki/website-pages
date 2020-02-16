@@ -35104,6 +35104,171 @@
             ]
         }
     },
+    "10699": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Back in the day, SBI used to send PIN mailers, which hide the PIN number with scratch-off panels, to send debit card or <a href=\"/credit-card.html\">credit card</a> PIN to the customers.</p><p>Green PINs have successfully replaced the traditional PIN generation methods enabling customers an easy and convenient way to generate their debit card or credit card PIN on their own.</p><p>Please note that Green PIN, which is typically sent to your through an SMS, is not the actual PIN. Once it is received, you need to use the same to generate the actual PIN.</p><p>SBI offers various methods to <a href=\"/credit-card/green-pin.html\">generate the Green PIN</a> which should be in turn used to generate the actual PIN.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Ways to Generate SBI Card ATM PIN",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": "By visiting SBI ATM",
+                                "link": "#By_visiting_SBI_ATM"
+                            },
+                            {
+                                "linkText": "By sending an SMS",
+                                "link": "#By_sending_an_SMS"
+                            },
+                            {
+                                "linkText": "By calling SBI customer care",
+                                "link": "#By_calling_SBI_customer_care"
+                            },
+                            {
+                                "linkText": "Using SBI net banking",
+                                "link": "#Using_SBI_net_banking"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<p>Let's now see how to generate SBI Green PIN using the aforementioned channels, following which debit card PIN generation would be the common procedure.</p><img title=\"Check How to Activate sbi Debit Card\" alt=\"sbi atm pin generation\" src=\"/images/india/infographic/sbi-atm-pin-generation-online.jpg\"/>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to generate SBI Card PIN at SBI ATM",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Once you have received your SBI ATM cum debit card, visit any one of the nearest SBI ATMs. Follow the below steps mentioned below to generate SBI Green PIN by ATM</p><ul><li>Insert debit card in the ATM</li><li>Select '<strong>PIN Generation</strong>' option</li><li>You will be prompted to enter your <strong>11-digit account number</strong>. Enter the same using the keypad and click '<strong>Confirm</strong>'.</li><li>You will be asked for your <strong>registered mobile number</strong>, enter the same and press '<strong>Confirm</strong>'.</li><li>The next screen would display 'Your green PIN will be shortly delivered to your registered mobile number' if the details entered by you are accurate.</li><li>Press 'Confirm' to see another message which says 'Your Green PIN generation has been successful and you will receive the same on your mobile number'.</li></ul><p><strong><em>You will then receive a message on your phone with one time PIN (OTP), which is nothing but the Green PIN.</em></strong></p><p>Remove and re-insert your SBI card and follow the steps to generate the actual debit card PIN using the Green PIN.</p><ul><li>Insert the SBI card in the ATM</li><li>Select 'Banking'</li><li>Choose language either English, Hindi or regional language based on the available options</li><li>On the next screen, enter the OTP received on your registered mobile</li><li>Select<strong><em> 'PIN Change' </em></strong>option from the<strong><em> 'Select Transaction'</em></strong> menu</li><li>Enter a new four digit PIN of your choice and re-confirm the same</li><li>If the process is successful you will see a message, 'Your PIN has been changed successfully'</li></ul><p>The new PIN then becomes the actual PIN for your SBI ATM card and can be used for all card transactions including cash withdrawal, purchases at retail terminals and for online transactions.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Generate SBI Card PIN through SMS",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The Green PIN can also be generated by sending a simple message from the registered mobile number.</p><ul><ul><li><strong>SMS PIN ABCD EFGH</strong> (ABCD represent last four digits of debit card number and EFGH represent last four digits of the bank account number linked to the debit card) to <strong><a href=\"sms:567676&body=PIN LAST 4 Digit Debit Card Number LAST 4 Digit Account Number\">567676</a></strong></li></ul></ul><table><tbody><tr><td>SMS ' <strong>PIN ABCD EFGH' </strong> to <strong><a href=\"sms:567676&body=PIN LAST 4 Digit Debit Card Number LAST 4 Digit Account Number\">567676</a></strong></td></tr></tbody></table><ul><li>Once the SMS is sent, you will receive an OTP to the same number. The OTP will be valid for 2 days and should be used to generate debit card PIN by visiting any of the SBI ATMs by following the above mentioned steps.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Generate SBI Card PIN by Calling SBI Customer Care",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Alternatively, you can call <a href=\"/sbi-credit-card-customer-care-number.html\">SBI customer care</a> helplines to receive card PIN on your registered mobile numbers.</p><ul><li>Call SBI toll free customer care at <a href=\"tel:1800 11 22 11\">1800 11 22 11</a>/ <a href=\"tel:1800 425 3800\">1800 425 3800</a> or <a href=\"tel:080-26599990\">080-26599990</a></li><li><strong><em>Follow the instructions and select 'ATM and Prepaid Card Services' option</em></strong></li><li><strong><em>Select '1' to generate Green PIN</em></strong></li><li>You will be asked to enter your debit card number, enter the same and confirm</li><li>You will be asked to enter the account number linked to the debit card, enter the same and confirm</li><li>Once you confirm all the details, you will receive an SMS with one time PIN (OTP), which will be valid for 2 days, during which you can visit any of the SBI ATMs to generate your debit card PIN.</li></ul>$LPD_EMBEDDED_ITEM_CC_3"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Generate SBI Debit Card PIN using Internet Banking",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>While the above three channels require you to visit SBI ATM to generate SBI card PIN, the internet banking option allows you to do the same from your SBI internet banking account.</p><p>Existing SBI internet banking users can follow the below process to generate your debit card or ATM card's PIN online</p><ul><li><a href=\"https://retail.onlinesbi.com/retail/login.htm\">Login to SBI Online using your account</a> credentials</li><li>From the main menu, select<strong> 'e-Services> ATM Card Services'</strong></li><li>On the ATM Card Services page, <strong>select 'ATM PIN Generation'</strong></li><li>Select <strong>'Using One Time Password'</strong> or <strong>'Using Profile Password</strong></li><li>Select <strong>'Using Profile Password'</strong> option, select the associated bank account and click <strong>'Submit'</strong></li><li>Select the <strong>SBI debit card</strong> and click <strong>'Confirm'</strong></li><li>You will be taken to <strong>'ATM PIN Generation'</strong> page, where you need to enter any two digits to create a new PIN. Enter the digits and click <strong>'Submit'</strong></li><li>You will then receive an SMS on you registered mobile number with 2 digits.</li><li>On the next screen, enter the <strong>2 digits you have chosen</strong> earlier and <strong>2 digits you received through SMS</strong> and click <strong>'Submit'</strong></li><li>You will now see a message, which says that your ATM PIN has been changed successfully</li></ul><p>Once you have your new PIN, you need to go to <strong>'e-Services > ATM Card Services > New ATM Card Activation'</strong> to activate the card. The card can also be activated by conducting first transaction at any SBI ATM.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI's Green PIN Initiative",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>While issuing debit cards or credit cards, most of the banks, including both public sector and private sector, provide a PIN that enables card usage at ATMs and point-of-sale (POS) terminals. Ever since banks started issuing debit card or <a href=\"/credit-card/cc-pin.html\">credit card PINs</a>, PIN mailers have been the most popular delivery method. The mailers hide the PIN number with scratch-off panels which also help reveal any kind of tampering attempts.</p><p>PIN mailers are typically sent to the cardholders' address through postal service or courier. Of late, some banks started handing the PINs directly to the customers by including them in the welcome kit. However, if the card holder wants to change the PIN for any reason, he/she needs to visit the bank branch to submit ATM PIN regeneration request.</p><p>Even though <strong><em>sending an ATM or debit card PIN through PIN mailers</em></strong> is the most common banking practice, it has its own risks and costs involved. Bank employees need to maintain physical custody of ATM PINs, postal delivery may get delayed, if the PIN mailer gets damaged or tampered during transit, banks need to send a new PIN, increased postal and stationery charges to the banks and inconvenience for customers to visit bank branches for PIN regeneration.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Green PIN - A Paperless Debit Card PIN Generation",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>To avoid all these situations, banks have come up with a new banking feature called '<a href=\"/credit-card/green-pin.html\">Green PIN</a>'. As the name suggest, it's a green way to generate a debit card PIN. Using the Green PIN feature, cardholders can generate debit card PIN themselves.</p>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/credit-card.html?variant=slide",
+                        "linkText": "Get SBI Cards Online"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "SBI Green PIN",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Following the tradition, State Bank of India (SBI) launched 'SBI Green PIN' to enable its customers an easy and convenient way to generate their debit card PINs.</p><p>Introducing SBI Green PIN is part of SBI's green initiative and a new step towards paperless banking. It benefits both its employees and customers. While the bank employees who take care of the ATM PIN deliveries can be deployed to other bank operations, SBI customers can enjoy the convenience of generating/regenerating ATM PINs at their own comfort.</p><p>The feature also reduces carbon footprint and provides substantial cost savings for the bank.</p>"
+                    },
+                    {
+                        "type": "news-feed",
+                        "title": "Finance 101",
+                        "items": [
+                            {
+                                "title": "The Impact Of Your Credit Card On Your Credit Score",
+                                "link": "https://bnkbzr.page.link/Eqdk",
+                                "img": {
+                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_IMPACT_OF_YOUR_CREDIT-CARD_ON_YOUR_CREDIT_SCORE.png"
+                                }
+                            },
+                            {
+                                "title": "All you need to know about Credit Cards",
+                                "link": "https://bnkbzr.page.link/iMjv",
+                                "img": {
+                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_ALL_YOU_NEED_TO_KNOW_ABOUT_CREDIT_CARDS.png"
+                                }
+                            },
+                            {
+                                "title": "Benefits Of Shopping With A Credit Card",
+                                "link": "https://bnkbzr.page.link/B89R",
+                                "img": {
+                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_BENEFITS_OF_SHOPPING_WITH_A_CREDIT_CARD.png"
+                                }
+                            },
+                            {
+                                "title": "5 easy ways to pay your Credit Card bill",
+                                "link": "https://bnkbzr.page.link/jbbe",
+                                "img": {
+                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_EASY_WAYS_TO_PAY_CREDIT_CARD_BILL.png"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     "11478": {
         "title": "",
         "body": "",
