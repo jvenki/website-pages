@@ -84,7 +84,7 @@ export class JumbotronHandlerVariant_InsuranceWeek extends BaseHandler {
 
 export class JumbotronHandlerVariant_LpRelatedInfo extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
-        return $e.hasClass("news-widget") && $e.find("div.lp-related-info").length == 1 && $e.find("h3.lp-related-head").length == 1;
+        return ($e.hasClass("news-widget") && $e.find("div.lp-related-info").length == 1 || $e.hasClass("lp-related-info")) && $e.find("h3.lp-related-head").length == 1;
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
