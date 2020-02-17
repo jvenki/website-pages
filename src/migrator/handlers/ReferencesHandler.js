@@ -264,19 +264,7 @@ export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
 
 export class ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        const nextNodeIsCntrOfLinks = ($n) => {
-            if ($n.length == 0) {
-                return false;
-            }
-            if (["ul", "ol"].includes($n.get(0).tagName) && isElementMadeUpOfOnlyWithGivenDescendents($n, ["li", "a"], $)) {
-                return true;
-            }
-            if ($n.get(0).tagName == "div" && $n.hasClass("hungry-table") && isElementMadeUpOfOnlyWithGivenDescendents($n, ["table", "tbody", "tr", "td", "a"], $)) {
-                return true;
-            }
-            return false;
-        };
-        return isElementAHeadingNode($e) && nextNodeIsCntrOfLinks($e.next()) && areAllAnchorsOnlyNonLocalLinks($e.next());
+        return isElementAHeadingNode($e) && isElementACntrOfExternalLinks($e.next(), $);
     }
 
     walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
@@ -293,15 +281,7 @@ export class ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks extends BaseHan
 
 export class ReferencesHandlerVariant_TableOfLinks extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        const nodeIsCntrOfLinks = ($e) => {
-            if ($e.find("td").get().filter((td) => Boolean($(td).text().trim())).every((td) => isElementMadeUpOfOnlyWithGivenDescendents($(td), ["a"], $))) {
-                return true;
-            }
-            return false;
-        };
-        return $e.get(0).tagName == "div" && $e.hasClass("hungry-table") 
-            // && $e.find("th").text().match(headingRegex) 
-            && nodeIsCntrOfLinks($e);
+        return isElementACntrOfExternalLinks($e, $, ["table"]);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -315,4 +295,28 @@ export class ReferencesHandlerVariant_TableOfLinks extends BaseHandler {
 const areAllAnchorsOnlyNonLocalLinks = ($e) => {
     const links = $e.find("a").get();
     return links.every((link) => !link.attribs.href.startsWith("#"));
+};
+
+export const isElementACntrOfExternalLinks = ($e: CheerioElemType, $: CheerioDocType, restrictTo: Array<string>) => {
+    const elemIsTableOfLinks = ($e) => {
+        if ($e.find("td").get().filter((td) => Boolean($(td).text().trim())).every((td) => isElementMadeUpOfOnlyWithGivenDescendents($(td), ["a"], $))) {
+            return areAllAnchorsOnlyNonLocalLinks($e);
+        }
+        return false;
+    };
+    const elemIsListOfLinks = ($e) => {
+        if (isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"], $)) {
+            return areAllAnchorsOnlyNonLocalLinks($e);
+        }
+        return false;
+    };
+
+    if ($e.length == 0) {
+        return false;
+    } else if ((!restrictTo || restrictTo.includes("table")) && isElementATableNode($e)) {
+        return elemIsTableOfLinks($e);
+    } else if ((!restrictTo || restrictTo.includes("list")) && ["ul", "ol"].includes($e.get(0).tagName)) {
+        return elemIsListOfLinks($e);
+    }
+    return false;
 };

@@ -1,6 +1,6 @@
 import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
-import {headingRegex as referencesHeadingRegex} from "./ReferencesHandler";
+import {headingRegex as referencesHeadingRegex, isElementACntrOfExternalLinks} from "./ReferencesHandler";
 import {without} from "lodash";
 
 export const assert = (condition, errorMsg, $e) => {
@@ -78,8 +78,10 @@ export const isElementAContentNode = ($e) => {
         }
         return true;
     } else if (isElementASubHeadingNode($e)) {
-        if ($e.text().match(faqHeadingRegex) || $e.text().match(referencesHeadingRegex)) {
-            return false;
+        if ($e.text().match(faqHeadingRegex)) {
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
+        } else if ($e.text().match(referencesHeadingRegex) && isElementACntrOfExternalLinks($e.next())) {
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
         }
         return true;
     }
@@ -191,14 +193,6 @@ export const extractContentHtml = ($e, $) => {
 };
 
 export const extractImgSrc = ($img) => $img.attr("data-original") || $img.attr("src");
-
-const isAncestorPulledRight = ($e, $) => {
-    return $e.parentsUntil("body").get().some((anc) => $(anc).hasClass("pull-right"));
-};
-
-const isAncestorCentered = ($e, $) => {
-    return $e.parentsUntil("body").get().some((anc) => $(anc).hasClass("text-center"));
-};
 
 const extractImgTag = ($e, $) => {
     let output = "<img";
