@@ -14,7 +14,6 @@ import {diff} from "deep-object-diff";
 import util from "util";
 
 import manuallyValidatedSnapshot from "../../data/migrator-validating-test-data.json";
-import previousGeneratedSnapshot from "../../data/migrated-lpd-data.json";
 
 import chalk from "chalk";
 import { correctLPDHtml } from "./ManualCorrections";
@@ -54,7 +53,6 @@ export default class Migrator {
         printFinalSummary(this.docConversionStatus, startTime);
 
         if (this.updateSnapshot) {
-            fs.writeFileSync("./data/migrated-lpd-data.json", JSON.stringify(previousGeneratedSnapshot, null, 4));
             fs.writeFileSync("./data/migrator-validating-test-data.json", JSON.stringify(manuallyValidatedSnapshot, null, 4));
         }
     }
@@ -140,7 +138,6 @@ const validateAgainstPreviousSnapshot = (lpdJson, self) => {
     
     const newVersion = JSON.parse(JSON.stringify(lpdJson.new.primaryDoc));
     compareVersions(newVersion, manuallyValidatedSnapshot, self.updateSnapshot);
-    compareVersions(newVersion, previousGeneratedSnapshot, true);
 };
 
 const computeStatusOfConversion = (lpdJson) => {
