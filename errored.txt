@@ -45,7 +45,6 @@ UNKNOWN_TAG - TBODY has TH cells which is not right = 115 [432,602,609,693,708,1
 UNKNOWN_TAG - Item has more than 2 children = 16 [434,9972,10025,12230,12233,12398,12485,12488,12657,12658,12660,12661,12662,12663,12749,12750]
 
 UNKNOWN_TAG - IdentifyHandler for div.col-md-12.useful-links = 20 [574,580,591,599,604,616,623,628,633,638,649,698,716,1341,1371,9866,9867,9869,9905,10067]
-UNKNOWN_TAG - IdentifyHandler for dl = 18 [2447,2448,2455,2820,3002,3009,3455,3456,3647,3655,3665,3666,3957,4013,4015,4593,4603,6185]
 UNKNOWN_TAG - IdentifyHandler for div.product_interlink = 4 [2541,2548,3192,3193]
 UNKNOWN_TAG - IdentifyHandler for div.modal.fade.bs-example-modal-lg = 12 [1425,1492,1888,4151,5489,5935,6057,6250,7451,9349,9350,25525]
 UNKNOWN_TAG - IdentifyHandler for div.col-xs-12.col-sm-6.col-md-5.news-widget.insurance-life.pull-right = 12 [3521,5731,5732,5733,5734,5735,5736,5737,5854,5855,6437,10318]

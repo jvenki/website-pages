@@ -16,13 +16,14 @@ export default class Cleanser {
         const cleansers = [
             removeStyleAndScriptNodes, 
             removeEmptyNodesAndEmptyLines, 
-            removeDivsWithHFMClassNamesUnderBody,
+            unwrapElements,
             removeRowLevelGridsUnderRows,
             removeUnwantedGridsUnderBody, 
-            removeDivsWithHFMClassNamesUnderBody,
+            unwrapElements,
             // removeTableOfContents,
             removeDisqusElements,
-            removeOfferTableElements
+            removeOfferTableElements,
+            moveContentsOfDDToLI
         ];
         const $ = cheerio.load(cleansedHtml, {decodeEntities: false});
         cleansers.forEach((cleanser) => cleanser($, onIssue));
@@ -114,10 +115,11 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
     });
 };
 
-const removeDivsWithHFMClassNamesUnderBody = ($, onIssue) => {
+const unwrapElements = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
-        const hasUnncessaryRootDiv = ["primary-txt", "article-txt", "product-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
-        if (hasUnncessaryRootDiv) {
+        const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
+        const hasUnncessaryTag = false;
+        if (hasUnncessaryDivWithClass || hasUnncessaryTag) {
             onIssue(new MigrationError(CleanserIssueCode.REMOVED_HFM_NODE, computeNodeName($e), "Count = 1"));
             $e = unwrapElement($e, $);
             unwrapIfNeccessary($e);
@@ -125,6 +127,15 @@ const removeDivsWithHFMClassNamesUnderBody = ($, onIssue) => {
     };
     $("*").children().each((i, c) => unwrapIfNeccessary($(c)));
     $("*").removeClass("ir-section");   //Used in LPD#9
+};
+
+const moveContentsOfDDToLI = ($, onIssue) => {
+    $("body").find("dl").each((i, dl) => {
+        if ($(dl).children().length == 1 && $(dl).children().eq(0).children().length == 1 && $(dl).prev().get(0).tagName == "ul") {
+            $($(dl).children().eq(0).html()).appendTo($(dl).prev().find("li:last-child"));
+        }
+        $(dl).remove();
+    });
 };
 
 const removeUnwantedGridsUnderBody = ($, onIssue, depth=0) => {
