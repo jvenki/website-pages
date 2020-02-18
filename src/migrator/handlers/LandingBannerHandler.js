@@ -3,7 +3,7 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import {extractImgSrc, extractLink, extractLinkText, assert} from "./Utils";
 
-export class LandingBannerHandler extends BaseHandler {
+export class LandingBannerHandlerVariant_Main extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         return $e.hasClass("bb-landing-banner");
     }
@@ -27,6 +27,25 @@ export class LandingBannerHandler extends BaseHandler {
         }).get();
 
         return {elements: [{type: "landing-banner", link, linkText, img: {src: imgSrc, title: imgTitle}, items}]};
+    }
+    
+}
+
+export class LandingBannerHandlerVariant_Simplified extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.hasClass("simplified-banner");
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+
+        const imgSrc = "images/common/sm-li-simplified-banner.png";
+        const items = $element.find(" > div.benefits > div").map((i, item) => {
+            const $item = $(item);
+            return {text: $item.find(".desc").text(), icon: $item.find("span:first-child").attr("class").replace(/simplified-banner-icons/, "").trim()};
+        }).get();
+
+        return {elements: [{type: "landing-banner", img: {src: imgSrc}, items}]};
     }
     
 }

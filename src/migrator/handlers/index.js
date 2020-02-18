@@ -21,7 +21,7 @@ import BlockQuoteHandler from "./BlockQuoteHandler";
 import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link, DisclaimerHandlerVariant_Accordion} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
-import { LandingBannerHandler } from "./LandingBannerHandler";
+import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplified } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main } from "./NewsFeedHandler";
 import { NewsFeedFullPostHandlerVariant_Main } from "./NewsFeedFullPostHandler";
@@ -74,7 +74,8 @@ const handlers = [
     new CTAHandlerVariant_InsuranceWeekPick(),
     new TextHandlerVariant_Main(),
     new TextHandlerVariant_PointerView(),
-    new LandingBannerHandler(),
+    new LandingBannerHandlerVariant_Main(),
+    new LandingBannerHandlerVariant_Simplified(),
     new AccordionHandler(),
     new JumbotronHandlerVariant_Main(),
     new JumbotronHandlerVariant_PrimaryKeyDetails_SingleP(),

@@ -72,7 +72,7 @@ const minifyHtml = (html) => {
 
 const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
     const whiteListedTagsThatCanBeEmpty = ["iframe", "img", "br", "td", "th"];
-    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons"];
+    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons", "span.simplified-banner-icons"];
 
     const emptyNodes = [];
     $("*").each((i, e) => {

@@ -45,7 +45,6 @@ UNKNOWN_TAG - TBODY has TH cells which is not right = 115 [432,602,609,693,708,1
 UNKNOWN_TAG - Item has more than 2 children = 16 [434,9972,10025,12230,12233,12398,12485,12488,12657,12658,12660,12661,12662,12663,12749,12750]
 
 UNKNOWN_TAG - IdentifyHandler for div.col-md-12.useful-links = 20 [574,580,591,599,604,616,623,628,633,638,649,698,716,1341,1371,9866,9867,9869,9905,10067]
-UNKNOWN_TAG - IdentifyHandler for div.simplified-banner.sm-li-simplified-banner = 24 [466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,485,487,488,489,490,3332]
 UNKNOWN_TAG - IdentifyHandler for dl = 18 [2447,2448,2455,2820,3002,3009,3455,3456,3647,3655,3665,3666,3957,4013,4015,4593,4603,6185]
 UNKNOWN_TAG - IdentifyHandler for div.product_interlink = 4 [2541,2548,3192,3193]
 UNKNOWN_TAG - IdentifyHandler for div.modal.fade.bs-example-modal-lg = 12 [1425,1492,1888,4151,5489,5935,6057,6250,7451,9349,9350,25525]
@@ -66,6 +65,18 @@ UNKNOWN_TAG - IdentifyHandler for q = 16 [733,1357,2051,3715,4252,8722,8723,8724
 UNKNOWN_TAG - IdentifyHandler for div.Product_Interlink = 4 [735,1610,1612,1631]
 UNKNOWN_TAG - IdentifyHandler for div.plan-widget = 18 [805,807,808,810,811,812,813,814,815,816,817,818,820,821,822,823,827,3333]
 UNKNOWN_TAG - IdentifyHandler for picture = 25 [5569,5571,5573,5574,5576,5577,5578,5579,5581,5582,5583,5584,5585,5643,5646,5647,5648,5649,5650,5651,5652,5653,12755,27134,27139]
+
+
+
+UNKNOWN_TAG - IdentifyHandler for q = 3 [466,471,472]
+NON_CONTENT_NODE = 2 [467,3332]
+UNKNOWN_TAG - FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3-ConditionNotMet#2 = 4 [469,475,483,487]
+UNKNOWN_TAG - FAQHandler-CannotExtractQ&A = 2 [473,478]
+UNKNOWN_TAG - IdentifyHandler for div.lp-banner.col-xs-12.col-sm-12 = 1 [477]
+UNKNOWN_TAG - IdentifyHandler for div.lp-banner.col-xs-12.col-sm-12.bg-yellow = 1 [482]
+UNKNOWN_TAG - FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP-ConditionNotMet#1 = 1 [485]
+
+
 
 UNKNOWN_TAG - IdentifyHandler for details = 1 [25]
 UNKNOWN_TAG - IdentifyHandler for div.cc-txt-img = 1 [275]
