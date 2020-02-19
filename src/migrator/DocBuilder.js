@@ -16,6 +16,8 @@ export default class DocBuilder {
             case "references": this.addReferences(item); break;
             case "faq": this.addFAQ(item); break;
             case "sitemap": this.addSitemap(item); break;
+            case "news-feed": this.addNewsFeed(item); break;
+            case "news-feed-full-posts": this.addNewsFeedFullPosts(item); break;
             default: this.addElement(item);
         }
     }
@@ -67,6 +69,20 @@ export default class DocBuilder {
             throw new MigrationError(ConversionIssueCode.MULTIPLE_SITEMAP);
         }
         this.doc.sitemap = omit(sitemap, ["type"]);
+    }
+
+    addNewsFeed(newsFeed: Object) {
+        if (this.doc.newsFeed) {
+            throw new MigrationError(ConversionIssueCode.MULTIPLE_NEWS_FEED);
+        }
+        this.doc["news-feed"] = omit(newsFeed, ["type"]);
+    }
+
+    addNewsFeedFullPosts(newsFeedFullPosts: Object) {
+        if (this.doc.newsFeedFullPosts) {
+            throw new MigrationError(ConversionIssueCode.MULTIPLE_NEWS_FEED_FULL_POSTS);
+        }
+        this.doc["news-feed-full-posts"] = omit(newsFeedFullPosts, ["type"]);
     }
 
     lastSection() {

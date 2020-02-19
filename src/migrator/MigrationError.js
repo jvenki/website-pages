@@ -15,6 +15,8 @@ export const ConversionIssueCode = {
     MULTIPLE_DISCLAIMER: {code: "MULTIPLE_DISCLAIMER", message: "We already have added one Disclaimer"},
     MULTIPLE_FAQ: {code: "MULTIPLE_FAQ", message: "We already have added one FAQ"},
     MULTIPLE_SITEMAP: {code: "MULTIPLE_SITEMAP", message: "We already have added one Sitmap"},
+    MULTIPLE_NEWS_FEED: {code: "MULTIPLE_NEWS_FEED", message: "We already have added one News Feed"},
+    MULTIPLE_NEWS_FEED_FULL_POSTS: {code: "MULTIPLE_NEWS_FEED_FULL_POSTS", message: "We already have added one News Feed Full Posts"},
     HEADING_HAS_CHILDREN: {code: "HEADING_HAS_CHILDREN", message: "Heading Node should not have any children"},
     NON_CONTENT_NODE: {code: "NON_CONTENT_NODE", message: "The element has HTML tags used which dont represent Textual/Tabular Nodes"},
     OTHERS: {code: "OTHERS", message: ""}

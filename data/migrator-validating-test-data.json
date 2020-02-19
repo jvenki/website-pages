@@ -13127,44 +13127,43 @@
                     {
                         "type": "text",
                         "body": "<p>Following the tradition, State Bank of India (SBI) launched 'SBI Green PIN' to enable its customers an easy and convenient way to generate their debit card PINs.</p><p>Introducing SBI Green PIN is part of SBI's green initiative and a new step towards paperless banking. It benefits both its employees and customers. While the bank employees who take care of the ATM PIN deliveries can be deployed to other bank operations, SBI customers can enjoy the convenience of generating/regenerating ATM PINs at their own comfort.</p><p>The feature also reduces carbon footprint and provides substantial cost savings for the bank.</p>"
-                    },
-                    {
-                        "type": "news-feed",
-                        "title": "Finance 101",
-                        "items": [
-                            {
-                                "title": "The Impact Of Your Credit Card On Your Credit Score",
-                                "link": "https://bnkbzr.page.link/Eqdk",
-                                "img": {
-                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_IMPACT_OF_YOUR_CREDIT-CARD_ON_YOUR_CREDIT_SCORE.png"
-                                }
-                            },
-                            {
-                                "title": "All you need to know about Credit Cards",
-                                "link": "https://bnkbzr.page.link/iMjv",
-                                "img": {
-                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_ALL_YOU_NEED_TO_KNOW_ABOUT_CREDIT_CARDS.png"
-                                }
-                            },
-                            {
-                                "title": "Benefits Of Shopping With A Credit Card",
-                                "link": "https://bnkbzr.page.link/B89R",
-                                "img": {
-                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_BENEFITS_OF_SHOPPING_WITH_A_CREDIT_CARD.png"
-                                }
-                            },
-                            {
-                                "title": "5 easy ways to pay your Credit Card bill",
-                                "link": "https://bnkbzr.page.link/jbbe",
-                                "img": {
-                                    "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_EASY_WAYS_TO_PAY_CREDIT_CARD_BILL.png"
-                                }
-                            }
-                        ]
                     }
                 ]
             }
-        ]
+        ],
+        "news-feed": {
+            "title": "Finance 101",
+            "items": [
+                {
+                    "title": "The Impact Of Your Credit Card On Your Credit Score",
+                    "link": "https://bnkbzr.page.link/Eqdk",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_IMPACT_OF_YOUR_CREDIT-CARD_ON_YOUR_CREDIT_SCORE.png"
+                    }
+                },
+                {
+                    "title": "All you need to know about Credit Cards",
+                    "link": "https://bnkbzr.page.link/iMjv",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_ALL_YOU_NEED_TO_KNOW_ABOUT_CREDIT_CARDS.png"
+                    }
+                },
+                {
+                    "title": "Benefits Of Shopping With A Credit Card",
+                    "link": "https://bnkbzr.page.link/B89R",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_BENEFITS_OF_SHOPPING_WITH_A_CREDIT_CARD.png"
+                    }
+                },
+                {
+                    "title": "5 easy ways to pay your Credit Card bill",
+                    "link": "https://bnkbzr.page.link/jbbe",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_EASY_WAYS_TO_PAY_CREDIT_CARD_BILL.png"
+                    }
+                }
+            ]
+        }
     },
     "11342": {
         "title": "",
@@ -13512,42 +13511,6 @@
                         "link": "http://bbzr.co/2tgxC3p",
                         "linkText": "Check for FREE",
                         "prefix": "Credit Score of 750 = Easy approval on Loans/Credit Card! Check now in less than 3 min!"
-                    },
-                    {
-                        "type": "news-feed-full-posts",
-                        "title": "News Related to Syndicate Bank IFSC Code",
-                        "items": [
-                            {
-                                "title": "Syndicate Bank is asked to file counter affidavits over an auction",
-                                "body": "<p>Syndicate Bank has been asked to file counter-affidavits over a petition that was filed by Badhri Impex Pvt Ltd. The petitioner firm has filed a complaint against Syndicate Bank regarding a loan that was taken in 2014. Though the bank has granted time for the repayment of the loan, the petitioner firm says that the bank's officials have put the property for auction which is against the law. The court has asked Syndicate Bank for filing their counter-affidavits and has also adjourned the case till 30th of March.</p>",
-                                "postedOn": "2017-04-01"
-                            },
-                            {
-                                "title": "372 'Ananya' Branches Targeted for March by Syndicate Bank",
-                                "body": "<p>An initiative for business process re-engineering implemented by Syndicate Bank, Project Ananya, is expected to see the bank aim at transforming almost 10% of its branches by the end of March, 2017. The Executive Director of Syndicate Bank, Ch SS Mallikarjuna Rao revealed to the press in Mangalore that 372 branches are expected to be transformed as Ananya branches come the end of March. At the moment, there are already 200 branches transformed as Ananya branches. Rao went on to reveal that over the course of the coming financial year, 400 more branches are expected to undergo the transformation.</p> <p>Project Ananya is an initiative that is aimed at transforming branches over two years so that customers can receive better service while the entire bank improves and takes a more modern approach.</p>",
-                                "postedOn": "2017-02-20"
-                            },
-                            {
-                                "title": "Syndicate Bank launches Project Ananya at new Mumbai branch",
-                                "body": "<p>Syndicate Bank has opened a new branch at Nariman Point in Mumbai, where they will be implementing their flagship programme, Project Ananya. The branch is equipped to provide superior customer service through the latest digital banking services, integrated with a detailed focus on sales figures.</p> <p>MD and CEO of the bank, Arun Shrivastava, stated that this is a flagship initiative that is aimed to provide best-in-class services to customers, while improving the four key functionalities of their operations, Digital Banking, HR Development, Business Process Re-engineering and Marketing.</p>",
-                                "postedOn": "2016-09-09"
-                            },
-                            {
-                                "title": "Syndicate Bank Reports 5% Increase in Q2 Profit",
-                                "body": "<p>Syndicate Bank, a Manipal based public sector bank, reported a 5% increase in its net profit which was fixed at Rs 332 crore compared to Rs 316 crore profit last fiscal. The total income for Syndicate Bank rose to Rs 6,670 crore which was a 17. 4% increase. Various factors like lower provisions for non-performing assets and growth in net interest income.</p> <p>Syndicate Bank offers a range of financial products like accounts, deposits and loan, and also facilities like internet banking for the benefit of their customers. Using the Syndicate Bank Net Banking facility, the customer can make a NEFT fund transfer by mentioning the IFSC code of beneficiary bank and the account number of beneficiary.</p>",
-                                "postedOn": "2015-12-30"
-                            },
-                            {
-                                "title": "300-500 New Branches on the Anvil for Syndicate Bank",
-                                "body": "<p>One of India's oldest public sector banks, the Syndicate Bank, is keen to consolidate on its good name and social standing by expanding its already impressive presence across the country. Boasting a current branch count of over 3,500, the bank wants to establish 300-500 more branches through the next fiscal year. Speaking at a recent function, and commenting upon his bank's proposed additions to the Indian IFSC code system, Mr. TK Srivastava, Executive Director, expounded upon the bank's expansion plans including the proposed hiring of over 5,000 employees to affect this ambitious next step.</p>",
-                                "postedOn": "2015-07-28"
-                            },
-                            {
-                                "title": "Syndicate Bank Launches 'SyndMahilaShakti'",
-                                "body": "<p>In a noble initiative directed towards women's empowerment, Syndicate Bank has launched 'SyndMahilaShakti', a unique movement which aims to extend financial assistance to over 20,000 women entrepreneurs across the country.</p> <p>Under this special scheme, women entrepreneurs can avail loans up to Rs 5 crore at concessional interest rates. Interest rate for loans up to Rs 10 lakh is set at a base rate of 10.25 %, while for loans above Rs 10 lakh, a concession of 0.255 shall be provided on the base rate. Loans provided under this scheme shall not carry any processing or documentation charges. Also, borrowers needn't necessarily provide any collateral security or guarantee for loans up to Rs 10 lakh.</p> <p>There are many other facilities which have been made available under the 'SyndMahilaShakti' scheme, some of which are instant global debit cards / ATM cards, credit cards which do not require any admission fees, SMS banking, mobile banking, money transfer with the help of IFSC code using internet banking, any branch banking, SyndSuraksha insurance policy and SyndArogya health insurance cover.</p>",
-                                "postedOn": "2015-07-15"
-                            }
-                        ]
                     }
                 ]
             }
@@ -13939,6 +13902,41 @@
                 ]
             }
         ],
+        "news-feed-full-posts": {
+            "title": "News Related to Syndicate Bank IFSC Code",
+            "items": [
+                {
+                    "title": "Syndicate Bank is asked to file counter affidavits over an auction",
+                    "body": "<p>Syndicate Bank has been asked to file counter-affidavits over a petition that was filed by Badhri Impex Pvt Ltd. The petitioner firm has filed a complaint against Syndicate Bank regarding a loan that was taken in 2014. Though the bank has granted time for the repayment of the loan, the petitioner firm says that the bank's officials have put the property for auction which is against the law. The court has asked Syndicate Bank for filing their counter-affidavits and has also adjourned the case till 30th of March.</p>",
+                    "postedOn": "2017-04-01"
+                },
+                {
+                    "title": "372 'Ananya' Branches Targeted for March by Syndicate Bank",
+                    "body": "<p>An initiative for business process re-engineering implemented by Syndicate Bank, Project Ananya, is expected to see the bank aim at transforming almost 10% of its branches by the end of March, 2017. The Executive Director of Syndicate Bank, Ch SS Mallikarjuna Rao revealed to the press in Mangalore that 372 branches are expected to be transformed as Ananya branches come the end of March. At the moment, there are already 200 branches transformed as Ananya branches. Rao went on to reveal that over the course of the coming financial year, 400 more branches are expected to undergo the transformation.</p> <p>Project Ananya is an initiative that is aimed at transforming branches over two years so that customers can receive better service while the entire bank improves and takes a more modern approach.</p>",
+                    "postedOn": "2017-02-20"
+                },
+                {
+                    "title": "Syndicate Bank launches Project Ananya at new Mumbai branch",
+                    "body": "<p>Syndicate Bank has opened a new branch at Nariman Point in Mumbai, where they will be implementing their flagship programme, Project Ananya. The branch is equipped to provide superior customer service through the latest digital banking services, integrated with a detailed focus on sales figures.</p> <p>MD and CEO of the bank, Arun Shrivastava, stated that this is a flagship initiative that is aimed to provide best-in-class services to customers, while improving the four key functionalities of their operations, Digital Banking, HR Development, Business Process Re-engineering and Marketing.</p>",
+                    "postedOn": "2016-09-09"
+                },
+                {
+                    "title": "Syndicate Bank Reports 5% Increase in Q2 Profit",
+                    "body": "<p>Syndicate Bank, a Manipal based public sector bank, reported a 5% increase in its net profit which was fixed at Rs 332 crore compared to Rs 316 crore profit last fiscal. The total income for Syndicate Bank rose to Rs 6,670 crore which was a 17. 4% increase. Various factors like lower provisions for non-performing assets and growth in net interest income.</p> <p>Syndicate Bank offers a range of financial products like accounts, deposits and loan, and also facilities like internet banking for the benefit of their customers. Using the Syndicate Bank Net Banking facility, the customer can make a NEFT fund transfer by mentioning the IFSC code of beneficiary bank and the account number of beneficiary.</p>",
+                    "postedOn": "2015-12-30"
+                },
+                {
+                    "title": "300-500 New Branches on the Anvil for Syndicate Bank",
+                    "body": "<p>One of India's oldest public sector banks, the Syndicate Bank, is keen to consolidate on its good name and social standing by expanding its already impressive presence across the country. Boasting a current branch count of over 3,500, the bank wants to establish 300-500 more branches through the next fiscal year. Speaking at a recent function, and commenting upon his bank's proposed additions to the Indian IFSC code system, Mr. TK Srivastava, Executive Director, expounded upon the bank's expansion plans including the proposed hiring of over 5,000 employees to affect this ambitious next step.</p>",
+                    "postedOn": "2015-07-28"
+                },
+                {
+                    "title": "Syndicate Bank Launches 'SyndMahilaShakti'",
+                    "body": "<p>In a noble initiative directed towards women's empowerment, Syndicate Bank has launched 'SyndMahilaShakti', a unique movement which aims to extend financial assistance to over 20,000 women entrepreneurs across the country.</p> <p>Under this special scheme, women entrepreneurs can avail loans up to Rs 5 crore at concessional interest rates. Interest rate for loans up to Rs 10 lakh is set at a base rate of 10.25 %, while for loans above Rs 10 lakh, a concession of 0.255 shall be provided on the base rate. Loans provided under this scheme shall not carry any processing or documentation charges. Also, borrowers needn't necessarily provide any collateral security or guarantee for loans up to Rs 10 lakh.</p> <p>There are many other facilities which have been made available under the 'SyndMahilaShakti' scheme, some of which are instant global debit cards / ATM cards, credit cards which do not require any admission fees, SMS banking, mobile banking, money transfer with the help of IFSC code using internet banking, any branch banking, SyndSuraksha insurance policy and SyndArogya health insurance cover.</p>",
+                    "postedOn": "2015-07-15"
+                }
+            ]
+        },
         "disclaimer": {
             "text": "<p>Display of any trademarks, tradenames, logos and other subject matters of intellectual property belong to their respective intellectual property owners. Display of such IP along with the related product information does not imply BankBazaar's partnership with the owner of the Intellectual Property or issuer/manufacturer of such products.</p>"
         }
