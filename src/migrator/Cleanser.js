@@ -23,7 +23,8 @@ export default class Cleanser {
             // removeTableOfContents,
             removeDisqusElements,
             removeOfferTableElements,
-            moveContentsOfDDToLI
+            moveContentsOfDDToLI,
+            moveBigTxtIntoNewsFeed
         ];
         const $ = cheerio.load(cleansedHtml, {decodeEntities: false});
         cleansers.forEach((cleanser) => cleanser($, onIssue));
@@ -135,6 +136,15 @@ const moveContentsOfDDToLI = ($, onIssue) => {
             $($(dl).children().eq(0).html()).appendTo($(dl).prev().find("li:last-child"));
         }
         $(dl).remove();
+    });
+};
+
+const moveBigTxtIntoNewsFeed = ($, onIssue) => {
+    $("body").find("div.bigtxt").each((i, e) => {
+        const $e = $(e);
+        if ($e.next().hasClass("news-widget") && $e.next().find("> .bigtxt").length == 0) {
+            $e.prependTo($e.next());
+        }
     });
 };
 

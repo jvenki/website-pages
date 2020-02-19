@@ -15,14 +15,14 @@ export class NewsFeedFullPostHandlerVariant_Main extends BaseHandler {
         return $e.hasClass("news-widget") 
             && $e.children().length == 2
             && $e.find("> div.bigtxt, > h2").length == 1
-            && $e.find("> ul > li.news-green").length > 0
-            && $e.find("> ul > li.news-green").get().every((item) => itemIsAPost($(item)));
+            && $e.find("> ul > li.news-green, > div > ul > li.news-green").length > 0
+            && $e.find("> ul > li.news-green, > div > ul > li.news-green").get().every((item) => itemIsAPost($(item)));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = elements[0];
         const title = extractHeadingText($e.find("> div.bigtxt, > h2"), $);
-        const items = $e.find("> ul > li.news-green").map((i, item) => {
+        const items = $e.find("ul > li.news-green").map((i, item) => {
             const $titleElem = $(item).find(".news-head");
             const title = extractHeadingText($titleElem, $);
             const body = $($titleElem).nextUntil("div.pull-right").map((j, b) => extractContentHtml($(b), $)).get().join(" ");
