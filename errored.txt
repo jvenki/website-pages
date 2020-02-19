@@ -59,7 +59,6 @@ UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad = 7 [900,902,913,3267,4235,117
 UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad.tli-content-info.product-landing-content = 2 [1006,1835]
 UNKNOWN_TAG - IdentifyHandler for div.row.document-list = 1 [1354]
 UNKNOWN_TAG - IdentifyHandler for div.ct-img-web-banner = 11 [1368,1782,1785,1786,1787,2660,2894,3028,5426,10399,11188]
-UNKNOWN_TAG - IdentifyHandler for q = 16 [733,1357,2051,3715,4252,8722,8723,8724,8726,9343,11462,12376,26813,26815,26820,26821]
 UNKNOWN_TAG - IdentifyHandler for div.Product_Interlink = 4 [735,1610,1612,1631]
 UNKNOWN_TAG - IdentifyHandler for div.plan-widget = 18 [805,807,808,810,811,812,813,814,815,816,817,818,820,821,822,823,827,3333]
 UNKNOWN_TAG - IdentifyHandler for picture = 25 [5569,5571,5573,5574,5576,5577,5578,5579,5581,5582,5583,5584,5585,5643,5646,5647,5648,5649,5650,5651,5652,5653,12755,27134,27139]
