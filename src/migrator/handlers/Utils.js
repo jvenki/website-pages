@@ -243,6 +243,8 @@ const extractHtmlFromTextualNodes = ($e, $) => {
             return extractImgTag($n, $);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "a") {
             return createLinkTag($n, processChildNodes($n), $);  // Has Attributes that needs to be pulled out
+        } else if (n.tagName == "span") {
+            return $n.html();
         } else if (n.tagName == "ul" && $n.children().get().every((li) => $(li).text().trim().match(/^\d+\.\s+/)) && $n.hasClass("list-group")) {
             return `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+\.\s+/, "<li>")).join("")}</ol>`;   // Convert UL with manual numbering to OL
         } else if (isElementASubHeadingNode($n)) {

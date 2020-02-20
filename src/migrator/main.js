@@ -25,4 +25,6 @@ if (cliArgs.logLevel) {
     consoleTransport.level = cliArgs.logLevel;
 }
 
+Error.stackTraceLimit = Infinity;
+
 new Migrator({restrictToIds, ignoreIds, idRange}, cliArgs.runRegression).startSweeping();

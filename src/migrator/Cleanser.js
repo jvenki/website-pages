@@ -24,7 +24,8 @@ export default class Cleanser {
             removeDisqusElements,
             removeOfferTableElements,
             moveContentsOfDDToLI,
-            moveBigTxtIntoNewsFeed
+            moveContentsOfDivToLI,
+            moveBigTxtIntoNewsFeed,
         ];
         const $ = cheerio.load(cleansedHtml, {decodeEntities: false});
         cleansers.forEach((cleanser) => cleanser($, onIssue));
@@ -50,6 +51,7 @@ const makeHTMLValid = (html) => {
             .replace(/<h1>([a-zA-Z0-9?\-.,:'()\s\\/]*)<\/h1>/g, "<h2>$1</h2>") // Found in LPD#123
             .replace(/”/g, "\"").replace(/”/g, "\"")  // Found in LPD#3574
             .replace(/col sm-/g, "col-sm-") // Found in 4862
+            .replace(/<policy number>/g, "&lt; policy number &gt;") // Found in 26131
         ;
     cleansedHtml = minify(cleansedHtml, {collapseWhitespace: true, removeComments: true, continueOnParseError: true});
     cleansedHtml = 
@@ -122,7 +124,7 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
 const unwrapElements = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
         const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
-        const hasUnncessaryTag = false;
+        const hasUnncessaryTag = ["space"].includes($e.get(0).tagName);
         if (hasUnncessaryDivWithClass || hasUnncessaryTag) {
             onIssue(new MigrationError(CleanserIssueCode.REMOVED_HFM_NODE, computeNodeName($e), "Count = 1"));
             $e = unwrapElement($e, $);
@@ -139,6 +141,16 @@ const moveContentsOfDDToLI = ($, onIssue) => {
             $($(dl).children().eq(0).html()).appendTo($(dl).prev().find("li:last-child"));
         }
         $(dl).remove();
+    });
+};
+
+const moveContentsOfDivToLI = ($, onIssue) => {
+    $("li ~ div").each((i, div) => {
+        const $div = $(div);
+        if ($div.children().length == 1 && ["p", "img"].includes($div.children().eq(0).get(0).tagName)) {
+            $("<br>" + $div.html()).appendTo($div.prev());
+            $div.remove();
+        }
     });
 };
 
