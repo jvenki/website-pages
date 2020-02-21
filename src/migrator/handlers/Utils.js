@@ -113,27 +113,35 @@ export const isElementATableNode = ($e) => {
 };
 
 export const extractHeadingText = ($e, $) => {
-    $e.find("*").each((i, d) => {
-        const $d = $(d);
-        cleanseAndValidateElement($d, $);
-        if (["p", "sub"].includes(d.tagName) && ["Updated on $date", "Updated on #date"].includes($d.text().trim())) {
-            // This was populated for tables tagged as product-hl-table. We will append this info directly.
-            $d.remove();
-        } else if (["strong", "em", "u"].includes(d.tagName)) {
-            $d.contents().each((i, childOfD) => {
-                $(childOfD).insertAfter($d);
-            });
-            $d.remove();
-        } else if (["a"].includes(d.tagName)) {
-            // Nothing to do
-        } else {
-            throw new MigrationError(ConversionIssueCode.HEADING_HAS_CHILDREN, undefined, `Found ${d.tagName} inside \n ${$e.toString()}`);
-        }
-    });
+    const removeUnwantedNodes = ($n) => {
+        $n.find("*").get().some((d) => {
+            let status = false;
+            const $d = $(d);
+            cleanseAndValidateElement($d, $);
+            if (["p", "sub"].includes(d.tagName) && ["Updated on $date", "Updated on #date", "Updated on ${date}"].includes($d.text().trim())) {
+                // This was populated for tables tagged as product-hl-table. We will append this info directly.
+                $d.remove();
+                status = true;
+            } else if (["strong", "em", "u", "p"].includes(d.tagName)) {
+                $d.contents().each((i, childOfD) => {
+                    $(childOfD).insertAfter($d);
+                });
+                $d.remove();
+                status = true;
+            } else if (["a"].includes(d.tagName)) {
+                // Nothing to do
+            }
+            if (status) {
+                removeUnwantedNodes($n);
+                return true;
+            }
+        });    
+    };
 
+    removeUnwantedNodes($e);
     // Do a final check to ensure that we just have these allowed tags after all the removals above
     const finalChildElemTagNames = without($e.find("*").map((i, d) => d.tagName).get(), ...["a"]);
-    assert(finalChildElemTagNames.length == 0, ConversionIssueCode.HEADING_HAS_CHILDREN, finalChildElemTagNames.join(","));
+    assert(finalChildElemTagNames.length == 0, ConversionIssueCode.HEADING_HAS_CHILDREN, `Found ${finalChildElemTagNames.join(",")} in ${$e.toString()}`);
     return ($e.html() || "").trim();
 };
 
@@ -155,7 +163,7 @@ export const extractLink = ($e) => {
 };
 
 export const extractLinkText = ($e, $, conditionallyWhitelistedTags) => {
-    const whilelistedTags = ["img", "picture", "p", "span", "a", ...(conditionallyWhitelistedTags || [])];
+    const whilelistedTags = ["img", "picture", "p", "span", "a", "strong", ...(conditionallyWhitelistedTags || [])];
     if ($e.children().length > 0) {
         $e.find("*").each((i, c) => {
             if (!whilelistedTags.includes(c.tagName)) {
