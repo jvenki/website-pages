@@ -275,7 +275,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     assert($e.find(".product-hl-table-head").length == 0 || $e.find("table thead tr").length == 0, "More than one Header Row was found which is not right", $e);
     assert($e.find("table thead tr td").length == 0, "THEAD has TD cells which is not right", $e);
     assert($e.find("table tbody tr").length > 0, "No rows were found in TBODY which is not right", $e);
-    assert($e.find("table tbody tr th").length == 0, "TBODY has TH cells which is not right", $e);
+    // assert($e.find("table tbody tr th").length == 0, "TBODY has TH cells which is not right", $e);
 
     const createCell = (tagName, cellContent, attribs) => {
         let output = "<" + tagName;
@@ -295,7 +295,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
             const isTRActuallyAHeader = $(tr).hasClass("bg-tory-blue");
             const cellCount = $(tr).children().length;
             const cells = $(tr).children().map((ci, td) => {
-                const isTDActuallyATH = (Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0)) || isTRActuallyAHeader;
+                const isTDActuallyATH = (Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0)) || isTRActuallyAHeader || td.tagName == "th";
                 const cellBody = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get().join(" ");
                 return createCell(isTDActuallyATH ? "th" : "td", cellBody, td.attribs);
             }).get();

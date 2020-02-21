@@ -299,6 +299,9 @@ const areAllAnchorsOnlyNonLocalLinks = ($e) => {
 
 export const isElementACntrOfExternalLinks = ($e: CheerioElemType, $: CheerioDocType, restrictTo: Array<string>) => {
     const elemIsTableOfLinks = ($e) => {
+        if ($e.find("th").length > 0 && !$e.find("th").text().match(headingRegex)) {
+            return false;
+        }
         if ($e.find("td").get().filter((td) => Boolean($(td).text().trim())).every((td) => isElementMadeUpOfOnlyWithGivenDescendents($(td), ["a"], $))) {
             return areAllAnchorsOnlyNonLocalLinks($e);
         }
