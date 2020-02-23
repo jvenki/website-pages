@@ -6,7 +6,7 @@ import {extractLinkText, assert, extractImgSrc, isElementMadeUpOfOnlyWithGivenDe
 
 export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return $element.hasClass("bb-products-invest")  ;
+        return $element.hasClass("bb-products-invest") && areAllAnchorsOnlyLocalLinks($element);
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {

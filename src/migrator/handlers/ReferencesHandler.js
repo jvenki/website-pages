@@ -54,6 +54,23 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
     }
 }
 
+export class ReferencesHandlerVariant_ProductsInvest extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
+        return $element.hasClass("bb-products-invest") && areAllAnchorsOnlyNonLocalLinks($element);
+    }
+
+    validate($element: CheerioElemType, $: CheerioDocType) {
+        assert($element.find("ul").length == 1 || $element.get(0).tagName == "ul", "ReferencesHandlerVariant_ProductsInvest-ConditionNotMet#1", $element);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find(">p,>h3,>h4,>h5,>h6,>h7"), $);
+        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title || "NA", elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
 export class ReferencesHandlerVariant_HeadingRegex_Buggy extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return headingRegexMatches($e) && this._isElementAReference($e.next(), $);

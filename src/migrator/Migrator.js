@@ -209,7 +209,7 @@ const printFinalSummary = (docConversionStatus: Object, startTime: number) => {
     logger.info(chalk.green(`        IDs = ${successIds}`));
     logger.info(chalk.red.bold("Summary - Distribution of Error Codes")); // $SuppressFlowCheck
     logger.info(chalk.red(`        IDs = ${erroredIds}`));
-    Object.keys(errorDistribution).forEach((key) => {
+    Object.keys(errorDistribution).sort((k1, k2) => errorDistribution[k2].size - errorDistribution[k1].size).forEach((key) => {
         const ids = Array.from(errorDistribution[key]); // $SuppressFlowCheck
         logger.info(chalk.red(`    ${key} = `) + chalk.bgCyanBright.bold(errorDistribution[key].size) + ` [${ids}]`);    
     });
