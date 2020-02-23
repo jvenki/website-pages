@@ -259,23 +259,35 @@ export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
 
 export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return $element.hasClass("useful-links") 
-            && $element.children().length == 2
-            && isElementAHeadingNode($element.children().eq(0))
-            && (
-                ["ul", "ol"].includes($element.children().eq(1).get(0).tagName)
-                || ($element.children().eq(1).hasClass("useful-links") 
-                    && $element.children().eq(1).children().length == 1 
-                    && ["ul", "ol"].includes($element.children().eq(1).children().eq(0).get(0).tagName)
-                )
+        return $element.hasClass("useful-links");
+    }
+
+    validate($element: CheerioElemType, $: CheerioDocType) {
+        const isLinksCntrValid = ($n) => {
+            return (
+                ["ul", "ol"].includes($n.get(0).tagName)
+                || ($n.hasClass("useful-links") && $n.children().length == 1 && ["ul", "ol"].includes($n.children().eq(0).get(0).tagName))
             );
+        };
+
+        assert($element.children().length <= 2, "UsefulLinks-More than 2 Children Found", $element);
+        if ($element.children().length == 1) {
+            assert(isLinksCntrValid($element.children().eq(0)), "UsefulLinks-Links Cntr is not proper", $element);
+        } else {
+            assert(isElementAHeadingNode($element.children().eq(0)), "UsefulLinks-Heading is not proper", $element);
+            assert(isLinksCntrValid($element.children().eq(1)), "UsefulLinks-Links Cntr is not proper", $element);
+        }
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].children().first(), $);
+        const $e = elements[0];
+        let title;
+        if ($e.children().length == 2) {
+            title = extractHeadingText(elements[0].children().first(), $);
+        }
         const items = elements[0].find("ul > li > a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
-        assertExtractedData(items, title, elements[0]);
-        return {elements: [{type: "references", title, items}]};
+        assertExtractedData(items, title || "NA", elements[0]);
+        return {elements: [{type: "references", title: title || "Useful Links", items}]};
     }
 }
 
