@@ -20,7 +20,7 @@ export default class ResponsiveTable extends React.Component {
 
         const bodyRows = $("table > tbody > tr").map((i, tr) => {
             return (
-                <div key={i} className="tabular-data">
+                <div key={i} className="tabular-data tb-priority">
                     {$(tr).find(">td").map((j, td) => <div key={`${i}-${j}`} className="tabular-column">{computeCellHtml($(td), $)}</div>).get()}
                 </div>
             );

@@ -12,11 +12,16 @@ export default class Disclaimer extends React.Component {
     render() {
         if (this.props.link) {
             return (
-                <p style={{textAlign: "right", fontSize: "11px", color: "#989898", lineHeight:"normal"}}>
+                <p style={{textAlign: "right", fontSize: "11px", color: "#989898", lineHeight:"normal", backgroundColor: "#FF5733"}}>
                     *<a href={this.props.link}>{this.props.linkText}</a>
                 </p>
             );
         }
-        return (<div className="wc-disclaimer">{toHTML(this.props.text)}</div>);
+        return (
+            <div style={{backgroundColor: "#FF5733"}}>
+                <h3>[DISCLAIMER] [SPECIAL TAG]</h3>
+                {toHTML(this.props.text)}
+            </div>
+        );
     }
 }

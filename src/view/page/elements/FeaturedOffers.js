@@ -15,6 +15,9 @@ export default class FeaturedOffers extends React.Component {
                         <div className="col-xs-12 col-md-4 text-center">
                             <h5><a href={featuredOffer.link} title={featuredOffer.title}><strong>{featuredOffer.title}</strong></a></h5>
                             <img title={featuredOffer.title} alt={featuredOffer.title} src={featuredOffer.img.src}/>
+                            <div className="pad-10">
+                                <a className="btn text-white" href="/credit-card.html?variant=slide">Check Eligibility</a>
+                            </div>
                         </div>
                         <div className="col-xs-12 col-md-8">
                             <p></p>

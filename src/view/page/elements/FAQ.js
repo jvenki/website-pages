@@ -10,10 +10,10 @@ export default class FAQ extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div style={{backgroundColor: "#00FFFF"}}>
                 <h2>{this.props.title} [SPECIAL TAG]</h2>
                 {this.props.items.map(this.renderSingleItem)}
-            </React.Fragment>
+            </div>
         );
     }
 

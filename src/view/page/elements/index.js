@@ -11,9 +11,8 @@ import BlockQuote from "./BlockQuote";
 import Grid from "./Grid";
 import IFrame from "./IFrame";
 import LandingBanner from "./LandingBanner";
-import NewsFeed from "./NewsFeed";
-import NewsFeedFullPosts from "./NewsFeedFullPosts";
 import ResponsiveTable from "./ResponsiveTable";
+import Infographics from "./Infographics";
 
 const getViewKlassForElement = (element) => {
     switch (element.type) {
@@ -30,8 +29,7 @@ const getViewKlassForElement = (element) => {
         case "landing-banner": return LandingBanner;
         case "cta": return CTA;
         case "custom_toc": return DeprecatedTOC;
-        case "news-feed": return NewsFeed;
-        case "news-feed-full-posts": return NewsFeedFullPosts;
+        case "infographics": return Infographics;
         default: return null;
     }
 };

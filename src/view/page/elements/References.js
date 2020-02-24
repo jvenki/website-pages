@@ -12,10 +12,10 @@ export default class References extends React.Component {
 
     renderOneCollection(collection) {
         return (
-            <React.Fragment>
+            <div style={{backgroundColor: "#FFA07A"}}>
                 <h2>{collection.title} [SPECIAL TAG]</h2>
                 <ul>{collection.items.map((item, index) => <li key={index}><a href={item.link}>{item.title}</a></li>)}</ul>
-            </React.Fragment>
+            </div>
         );
     }
 }

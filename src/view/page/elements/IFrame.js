@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class Video extends React.Component {
+export default class IFrame extends React.Component {
     static propTypes = {
         link: PropTypes.string.isRequired
     }
