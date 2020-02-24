@@ -307,7 +307,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong extends
         const items = elements[1].children().map((i, li) => {
             const $li = $(li);
             const qns = extractHeadingText($li.find("p > strong"), $);
-            const ans = extractContentHtml($li.children().eq(1), $);
+            const ans = $li.children().get().slice(1).map((a) => extractContentHtml($(a), $)).join("");
             return {question: qns, answer: ans};
         }).get();
         

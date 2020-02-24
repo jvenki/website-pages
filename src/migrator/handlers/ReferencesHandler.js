@@ -265,6 +265,59 @@ export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
     }
 }
 
+export class ReferencesHandlerVariant_GridOfULs extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const allChildrenAreGridCells = () => {
+            const startIndex = isElementAHeadingNode($e.children().eq(0)) ? 1 : 0;
+            return $e.children().get().slice(startIndex).every((c) => containsOnlyGridCellClasses($(c).attr("class")));
+        };
+        const allCellsAreRefCntrs = () => {
+            const startIndex = isElementAHeadingNode($e.children().eq(0)) ? 1 : 0;
+            return $e.children().get().slice(startIndex).every((cell) => {
+                let check = false;
+                if ($(cell).children().length == 1) {
+                    check = ["ul"].includes($(cell).children().eq(0).get(0).tagName);
+                } else if ($(cell).children().length == 2) {
+                    check = ["h3"].includes($(cell).children().eq(0).get(0).tagName) && ["ul", "ol"].includes($(cell).children().eq(1).get(0).tagName);
+                }
+                return check;
+            });            
+        };
+        const allULsAreJustReferences = () => {
+            const lists = $e.find("ul").get();
+            return lists.length > 0 && lists.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"], $));
+        };
+
+        return ($e.hasClass("row") || $e.hasClass("col-md-12"))
+            && allChildrenAreGridCells() && allCellsAreRefCntrs() 
+            && allULsAreJustReferences() && areAllAnchorsOnlyNonLocalLinks($e);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const targetElements = [];
+        elements[0].find("div > ul").each((i, ul) => {
+            const hasTitleElem = $(ul).prev().length > 0 && ["h3"].includes($(ul).prev().get(0).tagName);
+            const items = $(ul).find(" > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            if (hasTitleElem) {
+                const title = extractHeadingText($(ul).prev(), $);
+                targetElements.push({type: "references", title, items});
+            } else {
+                if (targetElements.length > 0) {
+                    targetElements[targetElements.length-1].items.push(...items);
+                } else {
+                    let title;
+                    if (elements[0].find(">h3").length > 0) {
+                        title = extractHeadingText(elements[0].find(">h3"), $);
+                    }
+                    targetElements.push({type: "references", title, items});
+                }
+            }
+        });
+
+        return {elements: targetElements};
+    }
+}
+
 export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("useful-links");
