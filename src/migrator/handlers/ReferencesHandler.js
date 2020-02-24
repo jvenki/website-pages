@@ -56,7 +56,15 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
 
 export class ReferencesHandlerVariant_ProductsInvest extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return $element.hasClass("bb-products-invest") && areAllAnchorsOnlyNonLocalLinks($element);
+        if (!$element.hasClass("bb-products-invest")) {
+            return false;
+        }
+        $("a.bbicons-fd").each((i, a) => {
+            if (!$(a).attr("href") && $(a).next().get(0).tagName == "a") {
+                $(a).remove();
+            }
+        });
+        return areAllAnchorsOnlyNonLocalLinks($element);
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {
@@ -150,7 +158,7 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
         return ($element.hasClass("ln-accordion") || $element.hasClass("twi-accordion") || $element.hasClass("panel"))
             // && $element.find(".panel-title").text().match(headingRegex)
             && isElementMadeUpOfOnlyWithGivenDescendents($element.find(".panel-body"), ["ul", "li", "a"], $)
-            && areAllAnchorsOnlyNonLocalLinks($element.find("a"));
+            && areAllAnchorsOnlyNonLocalLinks($element.find(".panel-body"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -198,7 +206,7 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
         return ($e.hasClass("row") || $e.hasClass("col-md-12"))
             && allChildrenAreAccordion() 
             && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences()) 
-            && areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li a"));
+            && (areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li")) || areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-heading ul li")));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -323,10 +331,10 @@ export class ReferencesHandlerVariant_TableOfLinks extends BaseHandler {
 
 const areAllAnchorsOnlyNonLocalLinks = ($e) => {
     const links = $e.find("a").get();
-    return links.every((link) => !link.attribs.href.startsWith("#"));
+    return links.length > 0 && links.every((link) => link.attribs.href && !link.attribs.href.startsWith("#"));
 };
 
-export const isElementACntrOfExternalLinks = ($e: CheerioElemType, $: CheerioDocType, restrictTo: Array<string>) => {
+export const isElementACntrOfExternalLinks = ($e: CheerioElemType, $: CheerioDocType, restrictTo: ?Array<string>) => {
     const elemIsTableOfLinks = ($e) => {
         if ($e.find("th").length > 0 && !$e.find("th").text().match(headingRegex)) {
             return false;

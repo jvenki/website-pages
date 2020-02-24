@@ -78,7 +78,7 @@ export class DeprecatedTOCHandlerVariant_DivOfULOfLinks extends BaseHandler {
 
 const areAllAnchorsOnlyLocalLinks = ($e) => {
     const links = $e.find("a").get();
-    return links.every((link) => link.attribs.href.startsWith("#"));
+    return links.length > 0 && links.every((link) => link.attribs.href && link.attribs.href.startsWith("#"));
 };
 
 const extractLinks = ($e, $) => {
