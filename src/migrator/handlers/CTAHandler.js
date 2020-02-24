@@ -3,6 +3,11 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import {extractLink, extractLinkText, assert, extractHeadingText, extractContentHtml, isElementMadeUpOfOnlyWithGivenDescendents} from "./Utils";
 
+const assertExtractedData = (link, linkText, $e) => {
+    assert(Boolean(link), "CTA given without a Link", $e);
+    assert(Boolean(link), "CTA given without a Text", $e);
+};
+
 export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
         return $element.hasClass("product-landing-btn-block");
@@ -21,10 +26,8 @@ export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const link = extractLink($element.find("a"));
-        if (!link) {
-            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
-        }
         const linkText = extractLinkText($element.find("a"), $);
+        assertExtractedData(link, linkText, $element);
         return {elements: [{type: "cta", link, linkText}]};
     }
 }
@@ -39,11 +42,8 @@ export class CTAHandlerVariant_LonelyLink extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const link = extractLink($element);
-        if (!link) {
-            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
-        }
-
         const linkText = extractLinkText($element, $);
+        assertExtractedData(link, linkText, $element);
         return {elements: [{type: "cta", link, linkText}]};
     }
 }
@@ -60,10 +60,6 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const link = extractLink($element.find("a"));
-        if (!link) {
-            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
-        }
-
         const linkText = extractLinkText($element.find("a"), $);
         const linkTextStartPos = $element.text().indexOf(linkText);
         const prefix = $element.text().substring(0, linkTextStartPos).trim();
@@ -71,6 +67,7 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
         const convElement = {type: "cta", link, linkText}; // $SuppressFlowCheck
         if (prefix) convElement.prefix = prefix; // $SuppressFlowCheck
         if (suffix) convElement.suffix = suffix;
+        assertExtractedData(link, linkText, $element);
         return {elements: [convElement]};
     }
 }
@@ -86,13 +83,10 @@ export class CTAHandlerVariant_TabularData extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const link = extractLink($element.find("a"));
-        if (!link) {
-            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
-        }
-
         const linkText = extractLinkText($element.find("a"), $);
         const title = extractHeadingText($element.find("h3"), $);
         const prefix = extractContentHtml($element.find("> div.col-md-7"), $);
+        assertExtractedData(link, linkText, $element);
         return {elements: [{type: "cta", link, linkText, prefix, title}]};
     }
 }
@@ -109,11 +103,8 @@ export class CTAHandlerVariant_InsuranceWeekPick extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const link = extractLink($element.find("a"));
-        if (!link) {
-            return {elements: [], issues: ["Found a CTA without HREF. Ignoring it"]};
-        }
-
         const linkText = extractLinkText($element.find("a"), $);
+        assertExtractedData(link, linkText, $element);
         return {elements: [{type: "cta", link, linkText}]};
     }
 }
