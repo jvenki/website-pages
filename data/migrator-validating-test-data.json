@@ -11280,6 +11280,299 @@
             ]
         }
     },
+    "4152": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>People of all age love to ride a bike or drive a car. They prefer to be independent and be able to travel from one point to another without depending on others. Though, cabs and public transport has improved greatly in the last decade, people prefer to drive on their own. Though learning how to drive is the first step, applying for a driving licence is the most important step if you decide to drive on the roads.</p><p>The Motor Vehicles Act of 1988 states that no individual will be allowed to drive a motor vehicle in a public place with a valid driving licence. It is a punishable offence. So, if you have always put aside going to the Regional Transport Office (RTO) as it is time consuming or are not sure how to apply for driving licence in your city, read on.</p><p>Applying for a driving licence is a very easy procedure. Unlike decades ago, people can now go online and apply for a driving licence in few seconds. You do not have to stand in a long queue to submit your DL application.</p>"
+                    },
+                    {
+                        "type": "custom_toc",
+                        "items": [
+                            {
+                                "linkText": "Apply For New Driving Licence Online",
+                                "link": "#Apply For New Driving Licence Online"
+                            },
+                            {
+                                "linkText": "Documents Required For Driving Licence",
+                                "link": "#Documents Required For Driving Licence"
+                            },
+                            {
+                                "linkText": "Why Should You Apply for Driving Licence Online",
+                                "link": "#Why Should You Apply for Driving Licence Online"
+                            },
+                            {
+                                "linkText": "Process for Applying Learning Licence Online",
+                                "link": "#Process for Applying Learning Licence Online"
+                            },
+                            {
+                                "linkText": "Documents for Applying Learning Licence",
+                                "link": "#Documents for Applying Learning Licence"
+                            },
+                            {
+                                "linkText": "Learning Licence Test Slot Booking",
+                                "link": "#Learning Licence Test Slot Booking"
+                            },
+                            {
+                                "linkText": "Fees for Driving Licence and Learning Licence",
+                                "link": "#Fees for Driving Licence and Learning Licence"
+                            },
+                            {
+                                "linkText": "Difference Between Driving Licence and Learning Licence",
+                                "link": "#Difference Between Driving Licence and Learning Licence"
+                            },
+                            {
+                                "linkText": "Do's and Don'ts",
+                                "link": "#Do's and Don'ts"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "body": "<img title=\"Apply Online For Driving Licence\" alt=\"Apply for Driving Licence\" src=\"/images/india/infographic/Driving-Licence-Apply-Online.png\" class=\"text-center\"/>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Application for Services on Driving License:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>Enter DL Number and Date of Birth in the respective fields and click on 'Go'.</li><li>On clicking 'Go', the website will automatically fill the 'Last Endorsed Details'.</li><li>In the 'Submit Request to' section, you have to select the state and RTO from the dropdown menus of the 'Apply to State' and 'RTO' sections.</li><li>Click on 'Proceed' to go to the next step.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Procedure to submit your application for driving licence online",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Yes, you can go ahead and submit your application for driving licence online. All you have to do is visit the Sarathi website of the Ministry of Road Transport and Highways and follow the below steps.</p><p>How to submit your driving licence application form</p><ul><li>Visit the Sarathi website of the Ministry of Road Transport and Highways.</li><li>On your left hand side, you will see options under \"Driving Licence\".</li><li>Choose \"Apply Online\" option and from the drop down choose \"New Driving Licence\".</li><li>You will now see instructions for submitting your driving licence application form. Please read the instructions carefully and click on the \"Continue\" button to proceed.</li><li>Once you click on the \"Continue\" button, will be asked if you are holding a Learner's Licence, a Foreign DL, or a Defence Licence. Tick the appropriate box and proceed.</li><li>Based on what you selected above, you will be asked for the Learner's Licence Number/Foreign DL NUmber/ Defence Licence Number.</li><li>You will also be asked to enter your date of birth in DDMMYYYY format.</li><li>Once you fill the information asked, please click on \"OK\".</li><li>In this form, you will be asked to fill up your personal details like your name, age, and address.</li><li>Once you click on all the details, you will be asked to upload all the required supporting documents like address proof, age proof, and identity proof.</li><li>You may be asked to upload a passport size photograph and your signature. Please keep the scanned copies for the same ready.</li><li>Once you have uploaded all the documents, you will be asked to choose the timing for your DL appointment. Please select the date and the time when you will be available to go directly to the RTO and appear for your DL test.</li><li>Once you make the payment to submit your driving licence application form, your application will be successfully sent to the RTO.</li><li>On your appointment day, make sure you reach few minutes early and give your test.</li></ul><p>The section is to be signed in the presence of the Licensing Authority by the parent/guardian.</p><p>On completion of the form and after reviewing the information, the applicant can submit the form online by clicking on the 'Submit' button at the end of the form.</p><p>On submission, an auto-generated Web Application Number will appear on screen. Note the number for future reference and to check the status of the application.</p>$LPD_EMBEDDED_ITEM_DL_2"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Application Number Search:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>To get applicant details, you have to do the following:</p><ul><li>Choose the state from the 'Select State Name' drop down menu.</li><li>Once you do that, you will get an option to choose the RTO. Select the RTO name from the 'RTO Name' drop down menu.</li><li>Enter your first name, middle name, last name and date of birth.</li><li>Enter the captcha code.</li><li>Click on 'Submit'.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents Required To Be Submitted For Driving Licence (DL)",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The following list of documents are to be submitted along with the application form (form 9):</p><ul><li>Learner's Licence.</li></ul><ul><li>Proof of address: Any one of the following document can be submitted as proof of address-</li><li>Ration card.</li><li>Passport.<ul><li><a href=\"/voter-id.html\">Voter's identity card (EPIC Card)</a>.</li><li>Life insurance policy.</li><li>Utility bills like electricity, telephone bill, gas bill.</li><li>State or Central Government issued payslip.</li></ul></li><li>Proof of age: any one of the following can be submitted as proof of age-<ul><li><a href=\"/pan-card.html\" title=\"Pan Card\">Pan Card</a>.</li><li>School matriculation certificate.</li><li>Voter's identity card (EPIC card).</li><li>Passport.</li><li>Birth certificate.</li></ul></li></ul><ul><li>Driving school certificate (for transport vehicle driving licence applicants).</li><li>All documents pertaining to the vehicle to be used for the driving test.</li><li>Passport-sized photograph.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Why Should You Apply for Driving Licence (DL) online?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>It is ideal to apply for your DL online, as it is more convenient and takes lesser amount of time than going through the entire process manually. You can simply download the license application form from the internet and furnish it with all the necessary documents after filling up the form duly. Once this process is conducted smoothly, you need to sit for a written test and interview, and clear it to successfully obtain the licence.</p><p>Please note that online registration for LL is only for vehicles which are used for personal use and not for commercially transport purposes. In a single online application form the applicant can apply for LL for more than one category of vehicle. The preliminary test is common for all vehicles irrespective of the category of vehicle for which the LL is applied.</p><p>To apply for a Driving Licence, applicants have to first apply for a Learner's Licence. The applicant has to meet the following conditions to apply for a Learner's licence:</p><ul><li>Applicant has to over the age of 16 years for two wheeler licence and 18 years for four wheeler licence.</li><li>Learner's licence holders can apply for a driving licence 30 days after the issue of their Learner's licence.</li><li>Learner's licence holders have to apply for a driving licence within 180 days (6 months) of their Learner's Licence being issued.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to apply for Learner's Licence Online",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Applicants who wish to apply for a Learner's Licence need not brave the long queues at the Regional Transport Office (RTO) anymore, but can fill out the form and submit their application online. With the introduction of the online Learner's Licence application, applicants can fill out the form and submit it as well as book their driving test appointment, all from the comfort of their home. Similarly, one can also submit an online appointment for driving licence.</p>$LPD_EMBEDDED_ITEM_DL_3"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Documents To Be Submitted for Applying Learner's Licence",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The following documents are to be uploaded along with the application form:</p><ul><li>Physical Fitness Declaration (form 1).</li><li>Passport-sized photographs.</li><li>Medical certificate (form 1-A).</li><li>Proof of address: any one of the following can be submitted towards proof of address-</li><li>Passport.</li><li>Ration card.</li><li>Life Insurance policy.</li><li>Voter's identity card.</li><li>Affidavit sworn before a Public Notary or a Judicial Magistrate.</li><li>Proof of age: any of the following can be submitted towards proof of age-<ul><li>Passport.</li><li>Voter's identity card.</li><li>Birth certificate.</li><li>School matriculation certificate.</li><li>Life insurance policy.</li><li>Affidavit sworn before a Public Notary or Magistrate.</li></ul></li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Learner's Licence Test Slot Booking",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Booking a test slot for a learner's licence can also be done online through the Sarathi website. Applicants whose applications forms have been processed will receive a notification regarding the same. Following this, they can book a test slot on the website.</p><p>Applicants from the following states cannot book a slot for their <a href=\"/driving-licence/learners-license.html\">Learner's Licence </a>tests through the Sarathi website:</p><ul><li>Andaman and Nicobar Islands</li><li>Andhra Pradesh</li><li>Arunachal Pradesh</li><li>Bihar</li><li>Chhattisgarh</li><li>Delhi</li><li>Goa</li><li>Haryana</li><li>Jharkhand</li><li>Kerala</li><li>Lakshadweep</li><li>Madhya Pradesh</li><li>Manipur</li><li>Meghalaya</li><li>Sikkim</li><li>Tamil Nadu</li><li>Tripura</li></ul><p>Applicants from these states and Union Territories will have to visit the website of the Regional Transport Authority in their state and book a slot.</p><p>For applicants from other states, they will have to follow the below mentioned procedure:</p><ul><li>Visit the Sarathi website.</li><li>On the homepage, click on the Online Slot Booking option under the Sarathi Services column.</li><li>Click on 'LL Slot Booking' on the tab that opens and select 'LL Test for Online Applications'.</li><li>Enter the Web Application Number and the applicant's date of birth (in dd/mm/yyyy format)</li><li>A calendar with the available slots will open in a new tab. Select the date and check for availability before confirming the appointment.</li><li>Click 'confirm', whereupon an acknowledgement will be displayed on screen.</li><li>The applicant is to be present at the test centre at the appointed time with the original documents and the acknowledgement.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Fees for DL and LL:",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>You can pay the fee either through SBI challan or Online. The fees for the different categories of licence are given below:</p><table><thead><tr><th>Type of Licence</th><th>Fee (in Rupees)</th><th>*Revised Fee - January - 2018</th></tr></thead><tbody><tr><td>Learner's Licence</td><td>Rs. 30 - Rs. 75 per licence</td><td>Rs.150.00</td></tr><tr><td>Driving Licence</td><td>Rs.40.00</td><td>Rs.200.00</td></tr><tr><td>Driving licence for commercial vehicle</td><td>Rs.250.00</td><td>Rs.600.00</td></tr><tr><td>International Driving Licence fee</td><td>Rs.500.00</td><td>Rs.1,000.00</td></tr><tr><td>DL Renewal Fee</td><td>Rs.50.00</td><td>Rs.200.00</td></tr><tr><td>LL Renewal Fee</td><td>Rs.40.00</td><td>Rs.200.00</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Difference Between Driving Licence (DL) and Learner's Licence (LL)",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>In India, there are two types of Driving Licences issued. These are Learner's Licence and Permanent Licence. The validity of Learner's Licence only for six months, and is given to people who wish to start learning to drive or ride a vehicle. An individual can obtain a permanent DL on passing written and practical exams, and only after a month of issuance of the initial learner's licence. Thus, one can apply for a DL only after getting a learner's licence. There needs to be a gap of one month between the two applications.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Do's and Don'ts",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>DO check the form once you have filled it in for errors or omissions.</li><li>DO carry the original documents with you when you go for your driving test.</li><li>DO remember that a Learner's Licence is valid only for 6 months.</li><li>DON'T submit fraudulent documents along with your application as you will be liable for penal action.</li><li>DON'T forget to attach a copy of your Learner's Licence when applying for a Driving Licence.</li><li>DON'T drive or ride (this includes while practicing) without a valid licence or documentation with you at all times.</li><li>In case of Learner's Licence holders, DON'T ride or drive without a licence holder present. Being caught driving/riding alone could disqualify you from obtaining a Driving Licence.</li></ul>$LPD_EMBEDDED_ITEM_DL_3"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "FAQ's on DL/LL:",
+            "items": [
+                {
+                    "question": "What is the validity of a Learner's Licence?",
+                    "answer": "<p>A Learner's Licence is valid for a period of 6 months from the date of issue.</p>"
+                },
+                {
+                    "question": "Is a Learner's Licence issued in Delhi valid across India?",
+                    "answer": "<p>Yes, a Learner's Licence issued in any state or Union territory is valid throughout the country for the duration of licence validity. The holder has to be accompanied by a licence holder when driving or riding at all times.</p>"
+                },
+                {
+                    "question": "How can I pay the processing fee for my Driving Licence?",
+                    "answer": "<p>If you reside in Uttar Pradesh, you can pay the fee for your Driving Licence through the Sarathi website. For applicants from other states, you will have to pay the fee at the RTO when taking your driving test.</p>"
+                },
+                {
+                    "question": "What are the documents to be submitted pertaining to my car when I am applying for a Driving Licence?",
+                    "answer": "<p>You will have to submit the following details pertaining to your car when applying for a driving licence:</p><ol><li>Registration certificate</li><li>Car insurance proof</li><li>Fitness certificate (for transport vehicles)</li><li>Tax payment proof</li></ol>"
+                },
+                {
+                    "question": "Is a medical certificate compulsory when applying for a licence?",
+                    "answer": "<p>If you are applying for a Learner's Licence, it is compulsory to submit a medical certificate at the time of application.</p><p>If you are applying for a Driving Licence, it is not compulsory unless you are above 50 years of age.</p><p>If you are applying for a Driving Licence for a commercial or transport vehicle, it is compulsory.</p>"
+                }
+            ]
+        },
+        "references": [
+            {
+                "title": "How to Apply for Utility Product",
+                "items": [
+                    {
+                        "link": "/pan-card/pan-card-application.html",
+                        "title": "How to Apply for PAN Card"
+                    },
+                    {
+                        "link": "/aadhar-card/aadhar-card-application-process.html",
+                        "title": "How to Apply for  Aadhar Card"
+                    },
+                    {
+                        "link": "/voter-id/apply-online.html",
+                        "title": "How to Apply for Voter ID"
+                    },
+                    {
+                        "link": "/passport/apply-passport-online.html",
+                        "title": "How to Apply for Passport"
+                    },
+                    {
+                        "link": "/visa/how-to-apply-for-visa.html",
+                        "title": "How to Apply for Visa"
+                    },
+                    {
+                        "link": "/gas-connection/how-to-apply-for-gas-connection-in-india.html",
+                        "title": "How to Apply for Gas Connection"
+                    }
+                ]
+            },
+            {
+                "title": "Also Explore Other Products",
+                "items": [
+                    {
+                        "link": "/credit-card.html",
+                        "title": "How to Apply for Credit Card"
+                    },
+                    {
+                        "link": "/pan-card.html",
+                        "title": "How to Apply for PAN Card"
+                    },
+                    {
+                        "link": "/visa.html",
+                        "title": "How to Apply for Visa"
+                    }
+                ]
+            }
+        ],
+        "disclaimer": {
+            "link": "/utility-product-disclaimer.html",
+            "linkText": "Disclaimer"
+        },
+        "news-feed": {
+            "title": "Finance 101",
+            "items": [
+                {
+                    "title": "4 Effective Tips On Buying Gold Jewellery",
+                    "link": "https://bnkbzr.page.link/sF7mhg7jFkmiRqEi9",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_GOLD_RATE_4_EFFECTIVE_TIPS_ON_BUYING_GOLD_JEWELLERY.png"
+                    }
+                },
+                {
+                    "title": "How To Track Your Aadhaar Status Online",
+                    "link": "https://bnkbzr.page.link/aFQpdgkogBiEqjqD9",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_CREDIT_CARD_HOW_TO_TRACK_YOUR_AADHAAR_STATUS_ONLINE.png"
+                    }
+                },
+                {
+                    "title": "How To Check PAN Status",
+                    "link": "https://bnkbzr.page.link/F7d2",
+                    "img": {
+                        "src": "/images/india/infographic/ARTICLE_FIXED_DEPOSIT_HOW_TO_CHECK_PAN_STATUS.png"
+                    }
+                },
+                {
+                    "title": "Different Types Of Driving Licence",
+                    "link": "https://bnkbzr.page.link/QEvL",
+                    "img": {
+                        "src": "/images/india/infographic/DIFFERENT_TYPES_OF_DRIVING_LICENCE.png"
+                    }
+                }
+            ]
+        }
+    },
     "4316": {
         "title": "",
         "body": "",

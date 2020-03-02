@@ -224,7 +224,11 @@ const extractImgTag = ($e, $) => {
 
 const createLinkTag = ($e, innerHtml, $) => {
     let output = "<a";
-    ["href", "title"].forEach((attrName) => {
+    const link = extractLink($e);
+    if (link) {
+        output += ` href="${link}"`;
+    }
+    ["title"].forEach((attrName) => {
         if ($e.attr(attrName)) {
             output += ` ${attrName}="${$e.attr(attrName)}"`;
         }

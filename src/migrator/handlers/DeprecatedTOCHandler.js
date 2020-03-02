@@ -60,6 +60,19 @@ export class DeprecatedTOCHandlerVariant_TableOfAsOnly extends BaseHandler {
     }
 }
 
+export class DeprecatedTOCHandlerVariant_TableOfAsOnlyVersion2 extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const cellsMadeUpOfOnlyA = () => {
+            return $e.find("td").get().every((td) => $(td).contents().length == 1 && $(td).find("> a").length == 1);
+        };
+        return $e.get(0).tagName == "table" && cellsMadeUpOfOnlyA() && areAllAnchorsOnlyLocalLinks($e);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        return extractLinks(elements[0], $);
+    }
+}
+
 export class DeprecatedTOCHandlerVariant_DivOfULOfLinks extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         const nodeIsCntrOfLinks = ($e) => {

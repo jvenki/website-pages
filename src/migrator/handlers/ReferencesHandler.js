@@ -386,6 +386,26 @@ export class ReferencesHandlerVariant_TableOfLinks extends BaseHandler {
     }
 }
 
+export class ReferencesHandlerVariant_Jumbotron extends BaseHandler {
+    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
+        return $element.hasClass("jumbotron") 
+            && (($element.children().length == 1 && $element.find(">ul").length == 1 )
+                || ($element.children().length == 2 && $element.find(">ul").length == 1 && $element.find(">strong").length == 1))
+            && isElementACntrOfExternalLinks($element.find("ul"), $);
+    }
+
+    validate($element: CheerioElemType, $: CheerioDocType) {
+        assert($element.find(" > ul").length == 1, "ReferencesHandlerVariant_Jumbotron-ConditionNotMet#1", $element);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find(">strong"), $);
+        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title || "NA", elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
 const areAllAnchorsOnlyNonLocalLinks = ($e) => {
     const links = $e.find("a").get();
     return links.length > 0 && links.every((link) => link.attribs.href && !link.attribs.href.startsWith("#"));

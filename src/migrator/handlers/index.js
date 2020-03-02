@@ -15,10 +15,10 @@ import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTA
 import { AccordionHandler } from "./AccordionHandler";
 import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
 import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisText, FAQHandlerVariant_HeadingRegexFollowedByStrongAndPs} from "./FAQHandler";
-import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly, DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly, DeprecatedTOCHandlerVariant_TableOfAsOnly, DeprecatedTOCHandlerVariant_DivOfULOfLinks } from "./DeprecatedTOCHandler";
+import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly, DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly, DeprecatedTOCHandlerVariant_TableOfAsOnly, DeprecatedTOCHandlerVariant_DivOfULOfLinks, DeprecatedTOCHandlerVariant_TableOfAsOnlyVersion2 } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
-import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy, ReferencesHandlerVariant_ProductsInvest, ReferencesHandlerVariant_GridOfULs } from "./ReferencesHandler";
+import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy, ReferencesHandlerVariant_ProductsInvest, ReferencesHandlerVariant_GridOfULs, ReferencesHandlerVariant_Jumbotron } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link, DisclaimerHandlerVariant_Accordion} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplified } from "./LandingBannerHandler";
@@ -36,6 +36,7 @@ const handlers = [
     new DeprecatedTOCHandlerVariant_ULofAsOnly(),
     new DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly(),
     new DeprecatedTOCHandlerVariant_TableOfAsOnly(),
+    new DeprecatedTOCHandlerVariant_TableOfAsOnlyVersion2(),
     new DeprecatedTOCHandlerVariant_DivOfULOfLinks(),
     new ReferencesHandlerVariant_Nav(),
     new ReferencesHandlerVariant_HeadingRegex(),
@@ -52,6 +53,7 @@ const handlers = [
     new ReferencesHandlerVariant_TableOfLinks(),
     new ReferencesHandlerVariant_ProductsInvest(),
     new ReferencesHandlerVariant_GridOfULs(),
+    new ReferencesHandlerVariant_Jumbotron(),
     new FAQHandlerVariant_HeadingRegexAndDivWithSchema(),
     new FAQHandlerVariant_HeadingRegexFollowedByPs(),
     new FAQHandlerVariant_HeadingRegexFollowedByH3AndPs(),
