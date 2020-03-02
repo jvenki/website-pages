@@ -133,10 +133,14 @@ export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].find("> strong, > h3, > h2"), $);
-        const items = elements[0].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
-        assertExtractedData(items, title || "NA", elements[0]);
-        return {elements: [{type: "references", title, items}]};
+        const $titleElem = elements[0].find("> strong, > h3, > h2");
+        const targetElements = $titleElem.map((i, te) => {
+            const title = extractHeadingText($(te), $);
+            const items = $(te).nextUntil("strong, h3, h2").find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            assertExtractedData(items, title || "NA", elements[0]);
+            return {type: "references", title, items};
+        }).get();
+        return {elements: targetElements};
     }
 }
 

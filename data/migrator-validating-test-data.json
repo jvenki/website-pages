@@ -9752,6 +9752,167 @@
             }
         ]
     },
+    "2005": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Bank of Baroda offers four types of recurring deposit schemes- Regular Recurring Deposit, Baroda Samriddhi Quarterly Recurring Deposit, Baroda Samriddhi Half Yearly Recurring Deposit, and Yatha Shakthi Jama Yojana. The tenures of the RDs range from 6 months to 10 years. The interest rates range from 6.50% to 6.70%. Senior Citizens get additional 0.50% interest rate.</p><ul><li><strong>Recurring Deposit (Basic) -</strong> A simple saving option that lets helps you to mobilise your investment needs, starting at as less at Rs.50 per month (rural and semi-urban) at attractive interest rates.</li><li><strong>Baroda Samriddhi Quarterly Recurring Deposit -</strong> Accepts quarterly deposits at attractive interest rates and terms.</li><li><strong>Baroda Samriddhi Half Yearly Recurring Deposit -</strong> Accepts half yearly deposits with pleasing terms and rates.</li><li><strong>Yatha Shakthi Jama Yojana -</strong> Flexibility to invest a varying monthly amount based on certain conditions which result in better yield upon maturity. Choose a \"core amount\" and build as per availability.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Regular Recurring Deposit",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Key Highlights</strong></p><table><tbody><tr><th>Minimum Amount Deposit</th><td>Min: Rs.50 per month- rural and semi-urban branch (for any higher amount, deposit in multiples of Rs.50) <br> Rs.100 per month- urban and metro branch (for any higher amount, deposit in multiples of Rs.100) <br> Max: No limit</td></tr><tr><th>Tenure</th><td>Min: 6 months <br> Max: 10 years</td></tr><tr><th>Interest Rate</th><td>6.50% to 6.70%</td></tr><tr><th>Eligibility</th><td>All Individuals and Non-Individuals</td></tr><tr><th>TDS on RD</th><td>TDS will be deducted as per income tax rules</td></tr><tr><th>Premature Withdrawal</th><td>Allowed</td></tr><tr><th>Loan/Overdraft</th><td>Up to 95% of outstanding balance</td></tr><tr><th>Nomination Facility</th><td>Available</td></tr><tr><th>Late Penalty</th><td>Rs.1 per Rs.100 per month</td></tr></tbody></table><p><strong>Things to Know</strong></p><ul><li>Bank of Baroda offers attractive interest rates.</li><li>Interest rates are applied on a quarterly basis and will be paid together with the principal at the end of term.</li><li>Maturity of the RD is one month after payment of last installment or due date, whichever is later.</li><li>Advance against facility is not available for minors in single name and HUF.</li><li>In case of advances taken against deposits, if the depositor does not settle the account within 90 days, bank has the right to settle the overdraft account against his term deposit.</li><li>You will get a passbook for the RD account.</li><li>You can convert a regular RD to Baroda Yatha Shakti Jama Yojana Scheme.</li></ul><p><strong>Premature Withdrawals Rules</strong></p><p>In case of premature withdrawal, the interest will be 1% below the rate applicable for the period the deposit has remained with the bank.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Baroda Samriddhi Quarterly Recurring Deposit",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<table><tbody><tr><th>Minimum Amount Deposit</th><td>Min: Rs.500</td></tr><tr><th>Tenure</th><td>Min: 3 years <br> Max: 10 years</td></tr><tr><th>Eligibility</th><td>All individuals</td></tr><tr><th>TDS on RD</th><td>Applicable</td></tr><tr><th>Premature Withdrawal</th><td>Allowed</td></tr><tr><th>Loan/Overdraft</th><td>Up to 95% of outstanding balance</td></tr><tr><th>Nomination Facility</th><td>Availability</td></tr></tbody></table><p><strong>Things to Know</strong></p><ul><li>The deposits made will be on a quarterly basis. Helps in mobilising savings for those with limited income.</li><li>Interest charges are compounded on a quarterly basis and paid on maturity.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Baroda Samriddhi Half Yearly Recurring Deposit",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Key Highlights</strong></p><table><tbody><tr><th>Minimum Amount Deposit</th><td>Min: Rs.1,000</td></tr><tr><th>Tenure</th><td>Min: 3 years <br> Max: 10 years</td></tr><tr><th>Eligibility</th><td>All Individuals</td></tr><tr><th>TDS on RD</th><td>Applicable</td></tr><tr><th>Premature Withdrawal</th><td>Allowed</td></tr><tr><th>Loan/Overdraft</th><td>Up to 95% of outstanding balance</td></tr><tr><th>Nomination Facility</th><td>Availability</td></tr></tbody></table><p><strong>Things to Know</strong></p><ul><li>The deposits made will be on a half yearly basis. Helps in mobilising savings for those with limited income.</li><li>Compounded interest charges are on a half yearly basis, payable at the end of deposit tenure.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Flexible Recurring Deposit Scheme Yatha Shakti Jama Yojna",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Key Highlights</strong></p><table><tbody><tr><th>Minimum Amount Deposit</th><td>Min: Rs.100 per month (for any higher amount, deposit in multiples of Rs.100) <br> Max: only up to 3 times of the core instalment subject to maximum of Rs.10,000 per month</td></tr><tr><th>Tenure</th><td>Min:1 year <br> Max: 10 years</td></tr><tr><th>Eligibility</th><td>Individual, joint accounts, minors, partnerships, educational institutions, clubs, associations</td></tr><tr><th>TDS on RD</th><td>Applicable</td></tr><tr><th>Premature Withdrawal</th><td>Allowed</td></tr><tr><th>Loan/Overdraft</th><td>Up to 95% of outstanding balance</td></tr><tr><th>Nomination Facility</th><td>Availability</td></tr><tr><th>Late Penalty</th><td>No penalty on delayed payment installments</td></tr></tbody></table><p><strong>Things to Know</strong></p><ul><li>The monthly installment can be raised up to 3 times of the core amount with a cap of Rs.10,000 per month.</li><li>Interest rates are compounded on a quarterly basis.</li><li>Interest will be paid and credited half yearly.</li><li>Interest will be on daily balance. (Half yearly compounding of interest)</li><li>You will get a passbook for the RD account.</li><li>You will get TDS certificate for the RD.</li><li>Minor Accounts can be opened for individuals above 10 years subject to maximum cap of Rs.1 lakh.</li></ul><p><strong>Premature Withdrawals Rules</strong></p><p>In case of premature withdrawal, ROI will be 1% below the rate applicable for the period the deposit has remained with the bank.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "How to Open an RD Account in Bank of Baroda",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>You can open a recurring deposit account with Bank of Baroda in three ways:</p><ul><li>By visiting the branch</li><li>Through net banking</li><li>Through mobile banking</li></ul><p>If you are an existing Bank of Baroda account holder, use your net banking username and password to log in to your online account and open an e-RD right away. If you are not a Bank of Baroda account holder, you will have to open an account first. After your account is active, you can log in to net banking and open an e-RD. You will need to download the Bank of Baroda mobile app to open an RD via mobile banking.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Bank of Baroda RD Calculator",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>You can try out online RD calculators to calculate the interest on your RD. There are many websites that offer recurring deposit calculators. The process is simple and hassle-free. All you need to do is enter all the details pertaining to your RD account, including the amount, tenure, and rate of interest.</p><p>You can invest money in RD schemes offered by Bank of Baroda and enjoy competitive rates. However, to enjoy better returns, look for other investment vehicles like mutual funds, fixed deposits, stocks, and bonds, among others.</p>"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Know the Current Recurring Deposit Rates:",
+                "items": [
+                    {
+                        "link": "/recurring-deposit/bank-of-baroda-recurring-deposit-rates.html",
+                        "title": "Bank of Baroda Recurring Deposit Rates"
+                    },
+                    {
+                        "link": "/recurring-deposit-rates.html",
+                        "title": "Bank of Baroda RD Interest Rate Comparison with Other Banks and Institutions"
+                    }
+                ]
+            },
+            {
+                "title": "Bank of Baroda RD Schemes:",
+                "items": [
+                    {
+                        "link": "/recurring-deposit/baroda-samriddhi-half-yearly-recurring-deposit.html",
+                        "title": "Baroda Samriddhi Half Yearly Recurring Deposit"
+                    },
+                    {
+                        "link": "/recurring-deposit/baroda-samriddhi-quarterly-recurring-deposit.html",
+                        "title": "Baroda Samriddhi Quarterly Recurring Deposit"
+                    },
+                    {
+                        "link": "/recurring-deposit/bank-of-baroda-yatha-shakti-jama-yojana.html",
+                        "title": "Bank of Baroda Yatha Shakti Jama Yojana"
+                    },
+                    {
+                        "link": "/recurring-deposit/baroda-regular-income-cum-recurring-deposit.html",
+                        "title": "Baroda Regular Income Cum Recurring Deposit Scheme"
+                    }
+                ]
+            },
+            {
+                "title": "Read More Articles On RD",
+                "items": [
+                    {
+                        "link": "/recurring-deposit/flexi-recurring-deposit.html",
+                        "title": "Flexi Recurring Deposit Schemes"
+                    },
+                    {
+                        "link": "/recurring-deposit/banks-offer-highest-recurring-deposit-interest-rates-in-india.html",
+                        "title": "Which Bank Gives Highest Interest Rate On Recurring Deposit"
+                    },
+                    {
+                        "link": "/recurring-deposit/recurring-deposit-interest-rates-of-all-banks.html",
+                        "title": "Recurring Deposit Interest Rates of All Banks"
+                    },
+                    {
+                        "link": "/recurring-deposit/tax-on-recurring-deposit-interest-rates.html",
+                        "title": "Tax on Recurring Deposit Interest Rates"
+                    }
+                ]
+            },
+            {
+                "title": "Other Products From Bank Of Baroda",
+                "items": [
+                    {
+                        "link": "/bank-of-baroda-credit-card.html",
+                        "title": "Bank of Baroda Credit Card"
+                    },
+                    {
+                        "link": "/fixed-deposit/bank-of-baroda-fixed-deposit-rate.html",
+                        "title": "Bank of Baroda Fixed Deposit Rates"
+                    },
+                    {
+                        "link": "/ifsc-code/bank-of-baroda.html",
+                        "title": "Bank of Baroda IFSC Code"
+                    },
+                    {
+                        "link": "/bank-of-baroda-car-loan.html",
+                        "title": "Bank Of Baroda Car Loan"
+                    }
+                ]
+            }
+        ]
+    },
     "2044": {
         "title": "",
         "body": "",
