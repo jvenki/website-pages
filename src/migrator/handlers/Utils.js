@@ -277,6 +277,20 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     assert($e.find("table tbody tr").length > 0, "No rows were found in TBODY which is not right", $e);
     // assert($e.find("table tbody tr th").length == 0, "TBODY has TH cells which is not right", $e);
 
+    const isTDActuallyATH = ($td, $tr, rowIndex, colIndex) => {
+        const cellCount = $tr.children().length;
+
+        if ((Boolean($td.attr("class")) && (rowIndex == 0 && cellCount > 2 || colIndex == 0))) {
+            return true;
+        } else if ($tr.hasClass("bg-tory-blue")) {
+            return true;
+        } else if ($td.children().length == 1 && $td.find(">strong").length == 1 && (rowIndex == 0 || colIndex == 0)) {
+            return true;
+        } else if ($td.get(0).tagName == "th") {
+            return true;
+        }
+    };
+
     const createCell = (tagName, cellContent, attribs) => {
         let output = "<" + tagName;
         if (attribs) {
@@ -292,12 +306,12 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     const extractBodyRows = () => {
         let maxColumnCount = 0;
         const bodyRows = $e.find("table tbody tr").map((ri, tr) => {
-            const isTRActuallyAHeader = $(tr).hasClass("bg-tory-blue");
-            const cellCount = $(tr).children().length;
             const cells = $(tr).children().map((ci, td) => {
-                const isTDActuallyATH = (Boolean($(td).attr("class")) && (ri == 0 && cellCount > 2 || ci == 0)) || isTRActuallyAHeader || td.tagName == "th";
-                const cellBody = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get().join(" ");
-                return createCell(isTDActuallyATH ? "th" : "td", cellBody, td.attribs);
+                let cellBody = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get().join(" ");
+                if ($(td).children().length == 1 && $(td).find(">strong").length == 1 && (ri == 0 || ci == 0)) {
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong>([a-zA-Z0-9?\-.,:'()\s\\/]*)<\/strong>/, "$1");
+                }
+                return createCell(isTDActuallyATH($(td), $(tr), ri, ci) ? "th" : "td", cellBody, td.attribs);
             }).get();
             maxColumnCount = Math.max(cells.length, maxColumnCount);
             return `<tr>${cells.join("")}</tr>`;

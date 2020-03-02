@@ -79,25 +79,16 @@ const minifyHtml = (html) => {
 };
 
 const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
-    const whiteListedTagsThatCanBeEmpty = ["iframe", "img", "br", "td", "th"];
-    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons", "span.simplified-banner-icons"];
 
     const emptyNodes = [];
     $("*").each((i, e) => {
-        if ($(e).html() != "") {
-            return;
+        const $e = $(e);
+        const $parent = $e.parent();
+        const status = removeEmptyNode($e, $);
+        if (status) {
+            emptyNodes.push($e.toString());    
+            removeEmptyAncestors($parent, $);
         }
-        if (whiteListedTagsThatCanBeEmpty.includes(e.tagName)) {
-            return;
-        }
-        if (whiteListedClassNamesThatCanBeEmpty.some((tagNclass) => {const [tagName, className] = tagNclass.split("."); return e.tagName == tagName && $(e).hasClass(className);})) {
-            return;
-        }
-
-        const $parent = $(e).parent();
-        emptyNodes.push($(e).toString());
-        $(e).remove();
-        removeEmptyAncestors($parent, $);
     });
 
     onIssue(new MigrationError(CleanserIssueCode.REMOVED_EMPTY_NODES, undefined, "Count = " + emptyNodes.length));
@@ -195,27 +186,6 @@ const removeRowLevelGridsUnderRows = ($, onIssue, depth=0) => {
     }
 };
 
-const removeTableOfContents = ($, onIssue) => {
-    const customTOCs = [];
-    $("table, ul").each((i, t) => {
-        let isTOC = false;
-        $(t).find("a").each((j, a) => {
-            if ($(a).attr("href") && $(a).attr("href").startsWith("#")) {
-                const $parent = $(a).parent();
-                isTOC = true;
-                $(a).remove();
-                removeEmptyAncestors($parent);
-            }
-        });
-        if (isTOC) {
-            customTOCs.push($(t).toString());
-        }
-    });
-    if (customTOCs.length > 0) {
-        onIssue(new MigrationError(CleanserIssueCode.REMOVED_TOC, undefined, customTOCs.join("")));
-    }
-};
-
 const removeDisqusElements = ($, onIssue) => {
     $("a[href='#disqus_thread']").each((i, a) => {
         onIssue(new MigrationError(CleanserIssueCode.REMOVED_DISQUS));
@@ -232,12 +202,31 @@ const removeOfferTableElements = ($, onIssue) => {
     });
 };
 
+const removeEmptyNode = ($e, $) => {
+    const whiteListedTagsThatCanBeEmpty = ["iframe", "img", "br", "td", "th"];
+    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons", "span.simplified-banner-icons"];
+
+    const e = $e.get(0);
+    if ($e.html() != "") {
+        return false;
+    }
+    if (whiteListedTagsThatCanBeEmpty.includes(e.tagName)) {
+        return false;
+    } else if (whiteListedClassNamesThatCanBeEmpty.some((tagNclass) => {const [tagName, className] = tagNclass.split("."); return e.tagName == tagName && $e.hasClass(className);})) {
+        return false;
+    } else if (e.tagName == "strong" && $e.parent().get(0).tagName == "td") {
+        return false;
+    }
+
+    $e.remove();
+    return true;
+};
+
 const removeEmptyAncestors = ($e, $) => {
     while (true) {
         const $p = $e.parent();
-        if ($e.html() == "") {
-            $e.remove();
-        } else {
+        const status = removeEmptyNode($e, $);
+        if (!status) {
             break;
         }
         $e = $p;
