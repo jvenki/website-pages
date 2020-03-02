@@ -9752,6 +9752,138 @@
             }
         ]
     },
+    "2044": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>One of the leading Public Sector Banks in India, OBC was established in Lahore (now in Pakistan) pre-independence. Currently, it is a very popular bank catering to the varied financial needs of its wide customer base. The bank has a strong network of ATMs and branches spread across the nation. It also provides various products and services in the field of Retail Banking and Personal Banking.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Recurring Deposit from Oriental Bank of Commerce",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>OBC offers Recurring Deposit to its customers with a host of benefits and useful features. RD is an extremely smart saving option for small time investors and those with a steady monthly income. It allows the depositor to invest a fixed sum every month for a fixed period. Once the deposit tenure is over, the account holder gets back a lump sum amount including the principal and interest. The RD scheme offered by OBC is known as Progressive Deposit General.</p>$LPD_EMBEDDED_ITEM_RD_1"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Features and benefits of Oriental Bank of Commerce Recurring Deposit",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p><strong>Progressive Deposit Scheme</strong></p><ul><li>The minimum monthly instalment amount is Rs. 10 and in multiples of the same thereof.</li><li>The interest is compounded quarterly.</li><li>The rate of interest is subject to the period of deposit.</li><li>The interest earned on your Regular RD is free of TDS (Tax Deductible at Source) deductions, as per the current income tax rules.</li><li>OBC provides loan facility of up to 95% of the accrued deposit value, to maximise benefits for its customers.</li><li>Once the depositor has specified the amount of monthly instalments and the deposit tenure in the AOF, he/she shall not be allowed to alter the same.</li><li>The deposit tenure ranges from a minimum of 6 months to a maximum of 120 months.</li></ul>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Interest offered on OBC’s Recurring Deposit",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Oriental Bank of Commerce offers lucrative and competitive rates of interest for its Recurring Deposit scheme. The rate of interest depends on the period of deposit. The rate of interest ranges from 8% to 8.25% and is compounded on quarterly basis. It is credited to the account of the depositor once the RD matures, unless in case of death of one of the account holders (applicable to joint accounts) and other exceptional cases. Senior citizens enjoy an additional interest rate of 0.50% on the regular rates of interest. To get more clarity on the interest rates offered, customers can visit the nearest OBC branch or refer to the bank’s website.</p>$LPD_EMBEDDED_ITEM_RD_3"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Eligibility to open an RD account with OBC",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<ul><li>An individual can open an RD account in his/her own name.</li><li>A maximum of three individuals can open a joint RD account together.</li><li>In case of a joint RD account, if one of the account holder dies, the amount can be payable to either one of the survivors, or both the survivors (in case of one RD account held by 3 people). All specific instructions regarding the same need to be given at the time of opening the RD account.</li></ul><p>The documents required for opening an RD account with OBC are –</p><ol><li>Proof of residence</li><li>Any valid government ID proof (passport, driving licence, etc.)</li><li>Valid business address proof</li><li>2 passport size photographs of the account holder/holders</li></ol><p>To open an RD account with OBC, you can download the form from the bank’s official website, and submit it to the nearest branch, along with all the relevant documents, after filling it up duly.</p>"
+                    },
+                    {
+                        "type": "cta",
+                        "link": "/aadhar-card/how-to-link-aadhar-card-with-oriental-bank-account.html",
+                        "linkText": "How to link Aadhar Card with Oriental Bank Account",
+                        "prefix": "Check out -"
+                    },
+                    {
+                        "type": "text",
+                        "body": "$LPD_EMBEDDED_ITEM_RD"
+                    }
+                ]
+            }
+        ],
+        "references": [
+            {
+                "title": "Know the Current Recurring Deposit Rates",
+                "items": [
+                    {
+                        "link": "/recurring-deposit-rates.html",
+                        "title": "Oriental Bank of Commerce RD Rates Comparison with Other Banks and Institutions"
+                    },
+                    {
+                        "link": "/recurring-deposit/oriental-bank-of-commerce-recurring-deposit-rates.html",
+                        "title": "Oriental Bank of Commerce Recurring Deposit Interest Rates"
+                    }
+                ]
+            },
+            {
+                "title": "Read More Articles On RD",
+                "items": [
+                    {
+                        "link": "/recurring-deposit/flexi-recurring-deposit.html",
+                        "title": "Flexi Recurring Deposit Schemes"
+                    },
+                    {
+                        "link": "/recurring-deposit/banks-offer-highest-recurring-deposit-interest-rates-in-india.html",
+                        "title": "Which Bank Gives Highest Interest Rate On Recurring Deposit"
+                    },
+                    {
+                        "link": "/recurring-deposit/recurring-deposit-interest-rates-of-all-banks.html",
+                        "title": "Recurring Deposit Interest Rates of All Banks"
+                    },
+                    {
+                        "link": "/recurring-deposit/tax-on-recurring-deposit-interest-rates.html",
+                        "title": "Tax on Recurring Deposit Interest Rates"
+                    }
+                ]
+            },
+            {
+                "title": "Other Products from Oriental Bank of Commerce",
+                "items": [
+                    {
+                        "link": "/oriental-credit-card.html",
+                        "title": "Oriental Bank of Commerce Credit Card"
+                    },
+                    {
+                        "link": "/fixed-deposit/oriental-fixed-deposit-rate.html",
+                        "title": "Oriental Bank of Commerce Fixed Deposit Rates"
+                    },
+                    {
+                        "link": "/ifsc-code/oriental-bank-of-commerce.html",
+                        "title": "Oriental Bank of Commerce IFSC Code"
+                    },
+                    {
+                        "link": "/oriental-car-loan.html",
+                        "title": "Oriental Car Loan"
+                    }
+                ]
+            }
+        ],
+        "sitemap": {
+            "link": "/recurring-deposit-sitemap.html",
+            "linkText": "Recurring Deposit - Sitemap"
+        }
+    },
     "2447": {
         "title": "",
         "body": "",

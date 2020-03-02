@@ -16,6 +16,7 @@ export default class GridHandler extends BaseHandler {
         const $element = elements[0];
         const cells = [];
         const output = [];
+        let referencesPulled = false;
 
         $element.children().each((i, child) => {
             const parsedItems = processElementsInsideDiv($(child), $, this.getName());
@@ -27,6 +28,9 @@ export default class GridHandler extends BaseHandler {
                     } else {
                         throw new MigrationError(ConversionIssueCode.GRID_MULTIPLE_H2, undefined, $element);
                     }
+                } else if (item.type == "references") {
+                    referencesPulled = true;
+                    output.push(item);
                 } else {
                     prunedItems.push(item);
                 }
@@ -36,11 +40,18 @@ export default class GridHandler extends BaseHandler {
                 throw new MigrationError(ConversionIssueCode.GRID_MULTIPLE_ITEMS_IN_CELL, undefined, $element);
             }
 
-            assert(Boolean(prunedItems[0]), "GridHandler-CannotExtractCell", $(child));
-            cells.push({width: computeGridCellWidth($(child)), body: prunedItems[0]});
+            if (prunedItems[0]) {
+                cells.push({width: computeGridCellWidth($(child)), body: prunedItems[0]});
+            } else if (!referencesPulled) {
+                assert(false, "GridHandler-CannotExtractCell", $(child));
+            }
         });
-        assert(cells.length > 1,  "GridHandler-CannotExtractRow", $element);
-        output.push({type: "grid", cells});
+
+        if (cells.length > 1) {
+            output.push({type: "grid", cells});
+        } else if (!referencesPulled) {
+            assert(false,  "GridHandler-CannotExtractRow", $element);
+        }
         return {elements: output};
     }
 }

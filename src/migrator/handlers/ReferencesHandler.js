@@ -133,7 +133,7 @@ export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const title = extractHeadingText(elements[0].find("> strong, > h3"), $);
+        const title = extractHeadingText(elements[0].find("> strong, > h3, > h2"), $);
         const items = elements[0].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
