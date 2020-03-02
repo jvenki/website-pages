@@ -286,7 +286,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
         const cellCount = $tr.children().length;
         if ((Boolean($td.attr("class")) && (rowIndex == 0 && cellCount > 2 || colIndex == 0))) {
             return true;
-        } else if ($tr.hasClass("bg-tory-blue")) {
+        } else if ($tr.hasClass("bg-tory-blue") || $td.hasClass("bg-tory-blue")) {
             return true;
         } else if (isTDofStrongOnly($td, rowIndex, colIndex) || isTDofPofStrongOnly($td, rowIndex, colIndex)) {
             return true;
