@@ -37,7 +37,7 @@ export class DisclaimerHandlerVariant_GridOfAccordions extends BaseHandler {
 
 export class DisclaimerHandlerVariant_Accordion extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        return $e.hasClass("twi-accordion") && $e.hasClass("disclaimer-ft");
+        return $e.hasClass("twi-accordion") && $e.find(".panel-title").text() == "Disclaimer";
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
