@@ -12,7 +12,7 @@ export const assert = (condition, errorMsg, $e) => {
         throw new MigrationError(errorMsg, undefined, $e.toString());
     }
 
-    throw new MigrationError(ErrorCode.UNKNOWN_TAG, errorMsg, $e.toString());
+    throw new MigrationError(ErrorCode.UNKNOWN_TAG, errorMsg, $e && $e.toString());
 };
 
 export const computeNodeName = ($e) => {
@@ -270,19 +270,20 @@ const extractHtmlFromTextualNodes = ($e, $) => {
 };
 
 const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
+    const $table = $e.get(0).tagName == "table" ? $e : $e.find("table").eq(0);
+    
     // Upon analysis it was found that TBODY had TH only in 689, 25814 & 25815. Therefore we can be sure that THEAD is the only way to see header.
     // assert($e.find("table thead tr").length <= 1, "More than one Header Row was found which is not right", $e);
-    assert($e.find(".product-hl-table-head").length == 0 || $e.find("table thead tr").length == 0, "More than one Header Row was found which is not right", $e);
-    assert($e.find("table thead tr td").length == 0, "THEAD has TD cells which is not right", $e);
-    assert($e.find("table tbody tr").length > 0, "No rows were found in TBODY which is not right", $e);
-    // assert($e.find("table tbody tr th").length == 0, "TBODY has TH cells which is not right", $e);
+    assert($e.find(".product-hl-table-head").length == 0 || $table.find("table thead tr").length == 0, "More than one Header Row was found which is not right", $table);
+    assert($table.find("> thead > tr > td").length == 0, "THEAD has TD cells which is not right", $table);
+    assert($table.find("> tbody > tr").length > 0, "No rows were found in TBODY which is not right", $table);
+    // assert($e.find("> tbody > tr > th").length == 0, "TBODY has TH cells which is not right", $e);
 
     const isTDofStrongOnly = ($td, rowIndex, colIndex) => $td.children().length == 1 && $td.find(">strong").length == 1 && (rowIndex == 0 || colIndex == 0);
     const isTDofPofStrongOnly = ($td, rowIndex, colIndex) => $td.children().length == 1 && isElementMadeUpOfOnlyWithGivenDescendents($td, ["p", "strong"], $) && (rowIndex == 0 || colIndex == 0);
 
     const isTDActuallyATH = ($td, $tr, rowIndex, colIndex) => {
         const cellCount = $tr.children().length;
-
         if ((Boolean($td.attr("class")) && (rowIndex == 0 && cellCount > 2 || colIndex == 0))) {
             return true;
         } else if ($tr.hasClass("bg-tory-blue")) {
@@ -308,7 +309,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
     const extractBodyRows = () => {
         let maxColumnCount = 0;
-        const bodyRows = $e.find("table tbody tr").map((ri, tr) => {
+        const bodyRows = $table.find("> tbody > tr").map((ri, tr) => {
             const cells = $(tr).children().map((ci, td) => {
                 let cellBody;
                 if (isTDofStrongOnly($(td), ri, ci)) {
@@ -332,13 +333,12 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     };
 
     const extractHeaderRows = (maxColumnCount) => {
-        const headerRows = $e.find("table thead tr").map((ri, tr) => {
+        const headerRows = $table.find("> thead > tr").map((ri, tr) => {
             const cells = $(tr).children().map((ci, th) => createCell("th", extractHeadingText($(th), $), th.attribs)).get();
             return `<tr>${cells.join("")}</tr>`;
         }).get();
-        if ($e.find(".product-hl-table-head").length > 0) {
-            const specialHeader = $e.find(".product-hl-table-head").text();
-            // const specialSubHeader = $e.parent().prev().find("sub").text();
+        if ($e.find(" > .product-hl-table-head").length > 0) {
+            const specialHeader = $e.find("> .product-hl-table-head").text();
             headerRows.push(`<tr><th colspan="${maxColumnCount}">${specialHeader} - (Updated on $date)</th></tr>`);
         }
         return headerRows;
