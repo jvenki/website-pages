@@ -56,7 +56,7 @@ export class FeaturedOffersHandlerVariant_BorderBlue extends BaseHandler {
 export class FeaturedOffersHandlerVariant_Template extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return $e.get(0).tagName == "div" && $e.hasClass("col-md-12") && $e.hasClass("top-pad-10") 
-            && $e.children().eq(0).get(0).tagName == "h2"
+            && ["h2", "h3"].includes($e.children().eq(0).get(0).tagName)
             && $e.find("img").length > 0;
     }
 
@@ -78,14 +78,14 @@ export class FeaturedOffersHandlerVariant_Template extends BaseHandler {
     }
 
     validate($element: CheerioElemType, $: CheerioDocType) {
-        assert($element.find("h2").length == 1, "FeaturedOffersHandlerVariant_Template-ConditionNotMet#1", $element);
+        assert($element.find("h2,h3").length == 1, "FeaturedOffersHandlerVariant_Template-ConditionNotMet#1", $element);
         assert($element.find("img").length == 1, "FeaturedOffersHandlerVariant_Template-ConditionNotMet#2", $element);
         assert($element.find(" > div").length == 2, "FeaturedOffersHandlerVariant_Template-ConditionNotMet#3", $element);
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const extract = ($offerElement) => {
-            const title = extractHeadingText($offerElement.find("h2"), $);
+            const title = extractHeadingText($offerElement.find("h2,h3"), $);
             const imgSrc = extractImgSrc($offerElement.find("img"));
             let body = "";
             $offerElement.find("> div").eq(1).children().each((i, be) => {
