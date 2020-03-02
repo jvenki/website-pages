@@ -204,7 +204,7 @@ const removeOfferTableElements = ($, onIssue) => {
 
 const removeEmptyNode = ($e, $) => {
     const whiteListedTagsThatCanBeEmpty = ["iframe", "img", "br", "td", "th"];
-    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons", "span.simplified-banner-icons"];
+    const whiteListedClassNamesThatCanBeEmpty = ["span.simplified-landing-banner-icons", "span.simplified-banner-icons", "div.tabular-column"];
 
     const e = $e.get(0);
     if ($e.html() != "") {

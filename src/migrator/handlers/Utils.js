@@ -183,7 +183,7 @@ export const extractContentHtml = ($e, $) => {
     } else if (isElementATableNode($e)) {
         html = extractHtmlFromTableCreatedUsingTableNode($e, $);
     } else if (["div"].includes($e.get(0).tagName)) {
-        html = $e.children().map((i, c) => extractContentHtml($(c), $)).get().join("");
+        html = $e.contents().map((i, c) => extractContentHtml($(c), $)).get().join("");
     } else if (isElementASubHeadingNode($e)) {
         if ($e.get(0).tagName != "h3") {
             if ($e.children().length == 1 && $e.children().get(0).tagName == "u") {

@@ -11169,6 +11169,117 @@
             "linkText": "Silver Rate - Sitemap"
         }
     },
+    "4127": {
+        "title": "",
+        "body": "",
+        "sections": [
+            {
+                "type": "section",
+                "title": "",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>With a strong presence in Odisha, Adhikar Microfinance has emerged as a reliable micro financing institution that has a presence in across 4 states, with a network of 73 branches that is only set to increase. In a short span since its inception, Adhikar Microfinance has been able to build an impressive client database and has disbursed loans of over Rs.1,000 crore in total. The lender is a business correspondent of State Bank of India, Yes Bank, Reliance, and IDBI Bank.</p><p>The organisation seeks to improve the standard of living of people hailing from the weaker sections of society by providing financial solutions predominantly catered to the unorganized sector. Among the loan solutions offered by Adhikar Microfinance are the Income Generation Loan, House Improvement Loan, Energy Loan, Wash/Water Loan, etc. The details of these loans are given below.</p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Products and Services Offered by Adhikar Microfinance",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>Listed below are the various products and services offered by Adhikar Microfinance:</p><h3>1. Income Generation Loan</h3><p><strong>Features:</strong></p><ul><li>The Income Generation Loan can be availed by women who are in need of funds but are unable to obtain loans from traditional lenders.</li><li>The lender offers flexible repayment terms, in accordance with the loan amount borrowed and the repayment capacity of the borrower.</li><li>The repayment amount will be collected by Aadhikar Microfinance's credit officers from the borrower's doorstep.</li></ul><p>The particulars of the Income Generation Loan are as follows:</p>"
+                    },
+                    {
+                        "type": "responsive-table",
+                        "body": "<table><thead><tr><th>Interest Rate</th><th>Loan Amount</th><th>Loan Tenure</th><th></th></tr></thead><tbody><tr><td>24.50% p.a.</td><td>Up to Rs.40,000</td><td>12 months to 24 months</td><td><a href=\"/personal-loan.html?variant=slide\" title=\"Enquire\"> Enquire</a></td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<p><em><strong>*Note:</strong> The particulars of the loan amount and the loan tenure will vary based on the cycle of the loan.</em></p><p>The particulars of the top-up loan are as follows:</p>"
+                    },
+                    {
+                        "type": "responsive-table",
+                        "body": "<table><thead><tr><th>Interest Rate</th><th>Loan Amount</th><th>Loan Tenure</th><th></th></tr></thead><tbody><tr><td>24.50% p.a.</td><td>Rs.5,000, Rs.10,000, and Rs.15,000</td><td>12 months</td><td><a href=\"/personal-loan.html?variant=slide\" title=\"Enquire\"> Enquire</a></td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>2. Energy Loan</h3><p><strong>Features:</strong></p><ul><li>Individuals belonging to economically weaker sections of society who are deprived of a conventional source of energy can benefit from this loan.</li><li>No loan processing fee is charged for this loan.</li><li>Multiple loan tenure options are offered to prospective borrowers.</li></ul>"
+                    },
+                    {
+                        "type": "responsive-table",
+                        "body": "<table><thead><tr><th>Interest Rate</th><th>Loan Amount</th><th>Loan Tenure</th><th></th></tr></thead><tbody><tr><td>24.50% p.a.</td><td>Rs.2,350 to Rs.6,000</td><td>6 months and 12 months</td><td><a href=\"/personal-loan.html?variant=slide\" title=\"Enquire\"> Enquire</a></td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>3. House Improvement Loan</h3><p><strong>Features:</strong></p><ul><li>The loan can be availed by individuals who wish to renovate or repair their existing house, make a portion of the house \"pucca\", etc.</li><li>Individuals who avail this loan can repay the lender in easy installments.</li><li>A customised loan amount can be opted for, based on the applicant's requirements.</li></ul>"
+                    },
+                    {
+                        "type": "responsive-table",
+                        "body": "<table><thead><tr><th>Interest Rate</th><th>Loan Amount</th><th>Loan Tenure</th><th></th></tr></thead><tbody><tr><td>23% p.a.</td><td>Rs.30,000 to Rs.40,000</td><td>24 months</td><td><a href=\"/personal-loan.html?variant=slide\" title=\"Enquire\"> Enquire</a></td></tr></tbody></table>"
+                    },
+                    {
+                        "type": "text",
+                        "body": "<h3>4. Wash/Water Loan</h3><p><strong>Features:</strong></p><ul><li>The lender offers a Wash/Water Loan for the construction of toilets and for piped water facility to those residing in rural areas.</li><li>The loans are offered at a low rate of interest.</li><li>Based on the repayment capacity of the borrower, a suitable loan tenure will be chosen.</li></ul>"
+                    },
+                    {
+                        "type": "responsive-table",
+                        "body": "<table><thead><tr><th>Interest Rate</th><th>Loan Amount</th><th>Loan Tenure</th><th></th></tr></thead><tbody><tr><td>23% p.a.</td><td>Rs.5,000 to Rs.20,000</td><td>12 months and 18 months</td><td><a href=\"/personal-loan.html?variant=slide\" title=\"Enquire\"> Enquire</a></td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Fees and Charges",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The fees and charges that are levied by Adhikar Microfinance for the various loan products that they offer, apart from the interest that is charged, are as follows:</p><ol><li>Income Generation Loan:</li><ul><li>Loan Processing Fee: 1% plus 18% GST</li><li>Insurance Charges: 0.94% to 1.85% (varies based on the loan tenure)</li></ul><li>Energy Loan:</li><ul><li>Loan Processing Fee: Nil</li><li>Insurance Charges: Nil</li></ul><li>House Improvement Loan:</li><ul><li>Loan Processing Fee: 1% plus 18% GST</li><li>Insurance Charges: 1.85% for a 24-month loan tenure</li></ul><li>Wash Loan/Water Loan:</li><ul><li>Loan Processing Fee: 1% plus 18% GST</li><li>Insurance Charges: 0.94% for a 12-month loan term and 1.4% for an 18-month loan term</li></ul></ol><p><em><strong>*Note:</strong> Any other charges that are levied by the lender in accordance with the terms and conditions of your loan will have to be paid.</em></p>"
+                    }
+                ]
+            },
+            {
+                "type": "section",
+                "title": "Why You Should Choose Adhikar Microfinance?",
+                "body": "",
+                "elements": [
+                    {
+                        "type": "text",
+                        "body": "<p>The credit services provided by?Adhikar Microfinance are catered towards weaker sections of society and particularly benefit women and the physically challenged. Listed below are a few reasons why you should consider taking a loan from Adhikar Microfinance:</p><ul><li>Affordable Interest Charged: The lender charges an affordable interest rate on all the loans that it offers.</li><li>Low Loan Processing Fee: The lender charges a low loan processing fee ranging between 0% and 1% of the loan amount. When a lender charges a nil/low loan processing fee, the borrower receives a higher loan amount, since the amount deducted for the loan processing fee will be lesser.</li><li>Flexible Terms: Adhikar Microfinance offers flexible terms to borrowers. The repayment term and amount are decided after taking the borrower's repayment capacity into consideration.</li></ul><p>Adhikar Microfinance is a leading microfinance lender that offers loan solutions to individuals living in rural parts of India and to those who belong to economically weaker segments of society. Individuals in need of funds can avail any loan offered by the lender at attractive interest rates. Ensure that you go through the features of the loan, assess your repayment capability, and are familiar with the various terms specified by the lender before applying for a loan.</p>"
+                    }
+                ]
+            }
+        ],
+        "faq": {
+            "title": "FAQs",
+            "items": [
+                {
+                    "question": "What are the various customer care channels through which I can reach Adhikar Microfinance?",
+                    "answer": "<p>You can contact the lender through the toll-free number, which is 18003457124, or send an email to adhikar@adhikarindia.org.</p>"
+                },
+                {
+                    "question": "How does the lender calculate the interest on loans that it offers?",
+                    "answer": "<p>The lender uses the reducing balance method to calculate the interest on the loans that it offers. Thus, when the borrower pays an EMI, the outstanding loan amount reduces and the interest is calculated on this reduced outstanding loan amount.</p>"
+                },
+                {
+                    "question": "Does the lender have a pan-India presence?",
+                    "answer": "<p>Adhikar Microfinance currently operates in 4 states. The lender has a total of 73 branches across the various states that it operates in.</p>"
+                },
+                {
+                    "question": "What is the minimum loan amount that I can avail under the Income Generation Loan?",
+                    "answer": "<p>Listed below are the loan amount options that you can choose with the Income Generation Loan:</p><ul><li>1st cycle: Rs.10,000, Rs.15,000, and Rs.20,000</li><li>2nd cycle: Rs.20,000, Rs.25,000, and Rs.30,000</li><li>3rd cycle onwards: Rs.30,000, Rs.35,000, and Rs.40,000</li></ul>"
+                },
+                {
+                    "question": "How do I go about applying for a loan from Adhikar Microfinance?",
+                    "answer": "<p>It is advisable to contact the lender through the toll-free number/email ID or visit the lender's branch if you wish to apply for a loan from Adhikar Microfinance.</p>"
+                }
+            ]
+        }
+    },
     "4316": {
         "title": "",
         "body": "",
