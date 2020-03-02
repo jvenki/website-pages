@@ -277,6 +277,9 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     assert($e.find("table tbody tr").length > 0, "No rows were found in TBODY which is not right", $e);
     // assert($e.find("table tbody tr th").length == 0, "TBODY has TH cells which is not right", $e);
 
+    const isTDofStrongOnly = ($td, rowIndex, colIndex) => $td.children().length == 1 && $td.find(">strong").length == 1 && (rowIndex == 0 || colIndex == 0);
+    const isTDofPofStrongOnly = ($td, rowIndex, colIndex) => $td.children().length == 1 && isElementMadeUpOfOnlyWithGivenDescendents($td, ["p", "strong"], $) && (rowIndex == 0 || colIndex == 0);
+
     const isTDActuallyATH = ($td, $tr, rowIndex, colIndex) => {
         const cellCount = $tr.children().length;
 
@@ -284,7 +287,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
             return true;
         } else if ($tr.hasClass("bg-tory-blue")) {
             return true;
-        } else if ($td.children().length == 1 && $td.find(">strong").length == 1 && (rowIndex == 0 || colIndex == 0)) {
+        } else if (isTDofStrongOnly($td, rowIndex, colIndex) || isTDofPofStrongOnly($td, rowIndex, colIndex)) {
             return true;
         } else if ($td.get(0).tagName == "th") {
             return true;
@@ -307,9 +310,18 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
         let maxColumnCount = 0;
         const bodyRows = $e.find("table tbody tr").map((ri, tr) => {
             const cells = $(tr).children().map((ci, td) => {
-                let cellBody = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get().join(" ");
-                if ($(td).children().length == 1 && $(td).find(">strong").length == 1 && (ri == 0 || ci == 0)) {
-                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong>([a-zA-Z0-9?\-.,:'()\s\\/]*)<\/strong>/, "$1");
+                let cellBody;
+                if (isTDofStrongOnly($(td), ri, ci)) {
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong>/, "$1");
+                } else if (isTDofPofStrongOnly($(td), ri, ci)) {
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/p>/, "$1");
+                } else {
+                    const cellBodies = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get();
+                    if (cellBodies.length == 1) {
+                        cellBody = cellBodies.join(" ").replace(/<p>([a-zA-Z0-9?\-%.,:'()\s\\/]*)<\/p>/, "$1");
+                    } else {
+                        cellBody = cellBodies.join(" ");
+                    }
                 }
                 return createCell(isTDActuallyATH($(td), $(tr), ri, ci) ? "th" : "td", cellBody, td.attribs);
             }).get();
