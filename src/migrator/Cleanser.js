@@ -58,7 +58,6 @@ const makeHTMLValid = (html) => {
     cleansedHtml = 
         cleansedHtml.replace(/<\/div><br>/g, "</div>") // Found in LPD#859
             .replace(/<\/p><br>/g, "</p>") // Found in LPD#856
-            .replace(/<address><p>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/p><\/address>/g, "<p>$1</p>")  //Found in LPD#33
             .replace(/<ul><li><h2>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/h2><\/li><\/ul>/g, "<h2>$1</h2>")
             .replace(/<small>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/small>/g, "<em>$1</em>")
             .replace(/>&nbsp;</g, "><") // Found in 10056
@@ -116,7 +115,7 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
 const unwrapElements = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
         const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
-        const hasUnncessaryTag = ["space", "picture"].includes($e.get(0).tagName);
+        const hasUnncessaryTag = ["space", "picture", "address"].includes($e.get(0).tagName);
         if (hasUnncessaryDivWithClass || hasUnncessaryTag) {
             onIssue(new MigrationError(CleanserIssueCode.REMOVED_HFM_NODE, computeNodeName($e), "Count = 1"));
             $e = unwrapElement($e, $);

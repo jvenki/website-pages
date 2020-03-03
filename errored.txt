@@ -59,7 +59,7 @@ Summary - Distribution of Error Codes
     UNKNOWN_TAG - CTAHandlerVariant_ProductLandingBlock-ConditionNotMet#1 = 4 [1133,1393,1394,4260]
     UNKNOWN_TAG - CTAHandlerVariant_ProductLandingBlock-ConditionNotMet#3 = 4 [25287,25288,25291,25292]
 
-    UNKNOWN_TAG - JumbotronHandlerVariant_PrimaryKeyDetails_P-CannotExtractBody = 2 [6239,9225]
+    UNKNOWN_TAG - JumbotronHandlerVariant_PrimaryKeyDetails_P-CannotExtractBody = 1 [6239]
 
     UNKNOWN_TAG - FeaturedOffersHandlerVariant_Template-ConditionNotMet#1 = 2 [2602,11059]
 
