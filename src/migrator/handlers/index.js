@@ -11,7 +11,7 @@ import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
 import UnwrapHandler from "./UnwrapHandler";
 import NoopWarningHandler from "./NoopWarningHandler";
-import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData, CTAHandlerVariant_InsuranceWeekPick, CTAHandlerVariant_TabularDataSimple} from "./CTAHandler";
+import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData, CTAHandlerVariant_InsuranceWeekPick, CTAHandlerVariant_TabularDataSimple, CTAHandlerVariant_ListGroup_UL, CTAHandlerVariant_ListGroup_P} from "./CTAHandler";
 import { AccordionHandler } from "./AccordionHandler";
 import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
 import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisP, FAQHandlerVariant_HeadingRegexFollowedByULAsQAndPAsA, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisP, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisText_AisP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofH3_AisP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLI_AisText, FAQHandlerVariant_HeadingRegexFollowedByStrongAndPs} from "./FAQHandler";
@@ -77,6 +77,8 @@ const handlers = [
     new CTAHandlerVariant_TabularData(),
     new CTAHandlerVariant_TabularDataSimple(),
     new CTAHandlerVariant_InsuranceWeekPick(),
+    new CTAHandlerVariant_ListGroup_UL(),
+    new CTAHandlerVariant_ListGroup_P(),
     new TextHandlerVariant_Main(),
     new TextHandlerVariant_PointerView(),
     new LandingBannerHandlerVariant_Main(),

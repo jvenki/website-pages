@@ -122,3 +122,44 @@ export class CTAHandlerVariant_InsuranceWeekPick extends BaseHandler {
         return {elements: [{type: "cta", link, linkText}]};
     }
 }
+
+export class CTAHandlerVariant_ListGroup_UL extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.get(0).tagName == "ul" && $e.hasClass("list-group") 
+            && $e.children().length == 1 && $e.children().first().get(0).tagName == "li" 
+            && $e.children().first().children().length == 1 && $e.children().first().children().first().get(0).tagName == "a"
+            && Boolean($e.find(">li>a").attr("href"));
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = extractLink($element.find("a"));
+        const linkText = extractLinkText($element.find("a"), $);
+        const prefix = $element.text().substring(0, $element.text().indexOf(linkText)).trim();
+        assertExtractedData(link, linkText, $element);
+
+        const convElement = {type: "cta", link, linkText};
+        if (prefix) convElement.prefix = prefix;
+        return {elements: [convElement]};
+    }
+}
+
+export class CTAHandlerVariant_ListGroup_P extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.get(0).tagName == "p" && $e.hasClass("list-group-item") 
+            && $e.children().length == 1 && $e.children().first().get(0).tagName == "a" 
+            && Boolean($e.find(">a").attr("href"));
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = extractLink($element.find("a"));
+        const linkText = extractLinkText($element.find("a"), $);
+        const prefix = $element.text().substring(0, $element.text().indexOf(linkText)).trim();
+        assertExtractedData(link, linkText, $element);
+
+        const convElement = {type: "cta", link, linkText};
+        if (prefix) convElement.prefix = prefix;
+        return {elements: [convElement]};
+    }
+}

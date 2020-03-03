@@ -15,10 +15,13 @@ export default class DeprecatedTOC extends React.Component {
 
     renderList() {
         return (
-            <ul style={{position: "relative", border: "1px solid red"}} >
-                {this.props.items.map(this.renderSingleItem)}
-                <div style={{position: "absolute", top: "30%", left: "30%", backgroundColor: "red", padding: "20px"}}>DEPRECATED</div>
-            </ul>
+            <React.Fragment>
+                <div className="clearfix"></div>
+                <ul style={{position: "relative", border: "1px solid red"}} >
+                    {this.props.items.map(this.renderSingleItem)}
+                    <div style={{position: "absolute", top: "30%", left: "30%", backgroundColor: "red", padding: "20px"}}>DEPRECATED</div>
+                </ul>
+            </React.Fragment>
         );
     }
 
