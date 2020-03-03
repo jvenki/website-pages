@@ -63,10 +63,9 @@ Summary - Distribution of Error Codes
 
     UNKNOWN_TAG - FeaturedOffersHandlerVariant_Template-ConditionNotMet#1 = 2 [2602,11059]
 
-    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#5 = 22 [554,607,608,615,2326,2573,3308,5469,10948,11253,11254,11255,11257,11259,11260,11391,11392,11666,11668,11669,11670,12345]
-    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#1 = 18 [1490,1641,5367,9507,9623,11204,11205,11207,11208,11209,11210,11212,11213,11214,11215,11217,11218,11230]
-    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#4 = 5 [4154,5345,5359,5383,5384]
-    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#2 = 4 [203,7092,7719,7768]
+    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#2 = 15 [203,1641,7092,7719,7768,11204,11205,11207,11208,11209,11210,11212,11213,11214,11215,11217,11218,11230,12345]
+    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#4 = 3 [1490,4154,5345,5359,5383,5384,9507,9623]
+    UNKNOWN_TAG - AccordionHandler-ConditionNotMet#5 = 1 [5367] 
     UNKNOWN_TAG - AccordionHandler-ConditionNotMet#6 = 1 [26011]
 
 

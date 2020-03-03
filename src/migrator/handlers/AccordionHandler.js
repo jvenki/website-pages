@@ -2,9 +2,9 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import {headingRegex as faqHeadingRegex, FAQInsideAccordionPanelHandler} from "./FAQHandler";
-import {headingRegex as referencesHeadingRegex, ReferencesHandlerVariant_Accordion} from "./ReferencesHandler";
+import {ReferencesHandlerVariant_Accordion} from "./ReferencesHandler";
 
-import {extractHeadingText, extractContentHtml, assert, isElementMadeUpOfOnlyWithGivenDescendents} from "./Utils";
+import {extractHeadingText, extractContentHtml, assert} from "./Utils";
 
 export class AccordionHandler extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -27,11 +27,11 @@ export class AccordionHandler extends BaseHandler {
         const panels = $element.find(".panel");
         const assertAllChildrenAsPanel = () => $element.children().first().children().get().every((c) => c.tagName == "div" && $(c).hasClass("panel"));
 
-        assert($element.children().length == 1 && $element.children().first().hasClass("panel-group"), "AccordionHandler-ConditionNotMet#1", $element);        
+        // assert($element.children().length == 1 && $element.children().first().hasClass("panel-group"), "AccordionHandler-ConditionNotMet#1", $element);        
         assert(assertAllChildrenAsPanel(), "AccordionHandler-ConditionNotMet#2", $element);
         assert(panels.length > 0, "AccordionHandler-ConditionNotMet#3", $element);
         assert($element.find(".panel .panel-heading").length == panels.length, "AccordionHandler-ConditionNotMet#4", $element);
-        assert($element.find(".panel .panel-heading a").length == panels.length, "AccordionHandler-ConditionNotMet#5", $element);
+        assert($element.find(".panel .panel-heading a, .panel .panel-heading h2, .panel .panel-heading h3").length == panels.length, "AccordionHandler-ConditionNotMet#5", $element);
         assert($element.find(".panel .panel-body").length == panels.length, "AccordionHandler-ConditionNotMet#6", $element);
     }
 
@@ -48,10 +48,10 @@ export class AccordionHandler extends BaseHandler {
                     const reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
                     references.push(reference);
                 } else {
-                    const title = extractHeadingText($(panel).find(".panel-heading a"), $);
+                    const title = extractHeadingText($(panel).find(".panel-heading a, .panel-heading h2, .panel-heading h3"), $);
                     const $bodyElem = $(panel).find(".panel-body");
                     const body = extractContentHtml($bodyElem, $);
-                    assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#5", $element);
+                    assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#7", $element);
                     items.push({title, body});
                 }
             });
