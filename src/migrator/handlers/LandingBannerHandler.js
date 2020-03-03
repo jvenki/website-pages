@@ -51,8 +51,8 @@ export class LandingBannerHandlerVariant_Simplified extends BaseHandler {
 }
 
 const ensureItemIsAsPerSpec = ($item) => {
-    assert($item.children().length == 2, "Item has more than 2 children", $item.toString());
-    assert($item.children().eq(0).hasClass("simplified-landing-banner-icons"), "Item Icon not right", $item.toString());
-    assert($item.children().eq(1).hasClass("desc"), "Icon Text not right", $item.toString());
-    assert($item.children().eq(1).children().length == 0, "Icon Text has children", $item.toString());
+    assert($item.children().length == 2, "LandingBanner - Item doesnt have 2 children", $item.toString());
+    assert($item.children().eq(0).hasClass("simplified-landing-banner-icons"), "LandingBanner - Item Icon not right", $item.toString());
+    assert($item.children().eq(1).hasClass("desc"), "LandingBanner - Icon Text not right", $item.toString());
+    assert($item.children().eq(1).children().length == 0, "LandingBanner - Icon Text has children", $item.toString());
 };
