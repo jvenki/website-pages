@@ -91,6 +91,20 @@ export class CTAHandlerVariant_TabularData extends BaseHandler {
     }
 }
 
+export class CTAHandlerVariant_TabularDataSimple extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.hasClass("tabular-data") && isElementMadeUpOfOnlyWithGivenDescendents($e, ["h3", "a"], $);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $element = elements[0];
+        const link = extractLink($element.find("a"));
+        const linkText = extractLinkText($element.find("a"), $);
+        assertExtractedData(link, linkText, $element);
+        return {elements: [{type: "cta", link, linkText}]};
+    }
+}
+
 export class CTAHandlerVariant_InsuranceWeekPick extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
         return $e.hasClass("insurance-weekpick")
