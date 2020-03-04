@@ -1,5 +1,14 @@
 const MongoNativeClient = require("mongodb").MongoClient;
 import fs from "fs";
+const minify = require("html-minifier").minify;
+import pretty from "pretty";
+
+const cleanse = (html) => {
+    try {
+        return pretty(minify(html, {collapseWhitespace: true, removeComments: true, removeEmptyAttributes: true, removeRedundantAttributes: true}));
+    } catch (err) {
+    }
+};
 
 async function main() {
     let collection;
@@ -15,9 +24,9 @@ async function main() {
         });
 
     const rows = await collection.find({}, {sort: [["id", "asc"]]}).toArray();
-
-    const output = rows.reduce((aggr, row) => {aggr[row.id] = row.new.primaryDoc; return aggr;}, {});
-    fs.writeFileSync(`./build/migrated-lpd-data-${new Date().toISOString().substring(0, 10)}.json`, JSON.stringify(output, null, 4));
+    rows.forEach((row) => {
+        fs.writeFileSync(`./build/old/lpd-${row.id}.html`, cleanse(row.old.primaryContent));
+    });
 
     nativeClient.close();
 }
