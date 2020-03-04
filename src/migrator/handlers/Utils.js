@@ -1,7 +1,7 @@
 import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex, isElementACntrOfExternalLinks} from "./ReferencesHandler";
-import {without} from "lodash";
+import {without, uniq} from "lodash";
 
 export const assert = (condition, errorMsg, $e) => {
     if (condition) {
@@ -244,6 +244,18 @@ const createLinkTag = ($e, innerHtml, $) => {
 
 const extractHtmlFromTextualNodes = ($e, $) => {
     const processChildNodes = ($n) => $n.contents().map((i, c) => processCurrentNode($(c))).get();
+    const canULBeConvertedInToOL = ($n) => $n.children().get().every((li) => $(li).text().trim().match(/^\d+\.\s+/)) && $n.hasClass("list-group");
+    const convertULtoOL = ($n) => `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+\.\s+/, "<li>")).join("")}</ol>`;
+    const ensureAllChildrenOfListToBeLI = ($n) => {
+        const nonLIElems = uniq($n.children().get().filter((li) => li.tagName != "li").map((li) => li.tagName));
+        if (nonLIElems.length > 0) {
+            throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, `Found tags ${nonLIElems} as direct children of ${$n.get(0).tagName}`, $n.toString());
+        }
+    };
+    const validateAndConvertListElem = ($n) => {
+        ensureAllChildrenOfListToBeLI($n);
+        return `<${$n.get(0).tagName}>${processChildNodes($n).join("")}</${$n.get(0).tagName}>`;
+    };
 
     const processCurrentNode = ($n) => {
         const n = $n.get(0);
@@ -256,15 +268,26 @@ const extractHtmlFromTextualNodes = ($e, $) => {
         } else if (n.tagName == "a") {
             return createLinkTag($n, processChildNodes($n), $);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "span") {
-            return $n.html();
-        } else if (n.tagName == "ul" && $n.children().get().every((li) => $(li).text().trim().match(/^\d+\.\s+/)) && $n.hasClass("list-group")) {
-            return `<ol>${processChildNodes($n).map((n) => n.replace(/<li>\d+\.\s+/, "<li>")).join("")}</ol>`;   // Convert UL with manual numbering to OL
+            return processChildNodes($n);
+        } else if (["p", "strong", "em", "u", "sup"].includes(n.tagName)) {
+            return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
+        } else if (n.tagName == "li") {
+            if (!["ul", "ol"].includes($n.parent().get(0).tagName)) {
+                throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, "Found LI not as a direct child of OL/UL", $e.toString());
+            }
+            return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
+        } else if (n.tagName == "ul") {
+            if (canULBeConvertedInToOL($n)) {
+                ensureAllChildrenOfListToBeLI($n);
+                return convertULtoOL($n);   
+            }
+            return validateAndConvertListElem($n);
+        } else if (n.tagName == "ol") {
+            return validateAndConvertListElem($n);
         } else if (isElementASubHeadingNode($n)) {
             return `<strong>${processChildNodes($n).join("")}</strong>`;
         } else if (isElementATableNode($n)) {
             return extractHtmlFromTableCreatedUsingTableNode($n, $);
-        } else if (isElementATextualNode($n)) {
-            return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
         } else {
             throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE, undefined, `Found ${n.tagName} inside \n ${$e.toString()}`);
         }
@@ -283,20 +306,29 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
     assert($table.find("> tbody > tr").length > 0, "No rows were found in TBODY which is not right", $table);
     // assert($e.find("> tbody > tr > th").length == 0, "TBODY has TH cells which is not right", $e);
 
-    const isTDofStrongOnly = ($td, rowIndex, colIndex) => $td.children().length == 1 && $td.find(">strong").length == 1 && (rowIndex == 0 || colIndex == 0);
-    const isTDofPofStrongOnly = ($td, rowIndex, colIndex) => $td.children().length == 1 && isElementMadeUpOfOnlyWithGivenDescendents($td, ["p", "strong"], $) && (rowIndex == 0 || colIndex == 0);
+    const headerCache = {};
+
+    const isTDOfTags = ($td, tags, rowIndex, colIndex) => {
+        return $td.contents().length == 1 
+            && isElementMadeUpOfOnlyWithGivenDescendents($td, tags, $) 
+            && ((rowIndex == 0 && (colIndex == 0 || headerCache[`${rowIndex}-${colIndex-1}`]))
+                 || (colIndex == 0 && (rowIndex == 0 || headerCache[`${rowIndex-1}-${colIndex}`])));
+    };
 
     const isTDActuallyATH = ($td, $tr, rowIndex, colIndex) => {
         const cellCount = $tr.children().length;
+        let isHeader = false;
         if ((Boolean($td.attr("class")) && (rowIndex == 0 && cellCount > 2 || colIndex == 0))) {
-            return true;
+            isHeader = true;
         } else if ($tr.hasClass("bg-tory-blue") || $td.hasClass("bg-tory-blue")) {
-            return true;
-        } else if (isTDofStrongOnly($td, rowIndex, colIndex) || isTDofPofStrongOnly($td, rowIndex, colIndex)) {
-            return true;
+            isHeader = true;
+        } else if (isTDOfTags($td, ["strong", "u"], rowIndex, colIndex) || isTDOfTags($td, ["strong"], rowIndex, colIndex) || isTDOfTags($td, ["p", "strong"], rowIndex, colIndex)) {
+            isHeader = true;
         } else if ($td.get(0).tagName == "th") {
-            return true;
+            isHeader = true;
         }
+        headerCache[`${rowIndex}-${colIndex}`] = isHeader;
+        return isHeader;
     };
 
     const createCell = (tagName, cellContent, attribs) => {
@@ -316,14 +348,16 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
         const bodyRows = $table.find("> tbody > tr").map((ri, tr) => {
             const cells = $(tr).children().map((ci, td) => {
                 let cellBody;
-                if (isTDofStrongOnly($(td), ri, ci)) {
+                if (isTDOfTags($(td), ["strong", "u"], ri, ci)) {
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong><u>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/u><\/strong>/, "$1");
+                } else if (isTDOfTags($(td), ["strong"], ri, ci)) {
                     cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong>/, "$1");
-                } else if (isTDofPofStrongOnly($(td), ri, ci)) {
+                } else if (isTDOfTags($(td), ["p", "strong"], ri, ci)) {
                     cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/p>/, "$1");
                 } else {
                     const cellBodies = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get();
                     if (cellBodies.length == 1) {
-                        cellBody = cellBodies.join(" ").replace(/<p>([a-zA-Z0-9?\-%.,:'()\s\\/]*)<\/p>/, "$1");
+                        cellBody = cellBodies.join(" ").replace(/<p>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/p>/, "$1");
                     } else {
                         cellBody = cellBodies.join(" ");
                     }
@@ -341,8 +375,8 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
             const cells = $(tr).children().map((ci, th) => createCell("th", extractHeadingText($(th), $), th.attribs)).get();
             return `<tr>${cells.join("")}</tr>`;
         }).get();
-        if ($e.find(" > .product-hl-table-head").length > 0) {
-            const specialHeader = $e.find("> .product-hl-table-head").text();
+        if ($e.find(" > div.product-hl-table-head").length > 0) {
+            const specialHeader = $e.find("> div.product-hl-table-head").text();
             headerRows.push(`<tr><th colspan="${maxColumnCount}">${specialHeader} - (Updated on $date)</th></tr>`);
         }
         return headerRows;
@@ -394,8 +428,10 @@ export const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames
             if (d.tagName != descendentTagNames[depth]) {
                 return false;
             }
-            if (depth < descendentTagNames.length) {
+            if (depth < (descendentTagNames.length-1)) {
                 return recurse($(d), depth+1);
+            } else if ($(d).children().length > 0) {
+                return false;
             }
             return true;
         });

@@ -138,7 +138,7 @@ export class CTAHandlerVariant_ListGroup_UL extends BaseHandler {
         const prefix = $element.text().substring(0, $element.text().indexOf(linkText)).trim();
         assertExtractedData(link, linkText, $element);
 
-        const convElement = {type: "cta", link, linkText};
+        const convElement = {type: "cta", link, linkText};   // $SuppressFlowCheck:
         if (prefix) convElement.prefix = prefix;
         return {elements: [convElement]};
     }
@@ -158,7 +158,7 @@ export class CTAHandlerVariant_ListGroup_P extends BaseHandler {
         const prefix = $element.text().substring(0, $element.text().indexOf(linkText)).trim();
         assertExtractedData(link, linkText, $element);
 
-        const convElement = {type: "cta", link, linkText};
+        const convElement = {type: "cta", link, linkText};    // $SuppressFlowCheck:
         if (prefix) convElement.prefix = prefix;
         return {elements: [convElement]};
     }

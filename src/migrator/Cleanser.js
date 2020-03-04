@@ -2,9 +2,9 @@
 import cheerio from "cheerio";
 const minify = require("html-minifier").minify;
 import {logger} from "./Logger";
-import MigrationError, {ErrorCode, CleanserIssueCode} from "./MigrationError";
+import MigrationError, {ErrorCode, CleanserIssueCode, ConversionIssueCode} from "./MigrationError";
 import pretty from "pretty";
-import {removePositioningClass, removePaddingClass, computeNodeName} from "./handlers/Utils";
+import {removePositioningClass, removePaddingClass, computeNodeName, removeBGClasses, removeBorderClasses, isElementMadeUpOfOnlyWithGivenDescendents, isElementATableNode} from "./handlers/Utils";
 
 export default class Cleanser {
     cleanse(html: string, onIssue: (err: MigrationError) => void) {
@@ -20,16 +20,19 @@ export default class Cleanser {
             removeRowLevelGridsUnderRows,
             removeUnwantedGridsUnderBody, 
             unwrapElements,
-            // removeTableOfContents,
             removeDisqusElements,
             removeOfferTableElements,
+            createListAroundOrphanedLIs,
             moveContentsOfDDToLI,
-            moveContentsOfDivToLI,
+            cleanChildrenOfList,
             moveBigTxtIntoNewsFeed,
+            removeEmptyNodesAndEmptyLines
         ];
         const $ = cheerio.load(cleansedHtml, {decodeEntities: false});
         cleansers.forEach((cleanser) => cleanser($, onIssue));
 
+        logger.silly("\n\n\n************************************************************************************************");
+        logger.silly("************************************************************************************************");
         logger.silly("Cleansed HTML\n" + pretty($.html()));
         return $.html();
     }
@@ -44,7 +47,7 @@ const makeHTMLValid = (html) => {
             .replace(/<h2 id="faq">([a-zA-Z0-9\s]*)<\/h3>/, "<h2>$1</h2>")  // Found in LPD#8
             .replace(/<i>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/i>/g, "<em>$1</em>")  // Found in LPD#9
             .replace(/<b>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/b>/g, "<strong>$1</strong>")  // Found in LPD#57
-            .replace(/<span style="text-decoration: underline;">([[a-zA-Z0-9?\-.:\s]*)<\/span>/g, "<u>$1</u>") // Found in #LPD#37
+            .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/span>/g, "<u>$1</u>") // Found in #LPD#37
             .replace(/\s*tax-img-responsive\s*/g, "") // Found in LPD#38
             .replace(/<srtong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
             .replace(/<stong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/stong>/g, "<strong>$1</strong>") // Found in LPD#230
@@ -78,7 +81,6 @@ const minifyHtml = (html) => {
 };
 
 const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
-
     const emptyNodes = [];
     $("*").each((i, e) => {
         const $e = $(e);
@@ -114,6 +116,7 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
 
 const unwrapElements = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
+        if ($e.length == 0) {return;}
         const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
         const hasUnncessaryTag = ["space", "picture", "address"].includes($e.get(0).tagName);
         if (hasUnncessaryDivWithClass || hasUnncessaryTag) {
@@ -126,6 +129,32 @@ const unwrapElements = ($, onIssue) => {
     $("*").removeClass("ir-section");   //Used in LPD#9
 };
 
+const createListAroundOrphanedLIs = ($, onIssue) => {
+    const items = [];
+    const foundOneOrphanedLI = $("li").get().some((li) => {
+        if (["ul", "ol"].includes($(li).parent().get(0).tagName)) {
+            return false;
+        }
+        let currentItem = $(li);
+        items.push(currentItem);
+        while (currentItem.next().length > 0 && currentItem.next().get(0).tagName == "li") {
+            currentItem = currentItem.next();
+            items.push(currentItem);
+        }
+        return true;
+    });
+
+    if (foundOneOrphanedLI) {
+        if (items.length == 1) {
+            unwrapElement(items[0], $);
+        } else {
+            const newUL = items[0].wrap("<ul></ul>").parent();
+            items.slice(1).forEach(($li) => $li.appendTo(newUL));
+        }
+        createListAroundOrphanedLIs($, onIssue);
+    }
+};
+
 const moveContentsOfDDToLI = ($, onIssue) => {
     $("body").find("dl").each((i, dl) => {
         if ($(dl).children().length == 1 && $(dl).children().eq(0).children().length == 1 && $(dl).prev().length > 0 && $(dl).prev().get(0).tagName == "ul") {
@@ -135,14 +164,98 @@ const moveContentsOfDDToLI = ($, onIssue) => {
     });
 };
 
-const moveContentsOfDivToLI = ($, onIssue) => {
-    $("li ~ div").each((i, div) => {
-        const $div = $(div);
-        if ($div.children().length == 1 && ["p", "img"].includes($div.children().eq(0).get(0).tagName)) {
+const cleanChildrenOfList = ($, onIssue) => {
+    const correctInnerList = ($innerList) => {
+        const prevTagIsLI = $innerList.prev().length > 0 && $innerList.prev().get(0).tagName == "li";
+        const onlyChildOfAnotherList = $innerList.parent().children().length == 1 && ["ul", "ol"].includes($innerList.parent().get(0).tagName);
+        // const isFirstElementOfOuterList = $innerList.prev().length == 0;
+        if (prevTagIsLI) {
+            $innerList.appendTo($innerList.prev());
+            return true;
+        } else if (onlyChildOfAnotherList) {
+            unwrapElement($innerList, $);
+            return true;
+        // } else if (isFirstElementOfOuterList) {  // Causes issues on cases like LPD#6908 where UL -> UL -> UL becomes UL -> LI -> UL -> LI -> UL 
+        //     $innerList.wrap("<li></li>");
+        }
+        return false;
+    };
+
+    const correctTextualNode = ($p) => {
+        const prevTagIsLI = $p.prev().length > 0 && $p.prev().get(0).tagName == "li";
+        const isFirstElementOfList = $p.prev().length == 0;
+        const similarErrorNotFoundAgainInList = $p.parent().children().get().slice(1).every((c) => c.tagName != $p.get(0).tagName);
+        const allSiblingsArePsButCanBeLIs = $p.parent().children().get().every((s) => s.tagName == "p" && ($(s).text().startsWith("• ")) || $(s).text().match(/^Step\s\d+/));
+
+        if (prevTagIsLI) {
+            $p.appendTo($p.prev());
+            return true;
+        } else if (allSiblingsArePsButCanBeLIs) {
+            $p.parent().children().each((si, s) => {s.tagName = "li"; $(s).text($(s).text().replace(/^• /, ""));});
+            return true;
+        } else if (isFirstElementOfList && similarErrorNotFoundAgainInList) {
+            $p.insertBefore($p.parent());
+            return true;
+        }
+        return false;
+    };
+
+    const moveContainerNode = ($div) => {
+        const classNames = removeBGClasses(removeBorderClasses(removePositioningClass(removePaddingClass($div.attr("class")))));
+        const prevTagIsLI = $div.prev().length > 0 && $div.prev().get(0).tagName == "li"; 
+        if (isElementATableNode($div) && prevTagIsLI) {
+            $div.appendTo($div.prev());
+            return true;
+        } else if (!classNames && prevTagIsLI && $div.children().length == 1 && ["img"].includes($div.children().eq(0).get(0).tagName)) {
             $("<br>" + $div.html()).appendTo($div.prev());
             $div.remove();
+            return true;
+        } else if (!classNames && prevTagIsLI && $div.children().length == 1 && isElementMadeUpOfOnlyWithGivenDescendents($div, ["a", "img"], $)) {
+            $("<br>" + $div.html()).appendTo($div.prev());
+            $div.remove();
+            return true;
+        } else if ($div.hasClass("link-section") || $div.hasClass("product-landing-btn-block") || ($div.hasClass("col-md-12") || $div.find(" > ul.list-group > li > a").length > 0)) {
+            $div.insertAfter($div.parent());
+            return true;
         }
+        return rerun;
+    };
+
+    const rerun = $("ul, ol").get().some((list) =>  {
+        const $list = $(list);
+        return $list.contents().get().some((li) => {
+            if (li.tagName == "li") {
+                // This item is fine and as per W3C spec.
+                return false;
+            }
+            const $li = $(li);
+            switch (li.tagName) {
+                case "ul":
+                case "ol":
+                    return correctInnerList($li);
+                case "p":
+                case "img":
+                case "strong":
+                case "h3":
+                case "h4":
+                case "h5":
+                case "h6":
+                    return correctTextualNode($li);
+                case "div":
+                case "table":
+                    return moveContainerNode($li);
+                default:
+                    if (li.type == "text") {
+                        return correctTextualNode($li);
+                    }
+                    throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, `Found ${li.tagName} as direct child of ${$list.get(0).tagName}`);
+            }
+        });
     });
+
+    if (rerun) {
+        cleanChildrenOfList($, onIssue);
+    }
 };
 
 const moveBigTxtIntoNewsFeed = ($, onIssue) => {
@@ -233,7 +346,7 @@ const removeEmptyAncestors = ($e, $) => {
 };
 
 const unwrapElement = ($e, $) => {
-    $($e.html()).insertAfter($e);
+    $e.after($e.html());
     const newElement = $e.next();
     $e.remove();
     return newElement;

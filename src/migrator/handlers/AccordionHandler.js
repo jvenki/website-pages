@@ -31,7 +31,7 @@ export class AccordionHandler extends BaseHandler {
         assert(assertAllChildrenAsPanel(), "AccordionHandler-ConditionNotMet#2", $element);
         assert(panels.length > 0, "AccordionHandler-ConditionNotMet#3", $element);
         assert($element.find(".panel .panel-heading").length == panels.length, "AccordionHandler-ConditionNotMet#4", $element);
-        assert($element.find(".panel .panel-heading a, .panel .panel-heading h2, .panel .panel-heading h3").length == panels.length, "AccordionHandler-ConditionNotMet#5", $element);
+        assert($element.find(".panel .panel-heading a").length == panels.length || $element.find(".panel .panel-heading h2, .panel .panel-heading h3").length == panels.length, "AccordionHandler-ConditionNotMet#5", $element);
         assert($element.find(".panel .panel-body").length == panels.length, "AccordionHandler-ConditionNotMet#6", $element);
     }
 
@@ -48,7 +48,15 @@ export class AccordionHandler extends BaseHandler {
                     const reference = new ReferencesHandlerVariant_Accordion().convert([$(panel)], $).elements[0];
                     references.push(reference);
                 } else {
-                    const title = extractHeadingText($(panel).find(".panel-heading a, .panel-heading h2, .panel-heading h3"), $);
+                    let $titleElem;
+                    if ($(panel).find(".panel-heading a").length > 0) {
+                        $titleElem = $(panel).find(".panel-heading a");
+                    } else if ($(panel).find(".panel-heading h2").length > 0) {
+                        $titleElem = $(panel).find(".panel-heading h2");
+                    } else if ($(panel).find(".panel-heading h3").length > 0) {
+                        $titleElem = $(panel).find(".panel-heading h3");
+                    } 
+                    const title = extractHeadingText($titleElem, $);
                     const $bodyElem = $(panel).find(".panel-body");
                     const body = extractContentHtml($bodyElem, $);
                     assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#7", $element);

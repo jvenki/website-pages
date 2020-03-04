@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractLinkText, assert, extractImgSrc, isElementMadeUpOfOnlyWithGivenDescendents, extractHeadingText } from "./Utils";
+import {extractLinkText, assert, extractImgSrc, isElementMadeUpOfOnlyWithGivenDescendents } from "./Utils";
 
 
 export class DeprecatedTOCHandlerVariant_ProductsInvest extends BaseHandler {
