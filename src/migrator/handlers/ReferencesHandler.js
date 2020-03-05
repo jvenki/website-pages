@@ -174,17 +174,29 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 }
 
 export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
-    isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
-        return ($element.hasClass("news-widget") || $element.hasClass("news-widget-aside"))
-            && $element.find(".news-head").length == 1
-            && $element.find(".insurer-widget > li").length > 0
-            && $element.find(".insurer-widget > li").length == $element.find(".insurer-widget > li > a").length
-            && areAllAnchorsOnlyNonLocalLinks($element.find(".insurer-widget > li"));
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        if (!$e.hasClass("news-widget") && !$e.hasClass("news-widget-aside")) {
+            return false;
+        } else if ($e.find(".news-head").length != 1) {
+            return false;
+        }
+        let $innerList;
+        if ($e.find(".insurer-widget").length > 0) {
+            $innerList = $e.find(".insurer-widget");
+        } else if ($e.find(".news-head ~ ul, .news-head ~ ol").length > 0) {
+            $innerList = $e.find(".news-head ~ ul, .news-head ~ ol");
+        } else {
+            return false;
+        }
+        if ($innerList.find(" > li").length == 0 || $innerList.find(" > li > a").length != $innerList.find(" > li").length) {
+            return false;
+        }
+        return areAllAnchorsOnlyNonLocalLinks($innerList.find(" > li"));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".news-head"), $);
-        const items = elements[0].find(".insurer-widget > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }

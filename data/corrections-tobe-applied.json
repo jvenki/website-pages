@@ -51,5 +51,11 @@
             "source": ".product-description > .product-landing-btn-block",
             "op": "unwrap"
         }
+    ],
+    "3521": [
+        {
+            "source": ".infographics",
+            "op": "moveUp"
+        }
     ]
 }

@@ -25,7 +25,6 @@ Summary - Distribution of Error Codes
     UNKNOWN_TAG - LandingBanner - Item doesnt have 2 children = 14 [434,12230,12233,12398,12485,12488,12657,12658,12660,12661,12662,12663,12749,12750]
     UNKNOWN_TAG - UsefulLinks-More than 2 Children Found = 13 [574,580,591,599,604,616,623,628,633,638,649,716,1371]
     UNKNOWN_TAG - ReferencesHandlerVariant_ProductsInvest-ConditionNotMet#1 = 12 [892,1915,3679,3682,3821,6870,10251,10266,10267,10268,10560,24348]
-    UNKNOWN_TAG - IdentifyHandler for div.col-xs-12.col-sm-6.col-md-5.news-widget.insurance-life.pull-right = 12 [3521,5731,5732,5733,5734,5735,5736,5737,5854,5855,6437,10318]
     UNKNOWN_TAG - IdentifyHandler for div.ct-img-web-banner = 11 [1368,1782,1785,1786,1787,2660,2894,3028,5426,10399,11188]
     UNKNOWN_TAG - IdentifyHandler for div.col-md-5.news-widget.pull-right = 11 [6785,6793,6794,6795,6796,6797,6798,6799,6800,6801,6802]
     CORRUPT_NODE - Found tags div as direct children of ol = 11 [1893,1902,6220,7628,8375,10234,10291,10523,12375,19899,26796]
