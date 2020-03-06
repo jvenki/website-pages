@@ -25,6 +25,7 @@ import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplifie
 import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main } from "./NewsFeedHandler";
 import { NewsFeedFullPostHandlerVariant_Main } from "./NewsFeedFullPostHandler";
+import { FloatHandlerVariant_Main, FloatHandlerVariant_Infographic } from "./FloatHandler";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
@@ -80,6 +81,8 @@ const handlers = [
     new CTAHandlerVariant_InsuranceWeekPick(),
     new CTAHandlerVariant_ListGroup_UL(),
     new CTAHandlerVariant_ListGroup_P(),
+    new FloatHandlerVariant_Infographic(),
+    new FloatHandlerVariant_Main(),
     new TextHandlerVariant_Main(),
     new TextHandlerVariant_PointerView(),
     new LandingBannerHandlerVariant_Main(),

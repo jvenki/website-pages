@@ -23,7 +23,7 @@ const applyCorrection = ({source, op, to}, $, onIssue) => {
             $(source).appendTo($(source).prev());
             break;
         case "moveUp":
-            $(source).appendTo($(source).parent().parent());
+            $(source).insertAfter($(source).parent());
             break;
         case "unwrap": 
             $($(source).html()).insertAfter($(source));

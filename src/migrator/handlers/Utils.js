@@ -357,7 +357,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
                 } else {
                     const cellBodies = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get();
                     if (cellBodies.length == 1) {
-                        cellBody = cellBodies.join(" ").replace(/<p>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/p>/, "$1");
+                        cellBody = cellBodies.join(" ").replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/p>/, "<strong>$1</strong>").replace(/<p>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/p>/, "$1");
                     } else {
                         cellBody = cellBodies.join(" ");
                     }

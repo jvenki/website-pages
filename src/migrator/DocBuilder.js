@@ -4,6 +4,8 @@ import {omit, isEqual} from "lodash";
 
 export default class DocBuilder {
     doc: Object;
+    toBePlacedInfographics: Object;
+    toBePositionedFloat: Object;
 
     constructor() {
         this.doc = {title: "", body: "", sections: []};
@@ -11,27 +13,32 @@ export default class DocBuilder {
 
     add(item: Object) {
         switch (item.type) {
-            case "section": this.addNewSectionWithTitle(item.title); break;
+            case "section": this.addSection(item); break;
             case "disclaimer": this.addDisclaimer(item); break;
             case "references": this.addReferences(item); break;
             case "faq": this.addFAQ(item); break;
             case "sitemap": this.addSitemap(item); break;
             case "news-feed": this.addNewsFeed(item); break;
             case "news-feed-full-posts": this.addNewsFeedFullPosts(item); break;
+            case "infographics": this.addInfographics(item); break;
+            case "float": this.addFloatingElement(item); break;
             default: this.addElement(item);
         }
     }
 
-    addNewSectionWithTitle(title: string) {
-        this.doc.sections.push({type: "section", title, body: "", elements: []});
+    addSection(element: Object) {
+        const newSection = {"type": "section", title: element.title, body: "", elements: []};
+        this.doc.sections.push(newSection);
+        handleToBePositionedFloatingElement(this);
     }
     
     addElement(element: Object) {
         let lastSection = this.doc.sections.slice(-1).pop();
         if (!lastSection) {
-            this.addNewSectionWithTitle("");
+            this.addSection({title: ""});
             lastSection = this.doc.sections.slice(-1).pop();
         }
+        handleToBePositionedFloatingElement(this);
         if (element.type == "text" && isPreviousElementInSectionAlsoText(lastSection)) {
             lastSection.elements[lastSection.elements.length-1].body += element.body;
         } else {
@@ -85,11 +92,22 @@ export default class DocBuilder {
         this.doc["news-feed-full-posts"] = omit(newsFeedFullPosts, ["type"]);
     }
 
+    addInfographics(element: Object) {
+        this.toBePlacedInfographics = element;
+    }
+
+    addFloatingElement(element: Object) {
+        this.toBePositionedFloat = element;
+    }
+
     lastSection() {
         return this.doc.sections.slice(-1).pop();
     }
 
     build() {
+        if (this.toBePositionedFloat) {
+            throw new Error("Temp Info Graphics is yet to be positioned");
+        }
         return this.doc;
     }
 }
@@ -102,4 +120,13 @@ const isPreviousElementInSectionAlsoText = (section) => {
         return false;
     }
     return true;
+};
+
+const handleToBePositionedFloatingElement = (builder) => {
+    const float = builder.toBePositionedFloat;
+    builder.toBePositionedFloat = undefined;
+    if (!float) {
+        return;
+    }
+    builder.addElement(float.actualElement);
 };
