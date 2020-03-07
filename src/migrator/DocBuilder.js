@@ -8,7 +8,7 @@ export default class DocBuilder {
     toBePositionedFloat: Object;
 
     constructor() {
-        this.doc = {title: "", body: "", sections: []};
+        this.doc = {title: "", sections: []};
     }
 
     add(item: Object) {
@@ -27,7 +27,7 @@ export default class DocBuilder {
     }
 
     addSection(element: Object) {
-        const newSection = {"type": "section", title: element.title, body: "", elements: []};
+        const newSection = {title: element.title, elements: []};
         this.doc.sections.push(newSection);
         handleToBePositionedFloatingElement(this);
     }
@@ -40,7 +40,7 @@ export default class DocBuilder {
         }
         handleToBePositionedFloatingElement(this);
         if (element.type == "text" && isPreviousElementInSectionAlsoText(lastSection)) {
-            lastSection.elements[lastSection.elements.length-1].body += element.body;
+            lastSection.elements[lastSection.elements.length-1].body += " " + element.body;
         } else {
             lastSection.elements.push(element);
         }
