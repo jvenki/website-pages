@@ -38,8 +38,6 @@ Summary - Distribution of Error Codes
     UNKNOWN_TAG - IdentifyHandler for center = 7 [3747,3748,3750,3951,4177,4183,12378]
     UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad = 6 [900,902,3267,4235,11761,12292]
     UNKNOWN_TAG - FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3-ConditionNotMet#2 = 6 [2813,6769,10755,10982,10984,25363]
-    CORRUPT_NODE - Found br as direct child of ol = 6 [275,282,2582,7800,10653,26273]
-    CORRUPT_NODE - Found br as direct child of ul = 6 [452,658,1857,27037,27045,27046]
     UNKNOWN_TAG - IdentifyHandler for div.product-landing-content = 5 [25520,25572,25620,25668,25673]
     UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad.news-widget = 5 [1624,3290,5909,6201,6431]
     CORRUPT_NODE - Found tags p as direct children of ol = 4 [9982,9983,9984,11502]

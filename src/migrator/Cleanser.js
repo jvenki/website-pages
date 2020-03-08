@@ -96,7 +96,8 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    ["style", "script", "figcaption", "mark", "ins", "div.table-view-more", "h1", "div.adt"].forEach((sel) => {
+    ["style", "script", "figcaption", 
+    "mark", "ins", "div.table-view-more", "h1", "div.adt"].forEach((sel) => {
         const elems = $(sel);
         if (elems.length == 0) {
             return;
@@ -241,6 +242,8 @@ const cleanChildrenOfList = ($, onIssue) => {
                 case "h5":
                 case "h6":
                     return correctTextualNode($li);
+                case "br":
+                    return $li.remove();
                 case "div":
                 case "table":
                     return moveContainerNode($li);
@@ -248,7 +251,7 @@ const cleanChildrenOfList = ($, onIssue) => {
                     if (li.type == "text") {
                         return correctTextualNode($li);
                     }
-                    throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, `Found ${li.tagName} as direct child of ${$list.get(0).tagName}`);
+                    throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, `Found ${li.tagName} as direct child of ${$list.get(0).tagName}`, $list.toString());
             }
         });
     });
