@@ -96,8 +96,7 @@ const removeEmptyNodesAndEmptyLines = ($, onIssue) => {
 };
 
 const removeStyleAndScriptNodes = ($, onIssue) => {
-    ["style", "script", "figcaption", 
-    "mark", "ins", "div.table-view-more", "h1", "div.adt"].forEach((sel) => {
+    ["style", "script", "figcaption", "mark", "ins", "div.table-view-more", "h1", "div.adt"].forEach((sel) => {
         const elems = $(sel);
         if (elems.length == 0) {
             return;
@@ -119,7 +118,7 @@ const unwrapElements = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
         if ($e.length == 0) {return;}
         const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "product-landing-content", "bank-prod-page", "product-description"].some((cn) => $e.hasClass(cn));
-        const hasUnncessaryTag = ["space", "picture", "address"].includes($e.get(0).tagName);
+        const hasUnncessaryTag = ["space", "picture", "address", "center"].includes($e.get(0).tagName);
         if (hasUnncessaryDivWithClass || hasUnncessaryTag) {
             onIssue(new MigrationError(CleanserIssueCode.REMOVED_HFM_NODE, computeNodeName($e), "Count = 1"));
             $e = unwrapElement($e, $);

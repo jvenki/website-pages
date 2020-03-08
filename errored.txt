@@ -35,7 +35,6 @@ Summary - Distribution of Error Codes
     UNKNOWN_TAG - IdentifyHandler for div.col-md-4.pull-right.tb-pad-10 = 8 [1643,1645,1650,3676,3736,3768,3771,10233]
     UNKNOWN_TAG - AccordionHandler-ConditionNotMet#4 = 8 [1490,4154,5345,5359,5383,5384,9507,9623]
     UNKNOWN_TAG - IdentifyHandler for figure.pull-right = 7 [1662,10996,10997,11036,11163,11343,11344]
-    UNKNOWN_TAG - IdentifyHandler for center = 7 [3747,3748,3750,3951,4177,4183,12378]
     UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad = 6 [900,902,3267,4235,11761,12292]
     UNKNOWN_TAG - FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3-ConditionNotMet#2 = 6 [2813,6769,10755,10982,10984,25363]
     UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad.news-widget = 5 [1624,3290,5909,6201,6431]
