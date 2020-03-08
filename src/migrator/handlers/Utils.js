@@ -74,14 +74,14 @@ export const isElementAContentNode = ($e) => {
             && $e.text() == $e.find("strong").text() 
             && ($e.find("strong").text().match(faqHeadingRegex) || $e.find("strong").text().match(referencesHeadingRegex))
             && $e.find("strong").children().length == 0) {
-            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString() + "\n" + $e.next().toString());
         }
         return true;
     } else if (isElementASubHeadingNode($e)) {
         if ($e.text().match(faqHeadingRegex)) {
-            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString() + "\n" + $e.next().toString());
         } else if ($e.text().match(referencesHeadingRegex) && isElementACntrOfExternalLinks($e.next())) {
-            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString());
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString() + "\n" + $e.next().toString());
         }
         return true;
     }
