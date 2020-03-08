@@ -144,6 +144,24 @@ export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler
     }
 }
 
+export class ReferencesHandlerVariant_InterlinkFollowedByUL extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        const isULofExternalLinks = ($n) => $n.get(0).tagName == "ul" && $n.find("li a").length > 0 && areAllAnchorsOnlyNonLocalLinks($n.find("li"));
+        return $e.hasClass("product_interlink") && isULofExternalLinks($e.next());
+    }
+
+    walkToPullRelatedElements($element: CheerioElemType, $: CheerioDocType): Array<CheerioElemType> {
+        return [$element, $element.next()];
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find("> strong, > p, > h3, > h2"), $);
+        const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title || "NA", elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
 export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType) {
         return $element.hasClass("product-interlinks") && $element.find("nav").length > 0;

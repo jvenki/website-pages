@@ -41,7 +41,6 @@ Summary - Distribution of Error Codes
     UNKNOWN_TAG - IdentifyHandler for div.product-landing-content = 5 [25520,25572,25620,25668,25673]
     UNKNOWN_TAG - IdentifyHandler for div.row.btm-pad.news-widget = 5 [1624,3290,5909,6201,6431]
     CORRUPT_NODE - Found tags p as direct children of ol = 4 [9982,9983,9984,11502]
-    UNKNOWN_TAG - IdentifyHandler for div.product_interlink = 4 [2541,2548,3192,3193]
     UNKNOWN_TAG - IdentifyHandler for div.productIcons = 4 [10644,10645,10650,10652]
     CORRUPT_NODE - Found a as direct child of ol = 4 [1898,1899,2058,6168]
     CORRUPT_NODE - Found a as direct child of ul = 4 [420,899,1784,3024]
