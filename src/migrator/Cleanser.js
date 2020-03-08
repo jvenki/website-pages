@@ -236,6 +236,7 @@ const cleanChildrenOfList = ($, onIssue) => {
                     return correctInnerList($li);
                 case "p":
                 case "img":
+                case "a":
                 case "strong":
                 case "h3":
                 case "h4":
