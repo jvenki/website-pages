@@ -218,7 +218,7 @@ const cleanChildrenOfList = ($, onIssue) => {
             $div.insertAfter($div.parent());
             return true;
         }
-        return rerun;
+        return false;
     };
 
     const rerun = $("ul, ol").get().some((list) =>  {
