@@ -26,6 +26,7 @@ export default class Cleanser {
             moveContentsOfDDToLI,
             cleanChildrenOfList,
             cleanH2PresentInList,
+            replaceElements,
             moveBigTxtIntoNewsFeed,
             removeEmptyNodesAndEmptyLines
         ];
@@ -43,18 +44,19 @@ const makeHTMLValid = (html) => {
     let cleansedHtml = 
         html.replace(/“/g, "\"").replace(/“/g, "\"").replace(/’/g, "'").replace(/‘/g, "'").replace(/–/g, "-")  // Remove MSWord style Quotations
             .replace(/<<\s*>>/g, "&lt;&lt; &gt;&gt;").replace(/< Rs/g, "&lt; Rs")   // Escape the angle-brackets
-            .replace(/<ins>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/ins>/g, "<u>$1</u>")  // Found in LPD#856
-            .replace(/<ins><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/ins>/g, "<u><strong>$1</strong></u>")  // Found in LPD#856
+            .replace(/<ins>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/ins>/g, "<u>$1</u>")  // Found in LPD#856
+            .replace(/<ins><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strong><\/ins>/g, "<u><strong>$1</strong></u>")  // Found in LPD#856
             .replace(/<h2 id="faq">([a-zA-Z0-9\s]*)<\/h3>/, "<h2>$1</h2>")  // Found in LPD#8
-            .replace(/<i>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/i>/g, "<em>$1</em>")  // Found in LPD#9
-            .replace(/<b>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/b>/g, "<strong>$1</strong>")  // Found in LPD#57
-            .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/span>/g, "<u>$1</u>") // Found in #LPD#37
+            .replace(/<i>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/i>/g, "<em>$1</em>")  // Found in LPD#9
+            .replace(/<b>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/b>/g, "<strong>$1</strong>")  // Found in LPD#57
+            .replace(/<b><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/b>/g, "<strong><em>$1</em></strong>")  // Found in LPD#8124
+            .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/span>/g, "<u>$1</u>") // Found in #LPD#37
             .replace(/\s*tax-img-responsive\s*/g, "") // Found in LPD#38
-            .replace(/<srtong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
-            .replace(/<stong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/stong>/g, "<strong>$1</strong>") // Found in LPD#230
-            .replace(/<en>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/en>/g, "<em>$1</em>") // Found in LPD#13315
+            .replace(/<srtong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
+            .replace(/<stong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/stong>/g, "<strong>$1</strong>") // Found in LPD#230
+            .replace(/<en>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/en>/g, "<em>$1</em>") // Found in LPD#13315
             .replace(/<strog>/g, "<strong>").replace(/<\/strog>/g, "</strong>") // Found in LPD#5569
-            .replace(/<h1>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/h1>/g, "<h2>$1</h2>") // Found in LPD#123
+            .replace(/<h1>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/h1>/g, "<h2>$1</h2>") // Found in LPD#123
             .replace(/”/g, "\"").replace(/”/g, "\"")  // Found in LPD#3574
             .replace(/col sm-/g, "col-sm-") // Found in 4862
             .replace(/<policy number>/g, "&lt; policy number &gt;") // Found in 26131
@@ -63,13 +65,14 @@ const makeHTMLValid = (html) => {
     cleansedHtml = 
         cleansedHtml.replace(/<\/div><br>/g, "</div>") // Found in LPD#859
             .replace(/<\/p><br>/g, "</p>") // Found in LPD#856
-            .replace(/<ul><li><h2>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/h2><\/li><\/ul>/g, "<h2>$1</h2>")
-            .replace(/<small>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/small>/g, "<em>$1</em>")
+            .replace(/<ul><li><h2>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/h2><\/li><\/ul>/g, "<h2>$1</h2>")
+            .replace(/<small>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/small>/g, "<em>$1</em>")
             .replace(/>&nbsp;</g, "><") // Found in 10056
-            .replace(/<q><em><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 733
-            .replace(/<q><b><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/em><\/b><\/q>/, "<blockquote>$1</blockquote>") // Found in 26821
-            .replace(/<q><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 12376
+            .replace(/<q><em><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strong><\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 733
+            .replace(/<q><b><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/b><\/q>/, "<blockquote>$1</blockquote>") // Found in 26821
+            .replace(/<q><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 12376
             .replace("<strong><math><mstyle><mi>E</mi><mo>=</mo><mi>P</mi><mo>.</mo><mi>r</mi><mo>.</mo><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi><mrow><mo>(</mo><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow></mstyle></math></strong>", "<strong>E = P . r . ( 1 + r ) n ( ( 1 + r ) n - 1</strong>") // Found in LPD 6496
+            .replace(/<b>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/b>/g, "<strong>$1</strong>")  // Sometimes the tags are reversed like <p><b>...</p></b> line in 11717. Therefore doing it again after minification
     ;
 
     return cleansedHtml;
@@ -331,6 +334,14 @@ const removeOfferTableElements = ($, onIssue) => {
         $(d).remove();
     });
 };
+
+const replaceElements = ($, onIssue) => {
+    const replacements = {b: "strong"};
+    Object.keys(replacements).forEach((tagName) => {
+        $(tagName).each((i, e) => e.tagName = replacements[tagName]);
+    });
+};
+
 
 const removeEmptyNode = ($e, $) => {
     const whiteListedTagsThatCanBeEmpty = ["iframe", "img", "br", "td", "th"];

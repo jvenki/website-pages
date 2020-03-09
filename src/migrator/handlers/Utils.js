@@ -349,15 +349,15 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
             const cells = $(tr).children().map((ci, td) => {
                 let cellBody;
                 if (isTDOfTags($(td), ["strong", "u"], ri, ci)) {
-                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong><u>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/u><\/strong>/, "$1");
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong><u>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/u><\/strong>/, "$1");
                 } else if (isTDOfTags($(td), ["strong"], ri, ci)) {
-                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong>/, "$1");
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strong>/, "$1");
                 } else if (isTDOfTags($(td), ["p", "strong"], ri, ci)) {
-                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/p>/, "$1");
+                    cellBody = extractContentHtml($(td).children().eq(0), $).replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strong><\/p>/, "$1");
                 } else {
                     const cellBodies = $(td).contents().map((k, c) => extractContentHtml($(c), $)).get();
                     if (cellBodies.length == 1) {
-                        cellBody = cellBodies.join(" ").replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/p>/, "<strong>$1</strong>").replace(/<p>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/p>/, "$1");
+                        cellBody = cellBodies.join(" ").replace(/<p><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strong><\/p>/, "<strong>$1</strong>").replace(/<p>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/p>/, "$1");
                     } else {
                         cellBody = cellBodies.join(" ");
                     }
