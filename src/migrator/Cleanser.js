@@ -124,7 +124,7 @@ const removeStyleAndScriptNodes = ($, onIssue) => {
 const unwrapElements = ($, onIssue) => {
     const unwrapIfNeccessary = ($e) => {
         if ($e.length == 0) {return;}
-        const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "product-landing-content", "bank-prod-page", "product-description", "ct-img-web-banner"].some((cn) => $e.hasClass(cn));
+        const hasUnncessaryDivWithClass = ["primary-txt", "article-txt", "product-content", "product-landing-content", "bank-prod-page", "product-description", "container", "ct-img-web-banner"].some((cn) => $e.hasClass(cn));
         const hasUnncessaryTag = ["space", "picture", "address", "center"].includes($e.get(0).tagName);
         if (hasUnncessaryDivWithClass || hasUnncessaryTag) {
             onIssue(new MigrationError(CleanserIssueCode.REMOVED_HFM_NODE, computeNodeName($e), "Count = 1"));
