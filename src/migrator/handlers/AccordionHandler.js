@@ -58,6 +58,7 @@ export class AccordionHandler extends BaseHandler {
                     } 
                     const title = extractHeadingText($titleElem, $);
                     const $bodyElem = $(panel).find(".panel-body");
+                    $bodyElem.find("h2").each((j, h2) => h2.tagName = "h3");
                     const body = extractContentHtml($bodyElem, $);
                     assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#7", $element);
                     items.push({title, body});
