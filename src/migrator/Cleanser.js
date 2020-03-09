@@ -52,6 +52,7 @@ const makeHTMLValid = (html) => {
             .replace(/\s*tax-img-responsive\s*/g, "") // Found in LPD#38
             .replace(/<srtong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
             .replace(/<stong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/stong>/g, "<strong>$1</strong>") // Found in LPD#230
+            .replace(/<en>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/en>/g, "<em>$1</em>") // Found in LPD#13315
             .replace(/<strog>/g, "<strong>").replace(/<\/strog>/g, "</strong>") // Found in LPD#5569
             .replace(/<h1>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/h1>/g, "<h2>$1</h2>") // Found in LPD#123
             .replace(/”/g, "\"").replace(/”/g, "\"")  // Found in LPD#3574
