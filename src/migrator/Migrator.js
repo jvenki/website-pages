@@ -4,7 +4,7 @@ import MySQLClient from "./MySQLClient";
 import LPDRowFieldExtractor from "./LPDRowFieldExtractor";
 import {logger} from "./Logger";
 import MongoClient from "./MongoClient";
-import {isEqual, pick} from "lodash";
+import {isEqual, pick, sortBy} from "lodash";
 import DomWalker from "./DomWalker";
 import DocBuilder from "./DocBuilder";
 import Cleanser from "./Cleanser";
@@ -173,6 +173,13 @@ const printDocSummary = (lpdJson) => {
 };
 
 const printFinalSummary = (docConversionStatus: Object, startTime: number) => {
+    const sortErrors = (errorDistribution) => {
+        const items = Object.keys(errorDistribution).map((key) => ({key, category: key.replace(/ -.*/, ""), categorySize: 0, keySize: errorDistribution[key].size}));
+        items.forEach((item) => item.categorySize = items.filter((fi) => fi.category == item.category).reduce((aggr, fi) => aggr + fi.keySize, 0));
+        const sortedItems = sortBy(items, ["categorySize", "category", "keySize"]);
+        return sortedItems.map((item) => item.key).reverse();
+    };
+
     const erroredIds = [], successIds = [], warningIds = [];
     const errorDistribution = {};
     const convIssuesDistribution = {};
@@ -209,7 +216,7 @@ const printFinalSummary = (docConversionStatus: Object, startTime: number) => {
     logger.info(chalk.green(`        IDs = ${successIds}`));
     logger.info(chalk.red.bold("Summary - Distribution of Error Codes")); // $SuppressFlowCheck
     logger.info(chalk.red(`        IDs = ${erroredIds}`));
-    Object.keys(errorDistribution).sort((k1, k2) => errorDistribution[k2].size - errorDistribution[k1].size).forEach((key) => {
+    sortErrors(errorDistribution).forEach((key) => {
         const ids = Array.from(errorDistribution[key]); // $SuppressFlowCheck
         logger.info(chalk.red(`    ${key} = `) + chalk.bgCyanBright.bold(errorDistribution[key].size) + ` [${ids}]`);    
     });

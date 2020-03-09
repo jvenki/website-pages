@@ -19,7 +19,8 @@ export const ConversionIssueCode = {
     MULTIPLE_NEWS_FEED_FULL_POSTS: {code: "MULTIPLE_NEWS_FEED_FULL_POSTS", message: "We already have added one News Feed Full Posts"},
     HEADING_HAS_CHILDREN: {code: "HEADING_HAS_CHILDREN", message: "Heading Node should not have any children"},
     NON_CONTENT_NODE: {code: "NON_CONTENT_NODE", message: "The element has HTML tags used which dont represent Textual/Tabular Nodes"},
-    CORRUPT_NODE: {code: "CORRUPT_NODE", message: "The element doesnt conform to HTML spec for the element"},
+    VALIDATION_FAILED_W3C: {code: "VALIDATION_FAILED_W3C", message: "The element doesnt conform to HTML spec for the element"},
+    VALIDATION_FAILED_HANDLER: {code: "VALIDATION_FAILED_HANDLER", message: "The element doesnt conform to handler spec for the element"},
     OTHERS: {code: "OTHERS", message: ""}
 };
 

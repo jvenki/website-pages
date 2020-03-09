@@ -1,8 +1,6 @@
 // @flow
 import type {CheerioElemType, CheerioDocType} from "./BaseHandler";
 
-import {assert} from "./Utils";
-
 import BaseHandler from "./BaseHandler";
 import SectionHandler from "./SectionHandler";
 import {TextHandlerVariant_Main, TextHandlerVariant_PointerView} from "./TextHandler";
@@ -26,6 +24,7 @@ import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main } from "./NewsFeedHandler";
 import { NewsFeedFullPostHandlerVariant_Main } from "./NewsFeedFullPostHandler";
 import { FloatHandlerVariant_Main, FloatHandlerVariant_Infographic } from "./FloatHandler";
+import MigrationError, { ErrorCode } from "../MigrationError";
 
 const handlers = [
     new DisclaimerHandlerVariant_Regex(),
@@ -110,7 +109,8 @@ const handlers = [
 export const findHandlerForElement = ($e: CheerioElemType, $: CheerioDocType): BaseHandler => {
     const e = $e.get(0);
     const handler = handlers.find((h) => h.isCapableOfProcessingElement($e, $));
-    assert(Boolean(handler), `IdentifyHandler for ${e.tagName}${$e.attr("class") ? "." + $e.attr("class").replace(/ /g, ".") : ""}`, $e);
-    // $SuppressFlowCheck: assert would have ensured that handler is not null.
+    if (!handler) {
+        throw new MigrationError(ErrorCode.UNKNOWN_TAG, `IdentifyHandler for ${e.tagName}${$e.attr("class") ? "." + $e.attr("class").replace(/ /g, ".") : ""}`, $e && $e.toString());        
+    }
     return handler;
 };

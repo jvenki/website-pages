@@ -32,7 +32,7 @@ export class FloatHandlerVariant_Infographic extends BaseHandler {
         } else if ($e.next().hasClass("bs-example-modal-lg")) {
             elements.push($e.next());
         } else {
-            throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, "Missing Modal Window", $e.toString());
+            throw new MigrationError(ConversionIssueCode.VALIDATION_FAILED_W3C, "Missing Modal Window", $e.toString());
         }
         return elements;
     }

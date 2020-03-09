@@ -251,7 +251,7 @@ const cleanChildrenOfList = ($, onIssue) => {
                     if (li.type == "text") {
                         return correctTextualNode($li);
                     }
-                    throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, `Found ${li.tagName} as direct child of ${$list.get(0).tagName}`, $list.toString());
+                    throw new MigrationError(ConversionIssueCode.VALIDATION_FAILED_W3C, `Found ${li.tagName} as direct child of ${$list.get(0).tagName}`, $list.toString());
             }
         });
     });

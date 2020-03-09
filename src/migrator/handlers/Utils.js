@@ -1,4 +1,4 @@
-import MigrationError, {ErrorCode, ConversionIssueCode} from "../MigrationError";
+import MigrationError, {ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex, isElementACntrOfExternalLinks} from "./ReferencesHandler";
 import {without, uniq} from "lodash";
@@ -12,7 +12,7 @@ export const assert = (condition, errorMsg, $e) => {
         throw new MigrationError(errorMsg, undefined, $e.toString());
     }
 
-    throw new MigrationError(ErrorCode.UNKNOWN_TAG, errorMsg, $e && $e.toString());
+    throw new MigrationError(ConversionIssueCode.VALIDATION_FAILED_HANDLER, errorMsg, $e && $e.toString());
 };
 
 export const computeNodeName = ($e) => {
@@ -195,7 +195,7 @@ export const extractContentHtml = ($e, $) => {
             html = `<h3>${extractHeadingText($e, $)}</h3>`;
         }
     } else {
-        throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE, undefined, $e.toString());
+        throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE, `${$e.get(0).tagName} is not Content Node`, $e.toString());
     }
     return html.trim();
 };
@@ -249,7 +249,7 @@ const extractHtmlFromTextualNodes = ($e, $) => {
     const ensureAllChildrenOfListToBeLI = ($n) => {
         const nonLIElems = uniq($n.children().get().filter((li) => li.tagName != "li").map((li) => li.tagName));
         if (nonLIElems.length > 0) {
-            throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, `Found tags ${nonLIElems} as direct children of ${$n.get(0).tagName}`, $n.toString());
+            throw new MigrationError(ConversionIssueCode.VALIDATION_FAILED_W3C, `Found tags ${nonLIElems} as direct children of ${$n.get(0).tagName}`, $n.toString());
         }
     };
     const validateAndConvertListElem = ($n) => {
@@ -273,7 +273,7 @@ const extractHtmlFromTextualNodes = ($e, $) => {
             return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
         } else if (n.tagName == "li") {
             if (!["ul", "ol"].includes($n.parent().get(0).tagName)) {
-                throw new MigrationError(ConversionIssueCode.CORRUPT_NODE, "Found LI not as a direct child of OL/UL", $e.toString());
+                throw new MigrationError(ConversionIssueCode.VALIDATION_FAILED_W3C, "Found LI not as a direct child of OL/UL", $e.toString());
             }
             return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
         } else if (n.tagName == "ul") {
@@ -289,7 +289,7 @@ const extractHtmlFromTextualNodes = ($e, $) => {
         } else if (isElementATableNode($n)) {
             return extractHtmlFromTableCreatedUsingTableNode($n, $);
         } else {
-            throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE, undefined, `Found ${n.tagName} inside \n ${$e.toString()}`);
+            throw new MigrationError(ConversionIssueCode.NON_CONTENT_NODE, `Found ${n.tagName} inside ${$e.get(0).tagName}`, `Found ${n.tagName} inside \n ${$e.toString()}`);
         }
     };
 
