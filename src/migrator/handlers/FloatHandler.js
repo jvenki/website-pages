@@ -9,7 +9,7 @@ const assertExtractedData = (imgSrc, $e) => assert(Boolean(imgSrc), "Infographic
 
 export class FloatHandlerVariant_Main extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        return isDivPulledRight($e, $) && (isDivMadeUpOfAofIMG($e, $) || isDivMadeUpOfIMG($e, $));
+        return (isDivPulledRight($e, $) || isFigurePulledRight($e, $)) && (isDivMadeUpOfAofIMG($e, $) || isDivMadeUpOfIMG($e, $));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
@@ -52,6 +52,6 @@ const isDivPulledRight = ($e, $) => {
     const classNames = removeBGClasses(removeBorderClasses(removePositioningClass(removePaddingClass($e.attr("class")))));
     return $e.get(0).tagName == "div" && $e.hasClass("pull-right") && (!classNames || containsOnlyGridCellClasses(classNames));
 };
-
+const isFigurePulledRight = ($e, $) => $e.get(0).tagName == "figure" && $e.hasClass("pull-right");
 const isDivMadeUpOfAofIMG = ($e, $) => isElementMadeUpOfOnlyWithGivenDescendents($e, ["a", "img"], $);
 const isDivMadeUpOfIMG = ($e, $) => isElementMadeUpOfOnlyWithGivenDescendents($e, ["img"], $);

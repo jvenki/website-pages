@@ -17,7 +17,7 @@ import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant
 import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
 import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy, ReferencesHandlerVariant_ProductsInvest, ReferencesHandlerVariant_GridOfULs, ReferencesHandlerVariant_Jumbotron, ReferencesHandlerVariant_InterlinkFollowedByUL, ReferencesHandlerVariant_NewsWidget_P, ReferencesHandlerVariant_LpRelatedInfo } from "./ReferencesHandler";
-import {DisclaimerHandlerVariant_Regex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link, DisclaimerHandlerVariant_Accordion} from "./DisclaimerHandler";
+import {DisclaimerHandlerVariant_TextRegex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link, DisclaimerHandlerVariant_Accordion, DisclaimerHandlerVariant_HeadingRegex} from "./DisclaimerHandler";
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplified } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
@@ -27,7 +27,8 @@ import { FloatHandlerVariant_Main, FloatHandlerVariant_Infographic } from "./Flo
 import MigrationError, { ErrorCode } from "../MigrationError";
 
 const handlers = [
-    new DisclaimerHandlerVariant_Regex(),
+    new DisclaimerHandlerVariant_HeadingRegex(),
+    new DisclaimerHandlerVariant_TextRegex(),
     new DisclaimerHandlerVariant_GridOfAccordions(),
     new DisclaimerHandlerVariant_Accordion(),
     new DisclaimerHandlerVariant_Link(),

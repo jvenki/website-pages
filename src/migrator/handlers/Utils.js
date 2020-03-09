@@ -183,7 +183,7 @@ export const extractContentHtml = ($e, $) => {
         html = extractHtmlFromTextualNodes($e, $);
     } else if (isElementATableNode($e)) {
         html = extractHtmlFromTableCreatedUsingTableNode($e, $);
-    } else if (["div"].includes($e.get(0).tagName)) {
+    } else if (["div", "figure"].includes($e.get(0).tagName)) {
         html = $e.contents().map((i, c) => extractContentHtml($(c), $)).get().join("");
     } else if (isElementASubHeadingNode($e)) {
         if ($e.get(0).tagName != "h3") {
@@ -212,7 +212,7 @@ const extractImgTag = ($e, $) => {
     });
     output += ` src="${extractImgSrc($e)}"`;
     const $p = $e.parent();
-    if ($p.get(0).tagName == "div") {
+    if (["div", "figure"].includes($p.get(0).tagName)) {
         if ($p.hasClass("pull-right")) {
             output += " class=\"pull-right\"";
         } else if ($p.hasClass("text-center")) {
