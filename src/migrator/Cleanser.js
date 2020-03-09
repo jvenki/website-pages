@@ -68,6 +68,7 @@ const makeHTMLValid = (html) => {
             .replace(/<q><em><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/strong><\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 733
             .replace(/<q><b><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/em><\/b><\/q>/, "<blockquote>$1</blockquote>") // Found in 26821
             .replace(/<q><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/]*)<\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 12376
+            .replace("<strong><math><mstyle><mi>E</mi><mo>=</mo><mi>P</mi><mo>.</mo><mi>r</mi><mo>.</mo><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi><mrow><mo>(</mo><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow></mstyle></math></strong>", "<strong>E = P . r . ( 1 + r ) n ( ( 1 + r ) n - 1</strong>") // Found in LPD 6496
     ;
 
     return cleansedHtml;
