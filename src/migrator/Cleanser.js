@@ -25,6 +25,7 @@ export default class Cleanser {
             createListAroundOrphanedLIs,
             moveContentsOfDDToLI,
             cleanChildrenOfList,
+            cleanH2PresentInList,
             moveBigTxtIntoNewsFeed,
             removeEmptyNodesAndEmptyLines
         ];
@@ -259,6 +260,18 @@ const cleanChildrenOfList = ($, onIssue) => {
     if (rerun) {
         cleanChildrenOfList($, onIssue);
     }
+};
+
+const cleanH2PresentInList = ($, onIssue) => {
+    $("ul, ol").each((i, list) => {
+        const $list = $(list);
+        const shouldProcess = $list.find(">li>h2:first-child").length == $list.find(">li").length;
+        if (!shouldProcess) {
+            return;
+        }
+        $list.children().get().reverse().forEach((li) => $list.after($(li).html()));
+        $list.remove();
+    });
 };
 
 const moveBigTxtIntoNewsFeed = ($, onIssue) => {
