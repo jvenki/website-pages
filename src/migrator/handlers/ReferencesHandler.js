@@ -206,6 +206,8 @@ export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
         } else {
             return false;
         }
+        // return (isElementMadeUpOfOnlyWithGivenDescendents($innerList, ["li", "a"], $) || isElementMadeUpOfOnlyWithGivenDescendents($innerList, ["li", "strong", "a", "span"], $))
+        //     && areAllAnchorsOnlyNonLocalLinks($innerList.find(" > li"));
         if ($innerList.find(" > li").length == 0 || $innerList.find(" > li > a").length != $innerList.find(" > li").length) {
             return false;
         }
@@ -215,6 +217,22 @@ export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".news-head"), $);
         const items = elements[0].find("li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title, elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
+export class ReferencesHandlerVariant_NewsWidget_P extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        return $e.hasClass("news-widget") 
+            && $e.find(".news-head").length == 1 
+            && $e.find(".news-head").nextAll((i, p) => p.tagName == "p" && isElementMadeUpOfOnlyWithGivenDescendents($(p), ["a"], $))
+            && areAllAnchorsOnlyNonLocalLinks($e.find("p"));
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find(".news-head"), $);
+        const items = elements[0].find("p > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }

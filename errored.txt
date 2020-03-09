@@ -90,7 +90,6 @@ Summary - Distribution of Error Codes
     UNKNOWN_TAG - IdentifyHandler for div.sitemap = 35 [936,937,938,939,940,941,942,1693,1856,2128,2129,2277,2488,5053,5150,5231,5309,5310,5342,5459,5460,5461,5872,5874,7584,8573,8574,9292,9326,9331,9347,9851,10312,10890,12010]
     UNKNOWN_TAG - IdentifyHandler for div.plan-widget = 18 [805,807,808,810,811,812,813,814,815,816,817,818,820,821,822,823,827,3333]
     UNKNOWN_TAG - IdentifyHandler for div.panel.panel-default = 15 [3573,4988,9939,24880,24881,25540,25549,25552,25555,25588,25593,25650,25701,25703,25704]
-    UNKNOWN_TAG - IdentifyHandler for div.col-md-5.news-widget.pull-right = 11 [6785,6793,6794,6795,6796,6797,6798,6799,6800,6801,6802]
     UNKNOWN_TAG - IdentifyHandler for div.ct-img-web-banner = 11 [1368,1782,1785,1786,1787,2660,2894,3028,5426,10399,11188]
     UNKNOWN_TAG - IdentifyHandler for div.container = 9 [857,872,3499,3538,3553,3718,3725,3734,10239]
     UNKNOWN_TAG - IdentifyHandler for div.col-md-4.pull-right.tb-pad-10 = 8 [1643,1645,1650,3676,3736,3768,3771,10233]
