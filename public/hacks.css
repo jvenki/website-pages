@@ -26,3 +26,7 @@
     color: rgb(152, 152, 152); 
     line-height: normal !important;
 }
+
+.wc-preview img {
+  max-width: 100%;
+}
