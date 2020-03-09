@@ -2,6 +2,7 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert} from "./Utils";
+import {isElementACntrOfExternalLinks} from "./ReferencesHandler";
 
 export class JumbotronHandlerVariant_Main extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -84,7 +85,9 @@ export class JumbotronHandlerVariant_InsuranceWeek extends BaseHandler {
 
 export class JumbotronHandlerVariant_LpRelatedInfo extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
-        return ($e.hasClass("news-widget") && $e.find("div.lp-related-info").length == 1 || $e.hasClass("lp-related-info")) && $e.find("h3.lp-related-head").length == 1;
+        return ($e.hasClass("news-widget") && $e.find("div.lp-related-info").length == 1 || $e.hasClass("lp-related-info")) 
+            && $e.find("h3.lp-related-head").length == 1 
+            && (!["ul", "ol"].includes($e.find(".lp-related-head").next().get(0).tagName) || !isElementACntrOfExternalLinks($e.find(".lp-related-head").next(), $));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {

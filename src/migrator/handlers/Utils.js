@@ -32,6 +32,7 @@ export const removePaddingClass = (classNames) => {
         .replace(/rt-pad-\d+/, "").replace(/rt-pad/, "")
         .replace(/btm-pad-\d+/, "").replace(/btm-pad/, "")
         .replace(/top-pad-\d+/, "").replace(/top-pad/, "")
+        .replace(/tb-pad-\d+/, "")
         .replace(/pad-\d+/, "")
         .replace(/pad-none/, "")
         .trim();

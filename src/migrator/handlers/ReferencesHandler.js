@@ -454,6 +454,23 @@ export class ReferencesHandlerVariant_Jumbotron extends BaseHandler {
     }
 }
 
+export class ReferencesHandlerVariant_LpRelatedInfo extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        return $e.hasClass("lp-related-info") 
+            && $e.children().length == 2
+            && $e.find("> .lp-related-head").length == 1
+            && $e.find("> ul").length == 1
+            && isElementACntrOfExternalLinks($e.find("> ul"), $);
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const title = extractHeadingText(elements[0].find(">.lp-related-head"), $);
+        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        assertExtractedData(items, title || "NA", elements[0]);
+        return {elements: [{type: "references", title, items}]};
+    }
+}
+
 const areAllAnchorsOnlyNonLocalLinks = ($e) => {
     const links = $e.find("a").get();
     return links.length > 0 && links.every((link) => link.attribs.href && !link.attribs.href.startsWith("#"));
@@ -470,7 +487,7 @@ export const isElementACntrOfExternalLinks = ($e: CheerioElemType, $: CheerioDoc
         return false;
     };
     const elemIsListOfLinks = ($e) => {
-        if (isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"], $)) {
+        if (isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a"], $) || isElementMadeUpOfOnlyWithGivenDescendents($e, ["li", "a", "span"], $)) {
             return areAllAnchorsOnlyNonLocalLinks($e);
         }
         return false;
