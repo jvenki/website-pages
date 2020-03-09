@@ -16,7 +16,7 @@ export default class ResponsiveTableHandler extends BaseHandler {
             if ($(tr).hasClass("tabular-title")) {
                 return;
             }
-            const cells = $(tr).find(".tabular-column").map((j, td) => createCell("td", extractContentHtml($(td), $))).get();
+            const cells = $(tr).find(".tabular-column").map((j, td) => createCell("td", extractCellContent($(td), $))).get();
             bodyRows.push(`<tr>${cells.join("")}</tr>`);
         });
         let output = "<table>";
@@ -40,4 +40,9 @@ const createCell = (tagName, cellContent, attribs) => {
     output += cellContent;
     output += `</${tagName}>`;
     return output;
+};
+
+const extractCellContent = ($td, $) => {
+    $td.find("span").each((i, span) => span.tagName = "small");
+    return extractContentHtml($td, $);
 };

@@ -66,9 +66,10 @@ const makeHTMLValid = (html) => {
         cleansedHtml.replace(/<\/div><br>/g, "</div>") // Found in LPD#859
             .replace(/<\/p><br>/g, "</p>") // Found in LPD#856
             .replace(/<ul><li><h2>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/h2><\/li><\/ul>/g, "<h2>$1</h2>")
-            .replace(/<small>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/small>/g, "<em>$1</em>")
+            //.replace(/<small>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/small>/g, "<em>$1</em>")
             .replace(/>&nbsp;</g, "><") // Found in 10056
             .replace(/<q><em><strong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strong><\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 733
+            .replace(/<q><strong><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/strong><\/q>/, "<blockquote>$1</blockquote>") // Found in 9343
             .replace(/<q><b><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/b><\/q>/, "<blockquote>$1</blockquote>") // Found in 26821
             .replace(/<q><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/q>/, "<blockquote>$1</blockquote>") // Found in 12376
             .replace("<strong><math><mstyle><mi>E</mi><mo>=</mo><mi>P</mi><mo>.</mo><mi>r</mi><mo>.</mo><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi><mrow><mo>(</mo><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow></mstyle></math></strong>", "<strong>E = P . r . ( 1 + r ) n ( ( 1 + r ) n - 1</strong>") // Found in LPD 6496

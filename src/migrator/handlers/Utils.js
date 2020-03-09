@@ -94,7 +94,7 @@ const isElementATextualNode = ($e) => {
         return false;
     } else if ($e.get(0).type == "text") {
         return true;
-    } else if (["p", "ul", "ol", "li", "strong", "em", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
+    } else if (["p", "ul", "ol", "li", "strong", "em", "small", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
         return true;
     }
     return false;
@@ -269,7 +269,7 @@ const extractHtmlFromTextualNodes = ($e, $) => {
             return createLinkTag($n, processChildNodes($n), $);  // Has Attributes that needs to be pulled out
         } else if (n.tagName == "span") {
             return processChildNodes($n);
-        } else if (["p", "strong", "em", "u", "sup"].includes(n.tagName)) {
+        } else if (["p", "strong", "em", "small", "u", "sup"].includes(n.tagName)) {
             return `<${n.tagName}>${processChildNodes($n).join("")}</${n.tagName}>`;
         } else if (n.tagName == "li") {
             if (!["ul", "ol"].includes($n.parent().get(0).tagName)) {

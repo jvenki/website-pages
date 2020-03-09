@@ -244,7 +244,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
         const title = extractHeadingText(elements[0], $);
         const items = elements[1].children().map((i, e) => {
             const $e = $(e);
-            const qns = extractHeadingText($e.find("summary > strong"), $);
+            const qns = extractHeadingText($e.find("summary > strong"), $) || extractHeadingText($e.find("summary"), $);
             const ans = $e.find("summary").nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
             return {question: qns, answer: ans};
         }).get();
