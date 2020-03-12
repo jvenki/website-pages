@@ -166,9 +166,7 @@ const printDocSummary = (lpdJson) => {
         logger.silly(JSON.stringify(lpdJson.new.primaryDoc, null, 4));
     } else {
         logger.error(`    Status=Error: ${lpdJson.conversionError.stack}`);
-        if (lpdJson.conversionError.code != ErrorCode.HTML_PARSE_ERROR.code) {
-            logger.warn(pretty(lpdJson.conversionError.payload, {ocd: true}));
-        }
+        logger.warn(pretty(lpdJson.conversionError.payload, {ocd: true}));
     }
 };
 

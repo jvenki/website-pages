@@ -83,7 +83,7 @@ const minifyHtml = (html) => {
     try {
         return minify(html, {collapseWhitespace: true, removeComments: true, removeEmptyAttributes: true, removeRedundantAttributes: true});
     } catch (err) {
-        throw new MigrationError(ErrorCode.HTML_PARSE_ERROR, undefined, err);
+        throw new MigrationError(ErrorCode.HTML_PARSE_ERROR, undefined, err.message.substring(0, 200));
     }
 };
 
