@@ -243,6 +243,7 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
         const allChildrenAreAccordion = () => $e.children().get().every((c) => $(c).hasClass("twi-accordion"));
         const allPanelBodiesAreReferences = () => {
             const panelBodies = $e.find(".twi-accordion .panel-body").get();
+            panelBodies.forEach((c, i) => console.log("Index#", i, check($(c), ["ul", "li", "a"], $)));
             return panelBodies.length > 0 
                 && panelBodies.every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "li", "a"], $) 
                     || isElementMadeUpOfOnlyWithGivenDescendents($(c), ["ul", "ul", "li", "a"], $));
@@ -255,6 +256,9 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
                     return currPanelChildren[0].tagName == "h2" && currPanelChildren.slice(1).every((c) => isElementMadeUpOfOnlyWithGivenDescendents($(c), ["li", "a"], $));
                 });
         };
+        if ($e.hasClass("row") || $e.hasClass("col-md-12")) {
+            console.log("ReferencesHandlerVariant_GridOfAccordions", allChildrenAreAccordion(), allPanelBodiesAreReferences(), areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li")));
+        }
         return ($e.hasClass("row") || $e.hasClass("col-md-12"))
             && allChildrenAreAccordion() 
             && (allPanelBodiesAreReferences() || allPanelHeadingsAreReferences()) 
@@ -270,6 +274,28 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
         return {elements: targetElements};
     }
 }
+
+const check = ($e, descendentTagNames, $) => {
+    const recurse = ($n, depth) => {
+        if ($n.contents().length == 0) {
+            return false;
+        }
+
+        return $n.contents().get().every((d) => {
+            if (d.tagName != descendentTagNames[depth]) {
+                console.log("Check", $(d).toString(), d.type, d.tagName, depth, descendentTagNames);
+                return false;
+            }
+            if (depth < (descendentTagNames.length-1)) {
+                return recurse($(d), depth+1);
+            } else if ($(d).children().length > 0) {
+                return false;
+            }
+            return true;
+        });
+    };
+    return recurse($e, 0);
+};
 
 export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
