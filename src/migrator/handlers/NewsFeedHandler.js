@@ -25,3 +25,15 @@ export class NewsFeedHandlerVariant_Main extends BaseHandler {
         return {elements: [{type: "news-feed", title, items}]};
     }
 }
+
+export class NewsFeedHandlerVariant_Main2 extends NewsFeedHandlerVariant_Main {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        return $e.hasClass("news-widget") 
+            && $e.children().length == 3 
+            && $e.find("> h2").length == 1
+            && $e.find("> div.lp-blog-post").length == 1
+            && $e.find("> div.lp-blog-get-app").length == 1
+            && $e.find("> div.lp-blog-post > ul").length == 1
+            && $e.find("> div.lp-blog-post > ul > li > a").length > 0;
+    }
+}

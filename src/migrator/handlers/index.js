@@ -21,8 +21,8 @@ import {DisclaimerHandlerVariant_TextRegex, DisclaimerHandlerVariant_GridOfAccor
 import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplified } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
-import { NewsFeedHandlerVariant_Main } from "./NewsFeedHandler";
-import { NewsFeedFullPostHandlerVariant_Main } from "./NewsFeedFullPostHandler";
+import { NewsFeedHandlerVariant_Main, NewsFeedHandlerVariant_Main2 } from "./NewsFeedHandler";
+import { NewsFeedFullPostHandlerVariant_Main, NewsFeedFullPostHandlerVariant_Main2 } from "./NewsFeedFullPostHandler";
 import { FloatHandlerVariant_Main, FloatHandlerVariant_Infographic } from "./FloatHandler";
 import MigrationError, { ErrorCode } from "../MigrationError";
 
@@ -97,7 +97,9 @@ const handlers = [
     new JumbotronHandlerVariant_InsuranceWeek(),
     new JumbotronHandlerVariant_LpRelatedInfo(),
     new NewsFeedHandlerVariant_Main(),
+    new NewsFeedHandlerVariant_Main2(),
     new NewsFeedFullPostHandlerVariant_Main(),
+    new NewsFeedFullPostHandlerVariant_Main2(),
     new BlockQuoteHandler(),
     new ResponsiveTableHandler(),
     new VideoHandler(),
