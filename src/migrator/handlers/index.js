@@ -22,7 +22,7 @@ import ResponsiveTableHandler from "./ResponsiveTableHandler";
 import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplified } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main, NewsFeedHandlerVariant_Main2 } from "./NewsFeedHandler";
-import { NewsFeedFullPostHandlerVariant_Main, NewsFeedFullPostHandlerVariant_Main2 } from "./NewsFeedFullPostHandler";
+import { NewsFeedFullPostHandlerVariant_Main, NewsFeedFullPostHandlerVariant_Main2, NewsFeedFullPostHandlerVariant_Main3  } from "./NewsFeedFullPostHandler";
 import { FloatHandlerVariant_Main, FloatHandlerVariant_Infographic } from "./FloatHandler";
 import MigrationError, { ErrorCode } from "../MigrationError";
 
@@ -100,6 +100,7 @@ const handlers = [
     new NewsFeedHandlerVariant_Main2(),
     new NewsFeedFullPostHandlerVariant_Main(),
     new NewsFeedFullPostHandlerVariant_Main2(),
+    new NewsFeedFullPostHandlerVariant_Main3(),
     new BlockQuoteHandler(),
     new ResponsiveTableHandler(),
     new VideoHandler(),

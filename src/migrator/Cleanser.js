@@ -28,7 +28,8 @@ export default class Cleanser {
             cleanH2PresentInList,
             replaceElements,
             moveBigTxtIntoNewsFeed,
-            removeEmptyNodesAndEmptyLines
+            removeEmptyNodesAndEmptyLines,
+            removeHeadingsInsideReferences
         ];
         const $ = cheerio.load(cleansedHtml, {decodeEntities: false});
         cleansers.forEach((cleanser) => cleanser($, onIssue));
@@ -332,6 +333,17 @@ const removeDisqusElements = ($, onIssue) => {
 const removeOfferTableElements = ($, onIssue) => {
     $("div.container-fluid").each((i, d) => {
         onIssue(new MigrationError(CleanserIssueCode.REMOVED_OFFER, undefined, $(d).toString()));
+        $(d).remove();
+    });
+};
+
+const removeHeadingsInsideReferences = ($, onIssue) => {
+    $(".panel .panel-heading .panel-group").each((i, d) => {
+        onIssue(new MigrationError(CleanserIssueCode.REMOVED_UNWANTED_HEADINGS_INSIDE_REFERENCES, undefined, $(d).toString()));
+        $(d).remove();
+    });
+    $(".panel .panel-heading .accordion-mo-head").each((i, d) => {
+        onIssue(new MigrationError(CleanserIssueCode.REMOVED_UNWANTED_HEADINGS_INSIDE_REFERENCES, undefined, $(d).toString()));
         $(d).remove();
     });
 };

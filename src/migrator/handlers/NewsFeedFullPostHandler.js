@@ -62,4 +62,19 @@ export class NewsFeedFullPostHandlerVariant_Main2 extends BaseHandler {
     }
 }
 
+export class NewsFeedFullPostHandlerVariant_Main3 extends NewsFeedFullPostHandlerVariant_Main2 {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
+        const itemIsAPost = ($item) => {
+            return $item.find("> .news-head").length == 1
+                && $item.find("> p").length > 0
+                && $item.find("> div.pull-right").length == 1;
+        };
+        return $e.hasClass("news-widget") 
+            && $e.children().length == 2
+            && $e.find("> h2").length == 1
+            && $e.find("> ul > li").length > 0
+            && $e.find("> ul > li").get().every((item) => itemIsAPost($(item)));
+    }
+}
+
 const computeISODateString = (v) => new Date(v.replace(/st|nd|rd|th/, "").replace(/\s/, "-") + " 05:30:00").toISOString().substring(0, 10);
