@@ -1,0 +1,135 @@
+{
+    "$async": true,
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "sections": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string"},
+                            "elements": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {"type": "string"},
+                                        "body": {"type": "string", "validateHtml": true}
+                                    } 
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string"},
+                            "img": {
+                                "type": "object",
+                                "properties": {
+                                    "src": {"type": "string"},
+                                    "srcXL": {"type": "string"}
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "disclaimer": {
+            "type": "object",
+            "properties": {
+                "text": {"type": "string", "validateHtml": true},
+                "link": {"type": "string", "validateHtml": true},
+                "linkText": {"type": "string", "validateHtml": true}
+            }
+        },
+        "faq": {
+            "type": "object",
+            "properties": {
+                "title": {"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "question": {"type": "string", "validateHtml": true},
+                            "answer": {"type": "string", "validateHtml": true}
+                        }
+                    }
+                }
+            }
+        },
+        "references": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {"type": "string"},
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "link": {"type": "string", "validateHtml": true},
+                                "title": {"type": "string", "validateHtml": true}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "sitemap": {
+            "type": "object",
+            "properties": {
+                "link": {"type": "string", "validateHtml": true},
+                "linkText": {"type": "string", "validateHtml": true}
+            }
+        },
+        "news-feed": {
+            "type": "object",
+            "properties": {
+                "title": {"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string", "validateHtml": true},
+                            "link": {"type": "string", "validateHtml": true},
+                            "img": {
+                                "type": "object",
+                                "properties": {
+                                    "src": {"type": "string"}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "news-feed-full-posts": {
+            "type": "object",
+            "properties": {
+                "title": {"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string", "validateHtml": true},
+                            "body": {"type": "string", "validateHtml": true},
+                            "postedOn": {"type": "string"}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}

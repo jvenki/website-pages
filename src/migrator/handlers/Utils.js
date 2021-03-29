@@ -373,7 +373,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 
     const extractHeaderRows = (maxColumnCount) => {
         const headerRows = $table.find("> thead > tr").map((ri, tr) => {
-            const cells = $(tr).children().map((ci, th) => createCell("th", extractHeadingText($(th), $), th.attribs)).get();
+            const cells = $(tr).children().map((ci, th) => createCell("th", extractHeadingText($(th), $), {...th.attribs, scope: "col"})).get();
             return `<tr>${cells.join("")}</tr>`;
         }).get();
         if ($e.find(" > div.product-hl-table-head").length > 0) {

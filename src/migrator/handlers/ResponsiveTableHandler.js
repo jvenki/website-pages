@@ -10,7 +10,7 @@ export default class ResponsiveTableHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = elements[0];
-        const headerRowCells = $e.find(".tabular-title .tabular-column").map((i, th) => createCell("th", extractHeadingText($(th), $))).get();
+        const headerRowCells = $e.find(".tabular-title .tabular-column").map((i, th) => createCell("th", extractHeadingText($(th), $), {scope: "col"})).get();
         const bodyRows = [];
         $e.find(".tabular-data").each((i, tr) => {
             if ($(tr).hasClass("tabular-title")) {

@@ -51,6 +51,7 @@ const makeHTMLValid = (html) => {
             .replace(/<i>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/i>/g, "<em>$1</em>")  // Found in LPD#9
             .replace(/<b>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/b>/g, "<strong>$1</strong>")  // Found in LPD#57
             .replace(/<b><em>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/em><\/b>/g, "<strong><em>$1</em></strong>")  // Found in LPD#8124
+            .replace(/<strike>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/strike>/g, "<del>$1</del>")  // Found in LPD#8124
             .replace(/<span style="text-decoration: underline;">([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/span>/g, "<u>$1</u>") // Found in #LPD#37
             .replace(/\s*tax-img-responsive\s*/g, "") // Found in LPD#38
             .replace(/<srtong>([a-zA-Z0-9?\-+%*.,:'()\s\\/&]*)<\/srtong>/g, "<strong>$1</strong>") // Found in LPD#48
