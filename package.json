@@ -17,6 +17,7 @@
     "deep-object-diff": "^1.1.0",
     "html-minifier": "^4.0.0",
     "html-react-parser": "^0.7.1",
+    "html-table-to-json": "^1.0.0",
     "html-validator": "^5.1.17",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",

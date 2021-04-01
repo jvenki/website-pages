@@ -1,5 +1,35 @@
 {
     "$async": true,
+    "definitions": {
+        "image": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "src": {"type": "string"},
+                "srcXL": {"type": "string"}
+            }
+        },
+        "cols": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "content": {"type": "string"},
+                    "colspan": {"type": "number"}
+                }
+            }
+        },
+        "rows": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "cols": {"$ref": "#/definitions/cols"},
+                    "rowspan": {"type": "number"}
+                }
+            }
+        }
+    },
     "type": "object",
     "properties": {
         "title": {
@@ -11,6 +41,7 @@
                 "anyOf": [
                     {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                             "title": {"type": "string"},
                             "elements": {
@@ -27,14 +58,29 @@
                     },
                     {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                             "title": {"type": "string"},
                             "img": {
-                                "type": "object",
-                                "properties": {
-                                    "src": {"type": "string"},
-                                    "srcXL": {"type": "string"}
-                                }
+                                "$ref": "#/definitions/image"
+                            },
+                            "link": {"type": "string"},
+                            "alt": {"type": "string"},
+                            "float": {"type": "string"}
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "headers": {
+                                "$ref": "#/definitions/rows"
+                            },
+                            "rows": {
+                                "$ref": "#/definitions/rows"
+                            },
+                            "responsive": {
+                                "type": "boolean"
                             }
                         }
                     }
@@ -43,6 +89,7 @@
         },
         "disclaimer": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "text": {"type": "string", "validateHtml": true},
                 "link": {"type": "string", "validateHtml": true},
@@ -51,6 +98,7 @@
         },
         "faq": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "title": {"type": "string"},
                 "items": {
@@ -69,6 +117,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "title": {"type": "string"},
                     "items": {
@@ -86,6 +135,7 @@
         },
         "sitemap": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "link": {"type": "string", "validateHtml": true},
                 "linkText": {"type": "string", "validateHtml": true}
@@ -93,20 +143,19 @@
         },
         "news-feed": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "title": {"type": "string"},
                 "items": {
                     "type": "array",
                     "items": {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                             "title": {"type": "string", "validateHtml": true},
                             "link": {"type": "string", "validateHtml": true},
                             "img": {
-                                "type": "object",
-                                "properties": {
-                                    "src": {"type": "string"}
-                                }
+                                "$ref": "#/definitions/image"
                             }
                         }
                     }
@@ -115,12 +164,14 @@
         },
         "news-feed-full-posts": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "title": {"type": "string"},
                 "items": {
                     "type": "array",
                     "items": {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                             "title": {"type": "string", "validateHtml": true},
                             "body": {"type": "string", "validateHtml": true},
