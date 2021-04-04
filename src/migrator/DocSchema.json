@@ -5,8 +5,21 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "src": {"type": "string"},
-                "srcXL": {"type": "string"}
+                "src": {
+                    "type": "string"
+                },
+                "srcXL": {
+                    "type": "string"
+                },
+                "alt": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
             }
         },
         "cols": {
@@ -14,8 +27,12 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "content": {"type": "string"},
-                    "colspan": {"type": "number"}
+                    "content": {
+                        "type": "string"
+                    },
+                    "colspan": {
+                        "type": "number"
+                    }
                 }
             }
         },
@@ -24,10 +41,218 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "cols": {"$ref": "#/definitions/cols"},
-                    "rowspan": {"type": "number"}
+                    "cols": {
+                        "$ref": "#/definitions/cols"
+                    },
+                    "rowspan": {
+                        "type": "number"
+                    }
                 }
             }
+        },
+        "textType": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string",
+                    "validateHtml": true
+                }
+            },
+            "additionalProperties": false
+
+        },
+        "panelType": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string",
+                    "validateHtml": true
+                }
+            },
+            "additionalProperties": false
+
+        },
+        "imageType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "img": {
+                    "$ref": "#/definitions/image"
+                },
+                "float": {
+                    "type": "string"
+                }            }
+        },
+        "landingBannerType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "img": {
+                    "$ref": "#/definitions/image"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "linkText": {
+                    "type": "string"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "text": {"type": "string"},
+                            "icon": {"type": "string"}
+                        },
+                        "additionalProperties": false
+                    }
+                }
+            }
+        },
+        "ctaType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "linkText": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "suffix": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "tableType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "headers": {
+                    "$ref": "#/definitions/rows"
+                },
+                "rows": {
+                    "$ref": "#/definitions/rows"
+                },
+                "responsive": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "customTocType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "link": {"type": "string"},
+                            "linkText": {"type": "string"},
+                            "img": {"$ref": "#/definitions/image"}
+                        }
+                    }
+                }
+            }
+        },
+        "accordionType": {
+            "$async": true,
+            "type":"object",
+            "properties": {
+                "type":{"type": "string"},
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "body": {
+                                "type": "string",
+                                "validateHtml": true
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "gridType":{
+            "$async": true,
+            "type": "object",
+            "properties":{
+                "type": {"type":"string"},
+                "cells": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "width": {"type": "string"},
+                            "body": {
+                                "$ref": "#/definitions/textType"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "featuredOffersType": {
+            "$async": true,
+            "type": "object",
+            "properties":{
+                "type": {"type": "string"},
+                "offers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string"},
+                            "link": {"type": "string"},
+                            "img": {"$ref": "#/definitions/image"},
+                            "body": {
+                                "type": "string",
+                                "validateHtml": true
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                }                
+            },
+            "additionalProperties": false
         }
     },
     "type": "object",
@@ -38,76 +263,90 @@
         "sections": {
             "type": "array",
             "items": {
-                "anyOf": [
-                    {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                            "title": {"type": "string"},
-                            "elements": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "type": {"type": "string"},
-                                        "body": {"type": "string", "validateHtml": true}
-                                    } 
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "elements": {
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "$ref": "#/definitions/textType"
+                                },
+                                {
+                                    "$ref": "#/definitions/imageType"
+                                },
+                                {
+                                    "$ref": "#/definitions/landingBannerType"
+                                },
+                                {
+                                    "$ref": "#/definitions/ctaType"
+                                },
+                                {
+                                    "$ref": "#/definitions/tableType"
+                                },
+                                {
+                                    "$ref": "#/definitions/panelType"
+                                },
+                                {
+                                    "$ref": "#/definitions/customTocType"
+                                },
+                                {
+                                    "$ref": "#/definitions/accordionType"
+                                },
+                                {
+                                    "$ref": "#/definitions/gridType"
+                                },
+                                {
+                                    "$ref": "#/definitions/featuredOffersType"
                                 }
-                            }
-                        }
-                    },
-                    {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                            "title": {"type": "string"},
-                            "img": {
-                                "$ref": "#/definitions/image"
-                            },
-                            "link": {"type": "string"},
-                            "alt": {"type": "string"},
-                            "float": {"type": "string"}
-                        }
-                    },
-                    {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                            "headers": {
-                                "$ref": "#/definitions/rows"
-                            },
-                            "rows": {
-                                "$ref": "#/definitions/rows"
-                            },
-                            "responsive": {
-                                "type": "boolean"
-                            }
+                            ]
                         }
                     }
-                ]
+                }
             }
         },
         "disclaimer": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "text": {"type": "string", "validateHtml": true},
-                "link": {"type": "string", "validateHtml": true},
-                "linkText": {"type": "string", "validateHtml": true}
+                "text": {
+                    "type": "string",
+                    "validateHtml": true
+                },
+                "link": {
+                    "type": "string",
+                    "validateHtml": true
+                },
+                "linkText": {
+                    "type": "string",
+                    "validateHtml": true
+                }
             }
         },
         "faq": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "title": {"type": "string"},
+                "title": {
+                    "type": "string"
+                },
                 "items": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "question": {"type": "string", "validateHtml": true},
-                            "answer": {"type": "string", "validateHtml": true}
+                            "question": {
+                                "type": "string",
+                                "validateHtml": true
+                            },
+                            "answer": {
+                                "type": "string",
+                                "validateHtml": true
+                            }
                         }
                     }
                 }
@@ -119,14 +358,22 @@
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
-                    "title": {"type": "string"},
+                    "title": {
+                        "type": "string"
+                    },
                     "items": {
                         "type": "array",
                         "items": {
                             "type": "object",
                             "properties": {
-                                "link": {"type": "string", "validateHtml": true},
-                                "title": {"type": "string", "validateHtml": true}
+                                "link": {
+                                    "type": "string",
+                                    "validateHtml": true
+                                },
+                                "title": {
+                                    "type": "string",
+                                    "validateHtml": true
+                                }
                             }
                         }
                     }
@@ -137,23 +384,37 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "link": {"type": "string", "validateHtml": true},
-                "linkText": {"type": "string", "validateHtml": true}
+                "link": {
+                    "type": "string",
+                    "validateHtml": true
+                },
+                "linkText": {
+                    "type": "string",
+                    "validateHtml": true
+                }
             }
         },
         "news-feed": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "title": {"type": "string"},
+                "title": {
+                    "type": "string"
+                },
                 "items": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
-                            "title": {"type": "string", "validateHtml": true},
-                            "link": {"type": "string", "validateHtml": true},
+                            "title": {
+                                "type": "string",
+                                "validateHtml": true
+                            },
+                            "link": {
+                                "type": "string",
+                                "validateHtml": true
+                            },
                             "img": {
                                 "$ref": "#/definitions/image"
                             }
@@ -166,16 +427,26 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "title": {"type": "string"},
+                "title": {
+                    "type": "string"
+                },
                 "items": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "additionalProperties": false,
                         "properties": {
-                            "title": {"type": "string", "validateHtml": true},
-                            "body": {"type": "string", "validateHtml": true},
-                            "postedOn": {"type": "string"}
+                            "title": {
+                                "type": "string",
+                                "validateHtml": true
+                            },
+                            "body": {
+                                "type": "string",
+                                "validateHtml": true
+                            },
+                            "postedOn": {
+                                "type": "string"
+                            }
                         }
                     }
                 }

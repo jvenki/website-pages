@@ -25,7 +25,7 @@ export class TableHandler_ResponsiveVariant extends BaseHandler {
         });
         
         const headersAndRows = extractRowsAndHeaders($e, $);
-        return {elements: [{type: "table", headers: headerRowCells, rows: bodyRows, responsive: true}], issues:["RESPONSIVE_TABLE"]};
+        return {elements: [{type: "table", headers: headerRowCells, rows: bodyRows, responsive: true}]};
     }
 }
 

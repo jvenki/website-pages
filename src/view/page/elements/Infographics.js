@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 
 export default class Infographics extends React.Component {
     static propTypes = {
-        img: PropTypes.shape({ src: PropTypes.string, srcXL: PropTypes.string }),
-        title: PropTypes.string,
+        img: PropTypes.shape({ src: PropTypes.string, srcXL: PropTypes.string, title: PropTypes.string }),
         float: PropTypes.oneOf(["right"]),
     }
 
@@ -14,7 +13,7 @@ export default class Infographics extends React.Component {
             <React.Fragment>
                 <div className={style}>
                     <a href="" data-toggle="modal" data-target=".bs-example-modal-lg">
-                        <img className="img-responsive lazy" src={this.props.img.src} title={this.props.title}/>
+                        <img className="img-responsive lazy" src={this.props.img.src} title={this.props.img.title}/>
                     </a>
                 </div>
                 {this.props.img.srcXL && <div className="modal fade bs-example-modal-lg" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -25,7 +24,7 @@ export default class Infographics extends React.Component {
                         <div className="modal-dialog modal-lg">
                             <div className="modal-content">
                                 <div className="modal-body">
-                                    <img className="img-responsive lazy" src={this.props.img.srcXL} title={this.props.title}    />
+                                    <img className="img-responsive lazy" src={this.props.img.srcXL} title={this.props.img.title}  />
                                 </div>
                             </div>
                         </div>

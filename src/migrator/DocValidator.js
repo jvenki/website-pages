@@ -69,6 +69,7 @@ const w3cHtmlValidator = async (data, datacxt) => {
     }
     return Promise.reject(new MigrationError(DocValidatorIssueCode.INVALID_HTML, "Does not follow w3c standards", {...result, dataPath: datacxt.dataPath}));
 };
+
 export const validateJsonSchema = async (jsonToBeValidated: Object, onIssue: (err: MigrationError) => void) => {
     const validate = getJSONSchemaValidator();;
     let result;
@@ -78,7 +79,11 @@ export const validateJsonSchema = async (jsonToBeValidated: Object, onIssue: (er
     } catch (ex) {
         console.log("final", JSON.stringify(ex));
         result = false;
-        onIssue(ex);
+        if(!(ex instanceof MigrationError)) {
+            onIssue(new MigrationError(DocValidatorIssueCode.INVALID_SCHEMA, "Schema invalid", JSON.stringify(ex)));
+        } else {
+            onIssue(ex);
+        }
     }
     // console.log(result)
     return result;
