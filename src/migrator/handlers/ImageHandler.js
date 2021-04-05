@@ -2,24 +2,47 @@
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
 import {isElementMadeUpOfOnlyWithGivenDescendents, extractContentHtml, removeBGClasses, removeBorderClasses, removePositioningClass, removePaddingClass, extractLink, extractImgSrc, assert} from "./Utils";
-import MigrationError, { ConversionIssueCode } from "../MigrationError";
+import MigrationError, { ConversionIssueCode, CleanserIssueCode } from "../MigrationError";
 import { containsOnlyGridCellClasses } from "./UnwrapHandler";
 
 const assertExtractedData = (imgSrc, $e) => assert(Boolean(imgSrc), "InfographicHandler-ConditionNotMet#1", $e);
 
-export class FloatHandlerVariant_Main extends BaseHandler {
+
+export class ImageHandler extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        return (isDivMadeUpOfAofIMG($e, $) || isDivMadeUpOfIMG($e, $));
+    }
+
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $e = $(elements[0]);
+        const body = extractContentHtml(elements[0], $);
+        const imgSrc = extractImgSrc($e.find("img"));
+        const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
+        const alt = $e.find("img").attr("alt");
+        const link = $e[0].tagName == "a" ? extractLink($e) : $e.find("a") ? extractLink($e.find("a")) : null;
+        const actualElement = {type: "image", img: {src: imgSrc, title, link, alt}};
+        return {elements: [actualElement]};
+    }
+}
+
+export class ImageHandlerVariant_Float extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return (isDivPulledRight($e, $) || isFigurePulledRight($e, $)) && (isDivMadeUpOfAofIMG($e, $) || isDivMadeUpOfIMG($e, $));
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $e = $(elements[0]);
         const body = extractContentHtml(elements[0], $);
-        const actualElement = {type: "text", body};
+        const imgSrc = extractImgSrc($e.find("img"));
+        const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
+        const alt = $e.find("img").attr("alt");
+        const link = $e.find("a") ? extractLink($e.find("a")) || "" : "";
+        const actualElement = {type: "image", img: {src: imgSrc, title, link, alt} , float: "right"};
         return {elements: [{type: "float", actualElement}]};
     }
 }
 
-export class FloatHandlerVariant_Infographic extends BaseHandler {
+export class ImageHandlerVariant_FloatInfographic extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         const isInfographic = () => $e.find(">a").attr("data-toggle") == "modal" && $(".bs-example-modal-lg").length > 0;
         return isDivPulledRight($e, $) && isDivMadeUpOfAofIMG($e, $) && isInfographic();
@@ -43,7 +66,7 @@ export class FloatHandlerVariant_Infographic extends BaseHandler {
         const imgSrcXL = extractImgSrc(elements[1].find("div.modal-body img"));
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         assertExtractedData(imgSrc, $e);
-        const actualElement = {type: "infographics", img: {src: imgSrc, srcXL: imgSrcXL}, title, float: "right"};
+        const actualElement = {type: "image", img: {src: imgSrc, srcXL: imgSrcXL, title}, float: "right"};
         return {elements: [{type: "float", actualElement}]};
     }
 }

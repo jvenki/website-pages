@@ -82,7 +82,7 @@ export class CTAHandlerVariant_TabularData extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
-        const link = extractLink($element.find("a"));
+        const link = extractLink($element.find("a")) || "";
         const linkText = extractLinkText($element.find("a"), $);
         const title = extractHeadingText($element.find("h3"), $);
         const prefix = extractContentHtml($element.find("> div.col-md-7"), $);

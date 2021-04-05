@@ -11,7 +11,7 @@ import BlockQuote from "./BlockQuote";
 import Grid from "./Grid";
 import IFrame from "./IFrame";
 import LandingBanner from "./LandingBanner";
-import ResponsiveTable from "./ResponsiveTable";
+import Table from "./Table";
 import Infographics from "./Infographics";
 
 const getViewKlassForElement = (element) => {
@@ -24,12 +24,13 @@ const getViewKlassForElement = (element) => {
         case "panel": return Panel;
         case "accordion": return Accordion;
         case "grid": return Grid;
-        case "responsive-table": return ResponsiveTable;
+        case "table": return Table;
         case "faq": return FAQ;
         case "landing-banner": return LandingBanner;
         case "cta": return CTA;
         case "custom_toc": return DeprecatedTOC;
         case "infographics": return Infographics;
+        case "image": return Infographics;
         default: return null;
     }
 };

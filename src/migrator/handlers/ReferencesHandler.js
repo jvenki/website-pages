@@ -257,7 +257,7 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
                 });
         };
         if ($e.hasClass("row") || $e.hasClass("col-md-12")) {
-            console.log("ReferencesHandlerVariant_GridOfAccordions", allChildrenAreAccordion(), allPanelBodiesAreReferences(), areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li")));
+            console.log("ReferencesHandlerVariant_GridOfAccordions", allChildrenAreAccordion(), allPanelBodiesAreReferences(), allPanelHeadingsAreReferences(), areAllAnchorsOnlyNonLocalLinks($e.find(".twi-accordion .panel-body ul li")));
         }
         return ($e.hasClass("row") || $e.hasClass("col-md-12"))
             && allChildrenAreAccordion() 

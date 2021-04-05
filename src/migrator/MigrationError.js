@@ -33,6 +33,13 @@ export const CleanserIssueCode = {
     REMOVED_TOC: {code: "REMOVED_TOC", message: "Removed TOC"},
     REMOVED_DISQUS: {code: "REMOVED_DISQUS", message: "Removed DisQus Thread Blocks"},
     REMOVED_OFFER: {code: "REMOVED_OFFER", message: "Removed Offer Containers"},
+    REMOVED_UNWANTED_HEADINGS_INSIDE_REFERENCES: {code: "REMOVED_HEADINGS_INSIDE_REFERENCES", message: "Removed Unwanted Headings inside references"}
+};
+
+export const DocValidatorIssueCode = {
+    INVALID_HTML: {code: "INVALID_HTML", message: "Doc contains html that does not meet W3C standards"},
+    INVALID_SCHEMA: {code: "INVALID_SCHEMA", message: "Doc does not meet the schema that is used for ajv validation"},
+    UNEXPECTED_TAGS: {code: "UNEXPECTED_TAGS", message: "Doc contains tags which are disallowed"}
 };
 
 export default class MigrationError extends Error {

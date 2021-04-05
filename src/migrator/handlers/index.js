@@ -18,12 +18,12 @@ import GridHandler from "./GridHandler";
 import BlockQuoteHandler from "./BlockQuoteHandler";
 import { ReferencesHandlerVariant_Nav, ReferencesHandlerVariant_HeadingRegex, ReferencesHandlerVariant_InterlinksOfAccordion, ReferencesHandlerVariant_InterlinksOfNav, ReferencesHandlerVariant_Accordion, ReferencesHandlerVariant_NewsWidget, ReferencesHandlerVariant_InterlinkOfStrongAndUL, ReferencesHandlerVariant_GridOfAccordions, ReferencesHandlerVariant_UsefulLinks, ReferencesHandlerVariant_GridOfInterlink, ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks, ReferencesHandlerVariant_TableOfLinks, ReferencesHandlerVariant_HeadingRegex_Buggy, ReferencesHandlerVariant_ProductsInvest, ReferencesHandlerVariant_GridOfULs, ReferencesHandlerVariant_Jumbotron, ReferencesHandlerVariant_InterlinkFollowedByUL, ReferencesHandlerVariant_NewsWidget_P, ReferencesHandlerVariant_LpRelatedInfo } from "./ReferencesHandler";
 import {DisclaimerHandlerVariant_TextRegex, DisclaimerHandlerVariant_GridOfAccordions, DisclaimerHandlerVariant_Link, DisclaimerHandlerVariant_Accordion, DisclaimerHandlerVariant_HeadingRegex} from "./DisclaimerHandler";
-import ResponsiveTableHandler from "./ResponsiveTableHandler";
+import {TableHandler_Main, TableHandler_ResponsiveVariant} from "./TableHandler";
 import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplified } from "./LandingBannerHandler";
 import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main, NewsFeedHandlerVariant_Main2 } from "./NewsFeedHandler";
-import { NewsFeedFullPostHandlerVariant_Main, NewsFeedFullPostHandlerVariant_Main2 } from "./NewsFeedFullPostHandler";
-import { FloatHandlerVariant_Main, FloatHandlerVariant_Infographic } from "./FloatHandler";
+import { NewsFeedFullPostHandlerVariant_Main, NewsFeedFullPostHandlerVariant_Main2, NewsFeedFullPostHandlerVariant_Main3  } from "./NewsFeedFullPostHandler";
+import { ImageHandlerVariant_Float, ImageHandlerVariant_FloatInfographic, ImageHandler } from "./ImageHandler";
 import MigrationError, { ErrorCode } from "../MigrationError";
 
 const handlers = [
@@ -84,8 +84,10 @@ const handlers = [
     new CTAHandlerVariant_InsuranceWeekPick(),
     new CTAHandlerVariant_ListGroup_UL(),
     new CTAHandlerVariant_ListGroup_P(),
-    new FloatHandlerVariant_Infographic(),
-    new FloatHandlerVariant_Main(),
+    new ImageHandlerVariant_FloatInfographic(),
+    new ImageHandlerVariant_Float(),
+    new ImageHandler(),
+    new TableHandler_Main(),
     new TextHandlerVariant_Main(),
     new TextHandlerVariant_PointerView(),
     new LandingBannerHandlerVariant_Main(),
@@ -100,8 +102,9 @@ const handlers = [
     new NewsFeedHandlerVariant_Main2(),
     new NewsFeedFullPostHandlerVariant_Main(),
     new NewsFeedFullPostHandlerVariant_Main2(),
+    new NewsFeedFullPostHandlerVariant_Main3(),
     new BlockQuoteHandler(),
-    new ResponsiveTableHandler(),
+    new TableHandler_ResponsiveVariant(),
     new VideoHandler(),
     new IFrameHandler(),
     new FeaturedOffersHandlerVariant_BorderBlue(),

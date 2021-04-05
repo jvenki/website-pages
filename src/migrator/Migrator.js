@@ -8,7 +8,8 @@ import {isEqual, pick, sortBy} from "lodash";
 import DomWalker from "./DomWalker";
 import DocBuilder from "./DocBuilder";
 import Cleanser from "./Cleanser";
-import MigrationError, {ErrorCode, CleanserIssueCode} from "./MigrationError";
+import MigrationError, {ErrorCode, CleanserIssueCode, DocValidatorIssueCode} from "./MigrationError";
+import {validateJsonSchema} from "./DocValidator";
 import pretty from "pretty";
 import {diff} from "deep-object-diff";
 import util from "util";
@@ -39,19 +40,15 @@ export default class Migrator {
 
     async startSweeping() {
         const startTime = new Date().getTime();
-
         await this.mysqlClient.connect();
         await this.mongoClient.connect();
-
         const dbRows = await this.mysqlClient.query(this.queryCriteria);
-
         await this.processRowAtIndex(0, dbRows);
-        
         this.mysqlClient.releaseConnection();
-        setTimeout(() => this.mongoClient.disconnect(), 1000);
-
+        setTimeout(() => {
+            this.mongoClient.disconnect()
+        }, 1000);
         printFinalSummary(this.docConversionStatus, startTime);
-
         if (this.updateSnapshot) {
             fs.writeFileSync("./data/migrator-validating-test-data.json", JSON.stringify(manuallyValidatedSnapshot, null, 4));
         }
@@ -67,7 +64,7 @@ export default class Migrator {
         try {
             lpdJson.old = new LPDRowFieldExtractor().extractFrom(xmlBasedRow);
 
-            const {doc: primaryDoc, issues, opLog} = convertHTMLIntoJSON(lpdJson.old.primaryContent, lpdJson.id);
+            const {doc: primaryDoc, issues, opLog} = await convertHTMLIntoJSON(lpdJson.old.primaryContent, lpdJson.id);
             lpdJson.new.primaryDoc = primaryDoc;
             lpdJson.new.primaryOpLog = opLog;
             lpdJson.conversionIssues = lpdJson.conversionIssues ? lpdJson.conversionIssues.concat(issues) : issues;
@@ -98,7 +95,7 @@ export default class Migrator {
     }
 }
 
-const convertHTMLIntoJSON = (html, lpdId) => {
+const convertHTMLIntoJSON = async (html, lpdId) => {
     const issues = [];
     const opLog = [];
     const onElement = (elem) => {docBuilder.add(elem);};
@@ -109,7 +106,9 @@ const convertHTMLIntoJSON = (html, lpdId) => {
     const correctedHtml = correctLPDHtml(html, lpdId, onIssue);
     const cleansedHtml = new Cleanser().cleanse(correctedHtml, onIssue);
     DomWalker.for(cleansedHtml, onElement, onIssue, onOpLog).execute();
-    return {doc: docBuilder.build(), issues, opLog};
+    const doc = docBuilder.build();
+    await validateJsonSchema(doc, onIssue);
+    return {doc, issues, opLog};
 };
 
 const validateAgainstPreviousSnapshot = (lpdJson, self) => {
@@ -161,8 +160,8 @@ const printDocSummary = (lpdJson) => {
         logger.silly(JSON.stringify(lpdJson.new.primaryDoc, null, 4));
     } else if (conversionStatus == "WARNING") {
         logger.warn(`    Status = ${conversionStatus}`);
-        const nonCleansingIssues = lpdJson.conversionIssues.filter((i) => !Object.keys(CleanserIssueCode).includes(i.code));
-        nonCleansingIssues.forEach((i) => logger.warn(`        ${i.message}`));
+        const unbucketedIssues = lpdJson.conversionIssues.filter((i) => !Object.keys(CleanserIssueCode).includes(i.code) || !Object.keys(DocValidatorIssueCode).includes(i.code));
+        unbucketedIssues.forEach((i) => logger.warn(`        ${i.message}`));
         logger.silly(JSON.stringify(lpdJson.new.primaryDoc, null, 4));
     } else {
         logger.error(`    Status=Error: ${lpdJson.conversionError.stack}`);
@@ -182,6 +181,7 @@ const printFinalSummary = (docConversionStatus: Object, startTime: number) => {
     const errorDistribution = {};
     const convIssuesDistribution = {};
     const cleansingIssuesDistribution = {};
+    const docValidationIssuesDistribution = {};
 
     // $SuppressFlowCheck: Object.values.forEach will give lpdJson as LPDJsonType only
     Object.values(docConversionStatus).forEach((lpdJson: LPDJsonType) => {
@@ -193,7 +193,7 @@ const printFinalSummary = (docConversionStatus: Object, startTime: number) => {
                 warningIds.push(lpdJson.id);
             }
             lpdJson.conversionIssues.forEach((i) => { // $SuppressFlowCheck: 
-                const map = Object.keys(CleanserIssueCode).includes(i.code) ? cleansingIssuesDistribution : convIssuesDistribution;
+                const map = Object.keys(CleanserIssueCode).includes(i.code) ? cleansingIssuesDistribution : Object.keys(DocValidatorIssueCode).includes(i.code) ? docValidationIssuesDistribution : convIssuesDistribution;
                 if (!map[i.message]) {
                     map[i.message] = new Set();
                 }
@@ -228,5 +228,10 @@ const printFinalSummary = (docConversionStatus: Object, startTime: number) => {
     Object.keys(cleansingIssuesDistribution).forEach((key) => {
         const ids = Array.from(cleansingIssuesDistribution[key]); // $SuppressFlowCheck
         logger.info(chalk.grey(`    ${key} = `) + chalk.bgCyanBright.bold(cleansingIssuesDistribution[key].size) + ` [${ids}]`);
+    });
+    logger.info(chalk.magenta.bold("Summary - Distribution of DocValidation Issues"));
+    Object.keys(docValidationIssuesDistribution).forEach((key) => {
+        const ids = Array.from(docValidationIssuesDistribution[key]); // $SuppressFlowCheck
+        logger.info(chalk.magenta(`    ${key} = `) + chalk.bgCyanBright.bold(docValidationIssuesDistribution[key].size) + ` [${ids}]`);
     });
 };

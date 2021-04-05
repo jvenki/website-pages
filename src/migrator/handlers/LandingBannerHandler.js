@@ -16,7 +16,7 @@ export class LandingBannerHandlerVariant_Main extends BaseHandler {
         const imgTitle = $imgElem.attr("title") || $imgElem.attr("alt");
 
         const $linkElem = $element.find("div.cta-btn > a");
-        const link = extractLink($linkElem);
+        const link = extractLink($linkElem) || "";
         const linkText = extractLinkText($linkElem, $);
 
         const $itemsElem = $element.find("div.column-right > ul");
