@@ -17,7 +17,7 @@ const getJSONSchemaValidator = () => {
             schemaType: "boolean",
             validate: async (validateHtml, data, ctx, datacxt) => {
                 if(validateHtml) {
-                    return await Promise.all([allowedTagsValidator(data, datacxt), w3cHtmlValidator(data, datacxt)]);
+                    return await Promise.all([allowedTagsValidator(data, datacxt)]);
                 } else {
                     return Promise.resolve(true);
                 }
