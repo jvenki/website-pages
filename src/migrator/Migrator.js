@@ -144,7 +144,7 @@ const computeStatusOfConversion = (lpdJson) => {
     if (lpdJson.conversionError) {
         status = "ERROR";
     } else if (lpdJson.conversionIssues.length > 0) {
-        const nonCleansingIssues = lpdJson.conversionIssues.filter((i) => !Object.keys(CleanserIssueCode).includes(i.code) || !Object.keys(DocValidatorIssueCode).includes(i.code));
+        const nonCleansingIssues = lpdJson.conversionIssues.filter((i) => !Object.keys(CleanserIssueCode).includes(i.code));
         if (nonCleansingIssues.length > 0) {
             status = "WARNING";
         }
