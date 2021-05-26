@@ -10,7 +10,7 @@ import Disclaimer from "./elements/Disclaimer";
 import Sitemap from "./elements/Sitemap";
 import NewsFeed from "./elements/NewsFeed";
 import NewsFeedFullPosts from "./elements/NewsFeedFullPosts";
-
+import {createViewForElement} from "./elements";
 
 export default class Page extends React.Component {
     static propTypes = {
@@ -22,10 +22,10 @@ export default class Page extends React.Component {
             <React.Fragment>
                 {toHTML(this.props.doc.body || "")}
                 {/* {this.getTableOfContents()} */}
-                {(this.props.doc.sections || []).map((s, index) => <Section key={index} {...s}/>)}
+                {(this.props.doc.hungryForMore || []).map((s, index) => createViewForElement(s, index))}
                 <div className="clearfix"></div>
                 {this.props.doc.faq &&
-                    <FAQ {...this.props.doc.faq}/>
+                    <FAQ {...this.props.doc.faq} createViewForElement={createViewForElement}/>
                 }
                 {this.props.doc.references &&
                     <References references={this.props.doc.references}/>
@@ -34,7 +34,7 @@ export default class Page extends React.Component {
                     <NewsFeed {...this.props.doc["news-feed"]}/>
                 }
                 {this.props.doc["news-feed-full-posts"] &&
-                    <NewsFeedFullPosts {...this.props.doc["news-feed-full-posts"]}/>
+                    <NewsFeedFullPosts {...this.props.doc["news-feed-full-posts"]} createViewForElement={createViewForElement} />
                 }
                 {this.props.doc.disclaimer &&
                     <Disclaimer {...this.props.doc.disclaimer}/>

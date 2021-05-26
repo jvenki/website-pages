@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import { extractHeadingText, extractContentHtml } from "./Utils";
+import { extractHeadingText, extractContentHtml, handleChildrenOfCompoundElements } from "./Utils";
 
 export class NewsFeedFullPostHandlerVariant_Main extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType): boolean {
@@ -25,9 +25,9 @@ export class NewsFeedFullPostHandlerVariant_Main extends BaseHandler {
         const items = $e.find("ul > li.news-green").map((i, item) => {
             const $titleElem = $(item).find(".news-head");
             const title = extractHeadingText($titleElem, $);
-            const body = $($titleElem).nextUntil("div.pull-right").map((j, b) => extractContentHtml($(b), $)).get().join(" ");
-            const postedOn = computeISODateString($(item).find("div.pull-right p:last-child").text());
-            return {title, body, postedOn};
+            const body = handleChildrenOfCompoundElements($($titleElem).nextUntil("div.pull-right"), $).targetElements;
+            const updatedOn = computeISODateString($(item).find("div.pull-right p:last-child").text());
+            return {title, article: body, updatedOn};
         }).get();
         return {elements: [{type: "news-feed-full-posts", title, items}]};
     }
@@ -54,9 +54,9 @@ export class NewsFeedFullPostHandlerVariant_Main2 extends BaseHandler {
         const items = $e.find("ul > li.news-green").map((i, item) => {
             const $titleElem = $(item).find(".news-head");
             const title = extractHeadingText($titleElem, $);
-            const body = $($titleElem).nextUntil("div.pull-right").map((j, b) => extractContentHtml($(b), $)).get().join(" ");
-            const postedOn = computeISODateString($(item).find("div.pull-right p:last-child").text());
-            return {title, body, postedOn};
+            const body = handleChildrenOfCompoundElements($($titleElem).nextUntil("div.pull-right"), $).targetElements;
+            const updatedOn = computeISODateString($(item).find("div.pull-right p:last-child").text());
+            return {title, article: body, updatedOn};
         }).get();
         return {elements: [{type: "news-feed-full-posts", title, items}]};
     }

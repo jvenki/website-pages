@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert} from "./Utils";
+import {extractHeadingText, extractContentHtml, handleChildrenOfCompoundElements, isElementAHeadingNode, assert} from "./Utils";
 import {isElementACntrOfExternalLinks} from "./ReferencesHandler";
 
 export class JumbotronHandlerVariant_Main extends BaseHandler {
@@ -15,10 +15,9 @@ export class JumbotronHandlerVariant_Main extends BaseHandler {
         if (isElementAHeadingNode($element.children().eq(0))) {
             title = extractHeadingText($element.children().eq(0), $);
         }
-        const items = $element.children().slice(title ? 1 : 0).map((i, e) => extractContentHtml($(e), $));
-        const body = items.get().join("");
-        assert(Boolean(body), "JumbotronHandlerVariant_Main-CannotExtractBody", $element);
-        return {elements: [{type: "panel", title, body}]};
+        const items = handleChildrenOfCompoundElements($element.children().slice(title ? 1 : 0), $).targetElements;
+        assert(Boolean(items.length>0), "JumbotronHandlerVariant_Main-CannotExtractBody", $element);
+        return {elements: [{type: "jumbotron", data: {title, elements: items}}]};
     }
 }
 
@@ -34,16 +33,16 @@ export class JumbotronHandlerVariant_PrimaryKeyDetails_SingleP extends BaseHandl
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         let title;
-        let body = "";
+        let childElements = [];
         $element.find(" > p").contents().each((i, c) => {
             if (!title && c.tagName == "strong") {
                 title = extractHeadingText($(c), $).replace(/:$/, "");
             } else {
-                body += extractContentHtml($(c), $) + " ";
+                childElements.push(...handleChildrenOfCompoundElements([$(c)], $).targetElements);
             }
         });
-        assert(Boolean(body), "JumbotronHandlerVariant_PrimaryKeyDetails_P-CannotExtractBody", $element);
-        return {elements: [{type: "panel", title, body}], issues: ["PrimaryKeyDetails converted into Jumbotron"]};
+        assert(Boolean(childElements.length>0), "JumbotronHandlerVariant_PrimaryKeyDetails_P-CannotExtractBody", $element);
+        return {elements: [{type: "jumbotron", data: {title, elements: childElements}}], issues: ["PrimaryKeyDetails converted into Jumbotron"]};
     }
 }
 
@@ -55,16 +54,16 @@ export class JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs extends Base
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         let title;
-        let body = "";
+        let childElements = [];
         $element.children().each((i, c) => {
             if (!title && (isElementAHeadingNode($(c), $) || c.tagName == "strong")) {
                 title = extractHeadingText($(c), $);
             } else {
-                body += extractContentHtml($(c), $) + " ";
+                childElements.push(...handleChildrenOfCompoundElements([$(c)], $).targetElements);
             }
         });
-        assert(Boolean(body), "JumbotronHandlerVariant_PrimaryKeyDetails_H3AndPs-CannotExtractBody", $element);
-        return {elements: [{type: "panel", title, body}], issues: ["PrimaryKeyDetails converted into Jumbotron"]};
+        assert(Boolean(childElements.length>0), "JumbotronHandlerVariant_PrimaryKeyDetails_H3AndPs-CannotExtractBody", $element);
+        return {elements: [{type: "jumbotron", data: {title, elements: childElements}}], issues: ["PrimaryKeyDetails converted into Jumbotron"]};
     }
 }
 
@@ -77,9 +76,9 @@ export class JumbotronHandlerVariant_InsuranceWeek extends BaseHandler {
         const $element = elements[0];
         const $titleElem = $element.find("> ul > li > h3:first-child");
         const title = extractHeadingText($titleElem, $);
-        const body = $titleElem.nextAll().map((i, c) => extractContentHtml($(c), $)).get().join(" ");
+        const body = handleChildrenOfCompoundElements($titleElem.nextAll(), $).targetElements;
         assert(Boolean(body), "JumbotronHandlerVariant_InsuranceWeek-CannotExtractBody", $element);
-        return {elements: [{type: "panel", title, body}], issues: ["NewsWeek converted into Jumbotron"]};
+        return {elements: [{type: "jumbotron", data: {title, elements: body}}], issues: ["NewsWeek converted into Jumbotron"]};
     }    
 }
 
@@ -93,8 +92,8 @@ export class JumbotronHandlerVariant_LpRelatedInfo extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const title = extractHeadingText($element.find("h3.lp-related-head"), $);
-        const body = $element.find("h3.lp-related-head").nextAll().map((i, c) => extractContentHtml($(c), $)).get().join(" ");
+        const body = handleChildrenOfCompoundElements($element.find("h3.lp-related-head").nextAll(), $).targetElements;
         assert(Boolean(body), "JumbotronHandlerVariant_LpRelatedInfo-CannotExtractBody", $element);
-        return {elements: [{type: "panel", title, body}], issues: ["LpRelatedInfo converted into Jumbotron"]};
+        return {elements: [{type: "jumbotron", data: {title, elements: body}}], issues: ["LpRelatedInfo converted into Jumbotron"]};
     }    
 }

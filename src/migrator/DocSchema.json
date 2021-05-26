@@ -1,6 +1,9 @@
 {
-    "$async": true,
     "definitions": {
+        "allowedHtmlTags": {
+            "type": "string",
+            "validateHtml": true
+        },
         "image": {
             "type": "object",
             "additionalProperties": false,
@@ -19,6 +22,13 @@
                 },
                 "link": {
                     "type": "string"
+                },
+                "float": {
+                    "enum": [
+                        "right",
+                        "left",
+                        "no-float"
+                    ]
                 }
             }
         },
@@ -26,12 +36,19 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "content": {
-                        "type": "string"
+                        "$ref": "#/definitions/allowedHtmlTags"
                     },
                     "colspan": {
                         "type": "number"
+                    },
+                    "rowspan": {
+                        "type": "number"
+                    },
+                    "highlight": {
+                        "type": "boolean"
                     }
                 }
             }
@@ -40,60 +57,108 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "cols": {
                         "$ref": "#/definitions/cols"
-                    },
-                    "rowspan": {
-                        "type": "number"
                     }
                 }
             }
         },
         "textType": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "const": "paragraph"
                 },
-                "body": {
-                    "type": "string",
-                    "validateHtml": true
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "text": {
+                            "$ref": "#/definitions/allowedHtmlTags"
+                        }
+                    }
                 }
-            },
-            "additionalProperties": false
-
+            }
         },
-        "panelType": {
+        "jumbotronType": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "const": "jumbotron"
                 },
-                "title": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string",
-                    "validateHtml": true
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "elements": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/basicElementType"
+                            }
+                        }
+                    },
+                    "required": [
+                        "title",
+                        "elements"
+                    ]
                 }
-            },
-            "additionalProperties": false
-
+            }
+        },
+        "accordionType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "accordion"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "elements": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/definitions/basicElementType"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "title",
+                                    "elements"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
         },
         "imageType": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "const": "image"
                 },
-                "img": {
+                "data": {
                     "$ref": "#/definitions/image"
-                },
-                "float": {
-                    "type": "string"
-                }            }
+                }
+            }
         },
         "landingBannerType": {
             "type": "object",
@@ -116,8 +181,12 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "text": {"type": "string"},
-                            "icon": {"type": "string"}
+                            "text": {
+                                "type": "string"
+                            },
+                            "icon": {
+                                "type": "string"
+                            }
                         },
                         "additionalProperties": false
                     }
@@ -129,22 +198,27 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "const": "cta"
                 },
-                "link": {
-                    "type": "string"
-                },
-                "linkText": {
-                    "type": "string"
-                },
-                "prefix": {
-                    "type": "string"
-                },
-                "suffix": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "link": {
+                            "type": "string"
+                        },
+                        "linkText": {
+                            "type": "string"
+                        },
+                        "prefix": {
+                            "type": "string"
+                        },
+                        "suffix": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        }
+                    }
                 }
             }
         },
@@ -153,16 +227,19 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "const": "table"
                 },
-                "headers": {
-                    "$ref": "#/definitions/rows"
-                },
-                "rows": {
-                    "$ref": "#/definitions/rows"
-                },
-                "responsive": {
-                    "type": "boolean"
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "rows": {
+                            "$ref": "#/definitions/rows"
+                        },
+                        "responsive": {
+                            "type": "boolean"
+                        }
+                    }
                 }
             }
         },
@@ -170,33 +247,77 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "type": {"type": "string"},
-                "items": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                            "link": {"type": "string"},
-                            "linkText": {"type": "string"},
-                            "img": {"$ref": "#/definitions/image"}
+                "type": {
+                    "const": "custom_toc"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "link": {
+                                        "type": "string"
+                                    },
+                                    "linkText": {
+                                        "type": "string"
+                                    },
+                                    "img": {
+                                        "$ref": "#/definitions/image"
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
         },
-        "accordionType": {
-            "$async": true,
-            "type":"object",
+        "gridType": {
+            "type": "object",
             "properties": {
-                "type":{"type": "string"},
-                "items": {
+                "type": {
+                    "type": "string"
+                },
+                "cells": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "width": {
+                                "type": "string"
+                            },
+                            "body": {
+                                "$ref": "#/definitions/textType"
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "featuredOffersType": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "offers": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
                             "title": {
                                 "type": "string"
+                            },
+                            "link": {
+                                "type": "string"
+                            },
+                            "img": {
+                                "$ref": "#/definitions/image"
                             },
                             "body": {
                                 "type": "string",
@@ -209,50 +330,203 @@
             },
             "additionalProperties": false
         },
-        "gridType":{
-            "$async": true,
+        "header": {
             "type": "object",
-            "properties":{
-                "type": {"type":"string"},
-                "cells": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "width": {"type": "string"},
-                            "body": {
-                                "$ref": "#/definitions/textType"
-                            }
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "header"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "text": {
+                            "$ref": "#/definitions/allowedHtmlTags"
                         },
-                        "additionalProperties": false
+                        "level": {
+                            "type": "number",
+                            "enum": [
+                                2,
+                                3,
+                                4
+                            ]
+                        }
+                    },
+                    "required": [
+                        "text",
+                        "level"
+                    ]
+                }
+            }
+        },
+        "listItems": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "content": {
+                        "$ref": "#/definitions/allowedHtmlTags"
+                    },
+                    "items": {
+                        "$ref": "#/definitions/listItems"
                     }
                 }
-            },
-            "additionalProperties": false
+            }
         },
-        "featuredOffersType": {
-            "$async": true,
+        "list": {
             "type": "object",
-            "properties":{
-                "type": {"type": "string"},
-                "offers": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "title": {"type": "string"},
-                            "link": {"type": "string"},
-                            "img": {"$ref": "#/definitions/image"},
-                            "body": {
-                                "type": "string",
-                                "validateHtml": true
-                            }
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "list"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "style": {
+                            "type": "string",
+                            "enum": [
+                                "ordered",
+                                "unordered"
+                            ]
                         },
-                        "additionalProperties": false
+                        "items": {
+                            "$ref": "#/definitions/listItems"
+                        }
+                    },
+                    "required": [
+                        "style",
+                        "items"
+                    ]
+                }
+            }
+        },
+        "basicElementType": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/textType"
+                },
+                {
+                    "$ref": "#/definitions/header"
+                },
+                {
+                    "$ref": "#/definitions/list"
+                },
+                {
+                    "$ref": "#/definitions/tableType"
+                },
+                {
+                    "$ref": "#/definitions/imageType"
+                }
+            ]
+        },
+        "embed": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "embed"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "embed": {
+                            "type": "string"
+                        },
+                        "caption": {
+                            "$ref": "#/definitions/allowedHtmlTags"
+                        }
+                    },
+                    "required": [
+                        "embed"
+                    ]
+                }
+            }
+        },
+        "references": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "references"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "link": {
+                                        "type": "string",
+                                        "validateHtml": true
+                                    },
+                                    "text": {
+                                        "type": "string",
+                                        "validateHtml": true
+                                    }
+                                }
+                            }
+                        }
                     }
-                }                
-            },
-            "additionalProperties": false
+                }
+            }
+        },
+        "elementType": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/textType"
+                },
+                {
+                    "$ref": "#/definitions/list"
+                },
+                {
+                    "$ref": "#/definitions/header"
+                },
+                {
+                    "$ref": "#/definitions/embed"
+                },
+                {
+                    "$ref": "#/definitions/imageType"
+                },
+                {
+                    "$ref": "#/definitions/landingBannerType"
+                },
+                {
+                    "$ref": "#/definitions/ctaType"
+                },
+                {
+                    "$ref": "#/definitions/tableType"
+                },
+                {
+                    "$ref": "#/definitions/accordionType"
+                },
+                {
+                    "$ref": "#/definitions/jumbotronType"
+                },
+                {
+                    "$ref": "#/definitions/customTocType"
+                },
+                {
+                    "$ref": "#/definitions/references"
+                },
+                {
+                    "$ref": "#/definitions/gridType"
+                },
+                {
+                    "$ref": "#/definitions/featuredOffersType"
+                }
+            ]
         }
     },
     "type": "object",
@@ -260,53 +534,10 @@
         "title": {
             "type": "string"
         },
-        "sections": {
+        "hungryForMore": {
             "type": "array",
             "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "title": {
-                        "type": "string"
-                    },
-                    "elements": {
-                        "type": "array",
-                        "items": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/textType"
-                                },
-                                {
-                                    "$ref": "#/definitions/imageType"
-                                },
-                                {
-                                    "$ref": "#/definitions/landingBannerType"
-                                },
-                                {
-                                    "$ref": "#/definitions/ctaType"
-                                },
-                                {
-                                    "$ref": "#/definitions/tableType"
-                                },
-                                {
-                                    "$ref": "#/definitions/panelType"
-                                },
-                                {
-                                    "$ref": "#/definitions/customTocType"
-                                },
-                                {
-                                    "$ref": "#/definitions/accordionType"
-                                },
-                                {
-                                    "$ref": "#/definitions/gridType"
-                                },
-                                {
-                                    "$ref": "#/definitions/featuredOffersType"
-                                }
-                            ]
-                        }
-                    }
-                }
+                "$ref": "#/definitions/elementType"
             }
         },
         "disclaimer": {
@@ -327,7 +558,7 @@
                 }
             }
         },
-        "faq": {
+        "faqs": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -344,35 +575,9 @@
                                 "validateHtml": true
                             },
                             "answer": {
-                                "type": "string",
-                                "validateHtml": true
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "references": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                    "title": {
-                        "type": "string"
-                    },
-                    "items": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "link": {
-                                    "type": "string",
-                                    "validateHtml": true
-                                },
-                                "title": {
-                                    "type": "string",
-                                    "validateHtml": true
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/basicElementType"
                                 }
                             }
                         }
@@ -440,11 +645,13 @@
                                 "type": "string",
                                 "validateHtml": true
                             },
-                            "body": {
-                                "type": "string",
-                                "validateHtml": true
+                            "article": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/basicElementType"
+                                }
                             },
-                            "postedOn": {
+                            "updatedOn": {
                                 "type": "string"
                             }
                         }

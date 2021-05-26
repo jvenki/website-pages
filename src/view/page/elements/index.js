@@ -13,15 +13,21 @@ import IFrame from "./IFrame";
 import LandingBanner from "./LandingBanner";
 import Table from "./Table";
 import Infographics from "./Infographics";
+import Paragraph from "./Paragraph";
+import Header from "./Header";
+import List from "./List";
 
 const getViewKlassForElement = (element) => {
     switch (element.type) {
-        case "text": return Text; 
+        // case "text": return Text; 
+        case "paragraph": return Paragraph; 
+        case "header": return Header; 
+        case "list": return List; 
         case "featured-offers": return FeaturedOffers;
         case "blockquote": return BlockQuote;
         case "video": return Video;
         case "iframe": return IFrame;
-        case "panel": return Panel;
+        case "jumbotron": return Panel;
         case "accordion": return Accordion;
         case "grid": return Grid;
         case "table": return Table;
@@ -42,5 +48,5 @@ export const createViewForElement = (element, key) => {
         return null;
     }
 
-    return <ViewKlass {...element} key={key}/>;
+    return <ViewKlass {...element.data} key={key} createViewForElement={createViewForElement} />;
 };

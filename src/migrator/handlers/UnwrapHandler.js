@@ -13,7 +13,7 @@ export default class UnwrapHandler extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const targetElements = [];
         elements.forEach((e) => {
-            targetElements.push(...processElementsInsideDiv(elements[0], $, this.getName()));
+            targetElements.push(...processElementsInsideDiv(e, $, this.getName()));
         });
         return {elements: targetElements};
     }

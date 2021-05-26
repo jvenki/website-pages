@@ -7,6 +7,9 @@ import {TextHandlerVariant_Main, TextHandlerVariant_PointerView} from "./TextHan
 import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails_SingleP, JumbotronHandlerVariant_PrimaryKeyDetails_HeadingAndPs, JumbotronHandlerVariant_InsuranceWeek, JumbotronHandlerVariant_LpRelatedInfo} from "./JumbotronHandler";
 import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
+import {ParagraphHandler} from "./ParagraphHandler";
+import {HeaderHandler} from "./HeaderHandler";
+import {ListHandler} from "./ListHandler";
 import UnwrapHandler from "./UnwrapHandler";
 import NoopWarningHandler from "./NoopWarningHandler";
 import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData, CTAHandlerVariant_InsuranceWeekPick, CTAHandlerVariant_TabularDataSimple, CTAHandlerVariant_ListGroup_UL, CTAHandlerVariant_ListGroup_P} from "./CTAHandler";
@@ -23,7 +26,7 @@ import { LandingBannerHandlerVariant_Main, LandingBannerHandlerVariant_Simplifie
 import { SitemapHandler_Link } from "./SitemapHandler";
 import { NewsFeedHandlerVariant_Main, NewsFeedHandlerVariant_Main2 } from "./NewsFeedHandler";
 import { NewsFeedFullPostHandlerVariant_Main, NewsFeedFullPostHandlerVariant_Main2, NewsFeedFullPostHandlerVariant_Main3  } from "./NewsFeedFullPostHandler";
-import { ImageHandlerVariant_Float, ImageHandlerVariant_FloatInfographic, ImageHandler } from "./ImageHandler";
+import { ImageHandlerVariant_Float, ImageHandlerVariant_FloatInfographic, ImageHandler, ImageHandler_RootVariant } from "./ImageHandler";
 import MigrationError, { ErrorCode } from "../MigrationError";
 
 const handlers = [
@@ -75,7 +78,7 @@ const handlers = [
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofTEXT(),
     new FAQHandlerVariant_HeadingRegexFollowedByOLofH3(),
     new FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofTEXT_AisLIofP(),
-    new SectionHandler(), 
+    // new SectionHandler(), 
     new CTAHandlerVariant_ProductLandingBlock(),
     new CTAHandlerVariant_LonelyLink(),
     new CTAHandlerVariant_CtaSection(),
@@ -87,9 +90,13 @@ const handlers = [
     new ImageHandlerVariant_FloatInfographic(),
     new ImageHandlerVariant_Float(),
     new ImageHandler(),
+    new ImageHandler_RootVariant(),
+    new HeaderHandler(),
     new TableHandler_Main(),
-    new TextHandlerVariant_Main(),
-    new TextHandlerVariant_PointerView(),
+    new ListHandler(),
+    new ParagraphHandler(),
+    // new TextHandlerVariant_Main(),
+    // new TextHandlerVariant_PointerView(),
     new LandingBannerHandlerVariant_Main(),
     new LandingBannerHandlerVariant_Simplified(),
     new AccordionHandler(),

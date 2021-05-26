@@ -20,11 +20,25 @@ export class ImageHandler extends BaseHandler {
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         const alt = $e.find("img").attr("alt");
         const link = $e[0].tagName == "a" ? extractLink($e) : $e.find("a") ? extractLink($e.find("a")) : null;
-        const actualElement = {type: "image", img: {src: imgSrc, title, link, alt}};
+        const actualElement = {type: "image", data: {src: imgSrc, title, link, alt}};
         return {elements: [actualElement]};
     }
 }
+export class ImageHandler_RootVariant extends BaseHandler {
+    isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
+        return ($e.get(0).tagName == "img" || $e.tagName == "img");
+    }
 
+    convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
+        const $e = $(elements[0]);
+        const imgSrc = extractImgSrc($e);
+        const title = $e.attr("title") || $e.attr("alt");
+        const alt = $e.attr("alt");
+        const link = $e[0].tagName == "a" ? extractLink($e) : $e.find("a") ? extractLink($e.find("a")) : null;
+        const actualElement = {type: "image", data: {src: imgSrc, title, link, alt}};
+        return {elements: [actualElement]};
+    }
+}
 export class ImageHandlerVariant_Float extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
         return (isDivPulledRight($e, $) || isFigurePulledRight($e, $)) && (isDivMadeUpOfAofIMG($e, $) || isDivMadeUpOfIMG($e, $));
@@ -37,7 +51,7 @@ export class ImageHandlerVariant_Float extends BaseHandler {
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         const alt = $e.find("img").attr("alt");
         const link = $e.find("a") ? extractLink($e.find("a")) || "" : "";
-        const actualElement = {type: "image", img: {src: imgSrc, title, link, alt} , float: "right"};
+        const actualElement = {type: "image", data: {src: imgSrc, title, link, alt, float: "right"} };
         return {elements: [{type: "float", actualElement}]};
     }
 }
@@ -66,7 +80,7 @@ export class ImageHandlerVariant_FloatInfographic extends BaseHandler {
         const imgSrcXL = extractImgSrc(elements[1].find("div.modal-body img"));
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         assertExtractedData(imgSrc, $e);
-        const actualElement = {type: "image", img: {src: imgSrc, srcXL: imgSrcXL, title}, float: "right"};
+        const actualElement = {type: "image", data: {src: imgSrc, srcXL: imgSrcXL, title, float: "right"}};
         return {elements: [{type: "float", actualElement}]};
     }
 }

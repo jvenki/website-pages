@@ -3,8 +3,7 @@ import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./Base
 import BaseHandler from "./BaseHandler";
 import {headingRegex as faqHeadingRegex, FAQInsideAccordionPanelHandler} from "./FAQHandler";
 import {ReferencesHandlerVariant_Accordion} from "./ReferencesHandler";
-
-import {extractHeadingText, extractContentHtml, assert} from "./Utils";
+import {extractHeadingText, extractContentHtml, assert, handleChildrenOfCompoundElements} from "./Utils";
 
 export class AccordionHandler extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -37,6 +36,8 @@ export class AccordionHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const items = [];
+        const issues = [];
+
         let faq;
         const references = [];
         elements.forEach(($element) => {
@@ -57,17 +58,16 @@ export class AccordionHandler extends BaseHandler {
                         $titleElem = $(panel).find(".panel-heading h3");
                     } 
                     const title = extractHeadingText($titleElem, $);
-                    const $bodyElem = $(panel).find(".panel-body");
-                    $bodyElem.find("h2").each((j, h2) => h2.tagName = "h3");
-                    const body = extractContentHtml($bodyElem, $);
-                    assert(Boolean(body) && Boolean(title), "AccordionHandler-ConditionNotMet#7", $element);
-                    items.push({title, body});
+                    const $bodyElem = $(panel).find(".panel-body").children();
+                    const {targetElements, issuesInChildren} = handleChildrenOfCompoundElements($bodyElem, $);
+                    assert(Boolean(targetElements.length>0) && Boolean(title), "AccordionHandler-ConditionNotMet#7", $element);
+                    items.push({title, elements: targetElements});
+                    issues.push(...issuesInChildren);
                 }
             });
         });
 
         const targetElements = [];
-        const issues = [];
         if (faq) {
             targetElements.push(faq);
             issues.push("Accordion Panel converted to FAQ");
@@ -77,7 +77,7 @@ export class AccordionHandler extends BaseHandler {
             issues.push("Accordion Panels converted to RelatedArticles");
         }
         if (items.length > 0) {
-            targetElements.push({type: "accordion", items});
+            targetElements.push({type: "accordion", data: {items}});
         }
         return {elements: targetElements, issues};
     }

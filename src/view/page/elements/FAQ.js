@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import toHTML from "html-react-parser";
 
 export default class FAQ extends React.Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(PropTypes.shape({question: PropTypes.string, answer: PropTypes.string}))
+        items: PropTypes.arrayOf(PropTypes.shape({question: PropTypes.string, answer: PropTypes.string})),
+        createViewForElement: PropTypes.func.isRequired,
     }
 
     render() {
@@ -21,7 +21,7 @@ export default class FAQ extends React.Component {
         return (
             <details open key={index}>
                 <summary><strong>{item.question}</strong></summary>
-                {toHTML(item.answer)}
+                {item.answer.map((ans, i) => this.props.createViewForElement(ans, i))}
             </details>            
         );
     }

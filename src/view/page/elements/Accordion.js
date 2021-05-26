@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import toHTML from "html-react-parser";
 
 export default class Accordion extends React.Component {
     static propTypes = {
-        items: PropTypes.arrayOf(PropTypes.shape())
+        items: PropTypes.arrayOf(PropTypes.shape()),
+        createViewForElement: PropTypes.func.isRequired
     }
 
     render() {
         return (
             <div className="row btm-pad twi-accordion col-md-12">
                 <div id="accordion" className="panel-group">
-                    {this.props.items.map((i, index) => <Item key={index} {...i}/>)}
+                    {this.props.items.map((i, index) => <Item key={index} {...i} createViewForElement={this.props.createViewForElement} />)}
                 </div>
             </div>
         );
@@ -21,7 +21,8 @@ export default class Accordion extends React.Component {
 class Item extends React.Component {
     static propTypes = {
         title: PropTypes.string.isRequired,
-        body: PropTypes.string.isRequired
+        elements: PropTypes.array.isRequired,
+        createViewForElement: PropTypes.func.isRequired
     }
 
     render() {
@@ -37,7 +38,7 @@ class Item extends React.Component {
                 </div>
                 <div className="panel-collapse collapse in">
                     <div className="panel-body twi-auto-height">
-                        {toHTML(this.props.body)}
+                        {this.props.elements.map((e, i) => this.props.createViewForElement(e, i))}
                     </div>
                 </div>
             </div>

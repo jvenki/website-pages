@@ -8,14 +8,12 @@ export default class DocBuilder {
     toBePositionedFloat: Object;
 
     constructor() {
-        this.doc = {title: "", sections: []};
+        this.doc = {title: "", hungryForMore: []};
     }
 
     add(item: Object) {
         switch (item.type) {
-            case "section": this.addSection(item); break;
             case "disclaimer": this.addDisclaimer(item); break;
-            case "references": this.addReferences(item); break;
             case "faq": this.addFAQ(item); break;
             case "sitemap": this.addSitemap(item); break;
             case "news-feed": this.addNewsFeed(item); break;
@@ -25,32 +23,10 @@ export default class DocBuilder {
             default: this.addElement(item);
         }
     }
-
-    addSection(element: Object) {
-        const newSection = {title: element.title, elements: []};
-        this.doc.sections.push(newSection);
-        handleToBePositionedFloatingElement(this);
-    }
     
     addElement(element: Object) {
-        let lastSection = this.doc.sections.slice(-1).pop();
-        if (!lastSection) {
-            this.addSection({title: ""});
-            lastSection = this.doc.sections.slice(-1).pop();
-        }
         handleToBePositionedFloatingElement(this);
-        if (element.type == "text" && isPreviousElementInSectionAlsoText(lastSection)) {
-            lastSection.elements[lastSection.elements.length-1].body += " " + element.body;
-        } else {
-            lastSection.elements.push(element);
-        }
-    }
-    
-    addReferences(references: Object) {
-        if (!this.doc.references) {
-            this.doc.references = [];
-        }
-        this.doc.references.push(omit(references, ["type"]));
+        this.doc.hungryForMore.push(element);
     }
     
     addDisclaimer(disclaimer: Object) {
@@ -65,10 +41,10 @@ export default class DocBuilder {
     }
 
     addFAQ(element: Object) {
-        if (this.doc.faq) {
+        if (this.doc.faqs) {
             throw new MigrationError(ConversionIssueCode.MULTIPLE_FAQ);
         }
-        this.doc.faq = omit(element, "type");
+        this.doc.faqs = omit(element, "type");
     }
 
     addSitemap(sitemap: Object) {

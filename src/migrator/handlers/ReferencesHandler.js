@@ -24,7 +24,7 @@ export class ReferencesHandlerVariant_Nav extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
         const title = extractHeadingText($element.find("h2,h3,h4,h5,h6,h7").eq(0), $);
-        const items = $element.find("li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = $element.find("li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, $element);
         return {elements: [{type: "references", title, items}]};
     }
@@ -48,7 +48,7 @@ export class ReferencesHandlerVariant_HeadingRegex extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0], $);
-        const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -73,7 +73,7 @@ export class ReferencesHandlerVariant_ProductsInvest extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(">p,>h3,>h4,>h5,>h6,>h7"), $);
-        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -98,7 +98,7 @@ export class ReferencesHandlerVariant_HeadingRegex_Buggy extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0], $);
-        const items = elements.slice(1).map(($e) => ({link: extractLink($($e.find("> a"))), title: extractLinkText($e, $)}));
+        const items = elements.slice(1).map(($e) => ({link: extractLink($($e.find("> a"))), text: extractLinkText($e, $)}));
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -119,7 +119,7 @@ export class ReferencesHandlerVariant_InterlinksOfAccordion extends BaseHandler 
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = elements[0].find(".panel-heading a").text();
-        const items = elements[0].find(".panel-body a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find(".panel-body a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -136,7 +136,7 @@ export class ReferencesHandlerVariant_InterlinkOfStrongAndUL extends BaseHandler
         const $titleElem = elements[0].find("> strong, > p, > h3, > h2");
         const targetElements = $titleElem.map((i, te) => {
             const title = extractHeadingText($(te), $);
-            const items = $(te).nextUntil("strong, p, h3, h2").find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            const items = $(te).nextUntil("strong, p, h3, h2").find("a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
             assertExtractedData(items, title || "NA", elements[0]);
             return {type: "references", title, items};
         }).get();
@@ -156,7 +156,7 @@ export class ReferencesHandlerVariant_InterlinkFollowedByUL extends BaseHandler 
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("> strong, > p, > h3, > h2"), $);
-        const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[1].find("a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -169,7 +169,7 @@ export class ReferencesHandlerVariant_InterlinksOfNav extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("nav h3"), $);
-        const items = elements[0].find("nav a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("nav a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -185,7 +185,7 @@ export class ReferencesHandlerVariant_Accordion extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".panel-title a"), $);
-        const items = elements[0].find(".panel-body a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find(".panel-body a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -216,7 +216,7 @@ export class ReferencesHandlerVariant_NewsWidget extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".news-head"), $);
-        const items = elements[0].find("li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -232,7 +232,7 @@ export class ReferencesHandlerVariant_NewsWidget_P extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(".news-head"), $);
-        const items = elements[0].find("p > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("p > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -268,7 +268,7 @@ export class ReferencesHandlerVariant_GridOfAccordions extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const targetElements = elements[0].find(".panel").map((i, root) => {
             const title = extractHeadingText($(root).find("strong.panel-title a, .panel-heading h2 strong"), $);
-            const items = $(root).find("ul li a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            const items = $(root).find("ul li a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
             return {type: "references", title, items};
         }).get();
         return {elements: targetElements};
@@ -326,7 +326,7 @@ export class ReferencesHandlerVariant_GridOfInterlink extends BaseHandler {
         const targetElements = [];
         elements[0].find("div > ul").each((i, ul) => {
             const hasTitleElem = $(ul).prev().length > 0 && ["h3"].includes($(ul).prev().get(0).tagName);
-            const items = $(ul).find(" > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            const items = $(ul).find(" > li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
             if (hasTitleElem) {
                 const title = extractHeadingText($(ul).prev(), $);
                 targetElements.push({type: "references", title, items});
@@ -375,7 +375,7 @@ export class ReferencesHandlerVariant_GridOfULs extends BaseHandler {
         const targetElements = [];
         elements[0].find("div > ul").each((i, ul) => {
             const hasTitleElem = $(ul).prev().length > 0 && ["h3"].includes($(ul).prev().get(0).tagName);
-            const items = $(ul).find(" > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+            const items = $(ul).find(" > li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
             if (hasTitleElem) {
                 const title = extractHeadingText($(ul).prev(), $);
                 targetElements.push({type: "references", title, items});
@@ -424,7 +424,7 @@ export class ReferencesHandlerVariant_UsefulLinks extends BaseHandler {
         if ($e.children().length == 2) {
             title = extractHeadingText(elements[0].children().first(), $);
         }
-        const items = elements[0].find("ul > li > a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("ul > li > a").map((i, link) => ({link: $(link).attr("href"), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title: title || "Useful Links", items}]};
     }
@@ -441,7 +441,7 @@ export class ReferencesHandlerVariant_HeadingRegexAndCntrOfLinks extends BaseHan
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0], $);
-        const items = elements[1].find("a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[1].find("a").map((i, link) => ({link: $(link).attr("href"), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title, elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -454,7 +454,7 @@ export class ReferencesHandlerVariant_TableOfLinks extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find("th"), $);
-        const items = elements[0].find("a").map((i, link) => ({link: $(link).attr("href"), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("a").map((i, link) => ({link: $(link).attr("href"), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -474,7 +474,7 @@ export class ReferencesHandlerVariant_Jumbotron extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(">strong"), $);
-        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
     }
@@ -491,7 +491,7 @@ export class ReferencesHandlerVariant_LpRelatedInfo extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const title = extractHeadingText(elements[0].find(">.lp-related-head"), $);
-        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), title: extractLinkText($(link), $)})).get();
+        const items = elements[0].find("> ul > li > a").map((i, link) => ({link: extractLink($(link)), text: extractLinkText($(link), $)})).get();
         assertExtractedData(items, title || "NA", elements[0]);
         return {elements: [{type: "references", title, items}]};
     }

@@ -104,5 +104,5 @@ const extractLinks = ($e, $) => {
         }
         return output;
     }).get();
-    return {elements: [{type: "custom_toc", items}], issues: ["Deprecated TOC Used"]};
+    return {elements: [{type: "custom_toc", data: {items}}], issues: ["Deprecated TOC Used"]};
 };

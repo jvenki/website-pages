@@ -11,7 +11,6 @@ export default class Table extends React.Component {
     }
 
     render() {
-        debugger;
         if (this.props.responsive) {
             const headerRows = this.props.headers.map((header, i) => {
                 return (
@@ -37,23 +36,20 @@ export default class Table extends React.Component {
                 </div>
             );
         } else {
-            let header = undefined;
-            if (this.props.headers.length > 0) {
-                header = <thead>{this.props.headers.map((row, i) => 
-                    <tr key={i} rowSpan={row.rowspan}>{row.cols.map((col, j) => 
-                        <th key={`${i}-${j}`} colSpan={col.colspan}>{toHTML(col.content)}</th>)}
-                        </tr>)}
-                    </thead>;
-            }
             let rows = undefined;
             if (this.props.rows.length > 0) {
             rows = <tbody>{this.props.rows.map((row, i) => 
-                <tr key={i} rowSpan={row.rowspan}>{row.cols.map((col, j) => 
-                    <td key={`${i}-${j}`} colSpan={col.colspan}>{toHTML(col.content)}</td>)}
+                <tr key={i} rowSpan={row.rowspan}>{row.cols.map((col, j) => {
+                    let Tag = "td"
+                    if (col.highlight) {
+                        Tag = "th"
+                    }
+                    return <Tag key={`${i}-${j}`} rowSpan={col.rowSpan} colSpan={col.colspan}>{toHTML(col.content)}</Tag>;
+                })}
                     </tr>)}
                 </tbody>;
             }
-            return <table>{header}{rows}</table>;
+            return <table>{rows}</table>;
         }
         
     }

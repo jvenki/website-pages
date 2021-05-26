@@ -1,7 +1,7 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert} from "./Utils";
+import {extractHeadingText, extractContentHtml, isElementAHeadingNode, assert, handleChildrenOfCompoundElements} from "./Utils";
 import {chunk, uniq, difference} from "lodash";
 
 export const headingRegex = /Frequently Asked Questions|FAQ/i;
@@ -17,7 +17,7 @@ const assertExtractedDataAndProcess = (items, title, $e) => {
     assert(items.length > 0 && items.every((item) => item.question && item.answer) && Boolean(title), "FAQHandler-CannotExtractQ&A", $e);
     items.forEach((item) => {
         item.question = item.question.replace(/^Q[:.]\s*/, "").replace(/^\d+\. /, "");
-        item.answer = item.answer.replace(/^A[:.]\s*/, "").replace(/^<p>A[:.]\s*/, "<p>").replace(/<strong>A[:.]\s*<\/strong>/, "");
+        // item.answer = item.answer.replace(/^A[:.]\s*/, "").replace(/^<p>A[:.]\s*/, "<p>").replace(/<strong>A[:.]\s*<\/strong>/, "");
     });
 };
 
@@ -41,7 +41,7 @@ export class FAQHandlerVariant_HeadingRegexAndDivWithSchema extends FAQBaseHandl
         const items = elements[1].find("section").map((i, d) => {
             return {
                 question: extractHeadingText($(d).find("strong"), $), 
-                answer: extractContentHtml($(d).find("div > div"), $)
+                answer: handleChildrenOfCompoundElements($(d).find("div > div"), $).targetElements
             };
         }).get();
         
@@ -87,7 +87,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByPs extends FAQBaseHandler {
         const tuples = this._createQnATuples(elements.slice(1));
         const items = tuples.map((tuple) => {
             const question = extractHeadingText(tuple[0], $);
-            const answer = tuple[1].map(($a) => extractContentHtml($a, $)).join("");
+            const answer = handleChildrenOfCompoundElements(tuple[1], $).targetElements;
             return {question, answer};
         });
         
@@ -149,7 +149,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByH3AndPs extends FAQBaseHand
         const title = extractHeadingText(elements[0], $);
         const items = chunk(elements.slice(1), 2).map(([$q, $a]) => {
             const question = extractHeadingText($q, $);
-            const answer = extractContentHtml($a, $);
+            const answer = handleChildrenOfCompoundElements($a, $).targetElements;
             return {question, answer};
         });
         
@@ -187,7 +187,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByStrongAndPs extends FAQBase
         const title = extractHeadingText(elements[0], $);
         const items = chunk(elements.slice(1), 2).map(([$q, $a]) => {
             const question = extractHeadingText($q, $);
-            const answer = extractContentHtml($a, $);
+            const answer = handleChildrenOfCompoundElements($a, $).targetElements;
             return {question, answer};
         });
         
@@ -225,7 +225,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDetails extends FAQBaseHand
                 $e.find("iframe.video-frame").remove();
             }
             const qns = extractHeadingText($e.find("summary > strong"), $);
-            const ans = $e.find("summary").nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const ans = handleChildrenOfCompoundElements($e.find("summary").nextAll(), $).targetElements;
             return {question: qns, answer: ans};
         });
         
@@ -245,7 +245,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails extends FAQBas
         const items = elements[1].children().map((i, e) => {
             const $e = $(e);
             const qns = extractHeadingText($e.find("summary > strong"), $) || extractHeadingText($e.find("summary"), $);
-            const ans = $e.find("summary").nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const ans = handleChildrenOfCompoundElements($e.find("summary"), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -280,7 +280,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP e
             const $li = $(li);
             const $q = $li.find(" > strong");
             const qns = extractHeadingText($q, $);
-            const ans = $q.nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const ans = handleChildrenOfCompoundElements($q.nextAll(), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -316,7 +316,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofTEX
             const $li = $(li);
             const $q = $li.contents().eq(0);
             const qns = extractHeadingText($q, $);
-            const ans = $li.contents().get().slice(1).map((a) => extractContentHtml($(a), $)).join("");
+            const ans = handleChildrenOfCompoundElements($li.contents().get().slice(1), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -348,7 +348,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong_AisLIof
         const items = elements[1].children().map((i, li) => {
             const $li = $(li);
             const qns = extractHeadingText($li.find("p > strong, em > strong"), $);
-            const ans = $li.children().get().slice(1).map((a) => extractContentHtml($(a), $)).join("");
+            const ans = handleChildrenOfCompoundElements($li.children().get().slice(1), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -384,7 +384,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofTEXT_AisLIofP ext
         const items = elements[1].find(" > li").map((i, li) => {
             const $li = $(li);
             const qns = $li.contents().eq(0).text();
-            const ans = extractContentHtml($li.contents().slice(1), $);
+            const ans = handleChildrenOfCompoundElements($li.contents().slice(1), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -418,7 +418,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3 extends FAQBas
         const items = elements[1].find("li > h3").map((i, q) => {
             const $q = $(q);
             const qns = extractHeadingText($q, $);
-            const ans = $q.nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const ans = handleChildrenOfCompoundElements($q.nextAll(), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -613,7 +613,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByULasQAndPasA extends FAQBas
         const title = extractHeadingText(elements[0], $);
         const items = chunk(elements.slice(1), 2).map(([$q, $a]) => {
             const qns = extractHeadingText($q.find("strong"), $);
-            const ans = extractContentHtml($a, $);
+            const ans = handleChildrenOfCompoundElements($a, $).targetElements;
             return {question: qns, answer: ans};
         });
         
@@ -645,7 +645,7 @@ export class FAQHandlerVariant_HeadingRegexFollowedByOLofH3 extends FAQBaseHandl
         const items = elements[1].find(" > h3").map((i, item) => {
             const $q = $(item).find(" > li > strong");
             const qns = extractHeadingText($q, $);
-            const ans = $q.nextAll().map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const ans = handleChildrenOfCompoundElements($q.nextAll(), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         
@@ -666,7 +666,7 @@ export class FAQInsideAccordionPanelHandler extends FAQBaseHandler {
         const items = panelBody.find("ul > h3, ul > li > h3,  ol > li > h3, ol > li > strong, ol > h3 > strong").map((i, q) => {
             const $q = $(q);
             const qns = extractHeadingText($q, $);
-            const ans = $q.nextUntil("h3,li").map((i, a) => extractContentHtml($(a), $)).get().join("");
+            const ans = handleChildrenOfCompoundElements($q.nextUntil("h3,li"), $).targetElements;
             return {question: qns, answer: ans};
         }).get();
         

@@ -37,7 +37,7 @@ export class TableHandler_Main extends BaseHandler {
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = $(elements[0]);
         const headersAndRows = extractRowsAndHeaders($e, $);
-        return {elements: [{type: "table", ...headersAndRows}]};
+        return {elements: [{type: "table", data:{...headersAndRows}}]};
     }
 }
 
@@ -60,21 +60,21 @@ const extractCellContent = ($td, $) => {
 
 const extractRowsAndHeaders = ($e, $) => {
     const tableHead = $e.find("thead");
-    const headers = extractRows($(tableHead), $, "td, th")
+    const headers = extractRows($(tableHead), $, "td, th", true)
     const tableBody = $e.find("tbody");
     const rows = extractRows($(tableBody), $)
-    return {headers, rows};    
+    return {rows: [...headers, ...rows]};    
 }
 
-const extractRows = ($e, $, colSelector="td") => {
+const extractRows = ($e, $, colSelector="td", highlight=false) => {
     return $e.find("tr")
         .map((i, tr) => {
             const cols = $(tr).find(colSelector).map((j, td) => {
                 const content = $(td).html();
                 const colspan = $(td).attr("colspan") ? parseInt($(td).attr("colspan")) : undefined;
-                return {content, colspan};
-            }).get()
-            const rowspan = $(tr).attr("rowspan") ? parseInt($(tr).attr("rowspan")) : undefined;
-            return {cols, rowspan}
+                const rowspan = $(td).attr("rowspan") ? parseInt($(td).attr("rowspan")) : undefined;
+                return {content, colspan, rowspan, highlight};
+            }).get();
+            return {cols}
         }).get();
 }

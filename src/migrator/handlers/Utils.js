@@ -2,6 +2,7 @@ import MigrationError, {ConversionIssueCode} from "../MigrationError";
 import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex, isElementACntrOfExternalLinks} from "./ReferencesHandler";
 import {without, uniq} from "lodash";
+import {findHandlerForElement} from "./index";
 
 export const assert = (condition, errorMsg, $e) => {
     if (condition) {
@@ -79,15 +80,23 @@ export const isElementAContentNode = ($e) => {
         }
         return true;
     } else if (isElementASubHeadingNode($e)) {
-        if ($e.text().match(faqHeadingRegex)) {
-            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString() + "\n" + $e.next().toString());
-        } else if ($e.text().match(referencesHeadingRegex) && isElementACntrOfExternalLinks($e.next())) {
-            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString() + "\n" + $e.next().toString());
-        }
-        return true;
+        return isElementAValidTextualNode($e);
     }
     return false;
 };
+
+export const isElementAValidTextualNode = ($e) => {
+    if (isElementATextualNode($e)) {
+        if ($e.children().length == 1 && $e.find("strong").length == 1 
+            && $e.text() == $e.find("strong").text() 
+            && ($e.find("strong").text().match(faqHeadingRegex) || $e.find("strong").text().match(referencesHeadingRegex))
+            && $e.find("strong").children().length == 0) {
+            throw new MigrationError(ConversionIssueCode.OTHERS, "Possible FAQ/RelatedArticles Section found as TEXTs", $e.toString() + "\n" + $e.next().toString());
+        }
+        return true;
+    } 
+    return false;
+}
 
 const isElementASubHeadingNode = ($e) => ["h3", "h4", "h5", "h6", "h7"].includes($e.get(0).tagName);
 const isElementATextualNode = ($e) => {
@@ -103,7 +112,7 @@ const isElementATextualNode = ($e) => {
 export const isElementATableNode = ($e) => {
     if ($e.length == 0) {
         return false;
-    } if ($e.get(0).tagName == "table") {
+    } if ($e.get(0).tagName == "table" || $e.tagName == "table") {
         return true;
     } else if ($e.hasClass("hungry-table") || $e.hasClass("js-hungry-table")) {
         return $e.children().length == 1 && $e.children().first().get(0).tagName == "table";
@@ -242,6 +251,19 @@ const createLinkTag = ($e, innerHtml, $) => {
     output += "</a>";
     return output;
 };
+
+export const handleChildrenOfCompoundElements = (children, $) => {
+    const processedElements = [];
+    const allIssues = [];
+    children.map((i, child) => {
+        const $child = $(child);
+        const handler = findHandlerForElement($child, $);
+        const {targetElements, issues} = handler.execute([$child], $);
+        processedElements.push(...targetElements);
+        allIssues.push(...issues);
+    });
+    return {targetElements: processedElements, issuesInChildren: allIssues};
+}
 
 const extractHtmlFromTextualNodes = ($e, $) => {
     const processChildNodes = ($n) => $n.contents().map((i, c) => processCurrentNode($(c))).get();

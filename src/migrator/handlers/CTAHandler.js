@@ -28,7 +28,7 @@ export class CTAHandlerVariant_ProductLandingBlock extends BaseHandler {
         const link = extractLink($element.find("a"));
         const linkText = extractLinkText($element.find("a"), $);
         assertExtractedData(link, linkText, $element);
-        return {elements: [{type: "cta", link, linkText}]};
+        return {elements: [{type: "cta", data: {link, linkText}}]};
     }
 }
 
@@ -44,7 +44,7 @@ export class CTAHandlerVariant_LonelyLink extends BaseHandler {
         const link = extractLink($element);
         const linkText = extractLinkText($element, $);
         assertExtractedData(link, linkText, $element);
-        return {elements: [{type: "cta", link, linkText}]};
+        return {elements: [{type: "cta", data: {link, linkText}}]};
     }
 }
 
@@ -64,7 +64,7 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
         const linkTextStartPos = $element.text().indexOf(linkText);
         const prefix = $element.text().substring(0, linkTextStartPos).trim();
         const suffix = $element.text().substring(linkTextStartPos + linkText.length).trim();
-        const convElement = {type: "cta", link, linkText}; // $SuppressFlowCheck
+        const convElement = {type: "cta", data: {link, linkText}}; // $SuppressFlowCheck
         if (prefix) convElement.prefix = prefix; // $SuppressFlowCheck
         if (suffix) convElement.suffix = suffix;
         assertExtractedData(link, linkText, $element);
@@ -87,7 +87,7 @@ export class CTAHandlerVariant_TabularData extends BaseHandler {
         const title = extractHeadingText($element.find("h3"), $);
         const prefix = extractContentHtml($element.find("> div.col-md-7"), $);
         assertExtractedData(link, linkText, $element);
-        return {elements: [{type: "cta", link, linkText, prefix, title}]};
+        return {elements: [{type: "cta", data: {link, linkText, prefix, title}}]};
     }
 }
 
@@ -101,7 +101,7 @@ export class CTAHandlerVariant_TabularDataSimple extends BaseHandler {
         const link = extractLink($element.find("a"));
         const linkText = extractLinkText($element.find("a"), $);
         assertExtractedData(link, linkText, $element);
-        return {elements: [{type: "cta", link, linkText}]};
+        return {elements: [{type: "cta", data: {link, linkText}}]};
     }
 }
 
@@ -119,7 +119,7 @@ export class CTAHandlerVariant_InsuranceWeekPick extends BaseHandler {
         const link = extractLink($element.find("a"));
         const linkText = extractLinkText($element.find("a"), $);
         assertExtractedData(link, linkText, $element);
-        return {elements: [{type: "cta", link, linkText}]};
+        return {elements: [{type: "cta", data: {link, linkText}}]};
     }
 }
 
@@ -138,7 +138,7 @@ export class CTAHandlerVariant_ListGroup_UL extends BaseHandler {
         const prefix = $element.text().substring(0, $element.text().indexOf(linkText)).trim();
         assertExtractedData(link, linkText, $element);
 
-        const convElement = {type: "cta", link, linkText};   // $SuppressFlowCheck:
+        const convElement = {type: "cta", data: {link, linkText}};   // $SuppressFlowCheck:
         if (prefix) convElement.prefix = prefix;
         return {elements: [convElement]};
     }
@@ -158,7 +158,7 @@ export class CTAHandlerVariant_ListGroup_P extends BaseHandler {
         const prefix = $element.text().substring(0, $element.text().indexOf(linkText)).trim();
         assertExtractedData(link, linkText, $element);
 
-        const convElement = {type: "cta", link, linkText};    // $SuppressFlowCheck:
+        const convElement = {type: "cta", data: {link, linkText}};    // $SuppressFlowCheck:
         if (prefix) convElement.prefix = prefix;
         return {elements: [convElement]};
     }

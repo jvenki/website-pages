@@ -15,30 +15,29 @@ const getJSONSchemaValidator = () => {
             keyword: "validateHtml",
             type: "string",
             schemaType: "boolean",
-            validate: async (validateHtml, data, ctx, datacxt) => {
+            validate: (validateHtml, data, ctx, datacxt) => {
                 if(validateHtml) {
-                    return await Promise.all([allowedTagsValidator(data, datacxt)]);
+                    return allowedTagsValidator(data, datacxt);
                 } else {
-                    return Promise.resolve(true);
+                    return true;
                 }
-            },
-            async: true
+            }
         });
     }
-    const val = ajv.compile(schema);
-    return val;
+    return ajv;
 }
 
-const allowedTagsValidator = (data, datacxt): Promise<boolean> | Promise<MigrationError> =>  {
+const allowedTagsValidator = (data, datacxt): boolean =>  {
     const elementsAreOfAllowedType = ($element, $, errors) => {
         if (!allowedTags.includes($element.get(0).tagName)) {
+            const error = {
+                invalidTag: $element.get(0).tagName,
+                dataPath: datacxt.dataPath
+            };
+            // console.log(error);
             return {
                 isValid: false,
-                errors: errors.push(
-                    {
-                        invalidTag: $element.get(0).tagName,
-                        dataPath: datacxt.dataPath
-                    })
+                errors: errors.push(error)
             };
         }
         if($element.children().length == 0) {
@@ -55,9 +54,11 @@ const allowedTagsValidator = (data, datacxt): Promise<boolean> | Promise<Migrati
     const $ = cheerio.load(data);
     const allElementsAreOfAllowedType = elementsAreOfAllowedType($("body"), $, []);
     if (allElementsAreOfAllowedType.isValid) {
-        return Promise.resolve(true);    
+        return (true);    
     }
-    return Promise.reject(new MigrationError(DocValidatorIssueCode.UNEXPECTED_TAGS, "Unexpected tag(s) while processing" , JSON.stringify(allElementsAreOfAllowedType.errors)));
+    // console.log("Validation failed");
+    // console.log(allElementsAreOfAllowedType.errors);
+    return false;
 }
 
 const w3cHtmlValidator = async (data, datacxt) => {
@@ -71,12 +72,16 @@ const w3cHtmlValidator = async (data, datacxt) => {
 };
 
 export const validateJsonSchema = async (jsonToBeValidated: Object, onIssue: (err: MigrationError) => void) => {
-    const validate = getJSONSchemaValidator();;
+    const ajv = getJSONSchemaValidator();;
     let result;
     try{
-        await validate(jsonToBeValidated);
-        result = true;
+        result = ajv.validate(schema, jsonToBeValidated);
+        console.log("errors ", ajv.errors)
+        if (ajv.errors) {
+            ajv.errors.map((error) => onIssue(new MigrationError(DocValidatorIssueCode.INVALID_SCHEMA, "Schema invalid", JSON.stringify(error))));
+        }
     } catch (ex) {
+        console.error(ex);
         console.log("final", JSON.stringify(ex));
         result = false;
         if(!(ex instanceof MigrationError)) {
