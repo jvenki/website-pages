@@ -11,7 +11,7 @@ export class ParagraphHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = $(elements[0]);
-        const text = $e.html();
+        const text = $e.html() || "";
         return {elements: [{type: "paragraph", data: {text: text}}]};
     }
 }

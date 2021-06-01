@@ -3,6 +3,7 @@ import {headingRegex as faqHeadingRegex} from "./FAQHandler";
 import {headingRegex as referencesHeadingRegex, isElementACntrOfExternalLinks} from "./ReferencesHandler";
 import {without, uniq} from "lodash";
 import {findHandlerForElement} from "./index";
+import cheerio from "cheerio";
 
 export const assert = (condition, errorMsg, $e) => {
     if (condition) {
@@ -104,7 +105,7 @@ const isElementATextualNode = ($e) => {
         return false;
     } else if ($e.get(0).type == "text") {
         return true;
-    } else if (["p", "ul", "ol", "li", "strong", "em", "small", "a", "br", "u", "img", "sup"].includes($e.get(0).tagName)) {
+    } else if (["p", "strong", "em", "small", "a", "br", "u", "sup"].includes($e.get(0).tagName)) {
         return true;
     }
     return false;
@@ -461,3 +462,39 @@ export const isElementMadeUpOfOnlyWithGivenDescendents = ($e, descendentTagNames
     };
     return recurse($e, 0);
 };
+
+const allowedTags = ["a", "sup", "sub", "strong", "del", 
+"em", "u", "body", "br"];
+export const allowedTagsValidator = (data, datacxt): boolean =>  {
+    const elementsAreOfAllowedType = ($element, $, errors) => {
+        if (!allowedTags.includes($element.get(0).tagName)) {
+            const error = {
+                invalidTag: $element.get(0).tagName,
+                dataPath: datacxt.dataPath
+            };
+            // console.log(error);
+            return {
+                isValid: false,
+                errors: errors.push(error)
+            };
+        }
+        if($element.children().length == 0) {
+            return {
+                isValid: true,
+                errors: []
+            };
+        }
+        return {
+            isValid: !$element.children().map((i, child) => elementsAreOfAllowedType($(child), $, errors)).get().some((val) => val.isValid == false),
+            errors
+        };
+    };
+    const $ = cheerio.load(data);
+    const allElementsAreOfAllowedType = elementsAreOfAllowedType($("body"), $, []);
+    if (allElementsAreOfAllowedType.isValid) {
+        return (true);    
+    }
+    // console.log("Validation failed");
+    // console.log(allElementsAreOfAllowedType.errors);
+    return false;
+}

@@ -1,7 +1,8 @@
 // @flow
 import type {CheerioDocType, CheerioElemType, ConversionResultType} from "./BaseHandler";
 import BaseHandler from "./BaseHandler";
-import { extractHeadingText, extractContentHtml, isElementATableNode } from "./Utils";
+import { extractHeadingText, extractContentHtml, isElementATableNode,
+     assert, allowedTagsValidator, handleChildrenOfCompoundElements } from "./Utils";
 
 export class TableHandler_ResponsiveVariant extends BaseHandler {
     isCapableOfProcessingElement($element: CheerioElemType, $: CheerioDocType): boolean {
@@ -70,7 +71,8 @@ const extractRows = ($e, $, colSelector="td", highlight=false) => {
     return $e.find("tr")
         .map((i, tr) => {
             const cols = $(tr).find(colSelector).map((j, td) => {
-                const content = $(td).html();
+                const {targetElements} = handleChildrenOfCompoundElements($(td).children(), $);
+                const content = [...targetElements];
                 const colspan = $(td).attr("colspan") ? parseInt($(td).attr("colspan")) : undefined;
                 const rowspan = $(td).attr("rowspan") ? parseInt($(td).attr("rowspan")) : undefined;
                 return {content, colspan, rowspan, highlight};

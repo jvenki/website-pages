@@ -2,10 +2,9 @@
 import schema from "./DocSchema.json";
 import Ajv from "ajv";
 const { HtmlValidate } = require('html-validate')
-import cheerio from "cheerio";
 import {DocValidatorIssueCode, default as MigrationError} from "./MigrationError";
 import {allRules, rulesToBeKept} from "./IgnoredRules";
-import allowedTags from "./allowed-tags.json";
+import {allowedTagsValidator} from "./handlers/Utils";
 
 let ajv;
 const getJSONSchemaValidator = () => {
@@ -27,39 +26,7 @@ const getJSONSchemaValidator = () => {
     return ajv;
 }
 
-const allowedTagsValidator = (data, datacxt): boolean =>  {
-    const elementsAreOfAllowedType = ($element, $, errors) => {
-        if (!allowedTags.includes($element.get(0).tagName)) {
-            const error = {
-                invalidTag: $element.get(0).tagName,
-                dataPath: datacxt.dataPath
-            };
-            // console.log(error);
-            return {
-                isValid: false,
-                errors: errors.push(error)
-            };
-        }
-        if($element.children().length == 0) {
-            return {
-                isValid: true,
-                errors: []
-            };
-        }
-        return {
-            isValid: !$element.children().map((i, child) => elementsAreOfAllowedType($(child), $, errors)).get().some((val) => val.isValid == false),
-            errors
-        };
-    };
-    const $ = cheerio.load(data);
-    const allElementsAreOfAllowedType = elementsAreOfAllowedType($("body"), $, []);
-    if (allElementsAreOfAllowedType.isValid) {
-        return (true);    
-    }
-    // console.log("Validation failed");
-    // console.log(allElementsAreOfAllowedType.errors);
-    return false;
-}
+
 
 const w3cHtmlValidator = async (data, datacxt) => {
     const createDocumentFromFragment = fragment => `<!DOCTYPE html><html lang="en"><head><title>Document from fragment</title></head><body>${data}</body></html>`

@@ -65,8 +65,8 @@ export class CTAHandlerVariant_CtaSection extends BaseHandler {
         const prefix = $element.text().substring(0, linkTextStartPos).trim();
         const suffix = $element.text().substring(linkTextStartPos + linkText.length).trim();
         const convElement = {type: "cta", data: {link, linkText}}; // $SuppressFlowCheck
-        if (prefix) convElement.prefix = prefix; // $SuppressFlowCheck
-        if (suffix) convElement.suffix = suffix;
+        if (prefix) convElement.data.prefix = prefix; // $SuppressFlowCheck
+        if (suffix) convElement.data.suffix = suffix;
         assertExtractedData(link, linkText, $element);
         return {elements: [convElement]};
     }

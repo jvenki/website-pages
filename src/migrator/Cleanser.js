@@ -12,7 +12,6 @@ export default class Cleanser {
         logger.silly("Given HTML\n" + html);
         html = makeHTMLValid(html);
         const cleansedHtml = minifyHtml(html);
-
         const cleansers = [
             removeStyleAndScriptNodes, 
             removeEmptyNodesAndEmptyLines, 

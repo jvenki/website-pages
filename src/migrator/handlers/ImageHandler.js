@@ -15,7 +15,6 @@ export class ImageHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = $(elements[0]);
-        const body = extractContentHtml(elements[0], $);
         const imgSrc = extractImgSrc($e.find("img"));
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         const alt = $e.find("img").attr("alt");
@@ -46,7 +45,6 @@ export class ImageHandlerVariant_Float extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = $(elements[0]);
-        const body = extractContentHtml(elements[0], $);
         const imgSrc = extractImgSrc($e.find("img"));
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         const alt = $e.find("img").attr("alt");
