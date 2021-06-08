@@ -8,6 +8,7 @@ import {JumbotronHandlerVariant_Main, JumbotronHandlerVariant_PrimaryKeyDetails_
 import {VideoHandler} from "./VideoHandler";
 import IFrameHandler from "./IFrameHandler";
 import {ParagraphHandler} from "./ParagraphHandler";
+import {AddressHandler} from "./AddressHandler";
 import {HeaderHandler} from "./HeaderHandler";
 import {ListHandler} from "./ListHandler";
 import UnwrapHandler from "./UnwrapHandler";
@@ -94,6 +95,7 @@ const handlers = [
     new HeaderHandler(),
     new TableHandler_Main(),
     new ListHandler(),
+    // new AddressHandler(),
     new ParagraphHandler(),
     // new TextHandlerVariant_Main(),
     // new TextHandlerVariant_PointerView(),

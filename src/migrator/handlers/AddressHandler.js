@@ -4,20 +4,21 @@ import BaseHandler from "./BaseHandler";
 import {isElementAValidTextualNode} from "./Utils";
 import MigrationError, { ConversionIssueCode, CleanserIssueCode } from "../MigrationError";
 
-export class ParagraphHandler extends BaseHandler {
+export class AddressHandler extends BaseHandler {
     isCapableOfProcessingElement($e: CheerioElemType, $: CheerioDocType) {
-        return ($e.get(0).tagName == "p" || isElementAValidTextualNode($e));
+        if ($e.toString().includes("HDFC House, H T Parekh Marg")) {
+            console.log($e.toString())
+            console.log("address found");
+            console.log($e.get(0).tagName);
+        }
+        return ($e.get(0).tagName == "address");
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = $(elements[0]);
-        let text = $e.html() || "";
-        if (text.length == 0) {
-            text = $e.toString();
-            if (text == "<br>") {
-                text = ""
-            }
-        }
-        return {elements: [{type: "paragraph", data: {text: text}}]};
+        const lines = $e.html().split("<br/>");
+        console.log("lines")
+        console.log(lines);
+        return {elements: [{type: "address", data: {lines}}]};
     }
 }

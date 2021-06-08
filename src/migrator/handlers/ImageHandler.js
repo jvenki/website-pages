@@ -78,7 +78,7 @@ export class ImageHandlerVariant_FloatInfographic extends BaseHandler {
         const imgSrcXL = extractImgSrc(elements[1].find("div.modal-body img"));
         const title = $e.find("img").attr("title") || $e.find("img").attr("alt");
         assertExtractedData(imgSrc, $e);
-        const actualElement = {type: "image", data: {src: imgSrc, srcXL: imgSrcXL, title, float: "right"}};
+        const actualElement = {type: "image", data: {src: imgSrc, srcXL: imgSrcXL, title, float: "right"} };
         return {elements: [{type: "float", actualElement}]};
     }
 }

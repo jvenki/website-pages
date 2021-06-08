@@ -26,14 +26,16 @@ const setImmediatePromise = util.promisify(setImmediate);
 export default class Migrator {
     queryCriteria: Object;
     mysqlClient: MySQLClient;
-    mongoClient: MongoClient;
+    configMongoClient: MongoClient;
+    pagesMongoClient: MongoClient;
     docConversionStatus: {[number]: LPDJsonType};
     updateSnapshot: boolean;
 
     constructor(queryCriteria: Object, updateSnapshot: boolean) {
         this.queryCriteria = queryCriteria;
         this.mysqlClient = new MySQLClient();
-        this.mongoClient = new MongoClient();
+        this.pagesMongoClient = new MongoClient("pages", "pages");
+        this.configMongoClient = new MongoClient("configurations", "pages");
         this.docConversionStatus = {};
         this.updateSnapshot = updateSnapshot;
     }
@@ -41,12 +43,14 @@ export default class Migrator {
     async startSweeping() {
         const startTime = new Date().getTime();
         await this.mysqlClient.connect();
-        await this.mongoClient.connect();
+        await this.pagesMongoClient.connect();
+        await this.configMongoClient.connect();
         const dbRows = await this.mysqlClient.query(this.queryCriteria);
         await this.processRowAtIndex(0, dbRows);
         this.mysqlClient.releaseConnection();
         setTimeout(() => {
-            this.mongoClient.disconnect()
+            this.pagesMongoClient.disconnect()
+            this.configMongoClient.disconnect()
         }, 1000);
         printFinalSummary(this.docConversionStatus, startTime);
         if (this.updateSnapshot) {
@@ -65,7 +69,12 @@ export default class Migrator {
             lpdJson.old = new LPDRowFieldExtractor().extractFrom(xmlBasedRow);
 
             const {doc: primaryDoc, issues, opLog} = await convertHTMLIntoJSON(lpdJson.old.primaryContent, lpdJson.id);
-            lpdJson.new.primaryDoc = primaryDoc;
+            lpdJson.new.primaryDoc = new LPDRowFieldExtractor().extractAllAttributes(xmlBasedRow);
+            lpdJson.new.primaryDoc.config = {...lpdJson.new.primaryDoc.config, ...primaryDoc};
+            lpdJson.new.primaryDoc.status = "DRAFT";
+            lpdJson.new.primaryDoc.name = lpdJson.namespace;
+            lpdJson.new.primaryDoc.namespace = lpdJson.namespace;
+            lpdJson.new.primaryDoc.id = lpdJson.id;
             lpdJson.new.primaryOpLog = opLog;
             lpdJson.conversionIssues = lpdJson.conversionIssues ? lpdJson.conversionIssues.concat(issues) : issues;
 
@@ -79,8 +88,9 @@ export default class Migrator {
             this.docConversionStatus[lpdJson.id] = pick(lpdJson, ["id", "namespace", "conversionStatus", "conversionError", "conversionIssues"]);
     
             printDocSummary(lpdJson);
-    
-            await this.mongoClient.save(lpdJson);
+            console.log(lpdJson.new.primaryDoc.hungryForMore);
+            await this.pagesMongoClient.save(lpdJson);
+            await this.configMongoClient.save(lpdJson.new.primaryDoc);
         } catch (err) {
             // Nothing to log
         }

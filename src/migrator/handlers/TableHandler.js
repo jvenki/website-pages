@@ -71,11 +71,26 @@ const extractRows = ($e, $, colSelector="td", highlight=false) => {
     return $e.find("tr")
         .map((i, tr) => {
             const cols = $(tr).find(colSelector).map((j, td) => {
-                const {targetElements} = handleChildrenOfCompoundElements($(td).children(), $);
-                const content = [...targetElements];
+                let content;
+                if ($(td).children().length > 0) {
+                    const {targetElements} = handleChildrenOfCompoundElements($(td).children(), $);
+                    content = [...targetElements];
+                } else {
+                    content = [{type: "paragraph", data: {text: $(td).html()}}]
+                }
                 const colspan = $(td).attr("colspan") ? parseInt($(td).attr("colspan")) : undefined;
                 const rowspan = $(td).attr("rowspan") ? parseInt($(td).attr("rowspan")) : undefined;
-                return {content, colspan, rowspan, highlight};
+                const cell = {content};
+                if (colspan) {
+                    cell.colspan = colspan;
+                } 
+                if (rowspan) {
+                    cell.rowspan = rowspan;
+                }
+                if (highlight) {
+                    cell.highlight = highlight;
+                }
+                return cell;
             }).get();
             return {cols}
         }).get();

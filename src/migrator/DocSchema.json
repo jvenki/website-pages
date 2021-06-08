@@ -21,7 +21,7 @@
                     "type": "string"
                 },
                 "link": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "float": {
                     "enum": [
@@ -124,29 +124,20 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "items": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "elements": {
                             "type": "array",
                             "items": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                    "title": {
-                                        "type": "string"
-                                    },
-                                    "elements": {
-                                        "type": "array",
-                                        "items": {
-                                            "$ref": "#/definitions/basicElementType"
-                                        }
-                                    }
-                                },
-                                "required": [
-                                    "title",
-                                    "elements"
-                                ]
+                                "$ref": "#/definitions/basicElementType"
                             }
                         }
-                    }
+                    },
+                    "required": [
+                        "title",
+                        "elements"
+                    ]
                 }
             }
         },
@@ -204,6 +195,7 @@
                 },
                 "data": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "link": {
                             "type": "string"
@@ -254,6 +246,7 @@
                 },
                 "data": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                         "items": {
                             "type": "array",
@@ -570,6 +563,7 @@
                     "type": "array",
                     "items": {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                             "question": {
                                 "type": "string",
@@ -600,7 +594,7 @@
                 }
             }
         },
-        "news-feed": {
+        "finance101": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -629,7 +623,7 @@
                 }
             }
         },
-        "news-feed-full-posts": {
+        "news": {
             "type": "object",
             "additionalProperties": false,
             "properties": {

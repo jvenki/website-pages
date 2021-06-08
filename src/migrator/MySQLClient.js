@@ -11,7 +11,7 @@ export default class MySQLClient {
     }
 
     query(criteria) {
-        let query = "SELECT id, namespace, detail FROM landing_page_data where enabled = 1 and landing_page_type != 'PERMANENT_REDIRECT' and landing_page_type != 'REWRITE'";
+        let query = "SELECT * FROM landing_page_data where enabled = 1 and landing_page_type != 'PERMANENT_REDIRECT' and landing_page_type != 'REWRITE'";
         if (criteria.restrictToIds && criteria.restrictToIds.length > 0) {
             query += ` AND id IN (${criteria.restrictToIds.join(", ")})`;
         } else {

@@ -29,7 +29,11 @@ const constructItems = ($e, $) => {
         if ($(li).find("ul").length>0 || $(li).find("ol").length > 0) {
             items = constructItems($(li), $); 
         }
-        return {content, items};
+        const element = {content};
+        if (items.length > 0) {
+            element.items = items;
+        }
+        return element;
     }).get();
 }
 

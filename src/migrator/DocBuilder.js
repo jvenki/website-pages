@@ -55,17 +55,17 @@ export default class DocBuilder {
     }
 
     addNewsFeed(newsFeed: Object) {
-        if (this.doc.newsFeed) {
+        if (this.doc.finance101) {
             throw new MigrationError(ConversionIssueCode.MULTIPLE_NEWS_FEED);
         }
-        this.doc["news-feed"] = omit(newsFeed, ["type"]);
+        this.doc["finance101"] = omit(newsFeed, ["type"]);
     }
 
     addNewsFeedFullPosts(newsFeedFullPosts: Object) {
-        if (this.doc.newsFeedFullPosts) {
+        if (this.doc.news) {
             throw new MigrationError(ConversionIssueCode.MULTIPLE_NEWS_FEED_FULL_POSTS);
         }
-        this.doc["news-feed-full-posts"] = omit(newsFeedFullPosts, ["type"]);
+        this.doc["news"] = omit(newsFeedFullPosts, ["type"]);
     }
 
     addInfographics(element: Object) {

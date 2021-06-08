@@ -16,6 +16,10 @@ export class VideoHandler extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $element = elements[0];
-        return {elements: [{type: "video", link: $element.find("iframe").attr("data-src") || $element.find("iframe").attr("src")}]};
+        let embed = $element.find("iframe").attr("data-src") || $element.find("iframe").attr("src");
+        if (embed.length > 0 && embed.startsWith("//")) {
+            embed = "".concat("https:").concat(embed);
+        }
+        return {elements: [{type: "embed", data: {embed}}]};
     }
 }

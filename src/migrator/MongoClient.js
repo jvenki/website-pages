@@ -3,13 +3,19 @@ import {logger} from "./Logger";
 import {cloneDeep} from "lodash";
 
 export default class MongoDBClient {
+
+    constructor(dbName, collection) {
+        this.dbName = dbName;
+        this.collection = collection;
+    }
+
     connect() {
         return MongoNativeClient.connect("mongodb://localhost:27017")
             .then((client) => {
                 logger.verbose("Connected successfully to MongoDB");
-                const db = client.db("pages");
+                const db = client.db(this.dbName);
                 this.nativeClient = client;
-                this.collection = db.collection("pages");
+                this.collection = db.collection(this.collection);
             })
             .catch((err) => {
                 console.error(err);
@@ -17,6 +23,8 @@ export default class MongoDBClient {
     }
 
     save(doc) {
+        console.log("saving")
+        console.log(doc.id);
         const serializeError = (err) => ({code: err.code, message: err.message, payload: err.payload});
         const serializedDoc = cloneDeep(doc);
         if (serializedDoc.conversionError) {
