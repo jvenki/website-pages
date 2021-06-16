@@ -68,7 +68,8 @@ export default class Migrator {
         try {
             lpdJson.old = new LPDRowFieldExtractor().extractFrom(xmlBasedRow);
 
-            const {doc: primaryDoc, issues, opLog} = await convertHTMLIntoJSON(lpdJson.old.primaryContent, lpdJson.id);
+            const {doc: primaryDoc, issues, opLog} = await convertHTMLIntoJSON(lpdJson.old.primaryContent + lpdJson.old.secondaryContent, lpdJson.id);
+            // const {doc: secondaryDoc, issues: secondaryIssues, opLog: secondaryOplog} = await convertHTMLIntoJSON(lpdJson.old.secondaryContent, lpdJson.id);
             lpdJson.new.primaryDoc = new LPDRowFieldExtractor().extractAllAttributes(xmlBasedRow);
             lpdJson.new.primaryDoc.config = {...lpdJson.new.primaryDoc.config, ...primaryDoc};
             lpdJson.new.primaryDoc.status = "DRAFT";

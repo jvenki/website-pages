@@ -418,7 +418,7 @@ const extractHtmlFromTableCreatedUsingTableNode = ($e, $) => {
 };
 
 const cleanseAndValidateElement = ($e, $) => {
-    const whiteListedAttrs = ["href", "src", "title", "data-original", "colspan", "rowspan"];
+    const whiteListedAttrs = ["href", "src", "title", "data-original", "colspan", "rowspan", "target"];
     const blackListedAttrs = ["id", "style", "align", "alt", "class", "rel"];
     const validateAttrs = (c) => {
         if (!c.attribs) return;

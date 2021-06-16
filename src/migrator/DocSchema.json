@@ -130,7 +130,10 @@
                         "elements": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/basicElementType"
+                                "anyOf": [
+                                    {"$ref": "#/definitions/basicElementType"},
+                                    {"$ref": "#/definitions/featuredOffersType"}
+                                ]
                             }
                         }
                     },
@@ -298,28 +301,35 @@
             "type": "object",
             "properties": {
                 "type": {
-                    "type": "string"
+                    "const": "featured-offers"
                 },
-                "offers": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "title": {
-                                "type": "string"
-                            },
-                            "link": {
-                                "type": "string"
-                            },
-                            "img": {
-                                "$ref": "#/definitions/image"
-                            },
-                            "body": {
-                                "type": "string",
-                                "validateHtml": true
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "offers": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "link": {
+                                        "type": "string"
+                                    },
+                                    "img": {
+                                        "$ref": "#/definitions/image"
+                                    },
+                                    "body": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/definitions/basicElementType"
+                                        }
+                                    }
+                                },
+                                "additionalProperties": false
                             }
-                        },
-                        "additionalProperties": false
+                        }
                     }
                 }
             },

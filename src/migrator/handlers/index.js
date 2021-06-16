@@ -15,7 +15,7 @@ import UnwrapHandler from "./UnwrapHandler";
 import NoopWarningHandler from "./NoopWarningHandler";
 import {CTAHandlerVariant_ProductLandingBlock, CTAHandlerVariant_LonelyLink, CTAHandlerVariant_CtaSection, CTAHandlerVariant_TabularData, CTAHandlerVariant_InsuranceWeekPick, CTAHandlerVariant_TabularDataSimple, CTAHandlerVariant_ListGroup_UL, CTAHandlerVariant_ListGroup_P} from "./CTAHandler";
 import { AccordionHandler } from "./AccordionHandler";
-import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template} from "./FeaturedOffersHandler";
+import {FeaturedOffersHandlerVariant_BorderBlue, FeaturedOffersHandlerVariant_Template, FeaturedOffersHandlerVariant_BorderBlue_Variant1} from "./FeaturedOffersHandler";
 import {FAQHandlerVariant_HeadingRegexAndDivWithSchema, FAQHandlerVariant_HeadingRegexFollowedByPs, FAQHandlerVariant_HeadingRegexFollowedByDetails, FAQHandlerVariant_HeadingRegexFollowedByDivOfDetails, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofPofStrong_AisLIofRest, FAQHandlerVariant_HeadingRegexFollowedByUL_QisLIofH3, FAQHandlerVariant_HeadingRegexFollowedByULasQAndPasA, FAQHandlerVariant_HeadingRegexFollowedByOLofH3, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofTEXT_AisLIofP, FAQHandlerVariant_HeadingRegexFollowedByH3AndPs, FAQHandlerVariant_HeadingRegexFollowedByOL_QisLIofStrong_AisLIofTEXT, FAQHandlerVariant_HeadingRegexFollowedByStrongAndPs} from "./FAQHandler";
 import { DeprecatedTOCHandlerVariant_ProductsInvest, DeprecatedTOCHandlerVariant_ULofAsOnly, DeprecatedTOCHandlerVariant_TableOfULofLIofAsOnly, DeprecatedTOCHandlerVariant_TableOfAsOnly, DeprecatedTOCHandlerVariant_DivOfULOfLinks, DeprecatedTOCHandlerVariant_TableOfAsOnlyVersion2 } from "./DeprecatedTOCHandler";
 import GridHandler from "./GridHandler";
@@ -117,6 +117,7 @@ const handlers = [
     new VideoHandler(),
     new IFrameHandler(),
     new FeaturedOffersHandlerVariant_BorderBlue(),
+    new FeaturedOffersHandlerVariant_BorderBlue_Variant1(),
     new FeaturedOffersHandlerVariant_Template(),
     new NoopWarningHandler(),
     new GridHandler(),

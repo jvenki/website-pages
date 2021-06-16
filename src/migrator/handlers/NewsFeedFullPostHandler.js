@@ -50,12 +50,12 @@ export class NewsFeedFullPostHandlerVariant_Main2 extends BaseHandler {
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
         const $e = elements[0];
-        const title = extractHeadingText($e.find("> div.bigtxt, > h2"), $);
+        const title = extractHeadingText($e.find("> div.bigtxt, > h2, > h3"), $);
         const items = $e.find("ul > li.news-green").map((i, item) => {
             const $titleElem = $(item).find(".news-head");
             const title = extractHeadingText($titleElem, $);
             const body = handleChildrenOfCompoundElements($($titleElem).nextUntil("div.pull-right"), $).targetElements;
-            const updatedOn = computeISODateString($(item).find("div.pull-right p:last-child").text());
+            const updatedOn = computeISODateString($(item).find("div.pull-right p:last-child, div.pull-right > em").text());
             return {title, article: body, updatedOn};
         }).get();
         return {elements: [{type: "news-feed-full-posts", title, items}]};
@@ -71,10 +71,13 @@ export class NewsFeedFullPostHandlerVariant_Main3 extends NewsFeedFullPostHandle
         };
         return $e.hasClass("news-widget") 
             && $e.children().length == 2
-            && $e.find("> h2").length == 1
+            && $e.find("> h2, > h3").length == 1
             && $e.find("> ul > li").length > 0
             && $e.find("> ul > li").get().every((item) => itemIsAPost($(item)));
     }
 }
 
-const computeISODateString = (v) => new Date(v.replace(/st|nd|rd|th/, "").replace(/\s/, "-") + " 05:30:00").toISOString().substring(0, 10);
+const computeISODateString = (v) => {
+    const dateAsString = (v).replace(/st|nd|rd|th/, "").replace(/\s/g, "-") + " GMT+0530";
+    return new Date(dateAsString).toISOString().substring(0,10);
+}
