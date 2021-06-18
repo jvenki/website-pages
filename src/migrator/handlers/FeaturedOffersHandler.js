@@ -89,7 +89,7 @@ export class FeaturedOffersHandlerVariant_BorderBlue_Variant1 extends BaseHandle
             const $titleBox = $offerElement.children().eq(0);
             const $bodyBox = $titleBox.nextAll("div");
         
-            const title = extractHeadingText($titleBox.find("p > strong"), $) || extractHeadingText($titleBox.find("p > strong"), $);
+            const title = extractHeadingText($titleBox.find("p > strong > a"), $) || extractHeadingText($titleBox.find("p > strong"), $);
             const link = extractLink($titleBox.find("p > strong > a"));
             const imgSrc = extractImgSrc($titleBox.find("img"));
             const body = handleChildrenOfCompoundElements($bodyBox, $).targetElements;
