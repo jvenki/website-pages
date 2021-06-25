@@ -20,6 +20,6 @@ export class VideoHandler extends BaseHandler {
         if (embed.length > 0 && embed.startsWith("//")) {
             embed = "".concat("https:").concat(embed);
         }
-        return {elements: [{type: "embed", data: {embed}}]};
+        return {elements: [{type: "embed", data: {embed, service: "youtube"}}]};
     }
 }

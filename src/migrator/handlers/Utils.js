@@ -256,13 +256,16 @@ const createLinkTag = ($e, innerHtml, $) => {
 export const handleChildrenOfCompoundElements = (children, $) => {
     const processedElements = [];
     const allIssues = [];
-    children.map((i, child) => {
+    for (let i=0; i< children.length;){
+        const child = children[i];
         const $child = $(child);
         const handler = findHandlerForElement($child, $);
-        const {targetElements, issues} = handler.execute([$child], $);
+        const sourceElements = handler.walkToPullRelatedElements($child, $);
+        const {targetElements, issues} = handler.execute(sourceElements, $);
         processedElements.push(...targetElements);
         allIssues.push(...issues);
-    });
+        i+=sourceElements.length;
+    };
     return {targetElements: processedElements, issuesInChildren: allIssues};
 }
 

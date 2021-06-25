@@ -77,9 +77,7 @@ export class AccordionHandler extends BaseHandler {
             issues.push("Accordion Panels converted to RelatedArticles");
         }
         if (items.length > 0) {
-            items.forEach((item) => {
-                targetElements.push({type: "accordion", data: item});
-            });
+            targetElements.push({type: "accordion", data: {items}});
         }
         return {elements: targetElements, issues};
     }

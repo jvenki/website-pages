@@ -96,7 +96,6 @@ export class FeaturedOffersHandlerVariant_BorderBlue_Variant1 extends BaseHandle
             assert(Boolean(title) && Boolean(imgSrc) && Boolean(body), "FeaturedOffersHandlerVariant_BorderBlue-ConditionNotMet#5", $offerElement);
             return {title, link, img: {src: imgSrc}, body};
         };
-        console.log("Converting featured offers")
         const offers = elements.filter(($e) => $e.hasClass("border-blue")).map(($element) => extract($element));
         return {elements: [{type: "featured-offers", data: {offers}}]};
     }

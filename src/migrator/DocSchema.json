@@ -21,7 +21,10 @@
                     "type": "string"
                 },
                 "link": {
-                    "type": ["string", "null"]
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "float": {
                     "enum": [
@@ -98,7 +101,10 @@
                     "additionalProperties": false,
                     "properties": {
                         "title": {
-                            "type": ["string", "null"]
+                            "type": [
+                                "string",
+                                "null"
+                            ]
                         },
                         "elements": {
                             "type": "array",
@@ -124,23 +130,36 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "title": {
-                            "type": "string"
-                        },
-                        "elements": {
+                        "items": {
                             "type": "array",
                             "items": {
-                                "anyOf": [
-                                    {"$ref": "#/definitions/basicElementType"},
-                                    {"$ref": "#/definitions/featuredOffersType"}
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "elements": {
+                                        "type": "array",
+                                        "items": {
+                                            "anyOf": [
+                                                {
+                                                    "$ref": "#/definitions/basicElementType"
+                                                },
+                                                {
+                                                    "$ref": "#/definitions/featuredOffersType"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "title",
+                                    "elements"
                                 ]
                             }
                         }
-                    },
-                    "required": [
-                        "title",
-                        "elements"
-                    ]
+                    }
                 }
             }
         },
@@ -444,6 +463,9 @@
                         },
                         "caption": {
                             "$ref": "#/definitions/allowedHtmlTags"
+                        },
+                        "service": {
+                            "type": "string"
                         }
                     },
                     "required": [
@@ -463,22 +485,31 @@
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
-                        "title": {
-                            "type": "string"
-                        },
                         "items": {
                             "type": "array",
                             "items": {
                                 "type": "object",
                                 "additionalProperties": false,
                                 "properties": {
-                                    "link": {
-                                        "type": "string",
-                                        "validateHtml": true
+                                    "title": {
+                                        "type": "string"
                                     },
-                                    "text": {
-                                        "type": "string",
-                                        "validateHtml": true
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "link": {
+                                                    "type": "string",
+                                                    "validateHtml": true
+                                                },
+                                                "text": {
+                                                    "type": "string",
+                                                    "validateHtml": true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

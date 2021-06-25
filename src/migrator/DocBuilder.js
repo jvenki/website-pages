@@ -20,6 +20,7 @@ export default class DocBuilder {
             case "news-feed-full-posts": this.addNewsFeedFullPosts(item); break;
             case "infographics": this.addInfographics(item); break;
             case "float": this.addFloatingElement(item); break;
+            case "references": this.addReferences(item); break;
             default: this.addElement(item);
         }
     }
@@ -27,6 +28,15 @@ export default class DocBuilder {
     addElement(element: Object) {
         handleToBePositionedFloatingElement(this);
         this.doc.hungryForMore.push(element);
+    }
+
+    addReferences(element: Object) {
+        const lastElement = this.doc.hungryForMore[this.doc.hungryForMore.length-1];
+        if (lastElement.type == "references") {
+            lastElement.data.items.push(element.data);
+        } else {
+            this.doc.hungryForMore.push({type: "references", data: {items: [{...element.data}]}});
+        }
     }
     
     addDisclaimer(disclaimer: Object) {
