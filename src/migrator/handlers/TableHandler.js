@@ -72,7 +72,7 @@ const extractRows = ($e, $, colSelector="td", highlight=false) => {
         .map((i, tr) => {
             const cols = $(tr).find(colSelector).map((j, td) => {
                 let content;
-                if ($(td).children().length > 0) {
+                if ($(td).children().length > 0 && ($(td).children().get(0).tagName!="a")) {
                     const {targetElements} = handleChildrenOfCompoundElements($(td).children(), $);
                     content = [...targetElements];
                 } else {
@@ -87,11 +87,11 @@ const extractRows = ($e, $, colSelector="td", highlight=false) => {
                 if (rowspan) {
                     cell.rowspan = rowspan;
                 }
-                if (highlight) {
-                    cell.highlight = highlight;
+                if ($(td).hasClass("bg-tory-blue")) {
+                    cell.highlight = true;
                 }
                 return cell;
             }).get();
-            return {cols}
+            return {cols};
         }).get();
 }

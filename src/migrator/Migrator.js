@@ -89,7 +89,9 @@ export default class Migrator {
             this.docConversionStatus[lpdJson.id] = pick(lpdJson, ["id", "namespace", "conversionStatus", "conversionError", "conversionIssues"]);
     
             printDocSummary(lpdJson);
-            console.log(lpdJson.new.primaryDoc.hungryForMore);
+            // console.log(JSON.stringify(lpdJson.new.primaryDoc.config.hungryForMore[6].data.rows[1], null, 4));
+            // console.log(JSON.stringify(lpdJson.new.primaryDoc.config.hungryForMore[2].data.rows[1], null, 4));
+            // console.log(JSON.stringify(lpdJson.new.primaryDoc.config.hungryForMore[1], null, 4));
             await this.pagesMongoClient.save(lpdJson);
             await this.configMongoClient.save(lpdJson.new.primaryDoc);
         } catch (err) {

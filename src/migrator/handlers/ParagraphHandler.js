@@ -10,14 +10,19 @@ export class ParagraphHandler extends BaseHandler {
     }
 
     convert(elements: Array<CheerioElemType>, $: CheerioDocType): ConversionResultType {
-        const $e = $(elements[0]);
-        let text = $e.html() || "";
-        if (text.length == 0) {
-            text = $e.toString();
-            if (text == "<br>") {
-                text = ""
+        const generatedElements = [];
+        for (let i=0; i< elements.length; i++) {
+            const $e = $(elements[i]);
+            let text = $e.prop("nodeName") == "A" ? $e.toString() : ($e.html() || "");
+            if (text.length == 0) {
+                text = $e.toString();
+                if (text == "<br>") {
+                    text = "";
+                }
             }
+            generatedElements.push({type: "paragraph", data: {text: text}});
         }
-        return {elements: [{type: "paragraph", data: {text: text}}]};
+        
+        return {elements: generatedElements};
     }
 }
